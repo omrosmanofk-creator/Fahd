@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>البرامج التدريبية والأقسام | أكاديمية أوفك وجامعة الزهراء</title>
+    <!-- استخدام Tailwind CSS للتصميم -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- إضافة خطوط وأيقونات أكاديمية -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 font-sans text-slate-800">
+
+    <!-- شريط التنصيب العلوي مع شعار OFK البارز -->
+    <header class="bg-blue-950 text-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <div class="bg-gradient-to-tr from-amber-500 to-amber-400 text-blue-950 px-3.5 py-2 rounded-xl font-black text-xl tracking-wider shadow-md border border-amber-300 flex items-center justify-center">
+                    OFK
+                </div>
+                <div>
+                    <h1 class="text-base font-extrabold tracking-wide">أكاديمية أوفك</h1>
+                    <p class="text-[11px] text-slate-300">بالشراكة مع جامعة الزهراء</p>
+                </div>
+            </div>
+            <nav class="hidden md:flex space-x-6 space-x-reverse text-sm font-medium">
+                <a href="index.html" class="hover:text-amber-400 transition">الرئيسية</a>
+                <a href="about.html" class="hover:text-amber-400 transition">من نحن</a>
+                <a href="courses.html" class="text-amber-400 hover:text-white transition">البرامج التدريبية</a>
+                <a href="contact.html" class="hover:text-amber-400 transition">اتصل بنا</a>
+                <a href="verify.html" class="hover:text-amber-400 transition">التحقق من الشهادات</a>
+            </nav>
+            <div>
+                <a href="verify.html" class="bg-amber-500 hover:bg-amber-600 text-blue-950 font-bold px-4 py-2 rounded-lg text-sm shadow transition">
+                    التحقق السريع
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- رأس الصفحة -->
+    <section class="bg-gradient-to-br from-blue-900 to-blue-950 text-white py-16 text-center">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <span class="bg-blue-800 text-amber-400 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider mb-3 inline-block border border-blue-700">
+                المعهد التطبيقي الأكاديمي
+            </span>
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-4">البرامج والأقسام التدريبية</h2>
+            <p class="text-slate-300 text-sm md:text-base leading-relaxed">
+                نقدم 6 فروع تخصصية رئيسية إلى جانب باقة واسعة ومتنوعة من الدورات التدريبية المعتمدة.
+            </p>
+        </div>
+    </section>
+
+    <!-- الأقسام الستة للمعهد -->
+    <section class="container mx-auto px-4 py-16 max-w-6xl">
+        <div class="text-center mb-12">
+            <h3 class="text-2xl md:text-3xl font-extrabold text-blue-950 mb-3">فروع المعهد التطبيقي الأكاديمي</h3>
+            <p class="text-slate-600 text-sm">مسارات تعليمية ومهنية مصممة وفق أحدث المعايير الأكاديمية</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- الفرع الأول -->
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition text-right">
+                <div class="w-12 h-12 bg-blue-100 text-blue-900 rounded-xl flex items-center justify-center text-xl mb-5 font-bold">
+                    <i class="fa-solid fa-brain"></i>
+                </div>
+                <h4 class="text-lg font-bold text-blue-950 mb-2">1. العلوم النفسية والإرشاد النفسي</h4>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    برامج متخصصة في فهم السلوك الإنساني، تقنيات الإرشاد، والصحة النفسية المهنية.
+                </p>
+            </div>
+
+            <!-- الفرع الثاني -->
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition text-right">
+                <div class="w-12 h-12 bg-amber-100 text-amber-700 rounded-xl flex items-center justify-center text-xl mb-5 font-bold">
+                    <i class="fa-solid fa-chart-pie"></i>
+                </div>
+                <h4 class="text-lg font-bold text-blue-950 mb-2">2. الاقتصاد والمحاسبة</h4>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    تأهيل الكوادر في الإدارة المالية، المحاسبة المتقدمة، وتحليل الأسواق الاقتصادية.
+                </p>
+            </div>
+
+            <!-- الفرع الثالث -->
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition text-right">
+                <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-xl flex items-center justify-center text-xl mb-5 font-bold">
+                    <i class="fa-solid fa-book-quran"></i>
+                </div>
+                <h4 class="text-lg font-bold text-blue-950 mb-2">3. علوم القرآن والتجويد</h4>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    دراسة وتدبر علوم القرآن الكريم وتطبيق أحكام التجويد بدقة وإتقان.
+                </p>
+            </div>
+
+            <!-- الفرع الرابع -->
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition text-right">
+                <div class="w-12 h-12 bg-purple-100 text-purple-700 rounded-xl flex items-center justify-center text-xl mb-5 font-bold">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h4 class="text-lg font-bold text-blue-950 mb-2">4. الذكاء الاصطناعي والأمن السيبراني</h4>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    استكشاف تقنيات المستقبل، حماية البيانات، وتأمين الأنظمة الرقمية الحديثة.
+                </p>
+            </div>
+
+            <!-- الفرع الخامس -->
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition text-right">
+                <div class="w-12 h-12 bg-rose-100 text-rose-700 rounded-xl flex items-center justify-center text-xl mb-5 font-bold">
+                    <i class="fa-solid fa-language"></i>
+                </div>
+                <h4 class="text-lg font-bold text-blue-950 mb-2">5. اللغة العربية</h4>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    تعزيز قواعد اللغة العربية، البلاغة، ومهارات التعبير الأدبي واللغوي.
+                </p>
+            </div>
+
+            <!-- الفرع السادس -->
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition text-right">
+                <div class="w-12 h-12 bg-indigo-100 text-indigo-700 rounded-xl flex items-center justify-center text-xl mb-5 font-bold">
+                    <i class="fa-solid fa-gears"></i>
+                </div>
+                <h4 class="text-lg font-bold text-blue-950 mb-2">6. الهندسة التطبيقية</h4>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    تطبيقات هندسية عملية ومهنية مساندة تلبي احتياجات المشاريع التقنية والإنشائية.
+                </p>
+            </div>
+        </div>
+
+        <!-- قسم الدورات التدريبية الإضافية -->
+        <div class="mt-16 bg-gradient-to-r from-blue-900 to-blue-950 text-white p-8 md:p-12 rounded-3xl shadow-lg text-center">
+            <h3 class="text-2xl font-bold mb-4">بالإضافة إلى العديد من الدورات التدريبية المتنوعة</h3>
+            <p class="text-slate-300 text-sm max-w-2xl mx-auto mb-8 leading-relaxed">
+                تطرح الأكاديمية دورات تخصصية وورش عمل دورية في شتى المجالات لتطوير مهارات الطلاب والباحثين عن التميز المهني.
+            </p>
+            <a href="contact.html" class="bg-amber-500 hover:bg-amber-600 text-blue-950 px-8 py-3.5 rounded-xl font-bold text-sm shadow transition inline-block">
+                تواصل معنا للتسجيل في الدورات
+            </a>
+        </div>
+    </section>
+
+    <!-- التذييل -->
+    <footer class="bg-blue-950 text-slate-400 text-center py-8 text-xs">
+        <div class="container mx-auto px-4">
+            <p class="mb-2 text-slate-300 font-medium">أكاديمية أوفك بالشراكة الاستراتيجية مع جامعة الزهراء</p>
+            <p>جميع الحقوق محفوظة © 2026</p>
+        </div>
+    </footer>
+
+</body>
+</html>
