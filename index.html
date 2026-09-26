@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OFK Academy | شراكة مع جامعة الزهراء</title>
+    <title>OFK Academy | المنصة التعليمية الرقمية</title>
     <!-- استخدام Tailwind CSS للتصميم -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- إضافة خطوط وأيقونات أكاديمية -->
@@ -21,13 +21,14 @@
                 </div>
                 <div>
                     <h1 class="text-base font-extrabold tracking-wide" dir="ltr">OFK Academy</h1>
-                    <p class="text-[11px] text-slate-300">بالشراكة مع جامعة الزهراء</p>
+                    <p class="text-[11px] text-slate-300">المنصة الأكاديمية والمهنية المستقلة</p>
                 </div>
             </div>
             <nav class="hidden md:flex space-x-6 space-x-reverse text-sm font-medium">
                 <a href="index.html" class="text-amber-400 hover:text-white transition">الرئيسية</a>
                 <a href="about.html" class="hover:text-amber-400 transition">من نحن</a>
-                <a href="courses.html" class="hover:text-amber-400 transition">البرامج التدريبية</a>
+                <a href="courses.html" class="hover:text-amber-400 transition">البرامج العامة</a>
+                <a href="#partners" class="hover:text-amber-400 transition">بوابات الشركاء</a>
                 <a href="contact.html" class="hover:text-amber-400 transition">اتصل بنا</a>
                 <a href="verify.html" class="hover:text-amber-400 transition">التحقق من الشهادات</a>
             </nav>
@@ -49,68 +50,105 @@
                 بوابتك نحو المستقبل المهني والتقني المتقدم
             </h2>
             <p class="text-slate-300 text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
-                نقدم برامج تدريبية تخصصية وهندسة تعليمية متطورة بشراكة رسمية مع جامعة الزهراء، مع منظومة موثوقية ذكية للشهادات الأكاديمية.
+                منصة تعليمية مستقلة تقدم برامج تدريبية تخصصية، مع بوابات مخصصة للشراكات الأكاديمية والجامعية ومنظومة موثوقية ذكية للشهادات.
             </p>
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="verify.html" class="bg-amber-500 hover:bg-amber-600 text-blue-950 px-8 py-4 rounded-xl font-bold shadow-lg transition flex items-center">
                     <i class="fa-solid fa-magnifying-glass ml-2"></i> نظام التحقق السريع
                 </a>
                 <a href="courses.html" class="bg-blue-800 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold border border-blue-700 transition flex items-center">
-                    <i class="fa-solid fa-book-open ml-2"></i> تصفح البرامج والأقسام
+                    <i class="fa-solid fa-book-open ml-2"></i> تصفح البرامج العامة
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- قسم البوابات الأكاديمية والخدمات -->
-    <section id="portals" class="container mx-auto px-4 py-16 max-w-6xl">
+    <!-- قسم بوابات الشركاء والأقسام الخاصة (مثل جامعة الزهراء) -->
+    <section id="partners" class="container mx-auto px-4 py-16 max-w-6xl">
         <div class="text-center mb-12">
-            <span class="text-blue-900 bg-blue-100 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">المنظومة الرقمية</span>
-            <h3 class="text-3xl font-extrabold text-blue-950 mb-3">بوابات الخدمات الأكاديمية</h3>
-            <p class="text-slate-600 max-w-xl mx-auto text-sm">اختر البوابة المناسبة للوصول السريع إلى خدمات الأكاديمية والجامعة.</p>
+            <span class="text-blue-900 bg-blue-100 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">التعاون المؤسسي</span>
+            <h3 class="text-3xl font-extrabold text-blue-950 mb-3">بوابات الشراكات الأكاديمية</h3>
+            <p class="text-slate-600 max-w-xl mx-auto text-sm">اختر البوابة الخاصة بالشريك للاطلاع على الدورات والمسارات التدريبية المستقلة.</p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8">
-            <!-- بوابة التحقق من الشهادات -->
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition text-right group">
-                <div class="w-14 h-14 bg-blue-50 text-blue-900 rounded-xl flex items-center justify-center text-2xl mb-6 font-bold group-hover:bg-blue-900 group-hover:text-white transition">
-                    <i class="fa-solid fa-certificate"></i>
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <!-- بوابة جامعة الزهراء (خاصة) -->
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 hover:shadow-md transition text-right group relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-2.5 h-full bg-blue-900"></div>
+                <div class="w-14 h-14 bg-blue-50 text-blue-900 rounded-2xl flex items-center justify-center text-2xl mb-6 font-bold group-hover:bg-blue-900 group-hover:text-white transition">
+                    <i class="fa-solid fa-university"></i>
                 </div>
-                <h4 class="text-xl font-bold text-blue-950 mb-3">بوابة الشهادات</h4>
+                <h4 class="text-xl font-bold text-blue-950 mb-3">بوابة جامعة الزهراء</h4>
                 <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                    التحقق الفوري من صحة وموثوقية وثائق التخرج عبر ربط مباشر مع سجلات الأكاديمية.
-                </p>
-                <a href="verify.html" class="text-blue-900 font-bold text-sm flex items-center hover:text-amber-600 transition">
-                    الانتقال للتحقق <i class="fa-solid fa-arrow-left mr-2"></i>
-                </a>
-            </div>
-
-            <!-- بوابة البرامج التدريبية -->
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition text-right group">
-                <div class="w-14 h-14 bg-amber-50 text-amber-700 rounded-xl flex items-center justify-center text-2xl mb-6 font-bold group-hover:bg-amber-500 group-hover:text-blue-950 transition">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                </div>
-                <h4 class="text-xl font-bold text-blue-950 mb-3">البرامج التدريبية</h4>
-                <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                    استعراض الأقسام والفروع الستة للمعهد التطبيقي والمسارات المهنية الحديثة.
+                    البرامج والدورات التدريبية المخصصة والخاصة بشراكتنا مع جامعة الزهراء وسجلاتها الأكاديمية المستقلة.
                 </p>
                 <a href="courses.html" class="text-blue-900 font-bold text-sm flex items-center hover:text-amber-600 transition">
-                    استعرض الأقسام <i class="fa-solid fa-arrow-left mr-2"></i>
+                    دخول بوابة جامعة الزهراء <i class="fa-solid fa-arrow-left mr-2"></i>
                 </a>
             </div>
 
-            <!-- بوابة الدعم الفني -->
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition text-right group">
-                <div class="w-14 h-14 bg-emerald-50 text-emerald-700 rounded-xl flex items-center justify-center text-2xl mb-6 font-bold group-hover:bg-emerald-600 group-hover:text-white transition">
-                    <i class="fa-solid fa-headset"></i>
+            <!-- بوابة الشراكات المستقبلية / المؤسسات الأخرى -->
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 hover:shadow-md transition text-right group relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-2.5 h-full bg-amber-500"></div>
+                <div class="w-14 h-14 bg-amber-50 text-amber-700 rounded-2xl flex items-center justify-center text-2xl mb-6 font-bold group-hover:bg-amber-500 group-hover:text-blue-950 transition">
+                    <i class="fa-solid fa-handshake"></i>
                 </div>
-                <h4 class="text-xl font-bold text-blue-950 mb-3">الدعم والمساعدة</h4>
+                <h4 class="text-xl font-bold text-blue-950 mb-3">بوابات المؤسسات الأخرى</h4>
                 <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                    فريق مختص للإجابة عن الاستفسارات الأكاديمية والتواصل المباشر مع الإدارة.
+                    استعراض مسارات التعاون والبرامج التدريبية الخاصة بالجهات والمؤسسات الأخرى المرتبطة بالمنصة.
                 </p>
                 <a href="contact.html" class="text-blue-900 font-bold text-sm flex items-center hover:text-amber-600 transition">
-                    تواصل معنا <i class="fa-solid fa-arrow-left mr-2"></i>
+                    استفسر عن الشراكات <i class="fa-solid fa-arrow-left mr-2"></i>
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم بوابات المنصة العامة -->
+    <section id="portals" class="bg-slate-100 py-16 border-t border-slate-200">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center mb-12">
+                <span class="text-blue-900 bg-blue-200 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">المنظومة الرقمية</span>
+                <h3 class="text-3xl font-extrabold text-blue-950 mb-3">بوابات الخدمات العامة للأكاديمية</h3>
+                <p class="text-slate-600 max-w-xl mx-auto text-sm">الوصول السريع إلى خدمات وميزات المنصة الأساسية.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- بوابة التحقق من الشهادات -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition text-right group">
+                    <div class="w-12 h-12 bg-blue-50 text-blue-900 rounded-xl flex items-center justify-center text-xl mb-5 font-bold group-hover:bg-blue-900 group-hover:text-white transition">
+                        <i class="fa-solid fa-certificate"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-blue-950 mb-2">بوابة الشهادات</h4>
+                    <p class="text-slate-600 text-xs leading-relaxed mb-4">التحقق الفوري من وثائق التخرج عبر سجلات المنصة.</p>
+                    <a href="verify.html" class="text-blue-900 font-bold text-xs flex items-center hover:text-amber-600 transition">
+                        التحقق <i class="fa-solid fa-arrow-left mr-2"></i>
+                    </a>
+                </div>
+
+                <!-- بوابة البرامج العامة -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition text-right group">
+                    <div class="w-12 h-12 bg-amber-50 text-amber-700 rounded-xl flex items-center justify-center text-xl mb-5 font-bold group-hover:bg-amber-500 group-hover:text-blue-950 transition">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-blue-950 mb-2">البرامج العامة</h4>
+                    <p class="text-slate-600 text-xs leading-relaxed mb-4">مسارات المعهد التطبيقي والدورات التدريبية.</p>
+                    <a href="courses.html" class="text-blue-900 font-bold text-xs flex items-center hover:text-amber-600 transition">
+                        استعرض البرامج <i class="fa-solid fa-arrow-left mr-2"></i>
+                    </a>
+                </div>
+
+                <!-- بوابة الدعم الفني -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition text-right group">
+                    <div class="w-12 h-12 bg-emerald-50 text-emerald-700 rounded-xl flex items-center justify-center text-xl mb-5 font-bold group-hover:bg-emerald-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-blue-950 mb-2">الدعم والمساعدة</h4>
+                    <p class="text-slate-600 text-xs leading-relaxed mb-4">تواصل مباشر مع الإدارة والاستفسارات.</p>
+                    <a href="contact.html" class="text-blue-900 font-bold text-xs flex items-center hover:text-amber-600 transition">
+                        تواصل معنا <i class="fa-solid fa-arrow-left mr-2"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -118,7 +156,7 @@
     <!-- التذييل -->
     <footer class="bg-blue-950 text-slate-400 text-center py-8 text-xs">
         <div class="container mx-auto px-4">
-            <p class="mb-2 text-slate-300 font-medium">أكاديمية أوفك (OFK Academy) بالشراكة الاستراتيجية مع جامعة الزهراء</p>
+            <p class="mb-2 text-slate-300 font-medium">OFK Academy - منصة أكاديمية مستقلة مع بوابات شراكة معتمدة</p>
             <p>جميع الحقوق محفوظة © 2026</p>
         </div>
     </footer>
