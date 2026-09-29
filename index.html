@@ -11,7 +11,7 @@
 </head>
 <body class="bg-slate-50 font-sans text-slate-800">
 
-    <!-- شريط التنصيب العلوي مع شعار OFK الإنجليزي -->
+    <!-- شريط التنصيب العلوي مع زر تسجيل الدخول والشعار -->
     <header class="bg-blue-950 text-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center space-x-3 space-x-reverse">
@@ -24,6 +24,7 @@
                     <p class="text-[11px] text-slate-300">المنصة الأكاديمية والمهنية المستقلة</p>
                 </div>
             </div>
+            
             <nav class="hidden md:flex space-x-6 space-x-reverse text-sm font-medium">
                 <a href="index.html" class="text-amber-400 hover:text-white transition">الرئيسية</a>
                 <a href="about.html" class="hover:text-amber-400 transition">من نحن</a>
@@ -32,8 +33,14 @@
                 <a href="contact.html" class="hover:text-amber-400 transition">اتصل بنا</a>
                 <a href="verify.html" class="hover:text-amber-400 transition">التحقق من الشهادات</a>
             </nav>
-            <div>
-                <a href="verify.html" class="bg-amber-500 hover:bg-amber-600 text-blue-950 font-bold px-4 py-2 rounded-lg text-sm shadow transition flex items-center">
+
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <!-- زر تسجيل الدخول الجديد -->
+                <a href="login.html" class="bg-slate-800 hover:bg-slate-700 text-white font-bold px-4 py-2 rounded-lg text-sm shadow transition border border-slate-700 flex items-center">
+                    <i class="fa-solid fa-right-to-bracket ml-1.5 text-amber-400"></i> تسجيل الدخول
+                </a>
+                <!-- زر التحقق السريع -->
+                <a href="verify.html" class="bg-amber-500 hover:bg-amber-600 text-blue-950 font-bold px-4 py-2 rounded-lg text-sm shadow transition hidden sm:flex items-center">
                     <i class="fa-solid fa-shield-halved ml-1"></i> التحقق السريع
                 </a>
             </div>
