@@ -3,144 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>اتصل بنا | أكاديمية أوفك وجامعة الزهراء</title>
+    <title>OFK Academy | اتصل بنا</title>
     <!-- استخدام Tailwind CSS للتصميم -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- إضافة خطوط وأيقونات أكاديمية -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-slate-50 font-sans text-slate-800">
+<body class="bg-slate-900 font-sans text-slate-100 min-h-screen flex flex-col justify-between">
 
-    <!-- شريط التنصيب العلوي مع شعار OFK البارز -->
-    <header class="bg-blue-950 text-white shadow-md sticky top-0 z-50">
+    <!-- شريط التنصيب العلوي الموحد -->
+    <header class="bg-blue-950/80 backdrop-blur-md border-b border-slate-800 text-white sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center space-x-3 space-x-reverse">
-                <div class="bg-gradient-to-tr from-amber-500 to-amber-400 text-blue-950 px-3.5 py-2 rounded-xl font-black text-xl tracking-wider shadow-md border border-amber-300 flex items-center justify-center">
+                <div class="bg-gradient-to-tr from-amber-500 to-amber-400 text-blue-950 px-3.5 py-1.5 rounded-xl font-black text-lg tracking-wider shadow border border-amber-300 flex items-center justify-center">
                     OFK
                 </div>
                 <div>
-                    <h1 class="text-base font-extrabold tracking-wide">أكاديمية أوفك</h1>
-                    <p class="text-[11px] text-slate-300">بالشراكة مع جامعة الزهراء</p>
+                    <h1 class="text-base font-extrabold tracking-wide" dir="ltr">OFK Academy</h1>
+                    <p class="text-[10px] text-amber-400/90 font-medium">المنصة الأكاديمية المستقلة</p>
                 </div>
             </div>
             <nav class="hidden md:flex space-x-6 space-x-reverse text-sm font-medium">
                 <a href="index.html" class="hover:text-amber-400 transition">الرئيسية</a>
                 <a href="about.html" class="hover:text-amber-400 transition">من نحن</a>
-                <a href="courses.html" class="hover:text-amber-400 transition">البرامج التدريبية</a>
-                <a href="contact.html" class="text-amber-400 hover:text-white transition">اتصل بنا</a>
-                <a href="verify.html" class="hover:text-amber-400 transition">التحقق من الشهادات</a>
+                <a href="courses.html" class="hover:text-amber-400 transition">البرامج العامة</a>
+                <a href="contact.html" class="text-amber-400 font-bold transition">اتصل بنا</a>
+                <a href="verify.html" class="hover:text-amber-400 transition">التحقق</a>
             </nav>
             <div>
-                <a href="verify.html" class="bg-amber-500 hover:bg-amber-600 text-blue-950 font-bold px-4 py-2 rounded-lg text-sm shadow transition">
-                    التحقق السريع
+                <a href="login.html" class="bg-amber-500 hover:bg-amber-600 text-blue-950 font-bold px-4 py-2 rounded-xl text-xs shadow transition flex items-center">
+                    <i class="fa-solid fa-right-to-bracket ml-1.5"></i> دخول
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- رأس الصفحة -->
-    <section class="bg-gradient-to-br from-blue-900 to-blue-950 text-white py-16 text-center">
+    <!-- رأس الصفحة بتصميم فاخر غير الأبيض البدائي -->
+    <section class="bg-gradient-to-br from-blue-950 via-slate-900 to-slate-950 text-white py-16 text-center border-b border-slate-800">
         <div class="container mx-auto px-4 max-w-3xl">
-            <span class="bg-blue-800 text-amber-400 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider mb-3 inline-block border border-blue-700">
-                تواصل معنا
+            <span class="bg-blue-900/60 text-amber-400 text-xs font-semibold px-3.5 py-1.5 rounded-full uppercase tracking-wider mb-4 inline-block border border-blue-800">
+                Contact & Support
             </span>
-            <h2 class="text-3xl md:text-4xl font-extrabold mb-4">نحن هنا للإجابة عن استفساراتكم</h2>
-            <p class="text-slate-300 text-sm md:text-base leading-relaxed">
-                يسعدنا تواصلكم الدائم مع إدارة أكاديمية أوفك وجامعة الزهراء عبر قنواتنا الرسمية.
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-white">تواصل مع إدارة المنصة</h2>
+            <p class="text-slate-300 text-sm md:text-base leading-relaxed max-w-xl mx-auto">
+                نحن هنا للإجابة عن استفساراتكم الأكاديمية والمهنية بكل فخر واحترافية.
             </p>
         </div>
     </section>
 
-    <!-- محتوى وسائل التواصل -->
-    <section class="container mx-auto px-4 py-16 max-w-5xl">
-        <div class="grid md:grid-cols-2 gap-8 mb-12">
+    <!-- محتوى وسائل التواصل بتصميم عصري -->
+    <main class="container mx-auto px-4 py-16 max-w-5xl flex-grow">
+        <div class="grid md:grid-cols-2 gap-8">
             
-            <!-- معلومات التواصل المباشر -->
-            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 text-right flex flex-col justify-between">
+            <!-- بطاقة معلومات التواصل المباشر -->
+            <div class="bg-slate-950/60 backdrop-blur-md p-8 rounded-3xl shadow-xl border border-slate-800 text-right flex flex-col justify-between">
                 <div>
-                    <h3 class="text-2xl font-bold text-blue-950 mb-6 flex items-center">
-                        <i class="fa-solid fa-address-book text-amber-500 ml-3"></i> معلومات الإدارة والاتصال
+                    <h3 class="text-xl font-bold text-amber-400 mb-6 flex items-center">
+                        <i class="fa-solid fa-address-book ml-3 text-2xl"></i> قنوات الإدارة الرسمية
                     </h3>
                     
                     <div class="space-y-6">
                         <!-- المدير التنفيذي / واتساب -->
-                        <div class="flex items-start space-x-4 space-x-reverse">
-                            <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center text-xl flex-shrink-0 font-bold">
+                        <div class="flex items-start space-x-4 space-x-reverse p-4 rounded-2xl bg-slate-900/80 border border-slate-800">
+                            <div class="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-xl flex items-center justify-center text-xl flex-shrink-0 font-bold border border-emerald-500/20">
                                 <i class="fa-brands fa-whatsapp"></i>
                             </div>
                             <div>
-                                <h4 class="text-sm font-bold text-slate-700">المدير التنفيذي: أ. عثمان قارصلي</h4>
-                                <a href="https://wa.me/963997122809" target="_blank" class="text-lg font-extrabold text-emerald-600 hover:underline tracking-wide" dir="ltr">
+                                <h4 class="text-xs font-bold text-slate-400">المدير التنفيذي: أ. عثمان قارصلي</h4>
+                                <a href="https://wa.me/963997122809" target="_blank" class="text-base font-extrabold text-emerald-400 hover:underline tracking-wide block mt-0.5" dir="ltr">
                                     +963 997 122 809
                                 </a>
-                                <p class="text-xs text-slate-500 mt-0.5">متاح عبر الواتساب للاستفسارات الرسمية والإدارية</p>
+                                <p class="text-[11px] text-slate-500 mt-0.5">متاح عبر الواتساب للاستفسارات الرسمية</p>
                             </div>
                         </div>
 
                         <!-- البريد الإلكتروني -->
-                        <div class="flex items-start space-x-4 space-x-reverse">
-                            <div class="w-12 h-12 bg-blue-100 text-blue-900 rounded-2xl flex items-center justify-center text-xl flex-shrink-0 font-bold">
+                        <div class="flex items-start space-x-4 space-x-reverse p-4 rounded-2xl bg-slate-900/80 border border-slate-800">
+                            <div class="w-12 h-12 bg-blue-500/10 text-blue-400 rounded-xl flex items-center justify-center text-xl flex-shrink-0 font-bold border border-blue-500/20">
                                 <i class="fa-solid fa-envelope"></i>
                             </div>
                             <div>
-                                <h4 class="text-sm font-bold text-slate-700">البريد الإلكتروني الرسمي</h4>
-                                <span class="text-sm font-bold text-blue-950 tracking-wide block mt-1">
+                                <h4 class="text-xs font-bold text-slate-400">البريد الإلكتروني الرسمي</h4>
+                                <span class="text-xs font-bold text-slate-200 tracking-wide block mt-1" dir="ltr">
                                     ofk.academy.edu@gmail.com
                                 </span>
-                                <p class="text-xs text-slate-500 mt-0.5">للرسائل والمراسلات الأكاديمية والتعاونات</p>
+                                <p class="text-[11px] text-slate-500 mt-0.5">للمراسلات والتعاونات الأكاديمية</p>
                             </div>
                         </div>
 
                         <!-- صفحة الفيسبوك -->
-                        <div class="flex items-start space-x-4 space-x-reverse">
-                            <div class="w-12 h-12 bg-sky-100 text-sky-700 rounded-2xl flex items-center justify-center text-xl flex-shrink-0 font-bold">
+                        <div class="flex items-start space-x-4 space-x-reverse p-4 rounded-2xl bg-slate-900/80 border border-slate-800">
+                            <div class="w-12 h-12 bg-sky-500/10 text-sky-400 rounded-xl flex items-center justify-center text-xl flex-shrink-0 font-bold border border-sky-500/20">
                                 <i class="fa-brands fa-facebook-f"></i>
                             </div>
                             <div>
-                                <h4 class="text-sm font-bold text-slate-700">منصة الفيسبوك الرسمية</h4>
-                                <a href="https://www.facebook.com" target="_blank" class="text-sm font-bold text-sky-600 hover:underline block mt-1">
-                                    تابع صفحة الأكاديمية الرسمية على الفيسبوك
+                                <h4 class="text-xs font-bold text-slate-400">المنصة على الفيسبوك</h4>
+                                <a href="https://www.facebook.com/share/1ENPpdGrBL/" target="_blank" class="text-xs font-bold text-sky-400 hover:underline block mt-1">
+                                    زيارة صفحتنا الرسمية والمتابعة
                                 </a>
-                                <p class="text-xs text-slate-500 mt-0.5">للاطلاع على أحدث الأخبار والنشاطات والاعتمادات</p>
+                                <p class="text-[11px] text-slate-500 mt-0.5">للاطلاع على أحدث الأنشطة والأخبار</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- نموذج إرسال رسالة سريعة -->
-            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 text-right">
-                <h3 class="text-2xl font-bold text-blue-950 mb-4">أرسل لنا رسالة سريعة</h3>
-                <p class="text-slate-600 text-sm mb-6">املأ النموذج أدناه وسيتم تحويل استفسارك مباشرة عبر قنوات التواصل.</p>
+            <!-- نموذج رسالة تفاعلي -->
+            <div class="bg-slate-950/60 backdrop-blur-md p-8 rounded-3xl shadow-xl border border-slate-800 text-right">
+                <h3 class="text-xl font-bold text-white mb-2">أرسل استفسارك للإدارة</h3>
+                <p class="text-slate-400 text-xs mb-6">سيتم الرد عليك في أقرب وقت ممكن عبر القنوات المعتمدة.</p>
                 
-                <form onsubmit="event.preventDefault(); alert('تم استلام رسالتك بنجاح، شكراً لتواصلك مع أكاديمية أوفك.');" class="space-y-4">
+                <form onsubmit="event.preventDefault(); alert('تم استلام رسالتك بنجاح، شكراً لتواصلك مع OFK Academy.');" class="space-y-4">
                     <div>
-                        <label class="block text-xs font-semibold text-slate-700 mb-1">الاسم الكريم:</label>
-                        <input type="text" placeholder="ادخل اسمك الكامل" class="w-full px-4 py-2.5 text-sm border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-900 focus:outline-none">
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">الاسم الكريم:</label>
+                        <input type="text" placeholder="ادخل اسمك الكامل" class="w-full px-4 py-3 text-xs bg-slate-900 border border-slate-800 rounded-xl text-white focus:ring-2 focus:ring-amber-500 focus:outline-none">
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold text-slate-700 mb-1">رقم الهاتف أو البريد الإلكتروني:</label>
-                        <input type="text" placeholder="طريقة التواصل معك" class="w-full px-4 py-2.5 text-sm border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-900 focus:outline-none">
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">طريقة التواصل (هاتف أو إيميل):</label>
+                        <input type="text" placeholder="رقم الهاتف أو البريد" class="w-full px-4 py-3 text-xs bg-slate-900 border border-slate-800 rounded-xl text-white focus:ring-2 focus:ring-amber-500 focus:outline-none" dir="ltr">
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold text-slate-700 mb-1">نص الرسالة أو الاستفسار:</label>
-                        <textarea rows="3" placeholder="اكتب استفسارك هنا..." class="w-full px-4 py-2.5 text-sm border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-900 focus:outline-none"></textarea>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">نص الرسالة:</label>
+                        <textarea rows="3" placeholder="اكتب تفاصيل استفسارك..." class="w-full px-4 py-3 text-xs bg-slate-900 border border-slate-800 rounded-xl text-white focus:ring-2 focus:ring-amber-500 focus:outline-none"></textarea>
                     </div>
-                    <button type="submit" class="w-full bg-blue-900 hover:bg-blue-800 text-white py-3 rounded-xl font-bold text-sm transition shadow">
-                        إرسال الاستفسار
+                    <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-blue-950 py-3.5 rounded-xl font-bold text-xs transition shadow-lg">
+                        إرسال الرسالة الآن
                     </button>
                 </form>
             </div>
 
         </div>
-    </section>
+    </main>
 
     <!-- التذييل -->
-    <footer class="bg-blue-950 text-slate-400 text-center py-8 text-xs">
-        <div class="container mx-auto px-4">
-            <p class="mb-2 text-slate-300 font-medium">أكاديمية أوفك بالشراكة الاستراتيجية مع جامعة الزهراء</p>
-            <p>جميع الحقوق محفوظة © 2026</p>
-        </div>
+    <footer class="bg-slate-950 text-slate-400 text-center py-6 text-xs border-t border-slate-800">
+        <p class="font-medium text-slate-300">OFK Academy - منصة أكاديمية مستقلة</p>
+        <p class="mt-1 text-[11px] text-slate-500">جميع الحقوق محفوظة © 2026</p>
     </footer>
 
 </body>
