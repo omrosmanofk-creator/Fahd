@@ -3,174 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OFK Academy | المنصة التعليمية الرقمية</title>
+    <title>OFK Academy | اتصل بنا</title>
     <!-- استخدام Tailwind CSS للتصميم -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- إضافة خطوط وأيقونات أكاديمية -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-slate-50 font-sans text-slate-800">
+<body class="bg-slate-900 font-sans text-slate-100 min-h-screen flex flex-col justify-between">
 
-    <!-- شريط التنصيب العلوي مع زر تسجيل الدخول والشعار -->
-    <header class="bg-blue-950 text-white shadow-md sticky top-0 z-50">
+    <!-- شريط التنصيب العلوي الموحد -->
+    <header class="bg-blue-950/80 backdrop-blur-md border-b border-slate-800 text-white sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center space-x-3 space-x-reverse">
-                <!-- تصميم شعار الحروف OFK الإنجليزي -->
-                <div class="bg-gradient-to-tr from-amber-500 to-amber-400 text-blue-950 px-3.5 py-2 rounded-xl font-black text-xl tracking-wider shadow-md border border-amber-300 flex items-center justify-center">
+                <div class="bg-gradient-to-tr from-amber-500 to-amber-400 text-blue-950 px-3.5 py-1.5 rounded-xl font-black text-lg tracking-wider shadow border border-amber-300 flex items-center justify-center">
                     OFK
                 </div>
                 <div>
                     <h1 class="text-base font-extrabold tracking-wide" dir="ltr">OFK Academy</h1>
-                    <p class="text-[11px] text-slate-300">المنصة الأكاديمية والمهنية المستقلة</p>
+                    <p class="text-[10px] text-amber-400/90 font-medium">المنصة الأكاديمية المستقلة</p>
                 </div>
             </div>
-            
             <nav class="hidden md:flex space-x-6 space-x-reverse text-sm font-medium">
-                <a href="index.html" class="text-amber-400 hover:text-white transition">الرئيسية</a>
+                <a href="index.html" class="hover:text-amber-400 transition">الرئيسية</a>
                 <a href="about.html" class="hover:text-amber-400 transition">من نحن</a>
                 <a href="courses.html" class="hover:text-amber-400 transition">البرامج العامة</a>
-                <a href="#partners" class="hover:text-amber-400 transition">بوابات الشركاء</a>
-                <a href="contact.html" class="hover:text-amber-400 transition">اتصل بنا</a>
-                <a href="verify.html" class="hover:text-amber-400 transition">التحقق من الشهادات</a>
+                <a href="contact.html" class="text-amber-400 font-bold transition">اتصل بنا</a>
+                <a href="verify.html" class="hover:text-amber-400 transition">التحقق</a>
             </nav>
-
-            <div class="flex items-center space-x-3 space-x-reverse">
-                <!-- زر تسجيل الدخول الجديد -->
-                <a href="login.html" class="bg-slate-800 hover:bg-slate-700 text-white font-bold px-4 py-2 rounded-lg text-sm shadow transition border border-slate-700 flex items-center">
-                    <i class="fa-solid fa-right-to-bracket ml-1.5 text-amber-400"></i> تسجيل الدخول
-                </a>
-                <!-- زر التحقق السريع -->
-                <a href="verify.html" class="bg-amber-500 hover:bg-amber-600 text-blue-950 font-bold px-4 py-2 rounded-lg text-sm shadow transition hidden sm:flex items-center">
-                    <i class="fa-solid fa-shield-halved ml-1"></i> التحقق السريع
+            <div>
+                <a href="login.html" class="bg-amber-500 hover:bg-amber-600 text-blue-950 font-bold px-4 py-2 rounded-xl text-xs shadow transition flex items-center">
+                    <i class="fa-solid fa-right-to-bracket ml-1.5"></i> دخول
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- قسم البانر الرئيسي -->
-    <section class="bg-gradient-to-br from-blue-900 to-blue-950 text-white py-20 text-center relative overflow-hidden">
-        <div class="container mx-auto px-4 relative z-10 max-w-4xl">
-            <span class="bg-blue-800 text-amber-400 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block border border-blue-700">
-                OFK Academy Professional Platform
+    <!-- رأس الصفحة بتصميم فاخر غير الأبيض البدائي -->
+    <section class="bg-gradient-to-br from-blue-950 via-slate-900 to-slate-950 text-white py-16 text-center border-b border-slate-800">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <span class="bg-blue-900/60 text-amber-400 text-xs font-semibold px-3.5 py-1.5 rounded-full uppercase tracking-wider mb-4 inline-block border border-blue-800">
+                Contact & Support
             </span>
-            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
-                بوابتك نحو المستقبل المهني والتقني المتقدم
-            </h2>
-            <p class="text-slate-300 text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
-                منصة تعليمية مستقلة تقدم برامج تدريبية تخصصية، مع بوابات مخصصة للشراكات الأكاديمية والجامعية ومنظومة موثوقية ذكية للشهادات.
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-white">تواصل مع إدارة المنصة</h2>
+            <p class="text-slate-300 text-sm md:text-base leading-relaxed max-w-xl mx-auto">
+                نحن هنا للإجابة عن استفساراتكم الأكاديمية والمهنية بكل فخر واحترافية.
             </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="verify.html" class="bg-amber-500 hover:bg-amber-600 text-blue-950 px-8 py-4 rounded-xl font-bold shadow-lg transition flex items-center">
-                    <i class="fa-solid fa-magnifying-glass ml-2"></i> نظام التحقق السريع
-                </a>
-                <a href="courses.html" class="bg-blue-800 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold border border-blue-700 transition flex items-center">
-                    <i class="fa-solid fa-book-open ml-2"></i> تصفح البرامج العامة
-                </a>
-            </div>
         </div>
     </section>
 
-    <!-- قسم بوابات الشركاء والأقسام الخاصة (مثل جامعة الزهراء) -->
-    <section id="partners" class="container mx-auto px-4 py-16 max-w-6xl">
-        <div class="text-center mb-12">
-            <span class="text-blue-900 bg-blue-100 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">التعاون المؤسسي</span>
-            <h3 class="text-3xl font-extrabold text-blue-950 mb-3">بوابات الشراكات الأكاديمية</h3>
-            <p class="text-slate-600 max-w-xl mx-auto text-sm">اختر البوابة الخاصة بالشريك للاطلاع على الدورات والمسارات التدريبية المستقلة.</p>
-        </div>
+    <!-- محتوى وسائل التواصل بتصميم عصري -->
+    <main class="container mx-auto px-4 py-16 max-w-5xl flex-grow">
+        <div class="grid md:grid-cols-2 gap-8">
+            
+            <!-- بطاقة معلومات التواصل المباشر -->
+            <div class="bg-slate-950/60 backdrop-blur-md p-8 rounded-3xl shadow-xl border border-slate-800 text-right flex flex-col justify-between">
+                <div>
+                    <h3 class="text-xl font-bold text-amber-400 mb-6 flex items-center">
+                        <i class="fa-solid fa-address-book ml-3 text-2xl"></i> قنوات الإدارة الرسمية
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <!-- المدير التنفيذي / واتساب -->
+                        <div class="flex items-start space-x-4 space-x-reverse p-4 rounded-2xl bg-slate-900/80 border border-slate-800">
+                            <div class="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-xl flex items-center justify-center text-xl flex-shrink-0 font-bold border border-emerald-500/20">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold text-slate-400">المدير التنفيذي: أ. عثمان قارصلي</h4>
+                                <a href="https://wa.me/963997122809" target="_blank" class="text-base font-extrabold text-emerald-400 hover:underline tracking-wide block mt-0.5" dir="ltr">
+                                    +963 997 122 809
+                                </a>
+                                <p class="text-[11px] text-slate-500 mt-0.5">متاح عبر الواتساب للاستفسارات الرسمية</p>
+                            </div>
+                        </div>
 
-        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <!-- بوابة جامعة الزهراء (خاصة) -->
-            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 hover:shadow-md transition text-right group relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-2.5 h-full bg-blue-900"></div>
-                <div class="w-14 h-14 bg-blue-50 text-blue-900 rounded-2xl flex items-center justify-center text-2xl mb-6 font-bold group-hover:bg-blue-900 group-hover:text-white transition">
-                    <i class="fa-solid fa-university"></i>
-                </div>
-                <h4 class="text-xl font-bold text-blue-950 mb-3">بوابة جامعة الزهراء</h4>
-                <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                    البرامج والدورات التدريبية المخصصة والخاصة بشراكتنا مع جامعة الزهراء وسجلاتها الأكاديمية المستقلة.
-                </p>
-                <a href="courses.html" class="text-blue-900 font-bold text-sm flex items-center hover:text-amber-600 transition">
-                    دخول بوابة جامعة الزهراء <i class="fa-solid fa-arrow-left mr-2"></i>
-                </a>
-            </div>
+                        <!-- البريد الإلكتروني -->
+                        <div class="flex items-start space-x-4 space-x-reverse p-4 rounded-2xl bg-slate-900/80 border border-slate-800">
+                            <div class="w-12 h-12 bg-blue-500/10 text-blue-400 rounded-xl flex items-center justify-center text-xl flex-shrink-0 font-bold border border-blue-500/20">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold text-slate-400">البريد الإلكتروني الرسمي</h4>
+                                <span class="text-xs font-bold text-slate-200 tracking-wide block mt-1" dir="ltr">
+                                    ofk.academy.edu@gmail.com
+                                </span>
+                                <p class="text-[11px] text-slate-500 mt-0.5">للمراسلات والتعاونات الأكاديمية</p>
+                            </div>
+                        </div>
 
-            <!-- بوابة الشراكات المستقبلية / المؤسسات الأخرى -->
-            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 hover:shadow-md transition text-right group relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-2.5 h-full bg-amber-500"></div>
-                <div class="w-14 h-14 bg-amber-50 text-amber-700 rounded-2xl flex items-center justify-center text-2xl mb-6 font-bold group-hover:bg-amber-500 group-hover:text-blue-950 transition">
-                    <i class="fa-solid fa-handshake"></i>
-                </div>
-                <h4 class="text-xl font-bold text-blue-950 mb-3">بوابات المؤسسات الأخرى</h4>
-                <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                    استعراض مسارات التعاون والبرامج التدريبية الخاصة بالجهات والمؤسسات الأخرى المرتبطة بالمنصة.
-                </p>
-                <a href="contact.html" class="text-blue-900 font-bold text-sm flex items-center hover:text-amber-600 transition">
-                    استفسر عن الشراكات <i class="fa-solid fa-arrow-left mr-2"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- قسم بوابات المنصة العامة -->
-    <section id="portals" class="bg-slate-100 py-16 border-t border-slate-200">
-        <div class="container mx-auto px-4 max-w-6xl">
-            <div class="text-center mb-12">
-                <span class="text-blue-900 bg-blue-200 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">المنظومة الرقمية</span>
-                <h3 class="text-3xl font-extrabold text-blue-950 mb-3">بوابات الخدمات العامة للأكاديمية</h3>
-                <p class="text-slate-600 max-w-xl mx-auto text-sm">الوصول السريع إلى خدمات وميزات المنصة الأساسية.</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- بوابة التحقق من الشهادات -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition text-right group">
-                    <div class="w-12 h-12 bg-blue-50 text-blue-900 rounded-xl flex items-center justify-center text-xl mb-5 font-bold group-hover:bg-blue-900 group-hover:text-white transition">
-                        <i class="fa-solid fa-certificate"></i>
+                        <!-- صفحة الفيسبوك -->
+                        <div class="flex items-start space-x-4 space-x-reverse p-4 rounded-2xl bg-slate-900/80 border border-slate-800">
+                            <div class="w-12 h-12 bg-sky-500/10 text-sky-400 rounded-xl flex items-center justify-center text-xl flex-shrink-0 font-bold border border-sky-500/20">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold text-slate-400">المنصة على الفيسبوك</h4>
+                                <a href="https://www.facebook.com/share/1ENPpdGrBL/" target="_blank" class="text-xs font-bold text-sky-400 hover:underline block mt-1">
+                                    زيارة صفحتنا الرسمية والمتابعة
+                                </a>
+                                <p class="text-[11px] text-slate-500 mt-0.5">للاطلاع على أحدث الأنشطة والأخبار</p>
+                            </div>
+                        </div>
                     </div>
-                    <h4 class="text-lg font-bold text-blue-950 mb-2">بوابة الشهادات</h4>
-                    <p class="text-slate-600 text-xs leading-relaxed mb-4">التحقق الفوري من وثائق التخرج عبر سجلات المنصة.</p>
-                    <a href="verify.html" class="text-blue-900 font-bold text-xs flex items-center hover:text-amber-600 transition">
-                        التحقق <i class="fa-solid fa-arrow-left mr-2"></i>
-                    </a>
-                </div>
-
-                <!-- بوابة البرامج العامة -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition text-right group">
-                    <div class="w-12 h-12 bg-amber-50 text-amber-700 rounded-xl flex items-center justify-center text-xl mb-5 font-bold group-hover:bg-amber-500 group-hover:text-blue-950 transition">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                    </div>
-                    <h4 class="text-lg font-bold text-blue-950 mb-2">البرامج العامة</h4>
-                    <p class="text-slate-600 text-xs leading-relaxed mb-4">مسارات المعهد التطبيقي والدورات التدريبية.</p>
-                    <a href="courses.html" class="text-blue-900 font-bold text-xs flex items-center hover:text-amber-600 transition">
-                        استعرض البرامج <i class="fa-solid fa-arrow-left mr-2"></i>
-                    </a>
-                </div>
-
-                <!-- بوابة الدعم الفني -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition text-right group">
-                    <div class="w-12 h-12 bg-emerald-50 text-emerald-700 rounded-xl flex items-center justify-center text-xl mb-5 font-bold group-hover:bg-emerald-600 group-hover:text-white transition">
-                        <i class="fa-solid fa-headset"></i>
-                    </div>
-                    <h4 class="text-lg font-bold text-blue-950 mb-2">الدعم والمساعدة</h4>
-                    <p class="text-slate-600 text-xs leading-relaxed mb-4">تواصل مباشر مع الإدارة والاستفسارات.</p>
-                    <a href="contact.html" class="text-blue-900 font-bold text-xs flex items-center hover:text-amber-600 transition">
-                        تواصل معنا <i class="fa-solid fa-arrow-left mr-2"></i>
-                    </a>
                 </div>
             </div>
+
+            <!-- نموذج رسالة تفاعلي -->
+            <div class="bg-slate-950/60 backdrop-blur-md p-8 rounded-3xl shadow-xl border border-slate-800 text-right">
+                <h3 class="text-xl font-bold text-white mb-2">أرسل استفسارك للإدارة</h3>
+                <p class="text-slate-400 text-xs mb-6">سيتم الرد عليك في أقرب وقت ممكن عبر القنوات المعتمدة.</p>
+                
+                <form onsubmit="event.preventDefault(); alert('تم استلام رسالتك بنجاح، شكراً لتواصلك مع OFK Academy.');" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">الاسم الكريم:</label>
+                        <input type="text" placeholder="ادخل اسمك الكامل" class="w-full px-4 py-3 text-xs bg-slate-900 border border-slate-800 rounded-xl text-white focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">طريقة التواصل (هاتف أو إيميل):</label>
+                        <input type="text" placeholder="رقم الهاتف أو البريد" class="w-full px-4 py-3 text-xs bg-slate-900 border border-slate-800 rounded-xl text-white focus:ring-2 focus:ring-amber-500 focus:outline-none" dir="ltr">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">نص الرسالة:</label>
+                        <textarea rows="3" placeholder="اكتب تفاصيل استفسارك..." class="w-full px-4 py-3 text-xs bg-slate-900 border border-slate-800 rounded-xl text-white focus:ring-2 focus:ring-amber-500 focus:outline-none"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-blue-950 py-3.5 rounded-xl font-bold text-xs transition shadow-lg">
+                        إرسال الرسالة الآن
+                    </button>
+                </form>
+            </div>
+
         </div>
-    </section>
+    </main>
 
     <!-- التذييل -->
-    <footer class="bg-blue-950 text-slate-400 text-center py-8 text-xs">
-        <div class="container mx-auto px-4">
-            <p class="mb-2 text-slate-300 font-medium">OFK Academy - منصة أكاديمية مستقلة مع بوابات شراكة معتمدة</p>
-            <div class="flex justify-center items-center space-x-4 space-x-reverse mt-3">
-                <a href="https://www.facebook.com/share/1ENPpdGrBL/" target="_blank" class="text-slate-300 hover:text-amber-400 transition flex items-center">
-                    <i class="fa-brands fa-facebook ml-1 text-base"></i> صفحتنا الرسمية على الفيسبوك
-                </a>
-            </div>
-            <p class="mt-4 text-[11px] text-slate-500">جميع الحقوق محفوظة © 2026</p>
-        </div>
+    <footer class="bg-slate-950 text-slate-400 text-center py-6 text-xs border-t border-slate-800">
+        <p class="font-medium text-slate-300">OFK Academy - منصة أكاديمية مستقلة</p>
+        <p class="mt-1 text-[11px] text-slate-500">جميع الحقوق محفوظة © 2026</p>
     </footer>
 
 </body>
