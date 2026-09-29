@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OFK Academy | المنصة التعليمية الرقمية</title>
+    <title>OFK Academy | الرئيسية</title>
     <!-- استخدام Tailwind CSS للتصميم -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- إضافة خطوط وأيقونات أكاديمية -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- إعدادات تطبيق الويب PWA لتجهيز الـ APK لاحقاً -->
+    <!-- إعدادات تطبيق الويب PWA -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0f172a">
 </head>
 <body class="bg-slate-900 font-sans text-slate-100 min-h-screen flex flex-col justify-between">
 
-    <!-- شريط التنصيب العلوي مع زر تسجيل الدخول والشعار -->
+    <!-- شريط التنصيب العلوي الموحد -->
     <header class="bg-blue-950/85 backdrop-blur-md border-b border-slate-800 text-white sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center space-x-3 space-x-reverse">
@@ -26,7 +26,6 @@
                     <p class="text-[10px] text-amber-400/90 font-medium">المنصة الأكاديمية المستقلة</p>
                 </div>
             </div>
-            
             <nav class="hidden md:flex space-x-6 space-x-reverse text-sm font-medium">
                 <a href="index.html" class="text-amber-400 font-bold transition">الرئيسية</a>
                 <a href="about.html" class="hover:text-amber-400 transition">من نحن</a>
@@ -34,89 +33,87 @@
                 <a href="contact.html" class="hover:text-amber-400 transition">اتصل بنا</a>
                 <a href="verify.html" class="hover:text-amber-400 transition">التحقق</a>
             </nav>
-
-            <div class="flex items-center space-x-3 space-x-reverse">
-                <a href="login.html" class="bg-slate-800 hover:bg-slate-700 text-white font-bold px-4 py-2 rounded-xl text-xs shadow transition border border-slate-700 flex items-center">
-                    <i class="fa-solid fa-right-to-bracket ml-1.5 text-amber-400"></i> تسجيل الدخول
+            <div>
+                <a href="login.html" class="bg-amber-500 hover:bg-amber-600 text-blue-950 font-bold px-4 py-2 rounded-xl text-xs shadow transition flex items-center">
+                    <i class="fa-solid fa-right-to-bracket ml-1.5"></i> دخول
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- قسم البانر الرئيسي -->
-    <section class="bg-gradient-to-br from-blue-950 via-slate-900 to-slate-950 text-white py-20 text-center relative overflow-hidden border-b border-slate-800">
-        <div class="container mx-auto px-4 relative z-10 max-w-4xl">
+    <!-- الهيرو أو واجهة الترحيب -->
+    <section class="bg-gradient-to-br from-blue-950 via-slate-900 to-slate-950 text-white py-20 text-center border-b border-slate-800">
+        <div class="container mx-auto px-4 max-w-3xl">
             <span class="bg-blue-900/60 text-amber-400 text-xs font-semibold px-3.5 py-1.5 rounded-full uppercase tracking-wider mb-4 inline-block border border-blue-800">
-                OFK Academy Professional Platform
+                Welcome to OFK Academy
             </span>
-            <h2 class="text-3xl md:text-5xl font-extrabold mb-6 leading-tight text-white">
-                بوابتك نحو المستقبل المهني والتقني المتقدم
-            </h2>
-            <p class="text-slate-300 text-sm md:text-base mb-8 max-w-2xl mx-auto leading-relaxed">
-                منصة تعليمية مستقلة تقدم برامج تدريبية تخصصية، مع بوابات مخصصة للشراكات الأكاديمية ومنظومة موثوقية ذكية للشهادات.
+            <h2 class="text-3xl md:text-5xl font-extrabold mb-6 text-white leading-tight">بوابتك الذكية نحو المعرفة الأكاديمية المتقدمة</h2>
+            <p class="text-slate-300 text-sm md:text-base leading-relaxed max-w-xl mx-auto mb-8">
+                نقدم برامج نوعية في الأقسام الستة الأساسية بمعايير عالمية وهندسة رقمية متطورة.
             </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="verify.html" class="bg-amber-500 hover:bg-amber-600 text-blue-950 px-7 py-3.5 rounded-xl font-bold text-xs shadow-lg transition flex items-center">
-                    <i class="fa-solid fa-magnifying-glass ml-2"></i> نظام التحقق السريع
-                </a>
-                <a href="courses.html" class="bg-slate-800 hover:bg-slate-700 text-white px-7 py-3.5 rounded-xl font-bold text-xs border border-slate-700 transition flex items-center">
-                    <i class="fa-solid fa-book-open ml-2"></i> تصفح البرامج العامة
-                </a>
+            <div class="flex justify-center gap-4">
+                <a href="courses.html" class="bg-amber-500 hover:bg-amber-600 text-blue-950 font-bold px-6 py-3 rounded-xl text-xs transition shadow-lg">استعرض الأقسام والبرامج</a>
+                <a href="about.html" class="bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold px-6 py-3 rounded-xl text-xs transition border border-slate-700">تعرف علينا</a>
             </div>
         </div>
     </section>
 
-    <!-- قسم بوابات الشركاء -->
-    <section class="container mx-auto px-4 py-16 max-w-6xl">
+    <!-- الأقسام الستة الأساسية -->
+    <main class="container mx-auto px-4 py-16 max-w-5xl flex-grow">
         <div class="text-center mb-12">
-            <span class="text-amber-400 bg-amber-500/10 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block border border-amber-500/20">التعاون المؤسسي</span>
-            <h3 class="text-2xl md:text-3xl font-extrabold text-white mb-3">بوابات الشراكات الأكاديمية</h3>
-            <p class="text-slate-400 max-w-xl mx-auto text-xs">اختر البوابة الخاصة بالشريك للاطلاع على الدورات والمسارات التدريبية المستقلة.</p>
+            <h3 class="text-2xl font-bold text-white mb-2">أقسام المنصة الأكاديمية</h3>
+            <p class="text-slate-400 text-xs">اختر التخصص الذي يناسب طموحك المهني والأكاديمي</p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div class="bg-slate-950/60 backdrop-blur-md p-8 rounded-3xl shadow-xl border border-slate-800 text-right group relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-2.5 h-full bg-blue-900"></div>
-                <div class="w-14 h-14 bg-blue-500/10 text-blue-400 rounded-2xl flex items-center justify-center text-2xl mb-6 font-bold group-hover:bg-blue-900 group-hover:text-white transition border border-blue-500/20">
-                    <i class="fa-solid fa-university"></i>
-                </div>
-                <h4 class="text-xl font-bold text-white mb-3">بوابة جامعة الزهراء</h4>
-                <p class="text-slate-400 text-xs leading-relaxed mb-6">
-                    البرامج والدورات التدريبية المخصصة والخاصة بشراكتنا مع جامعة الزهراء وسجلاتها الأكاديمية المستقلة.
-                </p>
-                <a href="courses.html" class="text-amber-400 font-bold text-xs flex items-center hover:text-white transition">
-                    دخول بوابة جامعة الزهراء <i class="fa-solid fa-arrow-left mr-2"></i>
-                </a>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-slate-950/60 p-6 rounded-2xl border border-slate-800 hover:border-amber-500/50 transition">
+                <div class="text-amber-400 text-2xl mb-3"><i class="fa-solid fa-brain"></i></div>
+                <h4 class="font-bold text-white text-sm mb-2">علم النفس</h4>
+                <p class="text-slate-400 text-xs leading-relaxed">دراسات معمقة وتحليل سلوكي واكتشافات نفسية حديثة.</p>
             </div>
-
-            <div class="bg-slate-950/60 backdrop-blur-md p-8 rounded-3xl shadow-xl border border-slate-800 text-right group relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-2.5 h-full bg-amber-500"></div>
-                <div class="w-14 h-14 bg-amber-500/10 text-amber-400 rounded-2xl flex items-center justify-center text-2xl mb-6 font-bold group-hover:bg-amber-500 group-hover:text-blue-950 transition border border-amber-500/20">
-                    <i class="fa-solid fa-handshake"></i>
-                </div>
-                <h4 class="text-xl font-bold text-white mb-3">بوابات المؤسسات الأخرى</h4>
-                <p class="text-slate-400 text-xs leading-relaxed mb-6">
-                    استعراض مسارات التعاون والبرامج التدريبية الخاصة بالجهات والمؤسسات الأخرى المرتبطة بالمنصة.
-                </p>
-                <a href="contact.html" class="text-amber-400 font-bold text-xs flex items-center hover:text-white transition">
-                    استفسر عن الشراكات <i class="fa-solid fa-arrow-left mr-2"></i>
-                </a>
+            <div class="bg-slate-950/60 p-6 rounded-2xl border border-slate-800 hover:border-amber-500/50 transition">
+                <div class="text-amber-400 text-2xl mb-3"><i class="fa-solid fa-chart-line"></i></div>
+                <h4 class="font-bold text-white text-sm mb-2">الاقتصاد</h4>
+                <p class="text-slate-400 text-xs leading-relaxed">تحليلات الأسواق المالية والنظم الاقتصادية المعاصرة.</p>
+            </div>
+            <div class="bg-slate-950/60 p-6 rounded-2xl border border-slate-800 hover:border-amber-500/50 transition">
+                <div class="text-amber-400 text-2xl mb-3"><i class="fa-solid fa-book-quran"></i></div>
+                <h4 class="font-bold text-white text-sm mb-2">الدراسات القرآنية</h4>
+                <p class="text-slate-400 text-xs leading-relaxed">فهم النصوص وعلوم التفسير بأسلوب منهجي أصيل.</p>
+            </div>
+            <div class="bg-slate-950/60 p-6 rounded-2xl border border-slate-800 hover:border-amber-500/50 transition">
+                <div class="text-amber-400 text-2xl mb-3"><i class="fa-solid fa-shield-halved"></i></div>
+                <h4 class="font-bold text-white text-sm mb-2">الذكاء الاصطناعي والأمن السيبراني</h4>
+                <p class="text-slate-400 text-xs leading-relaxed">أحدث تقنيات حماية الأنظمة وخوارزميات الذكاء.</p>
+            </div>
+            <div class="bg-slate-950/60 p-6 rounded-2xl border border-slate-800 hover:border-amber-500/50 transition">
+                <div class="text-amber-400 text-2xl mb-3"><i class="fa-solid fa-language"></i></div>
+                <h4 class="font-bold text-white text-sm mb-2">اللغة العربية</h4>
+                <p class="text-slate-400 text-xs leading-relaxed">علوم البلاغة والنحو والفصاحة بأساليب مبتكرة.</p>
+            </div>
+            <div class="bg-slate-950/60 p-6 rounded-2xl border border-slate-800 hover:border-amber-500/50 transition">
+                <div class="text-amber-400 text-2xl mb-3"><i class="fa-solid fa-gears"></i></div>
+                <h4 class="font-bold text-white text-sm mb-2">الهندسة التطبيقية</h4>
+                <p class="text-slate-400 text-xs leading-relaxed">حلول هندسية عملية ومشاريع تكنولوجية متقدمة.</p>
             </div>
         </div>
-    </section>
+    </main>
 
     <!-- التذييل -->
     <footer class="bg-slate-950 text-slate-400 text-center py-6 text-xs border-t border-slate-800">
-        <div class="container mx-auto px-4">
-            <p class="mb-2 text-slate-300 font-medium">OFK Academy - منصة أكاديمية مستقلة مع بوابات شراكة معتمدة</p>
-            <div class="flex justify-center items-center space-x-4 space-x-reverse mt-2">
-                <a href="https://www.facebook.com/share/1ENPpdGrBL/" target="_blank" class="text-slate-400 hover:text-amber-400 transition flex items-center">
-                    <i class="fa-brands fa-facebook ml-1 text-base"></i> صفحتنا الرسمية على الفيسبوك
-                </a>
-            </div>
-            <p class="mt-4 text-[11px] text-slate-500">جميع الحقوق محفوظة © 2026</p>
-        </div>
+        <p class="font-medium text-slate-300">OFK Academy - منصة أكاديمية مستقلة</p>
+        <p class="mt-1 text-[11px] text-slate-500">جميع الحقوق محفوظة © 2026</p>
     </footer>
 
+    <!-- كود تفعيل خدمة الـ Service Worker لتشغيل التطبيق والربط التلقائي -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('Service Worker registered successfully', reg))
+            .catch(err => console.log('Service Worker registration failed', err));
+        });
+      }
+    </script>
 </body>
 </html>
