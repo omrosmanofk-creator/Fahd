@@ -1,21 +1,18 @@
 {
   "name": "OFK Academy",
   "short_name": "OFK",
-  "description": "المنصة الأكاديمية والمهنية المستقلة",
-  "start_url": "/index.html",
+  "description": "المنصة الأكاديمية المستقلة للبرامج المتقدمة",
+  "start_url": "/",
   "display": "standalone",
-  "background_color": "#020617",
+  "background_color": "#0f172a",
   "theme_color": "#0f172a",
+  "orientation": "portrait",
   "icons": [
     {
-      "src": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f393.png",
-      "sizes": "72x72",
-      "type": "image/png"
-    },
-    {
-      "src": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/512x512/1f393.png",
+      "src": "https://raw.githubusercontent.com/favicon.ico",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
