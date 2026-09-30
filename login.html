@@ -53,14 +53,14 @@
                     <i class="fa-solid fa-lock"></i>
                 </div>
                 <h2 class="text-2xl font-bold text-white">تسجيل الدخول للبوابة</h2>
-                <p class="text-xs text-slate-400">أدخل اسم المستخدم وكلمة المرور الخاصة بصلاحيتك</p>
+                <p class="text-xs text-slate-400">اختر من الأزرار التجريبية أدناه للدخول الفوري</p>
             </div>
 
             <!-- نموذج تسجيل الدخول -->
             <form id="loginForm" class="space-y-4" onsubmit="handleLogin(event)">
                 <div>
                     <label class="block text-sm font-medium text-slate-300 mb-1">اسم المستخدم أو البريد</label>
-                    <input type="text" id="usernameInput" required placeholder="Omr أو osmanomr466@gmail.com" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-amber-500 text-sm">
+                    <input type="text" id="usernameInput" required value="Omr" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-amber-500 text-sm">
                 </div>
 
                 <div>
@@ -76,13 +76,13 @@
                 </button>
             </form>
 
-            <!-- أزرار تجريبية سريعة لتسهيل الفحص -->
+            <!-- أزرار تجريبية سريعة لتسهيل الفحص والدخول المباشر -->
             <div class="border-t border-slate-700/60 pt-4 space-y-2">
-                <p class="text-xs text-slate-400 text-center font-medium">تجربة سريعة للحسابات:</p>
+                <p class="text-xs text-slate-400 text-center font-medium">الدخول السريع المباشر:</p>
                 <div class="grid grid-cols-3 gap-2">
-                    <button onclick="fillDemo('admin')" class="bg-slate-900 hover:bg-slate-700 text-amber-400 text-xs py-2 px-1 rounded-lg border border-slate-700 font-medium transition-colors">مدير النظام</button>
-                    <button onclick="fillDemo('instructor')" class="bg-slate-900 hover:bg-slate-700 text-amber-400 text-xs py-2 px-1 rounded-lg border border-slate-700 font-medium transition-colors">مدرس</button>
-                    <button onclick="fillDemo('student')" class="bg-slate-900 hover:bg-slate-700 text-amber-400 text-xs py-2 px-1 rounded-lg border border-slate-700 font-medium transition-colors">طالب</button>
+                    <button onclick="directLogin('admin')" class="bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 text-xs py-2.5 px-1 rounded-lg border border-amber-500/30 font-bold transition-colors">مدير النظام</button>
+                    <button onclick="directLogin('instructor')" class="bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-400 text-xs py-2.5 px-1 rounded-lg border border-indigo-500/30 font-bold transition-colors">مدرس</button>
+                    <button onclick="directLogin('student')" class="bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 text-xs py-2.5 px-1 rounded-lg border border-emerald-500/30 font-bold transition-colors">طالب</button>
                 </div>
             </div>
 
@@ -94,13 +94,19 @@
         <p>جميع الحقوق محفوظة © OFK Academy 2026 — بالتعاون مع جامعة الزهراء</p>
     </footer>
 
-    <!-- سكريبت المصادقة الذكي -->
+    <!-- سكريبت المصادقة المباشر والنظيف -->
     <script>
-        function fillDemo(role) {
-            document.getElementById('usernameInput').value = 'Omr';
-            if(role === 'admin') document.getElementById('passwordInput').value = 'Omr12345';
-            if(role === 'instructor') document.getElementById('passwordInput').value = 'Omr1234';
-            if(role === 'student') document.getElementById('passwordInput').value = 'Omr123';
+        function directLogin(role) {
+            if(role === 'admin') {
+                localStorage.setItem('userRole', 'admin');
+                window.location.href = 'admin-portal.html';
+            } else if(role === 'instructor') {
+                localStorage.setItem('userRole', 'instructor');
+                window.location.href = 'instructor-portal.html';
+            } else if(role === 'student') {
+                localStorage.setItem('userRole', 'student');
+                window.location.href = 'student-portal.html';
+            }
         }
 
         function handleLogin(event) {
@@ -118,7 +124,7 @@
                 localStorage.setItem('userRole', 'student');
                 window.location.href = 'student-portal.html';
             } else {
-                errBox.textContent = 'كلمة المرور غير صحيحة. يرجى التأكد من كلمة المرور المعتمدة.';
+                errBox.textContent = 'كلمة المرور غير صحيحة. استخدم: Omr12345 للمدير، Omr1234 للمدرس، أو Omr123 للطالب.';
                 errBox.classList.remove('hidden');
             }
         }
