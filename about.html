@@ -4,85 +4,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>عن الأكاديمية | OFK Academy</title>
-    <!-- Tailwind CSS للتصميم الاحترافي -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome الأيقونات -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slate: { 900: '#0f172a', 800: '#1e293b', 700: '#334155' },
+                        amber: { 500: '#f59e0b', 600: '#d97706' }
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- إعدادات PWA -->
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="./manifest.json">
     <meta name="theme-color" content="#0f172a">
 </head>
-<body class="bg-slate-900 font-sans text-slate-100 min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-blue-950">
+<body class="bg-slate-900 text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-slate-900">
 
-    <!-- الشريط العلوي الشامل (Navigation Bar) -->
-    <header class="bg-blue-950/90 backdrop-blur-md border-b border-slate-800 text-white sticky top-0 z-50 shadow-lg">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <!-- الشعار -->
+    <!-- الشريط العلوي -->
+    <header class="bg-slate-800/80 backdrop-blur-md border-b border-slate-700/50 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3 space-x-reverse">
-                <a href="index.html" class="bg-gradient-to-tr from-amber-500 to-amber-400 text-blue-950 px-3.5 py-1.5 rounded-xl font-black text-lg tracking-wider shadow border border-amber-300 flex items-center justify-center">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center shadow-lg shadow-amber-500/20 text-slate-900 font-black text-xl">
                     OFK
-                </a>
+                </div>
                 <div>
-                    <h1 class="text-base font-extrabold tracking-wide" dir="ltr">OFK Academy</h1>
-                    <p class="text-[10px] text-amber-400/90 font-medium">مركز التعليم التطبيقي المستمر</p>
+                    <h1 class="text-xl font-bold tracking-tight text-white">OFK Academy</h1>
+                    <p class="text-xs text-amber-500 font-medium">عن الأكاديمية والشراكة الاستراتيجية</p>
                 </div>
             </div>
-
-            <!-- القوائم الرئيسية -->
-            <nav class="hidden lg:flex space-x-5 space-x-reverse text-xs font-semibold">
-                <a href="index.html" class="hover:text-amber-400 transition">الرئيسية</a>
-                <a href="courses.html" class="hover:text-amber-400 transition">البرامج والدورات</a>
-                <a href="verify.html" class="hover:text-amber-400 transition">التحقق من الشهادات</a>
-                <a href="about.html" class="text-amber-400 font-bold transition">عن الأكاديمية</a>
-                <a href="contact.html" class="hover:text-amber-400 transition">اتصل بنا</a>
-            </nav>
-
-            <!-- زر الدخول -->
-            <div class="flex items-center space-x-2 space-x-reverse">
-                <a href="login.html" class="bg-slate-800 hover:bg-slate-700 text-amber-400 border border-amber-500/40 font-bold px-3.5 py-2 rounded-xl text-xs transition flex items-center shadow">
-                    <i class="fa-solid fa-right-to-bracket ml-1.5"></i> دخول
+            <div class="hidden md:flex items-center space-x-6 space-x-reverse text-sm font-medium text-slate-300">
+                <a href="index.html" class="hover:text-amber-400 transition-colors">الرئيسية</a>
+                <a href="courses.html" class="hover:text-amber-400 transition-colors">برامجنا</a>
+                <a href="projects.html" class="hover:text-amber-400 transition-colors">مشاريعنا</a>
+                <a href="verify.html" class="hover:text-amber-400 transition-colors">التحقق من الشهادات</a>
+                <a href="about.html" class="text-amber-400 font-semibold transition-colors">عن الأكاديمية</a>
+                <a href="login.html" class="hover:text-amber-400 transition-colors">تسجيل الدخول</a>
+            </div>
+            <div>
+                <a href="index.html" class="inline-flex items-center gap-2 text-slate-300 hover:text-amber-400 text-sm font-semibold transition-colors">
+                    <i class="fa-solid fa-arrow-right"></i>
+                    <span>العودة</span>
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- المحتوى الرئيسي: عن الأكاديمية -->
-    <main class="container mx-auto px-4 py-16 max-w-4xl flex-grow">
-        <div class="text-center mb-12">
-            <span class="bg-blue-900/60 text-amber-400 text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider mb-3 inline-block border border-blue-800/80 shadow">
-                الرؤية والرسالة الأكاديمية
-            </span>
-            <h2 class="text-2xl md:text-4xl font-extrabold text-white mb-3">من هي OFK Academy؟</h2>
-            <p class="text-slate-400 text-xs md:text-sm max-w-xl mx-auto">منصة أكاديمية مستقلة رائدة في التعليم التطبيقي المستمر والتأهيل المهني المتقدم.</p>
+    <!-- المحتوى الرئيسي -->
+    <main class="flex-grow py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto space-y-12">
+        <div class="text-center space-y-4">
+            <div class="inline-flex items-center gap-2 bg-amber-500/10 text-amber-400 px-4 py-2 rounded-full text-sm font-medium border border-amber-500/25">
+                <i class="fa-solid fa-landmark"></i>
+                <span>مركز التعليم التطبيقي المستمر والتأهيل المهني</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">رؤيتنا وهويتنا الأكاديمية</h2>
+            <p class="text-slate-400 text-base max-w-2xl mx-auto">
+                منصة تعليمية رائدة تأسست لتقديم برامج نوعية بمعايير عالمية، بالتعاون الأكاديمي المشترك مع جامعة الزهراء.
+            </p>
         </div>
 
-        <div class="bg-slate-950/80 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6 text-xs md:text-sm text-slate-300 leading-relaxed">
-            <div>
-                <h3 class="font-bold text-amber-400 text-base mb-2 flex items-center">
-                    <i class="fa-solid fa-bullseye ml-2"></i> رسالتنا وهدفنا
-                </h3>
-                <p>
-                    نسعى في <span class="text-white font-bold">OFK Academy</span> إلى تقديم برامج تعليمية وتدريبية نوعية في الأقسام الستة الأساسية (علم النفس، الاقتصاد والمالية، الدراسات القرآنية، الذكاء الاصطناعي والأمن السيبراني، اللغة العربية، والهندسة التطبيقية)، معتمدين على أحدث تقنيات الهندسة الرقمية والبنى التحتية للمنصات الذكية (PWA).
-                </p>
-            </div>
-
-            <div class="border-t border-slate-800 pt-6">
-                <h3 class="font-bold text-amber-400 text-base mb-2 flex items-center">
-                    <i class="fa-solid fa-handshake ml-2"></i> الشراكة والاعتماد الأكاديمي
-                </h3>
-                <p>
-                    تعمل الأكاديمية بالتعاون التام والتنسيق الأكاديمي مع <span class="text-white font-bold">جامعة الزهراء</span> لضمان رصانة المناهج وتوثيق الشهادات والوثائق الصادرة وفق أعلى المعايير المهنية والأكاديمية المعترف بها.
-                </p>
+        <!-- صندوق الشراكة والتعريف -->
+        <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-8 shadow-2xl backdrop-blur-md space-y-6">
+            <h3 class="text-2xl font-bold text-white flex items-center gap-3">
+                <i class="fa-solid fa-handshake text-amber-500"></i>
+                <span>التعاون الاستراتيجي مع جامعة الزهراء</span>
+            </h3>
+            <p class="text-slate-300 leading-relaxed text-base">
+                تعمل <strong class="text-amber-400">OFK Academy</strong> في شراكة استراتيجية وتكامل أكاديمي مع <strong class="text-amber-400">جامعة الزهراء</strong>، لتوفير مظلة تعليمية وتأهيلية موثوقة تدمج بين دقة المعارف النظرية واحترافية التطبيق الميداني وسوق العمل.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+                <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-700/60 space-y-2">
+                    <h4 class="font-bold text-amber-400 flex items-center gap-2">
+                        <i class="fa-solid fa-bullseye"></i>
+                        <span>الرؤية والرسالة</span>
+                    </h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        بناء جيل من الكفاءات المهنية المؤهلة بأحدث المهارات الرقمية والعلمية، وفق معايير الجودة الأكاديمية المستدامة.
+                    </p>
+                </div>
+                <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-700/60 space-y-2">
+                    <h4 class="font-bold text-amber-400 flex items-center gap-2">
+                        <i class="fa-solid fa-award"></i>
+                        <span>الاعتماد والتوثيق</span>
+                    </h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        إصدار وثائق وشهادات معتمدة مزودة برمز تحقق رقمي يتيح للجهات الرسمية التأكد من صحتها بكل سهولة وشفافية.
+                    </p>
+                </div>
             </div>
         </div>
     </main>
 
     <!-- التذييل -->
-    <footer class="bg-slate-950 text-slate-400 text-center py-6 text-xs border-t border-slate-800">
-        <div class="container mx-auto px-4">
-            <p class="font-medium text-slate-300">OFK Academy — منصة أكاديمية مستقلة للتأهيل المهني</p>
-            <p class="mt-1 text-[11px] text-slate-500">جميع الحقوق محفوظة © 2026</p>
+    <footer class="bg-slate-800/80 border-t border-slate-700/50 py-8 text-center text-slate-400 text-sm">
+        <div class="max-w-7xl mx-auto px-4 space-y-2">
+            <p class="font-semibold text-slate-300">جميع الحقوق محفوظة © OFK Academy 2026</p>
+            <p class="text-xs text-slate-500">بالتعاون الأكاديمي مع جامعة الزهراء — مركز التعليم التطبيقي المستمر</p>
         </div>
     </footer>
+
 </body>
 </html>
+ 
