@@ -23,8 +23,8 @@
 </head>
 <body class="bg-slate-900 text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-slate-900">
 
-    <!-- الشريط العلوي المبسط -->
-    <header class="bg-slate-800/80 backdrop-blur-md border-b border-slate-700/50">
+    <!-- الشريط العلوي -->
+    <header class="bg-slate-800/90 backdrop-blur-md border-b border-slate-700/60 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3 space-x-reverse">
                 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center shadow-lg shadow-amber-500/20 text-slate-900 font-black text-xl">
@@ -32,84 +32,97 @@
                 </div>
                 <div>
                     <h1 class="text-xl font-bold tracking-tight text-white">OFK Academy</h1>
-                    <p class="text-xs text-amber-500 font-medium">بوابة الدخول الموحدة</p>
+                    <p class="text-xs text-amber-500 font-medium">بوابة المصادقة والترخيص</p>
                 </div>
             </div>
             <div>
                 <a href="index.html" class="inline-flex items-center gap-2 text-slate-300 hover:text-amber-400 text-sm font-semibold transition-colors">
                     <i class="fa-solid fa-arrow-right"></i>
-                    <span>العودة للرئيسية</span>
+                    <span>الرئيسية</span>
                 </a>
             </div>
         </div>
     </header>
 
     <!-- محتوى صفحة تسجيل الدخول -->
-    <main class="flex-grow flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-md w-full bg-slate-800/80 border border-slate-700/80 rounded-2xl p-8 shadow-2xl backdrop-blur-md space-y-6">
+    <main class="flex-grow py-16 px-4 sm:px-6 lg:px-8 max-w-md mx-auto flex flex-col justify-center w-full">
+        <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-8 shadow-2xl backdrop-blur-md space-y-6">
             
             <div class="text-center space-y-2">
-                <div class="w-16 h-16 rounded-2xl bg-amber-500/10 text-amber-400 mx-auto flex items-center justify-center text-2xl border border-amber-500/20 shadow-inner">
-                    <i class="fa-solid fa-lock-open"></i>
+                <div class="w-16 h-16 bg-amber-500/10 text-amber-400 rounded-2xl mx-auto flex items-center justify-center text-3xl border border-amber-500/20 shadow-inner">
+                    <i class="fa-solid fa-lock"></i>
                 </div>
-                <h2 class="text-2xl font-bold text-white tracking-tight">تسجيل الدخول للحساب</h2>
-                <p class="text-sm text-slate-400">أدخل بياناتك للوصول إلى بوابتك الأكاديمية بالتعاون مع جامعة الزهراء</p>
+                <h2 class="text-2xl font-bold text-white">تسجيل الدخول للبوابة</h2>
+                <p class="text-xs text-slate-400">أدخل اسم المستخدم وكلمة المرور الخاصة بصلاحيتك</p>
             </div>
 
-            <form class="space-y-4" onsubmit="event.preventDefault(); alert('تجربة الدخول قيد التشغيل التجريبي!');">
-                
-                <!-- اختيار نوع الحساب -->
+            <!-- نموذج تسجيل الدخول -->
+            <form id="loginForm" class="space-y-4" onsubmit="handleLogin(event)">
                 <div>
-                    <label class="block text-sm font-medium text-slate-300 mb-1.5">نوع الحساب</label>
-                    <select class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-amber-500 transition-colors text-sm">
-                        <option value="student">👨‍🎓 طالب (بوابة الطالب)</option>
-                        <option value="instructor">👩‍🏫 مدرس / مشرف أكاديمي</option>
-                        <option value="admin">🏛️ لوحة الإدارة العليا</option>
-                    </select>
+                    <label class="block text-sm font-medium text-slate-300 mb-1">اسم المستخدم أو البريد</label>
+                    <input type="text" id="usernameInput" required placeholder="Omr أو osmanomr466@gmail.com" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-amber-500 text-sm">
                 </div>
 
-                <!-- البريد الإلكتروني أو اسم المستخدم -->
                 <div>
-                    <label class="block text-sm font-medium text-slate-300 mb-1.5">البريد الإلكتروني أو اسم المستخدم</label>
-                    <div class="relative">
-                        <span class="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-500">
-                            <i class="fa-solid fa-envelope"></i>
-                        </span>
-                        <input type="text" required placeholder="name@ofk-academy.com" class="w-full bg-slate-900 border border-slate-700 rounded-xl pr-11 pl-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-amber-500 transition-colors text-sm">
-                    </div>
+                    <label class="block text-sm font-medium text-slate-300 mb-1">كلمة المرور</label>
+                    <input type="password" id="passwordInput" required placeholder="أدخل كلمة المرور" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-amber-500 text-sm">
                 </div>
 
-                <!-- كلمة المرور -->
-                <div>
-                    <label class="block text-sm font-medium text-slate-300 mb-1.5">كلمة المرور</label>
-                    <div class="relative">
-                        <span class="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-500">
-                            <i class="fa-solid fa-key"></i>
-                        </span>
-                        <input type="password" required placeholder="••••••••" class="w-full bg-slate-900 border border-slate-700 rounded-xl pr-11 pl-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-amber-500 transition-colors text-sm">
-                    </div>
-                </div>
+                <div id="errorMsg" class="text-red-400 text-xs hidden bg-red-500/10 p-3 rounded-lg border border-red-500/20 text-center"></div>
 
-                <!-- زر الإرسال -->
-                <button type="submit" class="w-full mt-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 font-bold py-3.5 px-4 rounded-xl shadow-lg shadow-amber-500/20 transition-all text-base flex items-center justify-center gap-2">
+                <button type="submit" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 font-bold py-3.5 px-4 rounded-xl shadow-lg shadow-amber-500/20 transition-all text-sm flex items-center justify-center gap-2">
                     <i class="fa-solid fa-right-to-bracket"></i>
                     <span>دخول المنصة</span>
                 </button>
             </form>
 
-            <div class="text-center pt-2 border-t border-slate-700/50">
-                <p class="text-xs text-slate-400">
-                    تواجه مشكلة في الدخول؟ 
-                    <a href="index.html#contact" class="text-amber-400 hover:underline font-medium">تواصل مع الدعم الفني</a>
-                </p>
+            <!-- أزرار تجريبية سريعة لتسهيل الفحص -->
+            <div class="border-t border-slate-700/60 pt-4 space-y-2">
+                <p class="text-xs text-slate-400 text-center font-medium">تجربة سريعة للحسابات:</p>
+                <div class="grid grid-cols-3 gap-2">
+                    <button onclick="fillDemo('admin')" class="bg-slate-900 hover:bg-slate-700 text-amber-400 text-xs py-2 px-1 rounded-lg border border-slate-700 font-medium transition-colors">مدير النظام</button>
+                    <button onclick="fillDemo('instructor')" class="bg-slate-900 hover:bg-slate-700 text-amber-400 text-xs py-2 px-1 rounded-lg border border-slate-700 font-medium transition-colors">مدرس</button>
+                    <button onclick="fillDemo('student')" class="bg-slate-900 hover:bg-slate-700 text-amber-400 text-xs py-2 px-1 rounded-lg border border-slate-700 font-medium transition-colors">طالب</button>
+                </div>
             </div>
+
         </div>
     </main>
 
     <!-- التذييل -->
     <footer class="bg-slate-800/80 border-t border-slate-700/50 py-6 text-center text-slate-400 text-xs">
-        <p>جميع الحقوق محفوظة © OFK Academy 2026</p>
+        <p>جميع الحقوق محفوظة © OFK Academy 2026 — بالتعاون مع جامعة الزهراء</p>
     </footer>
+
+    <!-- سكريبت المصادقة الذكي -->
+    <script>
+        function fillDemo(role) {
+            document.getElementById('usernameInput').value = 'Omr';
+            if(role === 'admin') document.getElementById('passwordInput').value = 'Omr12345';
+            if(role === 'instructor') document.getElementById('passwordInput').value = 'Omr1234';
+            if(role === 'student') document.getElementById('passwordInput').value = 'Omr123';
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            const pass = document.getElementById('passwordInput').value.trim();
+            const errBox = document.getElementById('errorMsg');
+
+            if (pass === 'Omr12345') {
+                localStorage.setItem('userRole', 'admin');
+                window.location.href = 'admin-portal.html';
+            } else if (pass === 'Omr1234') {
+                localStorage.setItem('userRole', 'instructor');
+                window.location.href = 'instructor-portal.html';
+            } else if (pass === 'Omr123') {
+                localStorage.setItem('userRole', 'student');
+                window.location.href = 'student-portal.html';
+            } else {
+                errBox.textContent = 'كلمة المرور غير صحيحة. يرجى التأكد من كلمة المرور المعتمدة.';
+                errBox.classList.remove('hidden');
+            }
+        }
+    </script>
 
 </body>
 </html>
