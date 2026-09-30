@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم العليا للإدارة | OFK Academy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slate: { 900: '#0f172a', 800: '#1e293b', 700: '#334155' },
+                        amber: { 500: '#f59e0b', 600: '#d97706' }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#0f172a">
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-slate-900">
+
+    <!-- الشريط العلوي للوحة الإدارة -->
+    <header class="bg-slate-800/90 backdrop-blur-md border-b border-slate-700/60 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center shadow-lg shadow-amber-500/20 text-slate-900 font-black text-xl">
+                    OFK
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold tracking-tight text-white">لوحة التحكم العليا للإدارة</h1>
+                    <p class="text-xs text-amber-500 font-medium">مدير النظام السيادي (Administrator)</p>
+                </div>
+            </div>
+            <div>
+                <a href="login.html" class="inline-flex items-center gap-2 bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/30 px-4 py-2 rounded-xl text-sm font-semibold transition-colors">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>تسجيل الخروج</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- المحتوى الرئيسي للوحة الإدارة -->
+    <main class="flex-grow py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-8 w-full">
+        
+        <!-- المؤشرات العامة للمنصة -->
+        <div class="grid grid-cols-1 sm:grid-cols-4 gap-6">
+            <div class="bg-slate-800/80 border border-slate-700/80 p-6 rounded-2xl shadow-xl flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl border border-amber-500/20">
+                    <i class="fa-solid fa-users-gear"></i>
+                </div>
+                <div>
+                    <p class="text-xs text-slate-400">إجمالي المستخدمين</p>
+                    <h3 class="text-xl font-bold text-white">1,482</h3>
+                </div>
+            </div>
+
+            <div class="bg-slate-800/80 border border-slate-700/80 p-6 rounded-2xl shadow-xl flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl border border-blue-500/20">
+                    <i class="fa-solid fa-book-bookmark"></i>
+                </div>
+                <div>
+                    <p class="text-xs text-slate-400">البرامج النشطة</p>
+                    <h3 class="text-xl font-bold text-white">12 برنامجاً</h3>
+                </div>
+            </div>
+
+            <div class="bg-slate-800/80 border border-slate-700/80 p-6 rounded-2xl shadow-xl flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl border border-emerald-500/20">
+                    <i class="fa-solid fa-certificate"></i>
+                </div>
+                <div>
+                    <p class="text-xs text-slate-400">الشهادات الموثقة</p>
+                    <h3 class="text-xl font-bold text-white">650 شهادة</h3>
+                </div>
+            </div>
+
+            <div class="bg-slate-800/80 border border-slate-700/80 p-6 rounded-2xl shadow-xl flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl border border-purple-500/20">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div>
+                    <p class="text-xs text-slate-400">حالة النظام</p>
+                    <h3 class="text-xl font-bold text-emerald-400">مؤمن بالكامل</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- جدول إدارة الحسابات والاعتمادات -->
+        <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 sm:p-8 shadow-xl space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-700/60 pb-4">
+                <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-user-shield text-amber-500"></i>
+                    <span>طلبات الاعتماد وصلاحيات المستخدمين الأخيرة</span>
+                </h3>
+                <span class="text-xs bg-amber-500/10 text-amber-400 px-3 py-1 rounded-full border border-amber-500/20 font-medium">إدارة النظام العام</span>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-right text-sm">
+                    <thead class="bg-slate-900/80 text-slate-400 uppercase text-xs">
+                        <tr>
+                            <th class="p-4 rounded-r-xl">اسم المستخدم</th>
+                            <th class="p-4">البريد الإلكتروني</th>
+                            <th class="p-4">نوع الحساب المطلوب</th>
+                            <th class="p-4">الحالة الحالية</th>
+                            <th class="p-4 rounded-l-xl">الإجراء الإداري</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-700/50 text-slate-300">
+                        <tr>
+                            <td class="p-4 font-semibold text-white">محمد عبد الله العامري</td>
+                            <td class="p-4 text-slate-400">mohammed@example.com</td>
+                            <td class="p-4 text-amber-400 font-medium">مدرس / مشرف أكاديمي</td>
+                            <td class="p-4"><span class="text-amber-400 font-medium text-xs bg-amber-500/10 px-2.5 py-1 rounded-lg border border-amber-500/20">بانتظار الموافقة</span></td>
+                            <td class="p-4 flex gap-2">
+                                <button onclick="alert('تم اعتماد الحساب بنجاح وإرسال بيانات الدخول')" class="bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors">
+                                    قبول
+                                </button>
+                                <button onclick="alert('تم رفض الطلب')" class="bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/30 px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors">
+                                    رفض
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-semibold text-white">فاطمة الزهراء الحَسني</td>
+                            <td class="p-4 text-slate-400">fatima@example.com</td>
+                            <td class="p-4 text-blue-400 font-medium">طالب أكاديمي</td>
+                            <td class="p-4"><span class="text-emerald-400 font-medium text-xs bg-emerald-500/10 px-2.5 py-1 rounded-lg border border-emerald-500/20">مفعل ومنتظم</span></td>
+                            <td class="p-4">
+                                <button onclick="alert('فتح إعدادات حساب الطالب')" class="bg-slate-700 hover:bg-slate-600 text-slate-200 border border-slate-600 px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors">
+                                    إدارة الحساب
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- التذييل -->
+    <footer class="bg-slate-800/80 border-t border-slate-700/50 py-6 text-center text-slate-400 text-xs">
+        <p>جميع الحقوق محفوظة © OFK Academy 2026 — بالتعاون مع جامعة الزهراء</p>
+    </footer>
+
+</body>
+</html>
