@@ -3,153 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OFK Academy | البرامج التدريبية والأقسام</title>
-    <!-- استخدام Tailwind CSS للتصميم -->
+    <title>البرامج والدورات | OFK Academy</title>
+    <!-- Tailwind CSS للتصميم الاحترافي -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- إضافة خطوط وأيقونات أكاديمية -->
+    <!-- FontAwesome الأيقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- إعدادات تطبيق الويب PWA -->
+    <!-- إعدادات PWA -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0f172a">
 </head>
-<body class="bg-slate-900 font-sans text-slate-100 min-h-screen flex flex-col justify-between">
+<body class="bg-slate-900 font-sans text-slate-100 min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-blue-950">
 
-    <!-- شريط التنصيب العلوي الموحد -->
-    <header class="bg-blue-950/85 backdrop-blur-md border-b border-slate-800 text-white sticky top-0 z-50">
+    <!-- الشريط العلوي الشامل (Navigation Bar) -->
+    <header class="bg-blue-950/90 backdrop-blur-md border-b border-slate-800 text-white sticky top-0 z-50 shadow-lg">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- الشعار -->
             <div class="flex items-center space-x-3 space-x-reverse">
-                <div class="bg-gradient-to-tr from-amber-500 to-amber-400 text-blue-950 px-3.5 py-1.5 rounded-xl font-black text-lg tracking-wider shadow border border-amber-300 flex items-center justify-center">
+                <a href="index.html" class="bg-gradient-to-tr from-amber-500 to-amber-400 text-blue-950 px-3.5 py-1.5 rounded-xl font-black text-lg tracking-wider shadow border border-amber-300 flex items-center justify-center">
                     OFK
-                </div>
+                </a>
                 <div>
                     <h1 class="text-base font-extrabold tracking-wide" dir="ltr">OFK Academy</h1>
-                    <p class="text-[10px] text-amber-400/90 font-medium">المنصة الأكاديمية المستقلة</p>
+                    <p class="text-[10px] text-amber-400/90 font-medium">مركز التعليم التطبيقي المستمر</p>
                 </div>
             </div>
-            <nav class="hidden md:flex space-x-6 space-x-reverse text-sm font-medium">
+
+            <!-- القوائم الرئيسية -->
+            <nav class="hidden lg:flex space-x-5 space-x-reverse text-xs font-semibold">
                 <a href="index.html" class="hover:text-amber-400 transition">الرئيسية</a>
-                <a href="about.html" class="hover:text-amber-400 transition">من نحن</a>
-                <a href="courses.html" class="text-amber-400 font-bold transition">البرامج العامة</a>
+                <a href="courses.html" class="text-amber-400 font-bold transition">البرامج والدورات</a>
+                <a href="projects.html" class="hover:text-amber-400 transition">مشاريعنا</a>
+                <a href="verify.html" class="hover:text-amber-400 transition">التحقق من الشهادات</a>
+                <a href="about.html" class="hover:text-amber-400 transition">عن الأكاديمية</a>
                 <a href="contact.html" class="hover:text-amber-400 transition">اتصل بنا</a>
-                <a href="verify.html" class="hover:text-amber-400 transition">التحقق</a>
             </nav>
-            <div>
-                <a href="login.html" class="bg-amber-500 hover:bg-amber-600 text-blue-950 font-bold px-4 py-2 rounded-xl text-xs shadow transition flex items-center">
+
+            <!-- أزرار الدخول والحساب -->
+            <div class="flex items-center space-x-2 space-x-reverse">
+                <a href="login.html" class="bg-slate-800 hover:bg-slate-700 text-amber-400 border border-amber-500/40 font-bold px-3.5 py-2 rounded-xl text-xs transition flex items-center shadow">
                     <i class="fa-solid fa-right-to-bracket ml-1.5"></i> دخول
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- رأس الصفحة بتصميم فاخر متناسق -->
-    <section class="bg-gradient-to-br from-blue-950 via-slate-900 to-slate-950 text-white py-16 text-center border-b border-slate-800">
-        <div class="container mx-auto px-4 max-w-3xl">
-            <span class="bg-blue-900/60 text-amber-400 text-xs font-semibold px-3.5 py-1.5 rounded-full uppercase tracking-wider mb-4 inline-block border border-blue-800">
-                Academic Departments & Programs
-            </span>
-            <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-white">البرامج التدريبية والأقسام الستة</h2>
-            <p class="text-slate-300 text-sm md:text-base leading-relaxed max-w-xl mx-auto">
-                مسارات تخصصية متطورة مصممة وفق أحدث معايير المعهد التطبيقي والأكاديمي.
-            </p>
-        </div>
-    </section>
-
-    <!-- محتوى الأقسام الستة -->
+    <!-- المحتوى الرئيسي: البرامج والدورات -->
     <main class="container mx-auto px-4 py-16 max-w-6xl flex-grow">
-        <div class="grid md:grid-cols-3 gap-8">
-            
-            <!-- القسم 1: علم النفس -->
-            <div class="bg-slate-950/60 backdrop-blur-md p-8 rounded-3xl shadow-xl border border-slate-800 hover:border-amber-500/50 transition group">
-                <div class="w-14 h-14 bg-amber-500/10 text-amber-400 rounded-2xl flex items-center justify-center text-2xl mb-6 font-bold group-hover:bg-amber-500 group-hover:text-blue-950 transition border border-amber-500/20">
-                    <i class="fa-solid fa-brain"></i>
+        <div class="text-center mb-12">
+            <span class="bg-blue-900/60 text-amber-400 text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider mb-3 inline-block border border-blue-800/80 shadow">
+                التأهيل المهني والأكاديمي
+            </span>
+            <h2 class="text-2xl md:text-4xl font-extrabold text-white mb-3">البرامج والدورات التدريبية المتقدمة</h2>
+            <p class="text-slate-400 text-xs md:text-sm max-w-xl mx-auto">استعرض المسارات التعليمية المصممة بعناية لتلبية متطلبات التميز في الأقسام الستة الأساسية.</p>
+        </div>
+
+        <!-- شبكة الدورات -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- كورس 1 -->
+            <div class="bg-slate-950/80 rounded-2xl border border-slate-800 overflow-hidden shadow-lg flex flex-col justify-between group hover:border-amber-500/50 transition">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-blue-950 text-amber-400 text-[10px] font-bold px-2.5 py-1 rounded-lg border border-slate-800">علم النفس</span>
+                        <span class="text-slate-400 text-xs"><i class="fa-solid fa-clock ml-1"></i> 8 أسابيع</span>
+                    </div>
+                    <h3 class="font-bold text-white text-base mb-2 group-hover:text-amber-400 transition">أساسيات التحليل السلوكي التطبيقي</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-4">برنامج تأهيلي متقدم لفهم الآليات النفسية وتحليل السلوك البشري بأسلوب منهجي.</p>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-3">قسم علم النفس</h3>
-                <p class="text-slate-400 text-xs leading-relaxed mb-6">
-                    برامج متخصصة في الإرشاد النفسي، تحليل السلوك، والصحة النفسية المهنية.
-                </p>
-                <a href="contact.html" class="text-amber-400 font-bold text-xs flex items-center hover:text-white transition">
-                    استفسر عن البرنامج <i class="fa-solid fa-arrow-left mr-2"></i>
-                </a>
+                <div class="px-6 py-4 bg-slate-900/60 border-t border-slate-800/80 flex justify-between items-center">
+                    <span class="text-xs text-amber-400 font-bold">معتمد من الأكاديمية</span>
+                    <a href="login.html" class="bg-amber-500 hover:bg-amber-600 text-blue-950 font-bold px-3.5 py-1.5 rounded-lg text-xs transition shadow">الالتحاق</a>
+                </div>
             </div>
 
-            <!-- القسم 2: الاقتصاد -->
-            <div class="bg-slate-950/60 backdrop-blur-md p-8 rounded-3xl shadow-xl border border-slate-800 hover:border-amber-500/50 transition group">
-                <div class="w-14 h-14 bg-blue-500/10 text-blue-400 rounded-2xl flex items-center justify-center text-2xl mb-6 font-bold group-hover:bg-blue-900 group-hover:text-white transition border border-blue-500/20">
-                    <i class="fa-solid fa-chart-line"></i>
+            <!-- كورس 2 -->
+            <div class="bg-slate-950/80 rounded-2xl border border-slate-800 overflow-hidden shadow-lg flex flex-col justify-between group hover:border-amber-500/50 transition">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-blue-950 text-amber-400 text-[10px] font-bold px-2.5 py-1 rounded-lg border border-slate-800">الذكاء الاصطناعي</span>
+                        <span class="text-slate-400 text-xs"><i class="fa-solid fa-clock ml-1"></i> 10 أسابيع</span>
+                    </div>
+                    <h3 class="font-bold text-white text-base mb-2 group-hover:text-amber-400 transition">هندسة النظم الذكية والأمن السيبراني</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-4">مهارات حماية البنى التحتية الرقمية واستخدام خوارزميات الذكاء الاصطناعي الحديثة.</p>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-3">قسم الاقتصاد والأعمال</h3>
-                <p class="text-slate-400 text-xs leading-relaxed mb-6">
-                    دراسات الإدارة الحديثة، ريادة الأعمال، الأسواق المالية، وتحليل البيانات الاقتصادية.
-                </p>
-                <a href="contact.html" class="text-amber-400 font-bold text-xs flex items-center hover:text-white transition">
-                    استفسر عن البرنامج <i class="fa-solid fa-arrow-left mr-2"></i>
-                </a>
+                <div class="px-6 py-4 bg-slate-900/60 border-t border-slate-800/80 flex justify-between items-center">
+                    <span class="text-xs text-amber-400 font-bold">معتمد من الأكاديمية</span>
+                    <a href="login.html" class="bg-amber-500 hover:bg-amber-600 text-blue-950 font-bold px-3.5 py-1.5 rounded-lg text-xs transition shadow">الالتحاق</a>
+                </div>
             </div>
 
-            <!-- القسم 3: الدراسات القرآنية -->
-            <div class="bg-slate-950/60 backdrop-blur-md p-8 rounded-3xl shadow-xl border border-slate-800 hover:border-amber-500/50 transition group">
-                <div class="w-14 h-14 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center text-2xl mb-6 font-bold group-hover:bg-emerald-600 group-hover:text-white transition border border-emerald-500/20">
-                    <i class="fa-solid fa-book-quran"></i>
+            <!-- كورس 3 -->
+            <div class="bg-slate-950/80 rounded-2xl border border-slate-800 overflow-hidden shadow-lg flex flex-col justify-between group hover:border-amber-500/50 transition">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-blue-950 text-amber-400 text-[10px] font-bold px-2.5 py-1 rounded-lg border border-slate-800">الاقتصاد والمالية</span>
+                        <span class="text-slate-400 text-xs"><i class="fa-solid fa-clock ml-1"></i> 6 أسابيع</span>
+                    </div>
+                    <h3 class="font-bold text-white text-base mb-2 group-hover:text-amber-400 transition">تحليل الأسواق المالية والاقتصاد المعاصر</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-4">دراسة اتجاهات الأسواق وإدارة المخاطر الاقتصادية بأساليب تحليلية متطورة.</p>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-3">قسم الدراسات القرآنية</h3>
-                <p class="text-slate-400 text-xs leading-relaxed mb-6">
-                    علوم القرآن الكريم، أحكام التجويد، التدبر، والدراسات الإسلامية المعاصرة.
-                </p>
-                <a href="contact.html" class="text-amber-400 font-bold text-xs flex items-center hover:text-white transition">
-                    استفسر عن البرنامج <i class="fa-solid fa-arrow-left mr-2"></i>
-                </a>
-            </div>
-
-            <!-- القسم 4: الذكاء الاصطناعي والأمن السيبراني -->
-            <div class="bg-slate-950/60 backdrop-blur-md p-8 rounded-3xl shadow-xl border border-slate-800 hover:border-amber-500/50 transition group">
-                <div class="w-14 h-14 bg-sky-500/10 text-sky-400 rounded-2xl flex items-center justify-center text-2xl mb-6 font-bold group-hover:bg-sky-600 group-hover:text-white transition border border-sky-500/20">
-                    <i class="fa-solid fa-shield-halved"></i>
+                <div class="px-6 py-4 bg-slate-900/60 border-t border-slate-800/80 flex justify-between items-center">
+                    <span class="text-xs text-amber-400 font-bold">معتمد من الأكاديمية</span>
+                    <a href="login.html" class="bg-amber-500 hover:bg-amber-600 text-blue-950 font-bold px-3.5 py-1.5 rounded-lg text-xs transition shadow">الالتحاق</a>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-3">الذكاء الاصطناعي والأمن السيبراني</h3>
-                <p class="text-slate-400 text-xs leading-relaxed mb-6">
-                    أمن الشبكات، حماية البيانات، وتقنيات الذكاء الاصطناعي المتقدمة.
-                </p>
-                <a href="contact.html" class="text-amber-400 font-bold text-xs flex items-center hover:text-white transition">
-                    استفسر عن البرنامج <i class="fa-solid fa-arrow-left mr-2"></i>
-                </a>
             </div>
-
-            <!-- القسم 5: اللغة العربية -->
-            <div class="bg-slate-950/60 backdrop-blur-md p-8 rounded-3xl shadow-xl border border-slate-800 hover:border-amber-500/50 transition group">
-                <div class="w-14 h-14 bg-indigo-500/10 text-indigo-400 rounded-2xl flex items-center justify-center text-2xl mb-6 font-bold group-hover:bg-indigo-600 group-hover:text-white transition border border-indigo-500/20">
-                    <i class="fa-solid fa-language"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-3">قسم اللغة العربية</h3>
-                <p class="text-slate-400 text-xs leading-relaxed mb-6">
-                    النحو والصرف، البلاغة، مهارات التحرير العربي، واللسانيات.
-                </p>
-                <a href="contact.html" class="text-amber-400 font-bold text-xs flex items-center hover:text-white transition">
-                    استفسر عن البرنامج <i class="fa-solid fa-arrow-left mr-2"></i>
-                </a>
-            </div>
-
-            <!-- القسم 6: الهندسة التطبيقية -->
-            <div class="bg-slate-950/60 backdrop-blur-md p-8 rounded-3xl shadow-xl border border-slate-800 hover:border-amber-500/50 transition group">
-                <div class="w-14 h-14 bg-amber-500/10 text-amber-400 rounded-2xl flex items-center justify-center text-2xl mb-6 font-bold group-hover:bg-amber-500 group-hover:text-blue-950 transition border border-amber-500/20">
-                    <i class="fa-solid fa-gears"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-3">قسم الهندسة التطبيقية</h3>
-                <p class="text-slate-400 text-xs leading-relaxed mb-6">
-                    التطبيقات الهندسية الحديثة، التصميم التقني، وإدارة المشاريع الهندسية.
-                </p>
-                <a href="contact.html" class="text-amber-400 font-bold text-xs flex items-center hover:text-white transition">
-                    استفسر عن البرنامج <i class="fa-solid fa-arrow-left mr-2"></i>
-                </a>
-            </div>
-
         </div>
     </main>
 
     <!-- التذييل -->
     <footer class="bg-slate-950 text-slate-400 text-center py-6 text-xs border-t border-slate-800">
-        <p class="font-medium text-slate-300">OFK Academy - منصة أكاديمية مستقلة</p>
-        <p class="mt-1 text-[11px] text-slate-500">جميع الحقوق محفوظة © 2026</p>
+        <div class="container mx-auto px-4">
+            <p class="font-medium text-slate-300">OFK Academy — منصة أكاديمية مستقلة للتأهيل المهني</p>
+            <p class="mt-1 text-[11px] text-slate-500">جميع الحقوق محفوظة © 2026</p>
+        </div>
     </footer>
-
 </body>
 </html>
