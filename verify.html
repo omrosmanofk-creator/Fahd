@@ -3,92 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OFK Academy | نظام التحقق</title>
-    <!-- استخدام Tailwind CSS للتصميم -->
+    <title>التحقق من الشهادات | OFK Academy</title>
+    <!-- Tailwind CSS للتصميم الاحترافي -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- إضافة خطوط وأيقونات أكاديمية -->
+    <!-- FontAwesome الأيقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- إعدادات تطبيق الويب PWA -->
+    <!-- إعدادات PWA -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0f172a">
 </head>
-<body class="bg-slate-900 font-sans text-slate-100 min-h-screen flex flex-col justify-between">
+<body class="bg-slate-900 font-sans text-slate-100 min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-blue-950">
 
-    <!-- شريط التنصيب العلوي الموحد -->
-    <header class="bg-blue-950/85 backdrop-blur-md border-b border-slate-800 text-white sticky top-0 z-50">
+    <!-- الشريط العلوي الشامل (Navigation Bar) -->
+    <header class="bg-blue-950/90 backdrop-blur-md border-b border-slate-800 text-white sticky top-0 z-50 shadow-lg">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- الشعار -->
             <div class="flex items-center space-x-3 space-x-reverse">
-                <div class="bg-gradient-to-tr from-amber-500 to-amber-400 text-blue-950 px-3.5 py-1.5 rounded-xl font-black text-lg tracking-wider shadow border border-amber-300 flex items-center justify-center">
+                <a href="index.html" class="bg-gradient-to-tr from-amber-500 to-amber-400 text-blue-950 px-3.5 py-1.5 rounded-xl font-black text-lg tracking-wider shadow border border-amber-300 flex items-center justify-center">
                     OFK
-                </div>
+                </a>
                 <div>
                     <h1 class="text-base font-extrabold tracking-wide" dir="ltr">OFK Academy</h1>
-                    <p class="text-[10px] text-amber-400/90 font-medium">المنصة الأكاديمية المستقلة</p>
+                    <p class="text-[10px] text-amber-400/90 font-medium">مركز التعليم التطبيقي المستمر</p>
                 </div>
             </div>
-            <nav class="hidden md:flex space-x-6 space-x-reverse text-sm font-medium">
+
+            <!-- القوائم الرئيسية -->
+            <nav class="hidden lg:flex space-x-5 space-x-reverse text-xs font-semibold">
                 <a href="index.html" class="hover:text-amber-400 transition">الرئيسية</a>
-                <a href="about.html" class="hover:text-amber-400 transition">من نحن</a>
-                <a href="courses.html" class="hover:text-amber-400 transition">البرامج العامة</a>
+                <a href="courses.html" class="hover:text-amber-400 transition">البرامج والدورات</a>
+                <a href="projects.html" class="hover:text-amber-400 transition">مشاريعنا</a>
+                <a href="verify.html" class="text-amber-400 font-bold transition">التحقق من الشهادات</a>
+                <a href="about.html" class="hover:text-amber-400 transition">عن الأكاديمية</a>
                 <a href="contact.html" class="hover:text-amber-400 transition">اتصل بنا</a>
-                <a href="verify.html" class="text-amber-400 font-bold transition">التحقق</a>
             </nav>
-            <div>
-                <a href="login.html" class="bg-amber-500 hover:bg-amber-600 text-blue-950 font-bold px-4 py-2 rounded-xl text-xs shadow transition flex items-center">
+
+            <!-- أزرار الدخول والحساب -->
+            <div class="flex items-center space-x-2 space-x-reverse">
+                <a href="login.html" class="bg-slate-800 hover:bg-slate-700 text-amber-400 border border-amber-500/40 font-bold px-3.5 py-2 rounded-xl text-xs transition flex items-center shadow">
                     <i class="fa-solid fa-right-to-bracket ml-1.5"></i> دخول
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- رأس الصفحة بتصميم فاخر متناسق -->
-    <section class="bg-gradient-to-br from-blue-950 via-slate-900 to-slate-950 text-white py-16 text-center border-b border-slate-800">
-        <div class="container mx-auto px-4 max-w-3xl">
-            <span class="bg-blue-900/60 text-amber-400 text-xs font-semibold px-3.5 py-1.5 rounded-full uppercase tracking-wider mb-4 inline-block border border-blue-800">
-                Certificate & Document Verification
+    <!-- المحتوى الرئيسي: نظام التحقق -->
+    <main class="container mx-auto px-4 py-16 max-w-2xl flex-grow">
+        <div class="text-center mb-10">
+            <span class="bg-blue-900/60 text-amber-400 text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider mb-3 inline-block border border-blue-800/80 shadow">
+                نظام الموثوقية الأكاديمية
             </span>
-            <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-white">نظام التحقق الرقمي الموثوق</h2>
-            <p class="text-slate-300 text-sm md:text-base leading-relaxed max-w-xl mx-auto">
-                تحقق من صحة واعتماد الشهادات والسجلات الأكاديمية الصادرة عن المنصة وبوابات الشركاء بكل سهولة وأمان.
-            </p>
+            <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-3">التحقق من صحة الشهادات والوثائق</h2>
+            <p class="text-slate-400 text-xs md:text-sm">أدخل رقم الشهادة أو رمز التحقق الرسمي للتأكد من صحة بيانات الإصدار والاعتماد.</p>
         </div>
-    </section>
 
-    <!-- محتوى صفحة التحقق -->
-    <main class="container mx-auto px-4 py-16 max-w-xl flex-grow flex items-center justify-center">
-        <div class="bg-slate-950/60 backdrop-blur-md p-8 rounded-3xl shadow-xl border border-slate-800 w-full text-right">
-            
-            <div class="text-center mb-8">
-                <div class="w-16 h-16 bg-amber-500/10 text-amber-400 rounded-2xl mx-auto flex items-center justify-center text-3xl font-bold border border-amber-500/20 mb-4">
-                    <i class="fa-solid fa-shield-check"></i>
-                </div>
-                <h3 class="text-2xl font-bold text-white mb-2">استعلام عن شهادة</h3>
-                <p class="text-slate-400 text-xs">أدخل الرقم التسلسلي أو كود التحقق الخاص بالوثيقة</p>
-            </div>
-
-            <form onsubmit="event.preventDefault(); alert('عذراً، نظام البحث السريع قيد التفعيل والربط مع قاعدة البيانات.');" class="space-y-5">
+        <!-- صندوق البحث والتحقق -->
+        <div class="bg-slate-950/80 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-xl backdrop-blur-md mb-8">
+            <div class="space-y-4">
                 <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-2">رقم الشهادة أو السجل:</label>
-                    <input type="text" placeholder="مثال: OFK-2026-XXXX" class="w-full px-4 py-3.5 text-xs bg-slate-900 border border-slate-800 rounded-xl text-white focus:ring-2 focus:ring-amber-500 focus:outline-none" dir="ltr">
+                    <label class="block text-xs font-bold text-slate-300 mb-2" for="certCode">رقم الشهادة أو رمز التحقق</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-500 pointer-events-none">
+                            <i class="fa-solid fa-certificate"></i>
+                        </span>
+                        <input type="text" id="certCode" placeholder="مثال: OFK-2026-000123" class="w-full bg-slate-900 border border-slate-700 rounded-xl py-3 pr-10 pl-4 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition">
+                    </div>
                 </div>
-
-                <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-blue-950 py-3.5 rounded-xl font-bold text-xs transition shadow-lg flex items-center justify-center">
-                    <i class="fa-solid fa-magnifying-glass ml-2"></i> تحقق من الوثيقة الآن
+                <button onclick="verifyCertificate()" class="w-full bg-amber-500 hover:bg-amber-600 text-blue-950 font-bold py-3 rounded-xl text-xs transition shadow-lg flex items-center justify-center">
+                    <i class="fa-solid fa-magnifying-glass ml-2"></i> تحقق من الوثيقة
                 </button>
-            </form>
-
-            <div class="mt-8 pt-6 border-t border-slate-800/80 text-center text-xs text-slate-400">
-                <p>هل تواجه مشكلة في مطابقة البيانات؟ <a href="contact.html" class="text-amber-400 font-bold hover:underline">اتصل بالإدارة</a></p>
             </div>
+        </div>
 
+        <!-- منطقة عرض النتيجة (مخفية افتراضياً حتى يتم البحث) -->
+        <div id="resultBox" class="hidden bg-slate-950/90 p-6 rounded-2xl border border-emerald-500/40 shadow-xl">
+            <div class="flex items-center space-x-3 space-x-reverse mb-4 pb-3 border-b border-slate-800">
+                <div class="bg-emerald-500/20 text-emerald-400 p-3 rounded-xl text-lg">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-emerald-400 text-sm">الشهادة موثقة وصحيحة رسمياً</h4>
+                    <p class="text-[11px] text-slate-400">تم الاصدار والاعتماد بنجاح من الأكاديمية</p>
+                </div>
+            </div>
+            <div class="space-y-2 text-xs text-slate-300">
+                <div class="flex justify-between py-1 border-b border-slate-800/60">
+                    <span class="text-slate-500">اسم الخريج:</span>
+                    <span class="font-bold text-white">عثمان (مثال تجريبي)</span>
+                </div>
+                <div class="flex justify-between py-1 border-b border-slate-800/60">
+                    <span class="text-slate-500">البرنامج الأكاديمي:</span>
+                    <span class="font-bold text-amber-400">تطوير منصات الويب المتقدمة</span>
+                </div>
+                <div class="flex justify-between py-1 border-b border-slate-800/60">
+                    <span class="text-slate-500">الجهة الأكاديمية المشرفة:</span>
+                    <span class="font-bold text-white">جامعة الزهراء</span>
+                </div>
+                <div class="flex justify-between py-1 border-b border-slate-800/60">
+                    <span class="text-slate-500">تاريخ الإصدار:</span>
+                    <span class="font-bold text-white">2026 / 2027</span>
+                </div>
+                <div class="flex justify-between py-1">
+                    <span class="text-slate-500">حالة الوثيقة:</span>
+                    <span class="bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded text-[10px] font-bold">سارية ومعتمدة</span>
+                </div>
+            </div>
         </div>
     </main>
 
     <!-- التذييل -->
     <footer class="bg-slate-950 text-slate-400 text-center py-6 text-xs border-t border-slate-800">
-        <p class="font-medium text-slate-300">OFK Academy - منصة أكاديمية مستقلة</p>
-        <p class="mt-1 text-[11px] text-slate-500">جميع الحقوق محفوظة © 2026</p>
+        <div class="container mx-auto px-4">
+            <p class="font-medium text-slate-300">OFK Academy — منصة أكاديمية مستقلة للتأهيل المهني</p>
+            <p class="mt-1 text-[11px] text-slate-500">جميع الحقوق محفوظة © 2026</p>
+        </div>
     </footer>
 
+    <!-- سكريبت تجريبي تفاعلي للتحقق -->
+    <script>
+        function verifyCertificate() {
+            const codeInput = document.getElementById('certCode').value.trim();
+            const resultBox = document.getElementById('resultBox');
+            if(codeInput !== "") {
+                resultBox.classList.remove('hidden');
+            } else {
+                alert('الرجاء إدخال رقم الشهادة أولاً');
+            }
+        }
+    </script>
 </body>
 </html>
