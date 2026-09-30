@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بوابة الطالب الأكاديمية | OFK Academy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slate: { 900: '#0f172a', 800: '#1e293b', 700: '#334155' },
+                        amber: { 500: '#f59e0b', 600: '#d97706' }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#0f172a">
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-slate-900">
+
+    <!-- الشريط العلوي للبوابة -->
+    <header class="bg-slate-800/90 backdrop-blur-md border-b border-slate-700/60 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center shadow-lg shadow-amber-500/20 text-slate-900 font-black text-xl">
+                    OFK
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold tracking-tight text-white">بوابة الطالب الأكاديمية</h1>
+                    <p class="text-xs text-amber-500 font-medium">مرحباً بك، طالب تجريبي</p>
+                </div>
+            </div>
+            <div>
+                <a href="login.html" class="inline-flex items-center gap-2 bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/30 px-4 py-2 rounded-xl text-sm font-semibold transition-colors">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>تسجيل الخروج</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- المحتوى الرئيسي للبوابة -->
+    <main class="flex-grow py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-8 w-full">
+        
+        <!-- لوحة الإحصائيات السريعة -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div class="bg-slate-800/80 border border-slate-700/80 p-6 rounded-2xl shadow-xl flex items-center gap-4">
+                <div class="w-14 h-14 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-2xl border border-amber-500/20">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+                <div>
+                    <p class="text-xs text-slate-400">المقررات المسجلة</p>
+                    <h3 class="text-2xl font-bold text-white">4 مواد</h3>
+                </div>
+            </div>
+
+            <div class="bg-slate-800/80 border border-slate-700/80 p-6 rounded-2xl shadow-xl flex items-center gap-4">
+                <div class="w-14 h-14 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-2xl border border-emerald-500/20">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <p class="text-xs text-slate-400">المعدل التراكمي</p>
+                    <h3 class="text-2xl font-bold text-white">3.85 / 4.0</h3>
+                </div>
+            </div>
+
+            <div class="bg-slate-800/80 border border-slate-700/80 p-6 rounded-2xl shadow-xl flex items-center gap-4">
+                <div class="w-14 h-14 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-2xl border border-blue-500/20">
+                    <i class="fa-solid fa-certificate"></i>
+                </div>
+                <div>
+                    <p class="text-xs text-slate-400">الشهادات المعتمدة</p>
+                    <h3 class="text-2xl font-bold text-white">2 شهادة</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- جدول المقررات والمحاضرات -->
+        <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 sm:p-8 shadow-xl space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-700/60 pb-4">
+                <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-list-check text-amber-500"></i>
+                    <span>مقرراتك الدراسية الحالية</span>
+                </h3>
+                <span class="text-xs bg-amber-500/10 text-amber-400 px-3 py-1 rounded-full border border-amber-500/20 font-medium">الفصل الأكاديمي 2026</span>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-right text-sm">
+                    <thead class="bg-slate-900/80 text-slate-400 uppercase text-xs">
+                        <tr>
+                            <th class="p-4 rounded-r-xl">اسم المقرر</th>
+                            <th class="p-4">المشرف الأكاديمي</th>
+                            <th class="p-4">نسبة الإنجاز</th>
+                            <th class="p-4 rounded-l-xl">الحالة</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-700/50 text-slate-300">
+                        <tr>
+                            <td class="p-4 font-semibold text-white">هندسة البرمجيات والمنصات الرقمية</td>
+                            <td class="p-4 text-slate-400">د. أحمد الزهراوي</td>
+                            <td class="p-4">
+                                <div class="w-full bg-slate-900 rounded-full h-2.5 border border-slate-700 max-w-[150px]">
+                                    <div class="bg-amber-500 h-2.5 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </td>
+                            <td class="p-4"><span class="text-emerald-400 font-medium text-xs bg-emerald-500/10 px-2.5 py-1 rounded-lg border border-emerald-500/20">قيد الدراسة</span></td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-semibold text-white">دبلوم علم النفس التطبيقي</td>
+                            <td class="p-4 text-slate-400">د. سارة البابلي</td>
+                            <td class="p-4">
+                                <div class="w-full bg-slate-900 rounded-full h-2.5 border border-slate-700 max-w-[150px]">
+                                    <div class="bg-amber-500 h-2.5 rounded-full" style="width: 60%"></div>
+                                </div>
+                            </td>
+                            <td class="p-4"><span class="text-emerald-400 font-medium text-xs bg-emerald-500/10 px-2.5 py-1 rounded-lg border border-emerald-500/20">قيد الدراسة</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- التذييل -->
+    <footer class="bg-slate-800/80 border-t border-slate-700/50 py-6 text-center text-slate-400 text-xs">
+        <p>جميع الحقوق محفوظة © OFK Academy 2026 — بالتعاون مع جامعة الزهراء</p>
+    </footer>
+
+</body>
+</html>
