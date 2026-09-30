@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مشاريعنا الأكاديمية والميدانية | OFK Academy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slate: { 900: '#0f172a', 800: '#1e293b', 700: '#334155' },
+                        amber: { 500: '#f59e0b', 600: '#d97706' }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#0f172a">
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-slate-900">
+
+    <!-- الشريط العلوي -->
+    <header class="bg-slate-800/80 backdrop-blur-md border-b border-slate-700/50 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center shadow-lg shadow-amber-500/20 text-slate-900 font-black text-xl">
+                    OFK
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold tracking-tight text-white">OFK Academy</h1>
+                    <p class="text-xs text-amber-500 font-medium">مشاريعنا والمبادرات التخصصية</p>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center space-x-6 space-x-reverse text-sm font-medium text-slate-300">
+                <a href="index.html" class="hover:text-amber-400 transition-colors">الرئيسية</a>
+                <a href="courses.html" class="hover:text-amber-400 transition-colors">برامجنا</a>
+                <a href="projects.html" class="text-amber-400 font-semibold transition-colors">مشاريعنا</a>
+                <a href="verify.html" class="hover:text-amber-400 transition-colors">التحقق من الشهادات</a>
+                <a href="login.html" class="hover:text-amber-400 transition-colors">تسجيل الدخول</a>
+            </div>
+            <div>
+                <a href="index.html" class="inline-flex items-center gap-2 text-slate-300 hover:text-amber-400 text-sm font-semibold transition-colors">
+                    <i class="fa-solid fa-arrow-right"></i>
+                    <span>العودة</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="flex-grow py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center space-y-4 mb-16">
+            <div class="inline-flex items-center gap-2 bg-amber-500/10 text-amber-400 px-4 py-2 rounded-full text-sm font-medium border border-amber-500/25">
+                <i class="fa-solid fa-diagram-project"></i>
+                <span>مبادرات وابتكارات أكاديمية تطبيقيّة</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">مشاريع الأكاديمية والبحث التطبيقي</h2>
+            <p class="text-slate-400 text-base max-w-2xl mx-auto">
+                مشاريع تعليمية وهندسية تهدف إلى دمج المهارات النظرية بالخبرة العملية، وتوفير حلول رقمية ومجتمعية متقدمة.
+            </p>
+        </div>
+
+        <!-- شبكة المشاريع -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- مشروع 1 -->
+            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 hover:border-amber-500/50 transition-all shadow-xl flex flex-col justify-between">
+                <div>
+                    <div class="w-14 h-14 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-2xl mb-4 border border-amber-500/20">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">منصة الويب التطبيقية (PWA)</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        هندسة وتطوير منصة رقمية متكاملة تعمل بكفاءة على كافة الأجهزة وتلبي متطلبات البنية التحتية الذكية للأكاديمية.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-slate-700/60 flex items-center justify-between text-xs text-slate-300">
+                    <span class="bg-emerald-500/10 text-emerald-400 px-3 py-1.5 rounded-lg border border-emerald-500/30">مستمر ومنفذ</span>
+                    <span class="text-amber-400 font-semibold">بإشراف تقني</span>
+                </div>
+            </div>
+
+            <!-- مشروع 2 -->
+            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 hover:border-amber-500/50 transition-all shadow-xl flex flex-col justify-between">
+                <div>
+                    <div class="w-14 h-14 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-2xl mb-4 border border-amber-500/20">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">مختبر التحليل السلوكي</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        مبادرة بحثية متخصصة في دراسة التطبيقات النفسية الحديثة وتوظيفها في بيئات التأهيل المهني والتعليم المستمر.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-slate-700/60 flex items-center justify-between text-xs text-slate-300">
+                    <span class="bg-amber-500/10 text-amber-400 px-3 py-1.5 rounded-lg border border-amber-500/30">قيد التطوير</span>
+                    <span class="text-amber-400 font-semibold">قسم علم النفس</span>
+                </div>
+            </div>
+
+            <!-- مشروع 3 -->
+            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 hover:border-amber-500/50 transition-all shadow-xl flex flex-col justify-between">
+                <div>
+                    <div class="w-14 h-14 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-2xl mb-4 border border-amber-500/20">
+                        <i class="fa-solid fa-coins"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">مرصد الاقتصاد والمالية</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        مشروع تحليلي دوري يدرس حركة الأسواق والنظم الاقتصادية ويصدر تقارير معتمدة لطلبة التخصصات المالية.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-slate-700/60 flex items-center justify-between text-xs text-slate-300">
+                    <span class="bg-blue-500/10 text-blue-400 px-3 py-1.5 rounded-lg border border-blue-500/30">تحضيري</span>
+                    <span class="text-amber-400 font-semibold">قسم الاقتصاد</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- التذييل -->
+    <footer class="bg-slate-800/80 border-t border-slate-700/50 py-8 text-center text-slate-400 text-sm">
+        <div class="max-w-7xl mx-auto px-4 space-y-2">
+            <p class="font-semibold text-slate-300">جميع الحقوق محفوظة © OFK Academy 2026</p>
+            <p class="text-xs text-slate-500">بالتعاون الأكاديمي مع جامعة الزهراء — مركز التعليم التطبيقي المستمر</p>
+        </div>
+    </footer>
+
+</body>
+</html>
