@@ -3,133 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OFK Academy | المنصة الأكاديمية المستقلة</title>
-    <!-- Tailwind CSS للتصميم الاحترافي -->
+    <title>OFK Academy | المنصة الأكاديمية للتعليم التطبيقي المستمر</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome الأيقونات -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slate: {
+                            900: '#0f172a',
+                            800: '#1e293b',
+                            700: '#334155',
+                        },
+                        amber: {
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- إعدادات PWA -->
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="./manifest.json">
     <meta name="theme-color" content="#0f172a">
 </head>
-<body class="bg-slate-900 font-sans text-slate-100 min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-blue-950">
+<body class="bg-slate-900 text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-slate-900">
 
-    <!-- الشريط العلوي الشامل (Navigation Bar) -->
-    <header class="bg-blue-950/90 backdrop-blur-md border-b border-slate-800 text-white sticky top-0 z-50 shadow-lg">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <!-- الشعار -->
+    <!-- Header / Navbar -->
+    <header class="bg-slate-800/80 backdrop-blur-md border-b border-slate-700/50 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3 space-x-reverse">
-                <div class="bg-gradient-to-tr from-amber-500 to-amber-400 text-blue-950 px-3.5 py-1.5 rounded-xl font-black text-lg tracking-wider shadow border border-amber-300 flex items-center justify-center">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center shadow-lg shadow-amber-500/20 text-slate-900 font-black text-xl">
                     OFK
                 </div>
                 <div>
-                    <h1 class="text-base font-extrabold tracking-wide" dir="ltr">OFK Academy</h1>
-                    <p class="text-[10px] text-amber-400/90 font-medium">مركز التعليم التطبيقي المستمر</p>
+                    <h1 class="text-xl font-bold tracking-tight text-white">OFK Academy</h1>
+                    <p class="text-xs text-amber-500 font-medium">مركز التعليم التطبيقي المستمر</p>
                 </div>
             </div>
-
-            <!-- القوائم الرئيسية -->
-            <nav class="hidden lg:flex space-x-5 space-x-reverse text-xs font-semibold">
-                <a href="index.html" class="text-amber-400 font-bold transition">الرئيسية</a>
-                <a href="courses.html" class="hover:text-amber-400 transition">البرامج والدورات</a>
-                <a href="projects.html" class="hover:text-amber-400 transition">مشاريعنا</a>
-                <a href="verify.html" class="hover:text-amber-400 transition">التحقق من الشهادات</a>
-                <a href="about.html" class="hover:text-amber-400 transition">عن الأكاديمية</a>
-                <a href="contact.html" class="hover:text-amber-400 transition">اتصل بنا</a>
-            </nav>
-
-            <!-- أزرار الدخول والحساب -->
-            <div class="flex items-center space-x-2 space-x-reverse">
-                <a href="login.html" class="bg-slate-800 hover:bg-slate-700 text-amber-400 border border-amber-500/40 font-bold px-3.5 py-2 rounded-xl text-xs transition flex items-center shadow">
-                    <i class="fa-solid fa-right-to-bracket ml-1.5"></i> دخول
-                </a>
-                <a href="register.html" class="hidden sm:flex bg-amber-500 hover:bg-amber-600 text-blue-950 font-bold px-3.5 py-2 rounded-xl text-xs transition items-center shadow">
-                    <i class="fa-solid fa-user-plus ml-1.5"></i> إنشاء حساب
+            <div>
+                <a href="#login" class="inline-flex items-center gap-2 bg-slate-700/50 hover:bg-slate-700 text-amber-400 hover:text-amber-300 px-4 py-2 rounded-xl text-sm font-semibold border border-amber-500/20 transition-all shadow-sm">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    <span>دخول</span>
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- الهيرو أو واجهة الترحيب الأكاديمية -->
-    <section class="bg-gradient-to-br from-blue-950 via-slate-900 to-slate-950 text-white py-20 text-center border-b border-slate-800 relative overflow-hidden">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent pointer-events-none"></div>
-        <div class="container mx-auto px-4 max-w-4xl relative z-10">
-            <span class="bg-blue-900/60 text-amber-400 text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider mb-4 inline-block border border-blue-800/80 shadow">
-                بالتعاون الأكاديمي مع جامعة الزهراء
-            </span>
-            <h2 class="text-3xl md:text-5xl font-extrabold mb-6 text-white leading-tight">بوابتك الذكية نحو المعرفة المهنية المتقدمة</h2>
-            <p class="text-slate-300 text-sm md:text-base leading-relaxed max-w-2xl mx-auto mb-8">
-                منصة أكاديمية مستقلة تقدم برامج نوعية في الأقسام الستة الأساسية بمعايير عالمية وهندسة رقمية متطورة لتأهيل الكفاءات.
-            </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="courses.html" class="bg-amber-500 hover:bg-amber-600 text-blue-950 font-bold px-6 py-3 rounded-xl text-xs transition shadow-lg flex items-center">
-                    <i class="fa-solid fa-graduation-cap ml-2"></i> استعرض البرامج الأكاديمية
-                </a>
-                <a href="verify.html" class="bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold px-6 py-3 rounded-xl text-xs transition border border-slate-700 flex items-center">
-                    <i class="fa-solid fa-certificate ml-2"></i> التحقق من وثيقة أكاديمية
-                </a>
-            </div>
-        </div>
-    </section>
+    <!-- Hero Section -->
+    <main class="flex-grow">
+        <section class="relative overflow-hidden py-16 lg:py-24 px-4 sm:px-6 lg:px-8 text-center bg-gradient-to-b from-slate-900 via-slate-800/50 to-slate-900">
+            <div class="max-w-4xl mx-auto space-y-8">
+                <div class="inline-flex items-center gap-2 bg-amber-500/10 text-amber-400 px-4 py-2 rounded-full text-sm font-medium border border-amber-500/25 shadow-inner">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span>بالتعاون الأكاديمي مع جامعة الزهراء</span>
+                </div>
+                
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                    بوابتك الذكية نحو <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">المعرفة المهنية المتقدمة</span>
+                </h2>
+                
+                <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
+                    منصة أكاديمية مستقلة تقدم برامج نوعية في الأقسام الستة الأساسية بمعايير عالمية وهندسة رقمية متطورة لتأهيل الكفاءات.
+                </p>
 
-    <!-- الأقسام الأساسية للمنصة -->
-    <main class="container mx-auto px-4 py-16 max-w-6xl flex-grow">
-        <div class="text-center mb-12">
-            <h3 class="text-2xl font-bold text-white mb-2">الأقسام والتخصصات الأكاديمية</h3>
-            <p class="text-slate-400 text-xs">منظومة تعليمية متكاملة مصممة وفق أحدث المعايير المهنية</p>
-        </div>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                    <a href="#programs" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 font-bold px-8 py-4 rounded-xl shadow-lg shadow-amber-500/25 transition-all text-base">
+                        <i class="fa-solid fa-book-open"></i>
+                        <span>استعراض البرامج الأكاديمية</span>
+                    </a>
+                    <a href="#verify" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-slate-800 hover:bg-slate-700/80 text-slate-200 font-semibold px-8 py-4 rounded-xl border border-slate-700 transition-all text-base">
+                        <i class="fa-solid fa-certificate text-amber-500"></i>
+                        <span>التحقق من وثيقة أكاديمية</span>
+                    </a>
+                </div>
+            </div>
+        </section>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="bg-slate-950/60 p-6 rounded-2xl border border-slate-800 hover:border-amber-500/50 transition group">
-                <div class="text-amber-400 text-2xl mb-3 group-hover:scale-110 transition transform"><i class="fa-solid fa-brain"></i></div>
-                <h4 class="font-bold text-white text-sm mb-2">علم النفس</h4>
-                <p class="text-slate-400 text-xs leading-relaxed">دراسات معمقة وتحليل سلوكي واكتشافات نفسية حديثة.</p>
+        <!-- Academic Departments Grid -->
+        <section id="programs" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-white mb-3">الأقسام والتخصصات الأكاديمية</h3>
+                <p class="text-slate-400 text-base">منظومة تعليمية متكاملة مصممة وفق أحدث المعايير المهنية</p>
             </div>
-            <div class="bg-slate-950/60 p-6 rounded-2xl border border-slate-800 hover:border-amber-500/50 transition group">
-                <div class="text-amber-400 text-2xl mb-3 group-hover:scale-110 transition transform"><i class="fa-solid fa-chart-line"></i></div>
-                <h4 class="font-bold text-white text-sm mb-2">الاقتصاد والمالية</h4>
-                <p class="text-slate-400 text-xs leading-relaxed">تحليلات الأسواق المالية والنظم الاقتصادية المعاصرة.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Department 1 -->
+                <div class="bg-slate-800/60 border border-slate-700/60 rounded-2xl p-6 hover:border-amber-500/50 transition-all group shadow-md hover:shadow-xl hover:shadow-amber-500/5">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-2">علم النفس</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">دراسات معمقة وتحليل سلوكي واكتشافات نفسية حديثة.</p>
+                </div>
+
+                <!-- Department 2 -->
+                <div class="bg-slate-800/60 border border-slate-700/60 rounded-2xl p-6 hover:border-amber-500/50 transition-all group shadow-md hover:shadow-xl hover:shadow-amber-500/5">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-2">الاقتصاد والمالية</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">تحليلات الأسواق المالية والنظم الاقتصادية المعاصرة.</p>
+                </div>
+
+                <!-- Department 3 -->
+                <div class="bg-slate-800/60 border border-slate-700/60 rounded-2xl p-6 hover:border-amber-500/50 transition-all group shadow-md hover:shadow-xl hover:shadow-amber-500/5">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-2">الدراسات المقارنة</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">استقراء وتحليل الفلسفات والتشريعات المقارنة.</p>
+                </div>
+
+                <!-- Department 4 -->
+                <div class="bg-slate-800/60 border border-slate-700/60 rounded-2xl p-6 hover:border-amber-500/50 transition-all group shadow-md hover:shadow-xl hover:shadow-amber-500/5">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-network-wired"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-2">علوم التكنولوجيا</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">هندسة البرمجيات والتقنيات الرقمية المتقدمة.</p>
+                </div>
+
+                <!-- Department 5 -->
+                <div class="bg-slate-800/60 border border-slate-700/60 rounded-2xl p-6 hover:border-amber-500/50 transition-all group shadow-md hover:shadow-xl hover:shadow-amber-500/5">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-chess"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-2">الاستراتيجية والقيادة</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">إدارة المؤسسات والتخطيط الاستراتيجي بعيد المدى.</p>
+                </div>
+
+                <!-- Department 6 -->
+                <div class="bg-slate-800/60 border border-slate-700/60 rounded-2xl p-6 hover:border-amber-500/50 transition-all group shadow-md hover:shadow-xl hover:shadow-amber-500/5">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-2">العلوم الإنسانية والاجتماعية</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">دراسة المجتمعات وتطور الفكر البشري والحضاري.</p>
+                </div>
             </div>
-            <div class="bg-slate-950/60 p-6 rounded-2xl border border-slate-800 hover:border-amber-500/50 transition group">
-                <div class="text-amber-400 text-2xl mb-3 group-hover:scale-110 transition transform"><i class="fa-solid fa-book-quran"></i></div>
-                <h4 class="font-bold text-white text-sm mb-2">الدراسات القرآنية</h4>
-                <p class="text-slate-400 text-xs leading-relaxed">فهم النصوص وعلوم التفسير بأسلوب منهجي أصيل.</p>
-            </div>
-            <div class="bg-slate-950/60 p-6 rounded-2xl border border-slate-800 hover:border-amber-500/50 transition group">
-                <div class="text-amber-400 text-2xl mb-3 group-hover:scale-110 transition transform"><i class="fa-solid fa-shield-halved"></i></div>
-                <h4 class="font-bold text-white text-sm mb-2">الذكاء الاصطناعي والأمن السيبراني</h4>
-                <p class="text-slate-400 text-xs leading-relaxed">أحدث تقنيات حماية الأنظمة وخوارزميات الذكاء.</p>
-            </div>
-            <div class="bg-slate-950/60 p-6 rounded-2xl border border-slate-800 hover:border-amber-500/50 transition group">
-                <div class="text-amber-400 text-2xl mb-3 group-hover:scale-110 transition transform"><i class="fa-solid fa-language"></i></div>
-                <h4 class="font-bold text-white text-sm mb-2">اللغة العربية</h4>
-                <p class="text-slate-400 text-xs leading-relaxed">علوم البلاغة والنحو والفصاحة بأساليب مبتكرة.</p>
-            </div>
-            <div class="bg-slate-950/60 p-6 rounded-2xl border border-slate-800 hover:border-amber-500/50 transition group">
-                <div class="text-amber-400 text-2xl mb-3 group-hover:scale-110 transition transform"><i class="fa-solid fa-gears"></i></div>
-                <h4 class="font-bold text-white text-sm mb-2">الهندسة التطبيقية</h4>
-                <p class="text-slate-400 text-xs leading-relaxed">حلول هندسية عملية ومشاريع تكنولوجية متقدمة.</p>
-            </div>
-        </div>
+        </section>
     </main>
 
-    <!-- التذييل -->
-    <footer class="bg-slate-950 text-slate-400 text-center py-6 text-xs border-t border-slate-800">
-        <div class="container mx-auto px-4">
-            <p class="font-medium text-slate-300">OFK Academy — منصة أكاديمية مستقلة للتأهيل المهني</p>
-            <p class="mt-1 text-[11px] text-slate-500">جميع الحقوق محفوظة © 2026</p>
+    <!-- Footer -->
+    <footer class="bg-slate-800/80 border-t border-slate-700/50 py-8 text-center text-slate-400 text-sm">
+        <div class="max-w-7xl mx-auto px-4 space-y-3">
+            <p class="font-semibold text-slate-300">جميع الحقوق محفوظة © OFK Academy 2026</p>
+            <p class="text-xs text-slate-500">منصة رقمية رائدة للتعليم التطبيقي المتقدم</p>
         </div>
     </footer>
 
-    <!-- تفعيل خدمة الـ Service Worker -->
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
-            .then(reg => console.log('Service Worker registered successfully', reg))
-            .catch(err => console.log('Service Worker registration failed', err));
-        });
-      }
-    </script>
 </body>
 </html>
