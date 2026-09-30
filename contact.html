@@ -3,116 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>اتصل بنا | OFK Academy</title>
-    <!-- Tailwind CSS للتصميم الاحترافي -->
+    <title>اتصل بنا والدعم الأكاديمي | OFK Academy</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome الأيقونات -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slate: { 900: '#0f172a', 800: '#1e293b', 700: '#334155' },
+                        amber: { 500: '#f59e0b', 600: '#d97706' }
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- إعدادات PWA -->
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="./manifest.json">
     <meta name="theme-color" content="#0f172a">
 </head>
-<body class="bg-slate-900 font-sans text-slate-100 min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-blue-950">
+<body class="bg-slate-900 text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-slate-900">
 
-    <!-- الشريط العلوي الشامل (Navigation Bar) -->
-    <header class="bg-blue-950/90 backdrop-blur-md border-b border-slate-800 text-white sticky top-0 z-50 shadow-lg">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <!-- الشعار -->
+    <!-- الشريط العلوي -->
+    <header class="bg-slate-800/80 backdrop-blur-md border-b border-slate-700/50 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3 space-x-reverse">
-                <a href="index.html" class="bg-gradient-to-tr from-amber-500 to-amber-400 text-blue-950 px-3.5 py-1.5 rounded-xl font-black text-lg tracking-wider shadow border border-amber-300 flex items-center justify-center">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center shadow-lg shadow-amber-500/20 text-slate-900 font-black text-xl">
                     OFK
-                </a>
+                </div>
                 <div>
-                    <h1 class="text-base font-extrabold tracking-wide" dir="ltr">OFK Academy</h1>
-                    <p class="text-[10px] text-amber-400/90 font-medium">مركز التعليم التطبيقي المستمر</p>
+                    <h1 class="text-xl font-bold tracking-tight text-white">OFK Academy</h1>
+                    <p class="text-xs text-amber-500 font-medium">الدعم والتواصل الأكاديمي</p>
                 </div>
             </div>
-
-            <!-- القوائم الرئيسية -->
-            <nav class="hidden lg:flex space-x-5 space-x-reverse text-xs font-semibold">
-                <a href="index.html" class="hover:text-amber-400 transition">الرئيسية</a>
-                <a href="courses.html" class="hover:text-amber-400 transition">البرامج والدورات</a>
-                <a href="verify.html" class="hover:text-amber-400 transition">التحقق من الشهادات</a>
-                <a href="about.html" class="hover:text-amber-400 transition">عن الأكاديمية</a>
-                <a href="contact.html" class="text-amber-400 font-bold transition">اتصل بنا</a>
-            </nav>
-
-            <!-- زر الدخول -->
-            <div class="flex items-center space-x-2 space-x-reverse">
-                <a href="login.html" class="bg-slate-800 hover:bg-slate-700 text-amber-400 border border-amber-500/40 font-bold px-3.5 py-2 rounded-xl text-xs transition flex items-center shadow">
-                    <i class="fa-solid fa-right-to-bracket ml-1.5"></i> دخول
+            <div class="hidden md:flex items-center space-x-6 space-x-reverse text-sm font-medium text-slate-300">
+                <a href="index.html" class="hover:text-amber-400 transition-colors">الرئيسية</a>
+                <a href="courses.html" class="hover:text-amber-400 transition-colors">برامجنا</a>
+                <a href="projects.html" class="hover:text-amber-400 transition-colors">مشاريعنا</a>
+                <a href="verify.html" class="hover:text-amber-400 transition-colors">التحقق من الشهادات</a>
+                <a href="about.html" class="hover:text-amber-400 transition-colors">عن الأكاديمية</a>
+                <a href="contact.html" class="text-amber-400 font-semibold transition-colors">اتصل بنا</a>
+                <a href="login.html" class="hover:text-amber-400 transition-colors">تسجيل الدخول</a>
+            </div>
+            <div>
+                <a href="index.html" class="inline-flex items-center gap-2 text-slate-300 hover:text-amber-400 text-sm font-semibold transition-colors">
+                    <i class="fa-solid fa-arrow-right"></i>
+                    <span>العودة</span>
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- المحتوى الرئيسي: اتصل بنا -->
-    <main class="container mx-auto px-4 py-16 max-w-4xl flex-grow">
-        <div class="text-center mb-12">
-            <span class="bg-blue-900/60 text-amber-400 text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider mb-3 inline-block border border-blue-800/80 shadow">
-                تواصل معنا
-            </span>
-            <h2 class="text-2xl md:text-4xl font-extrabold text-white mb-3">نحن هنا للإجابة على استفساراتكم</h2>
-            <p class="text-slate-400 text-xs md:text-sm max-w-xl mx-auto">تواصل مع إدارة الأكاديمية أو الدعم الفني لأي استفسار حول البرامج والوثائق.</p>
+    <!-- المحتوى الرئيسي -->
+    <main class="flex-grow py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto space-y-12">
+        <div class="text-center space-y-4">
+            <div class="inline-flex items-center gap-2 bg-amber-500/10 text-amber-400 px-4 py-2 rounded-full text-sm font-medium border border-amber-500/25">
+                <i class="fa-solid fa-headset"></i>
+                <span>فريق الدعم والخدمات التعليمية</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">تواصل مع إدارة الأكاديمية</h2>
+            <p class="text-slate-400 text-base max-w-xl mx-auto">
+                نحن هنا للإجابة عن استفساراتكم حول البرامج، شروط القبول، أو التوثيق الأكاديمي بالشراكة مع جامعة الزهراء.
+            </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- معلومات الاتصال -->
-            <div class="bg-slate-950/80 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
-                <h3 class="font-bold text-white text-base mb-4 flex items-center">
-                    <i class="fa-solid fa-address-book text-amber-400 ml-2"></i> قنوات التواصل الرسمية
-                </h3>
-                <div class="space-y-4 text-xs text-slate-300">
-                    <div class="flex items-center space-x-3 space-x-reverse">
-                        <div class="bg-blue-950 text-amber-400 w-9 h-9 rounded-xl flex items-center justify-center border border-slate-800">
-                            <i class="fa-solid fa-envelope"></i>
-                        </div>
-                        <div>
-                            <span class="block text-slate-500 text-[10px]">البريد الإلكتروني الرسمي</span>
-                            <span class="font-bold text-white" dir="ltr">support@ofk-academy.com</span>
-                        </div>
+        <!-- نموذج التواصل -->
+        <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-8 shadow-2xl backdrop-blur-md">
+            <form class="space-y-6" onsubmit="event.preventDefault(); alert('تم إرسال رسالتك بنجاح! سيتم الرد قريباً.');">
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-2">الاسم الكامل</label>
+                        <input type="text" required placeholder="أدخل اسمك الكامل" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-amber-500 text-sm">
                     </div>
-                    <div class="flex items-center space-x-3 space-x-reverse">
-                        <div class="bg-blue-950 text-amber-400 w-9 h-9 rounded-xl flex items-center justify-center border border-slate-800">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                        </div>
-                        <div>
-                            <span class="block text-slate-500 text-[10px]">الاعتماد الأكاديمي</span>
-                            <span class="font-bold text-amber-400">جامعة الزهراء</span>
-                        </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-2">البريد الإلكتروني</label>
+                        <input type="email" required placeholder="name@example.com" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-amber-500 text-sm">
                     </div>
                 </div>
-            </div>
 
-            <!-- نموذج مراسلة -->
-            <div class="bg-slate-950/80 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-xl">
-                <form class="space-y-4" onsubmit="event.preventDefault(); alert('تم إرسال رسالتك بنجاح، شكراً لتواصلك مع OFK Academy');">
-                    <div>
-                        <label class="block text-xs font-bold text-slate-300 mb-2" for="name">الاسم الكريم</label>
-                        <input type="text" id="name" required placeholder="أدخل اسمك الكامل" class="w-full bg-slate-900 border border-slate-700 rounded-xl py-3 px-4 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-300 mb-2" for="msgEmail">البريد الإلكتروني</label>
-                        <input type="email" id="msgEmail" required placeholder="name@example.com" class="w-full bg-slate-900 border border-slate-700 rounded-xl py-3 px-4 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-300 mb-2" for="message">نص الرسالة أو الاستفسار</label>
-                        <textarea id="message" rows="3" required placeholder="اكتب رسالتك هنا..." class="w-full bg-slate-900 border border-slate-700 rounded-xl py-3 px-4 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition"></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-blue-950 font-bold py-3 rounded-xl text-xs transition shadow-lg flex items-center justify-center">
-                        <i class="fa-solid fa-paper-plane ml-2"></i> إرسال الرسالة
-                    </button>
-                </form>
-            </div>
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-2">موضوع الاستفسار</label>
+                    <select class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-amber-500 text-sm">
+                        <option value="programs">التسجيل في البرامج والدورات</option>
+                        <option value="certificates">الشهادات والتوثيق الأكاديمي</option>
+                        <option value="technical">الدعم الفني للمنصة</option>
+                        <option value="other">استفسارات عامة</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-2">نص الرسالة</label>
+                    <textarea rows="4" required placeholder="اكتب تفاصيل استفسارك هنا..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-amber-500 text-sm"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 font-bold py-3.5 px-4 rounded-xl shadow-lg shadow-amber-500/20 transition-all text-base flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span>إرسال الرسالة</span>
+                </button>
+            </form>
         </div>
     </main>
 
     <!-- التذييل -->
-    <footer class="bg-slate-950 text-slate-400 text-center py-6 text-xs border-t border-slate-800">
-        <div class="container mx-auto px-4">
-            <p class="font-medium text-slate-300">OFK Academy — منصة أكاديمية مستقلة للتأهيل المهني</p>
-            <p class="mt-1 text-[11px] text-slate-500">جميع الحقوق محفوظة © 2026</p>
+    <footer class="bg-slate-800/80 border-t border-slate-700/50 py-8 text-center text-slate-400 text-sm">
+        <div class="max-w-7xl mx-auto px-4 space-y-2">
+            <p class="font-semibold text-slate-300">جميع الحقوق محفوظة © OFK Academy 2026</p>
+            <p class="text-xs text-slate-500">بالتعاون الأكاديمي مع جامعة الزهراء — مركز التعليم التطبيقي المستمر</p>
         </div>
     </footer>
+
 </body>
 </html>
