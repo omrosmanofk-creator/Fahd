@@ -3,120 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OFK Academy | الأكاديمية الرقمية المتقدمة</title>
+    <title>أكاديمية OFK | بالتعاون مع جامعة الزهراء</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- إعدادات الـ PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#0f172a">
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        slate: { 900: '#0f172a', 800: '#1e293b', 700: '#334155' },
-                        amber: { 500: '#f59e0b', 600: '#d97706' }
-                    }
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+          .then(() => console.log('Service Worker Registered Successfully'));
+      }
+    </script>
+
+    <style>
+        body { font-family: 'Cairo', sans-serif; background-color: #0f172a; color: #f8fafc; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between p-4 md:p-8">
+
+    <!-- رأس الصفحة -->
+    <header class="max-w-4xl mx-auto w-full bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-2xl backdrop-blur-md flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="flex items-center gap-4">
+            <div class="bg-amber-500/10 border border-amber-500/30 p-3 rounded-xl">
+                <i class="fa-solid fa-graduation-cap text-amber-400 text-2xl"></i>
+            </div>
+            <div>
+                <h1 class="text-xl font-bold text-white">أكاديمية OFK</h1>
+                <p class="text-xs text-amber-400 mt-0.5">بوابة الدخول الموحدة بالتعاون مع جامعة الزهراء</p>
+            </div>
+        </div>
+        <div class="text-xs bg-slate-900/60 border border-slate-700/60 px-4 py-2 rounded-xl text-slate-300">
+            <i class="fa-solid fa-shield-halved text-emerald-400 ml-1.5"></i> النظام محمي بكلمات المرور
+        </div>
+    </header>
+
+    <!-- المحتوى الرئيسي - بوابات تسجيل الدخول -->
+    <main class="max-w-4xl mx-auto w-full space-y-6 my-8">
+        <div class="text-center space-y-2 mb-6">
+            <h2 class="text-2xl font-black text-white">اختر البوابة الأكاديمية للدخول</h2>
+            <p class="text-xs text-slate-400">يرجى إدخال كلمة المرور المخصصة لكل دور للوصول إلى البوابة الخاصة بك</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- بوابة الطالب -->
+            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl flex flex-col justify-between space-y-4">
+                <div class="space-y-3">
+                    <div class="bg-blue-500/10 text-blue-400 p-3 rounded-xl w-fit"><i class="fa-solid fa-user-graduate text-xl"></i></div>
+                    <h3 class="text-lg font-bold text-white">بوابة الطالب</h3>
+                    <p class="text-xs text-slate-400">استعرض الدروس والمحاضرات المنشورة وتابع تقدمك الأكاديمي.</p>
+                </div>
+                <div class="space-y-3 pt-4 border-t border-slate-700/60">
+                    <input type="password" id="studentPass" placeholder="كلمة مرور الطالب..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-blue-500">
+                    <button onclick="loginPortal('student')" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs py-2.5 rounded-xl transition-colors shadow-lg shadow-blue-600/20">
+                        دخول الطالب
+                    </button>
+                </div>
+            </div>
+
+            <!-- بوابة المدرس -->
+            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl flex flex-col justify-between space-y-4">
+                <div class="space-y-3">
+                    <div class="bg-indigo-500/10 text-indigo-400 p-3 rounded-xl w-fit"><i class="fa-solid fa-chalkboard-user text-xl"></i></div>
+                    <h3 class="text-lg font-bold text-white">بوابة المدرس</h3>
+                    <p class="text-xs text-slate-400">إدارة المقررات، نشر المحاضرات الجديدة، وتقييم الطلاب.</p>
+                </div>
+                <div class="space-y-3 pt-4 border-t border-slate-700/60">
+                    <input type="password" id="instructorPass" placeholder="كلمة مرور المدرس..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-indigo-500">
+                    <button onclick="loginPortal('instructor')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs py-2.5 rounded-xl transition-colors shadow-lg shadow-indigo-600/20">
+                        دخول المدرس
+                    </button>
+                </div>
+            </div>
+
+            <!-- بوابة المدير العام -->
+            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl flex flex-col justify-between space-y-4">
+                <div class="space-y-3">
+                    <div class="bg-rose-500/10 text-rose-400 p-3 rounded-xl w-fit"><i class="fa-solid fa-shield-halved text-xl"></i></div>
+                    <h3 class="text-lg font-bold text-white">بوابة المدير العام</h3>
+                    <p class="text-xs text-slate-400">الصلاحية المطلقة، إدارة المدرسين، وإعدادات النظام.</p>
+                </div>
+                <div class="space-y-3 pt-4 border-t border-slate-700/60">
+                    <input type="password" id="adminPass" placeholder="كلمة مرور المدير..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-rose-500">
+                    <button onclick="loginPortal('admin')" class="w-full bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs py-2.5 rounded-xl transition-colors shadow-lg shadow-rose-600/20">
+                        دخول المدير
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- تذييل الصفحة -->
+    <footer class="max-w-4xl mx-auto w-full text-center text-xs text-slate-500 border-t border-slate-800 pt-4">
+        OFK Academy &copy; 2026 - جميع الحقوق محفوظة بالتعاون مع جامعة الزهراء
+    </footer>
+
+    <!-- خوارزمية المصادقة والتحقق الأمني -->
+    <script>
+        function loginPortal(role) {
+            if (role === 'student') {
+                const pass = document.getElementById('studentPass').value.trim();
+                if (pass === 'Omr123') {
+                    window.location.href = 'student-portal.html';
+                } else {
+                    alert('كلمة مرور الطالب غير صحيحة! (رمز الطالب: Omr123)');
+                }
+            } else if (role === 'instructor') {
+                const pass = document.getElementById('instructorPass').value.trim();
+                if (pass === 'Omr1234') {
+                    window.location.href = 'instructor-portal.html';
+                } else {
+                    alert('كلمة مرور المدرس غير صحيحة! (رمز المدرس: Omr1234)');
+                }
+            } else if (role === 'admin') {
+                const pass = document.getElementById('adminPass').value.trim();
+                if (pass === 'Omr12345') {
+                    window.location.href = 'admin-portal.html';
+                } else {
+                    alert('كلمة مرور المدير غير صحيحة! (رمز المدير: Omr12345)');
                 }
             }
         }
     </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="manifest" href="./manifest.json">
-    <meta name="theme-color" content="#0f172a">
-</head>
-<body class="bg-slate-900 text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-slate-900">
-
-    <!-- الشريط العلوي -->
-    <header class="bg-slate-800/90 backdrop-blur-md border-b border-slate-700/60 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-3 space-x-reverse">
-                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center shadow-lg shadow-amber-500/20 text-slate-900 font-black text-xl">
-                    OFK
-                </div>
-                <div>
-                    <h1 class="text-xl font-bold tracking-tight text-white">OFK Academy</h1>
-                    <p class="text-xs text-amber-500 font-medium">بالتعاون مع جامعة الزهراء</p>
-                </div>
-            </div>
-            <div class="hidden md:flex items-center space-x-6 space-x-reverse text-sm font-medium text-slate-300">
-                <a href="index.html" class="text-amber-400 font-semibold transition-colors">الرئيسية</a>
-                <a href="courses.html" class="hover:text-amber-400 transition-colors">برامجنا</a>
-                <a href="projects.html" class="hover:text-amber-400 transition-colors">مشاريعنا</a>
-                <a href="verify.html" class="hover:text-amber-400 transition-colors">التحقق من الشهادات</a>
-                <a href="about.html" class="hover:text-amber-400 transition-colors">عن الأكاديمية</a>
-                <a href="contact.html" class="hover:text-amber-400 transition-colors">اتصل بنا</a>
-            </div>
-            <div>
-                <a href="login.html" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 font-bold px-5 py-2.5 rounded-xl shadow-lg shadow-amber-500/20 transition-all text-sm flex items-center gap-2">
-                    <i class="fa-solid fa-right-to-bracket"></i>
-                    <span>تسجيل الدخول</span>
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <!-- المحتوى الرئيسي للواجهة -->
-    <main class="flex-grow py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col justify-center items-center text-center space-y-10">
-        
-        <div class="inline-flex items-center gap-2 bg-amber-500/10 text-amber-400 px-4 py-2 rounded-full text-sm font-medium border border-amber-500/25">
-            <i class="fa-solid fa-certificate"></i>
-            <span>منصة التعليم المستمر والاعتماد الأكاديمي</span>
-        </div>
-
-        <div class="space-y-6 max-w-3xl">
-            <h2 class="text-4xl sm:text-5xl font-black text-white tracking-tight leading-tight">
-                بوابتك المتقدمة نحو <span class="text-amber-500">التميز المهني والأكاديمي</span>
-            </h2>
-            <p class="text-slate-400 text-lg leading-relaxed">
-                تأسست <strong class="text-white">OFK Academy</strong> بالشراكة الاستراتيجية مع <strong class="text-white">جامعة الزهراء</strong> لتقديم برامج نوعية معتمدة تمزج بين المعرفة المتقدمة والتطبيق العملي الحديث.
-            </p>
-        </div>
-
-        <!-- أزرار التوجيه السريعة -->
-        <div class="flex flex-wrap justify-center gap-4 pt-4">
-            <a href="courses.html" class="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold px-8 py-4 rounded-xl shadow-xl shadow-amber-500/20 transition-all text-base flex items-center gap-2">
-                <i class="fa-solid fa-graduation-cap"></i>
-                <span>استعراض برامجنا وتخصصاتنا</span>
-            </a>
-            <a href="verify.html" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-bold px-8 py-4 rounded-xl shadow-xl transition-all text-base flex items-center gap-2">
-                <i class="fa-solid fa-shield-check text-amber-500"></i>
-                <span>التحقق من الشهادات الرسمية</span>
-            </a>
-        </div>
-
-        <!-- مميزات سريعة -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full pt-12">
-            <div class="bg-slate-800/80 border border-slate-700/80 p-6 rounded-2xl text-right space-y-3">
-                <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl border border-amber-500/20">
-                    <i class="fa-solid fa-award"></i>
-                </div>
-                <h3 class="text-lg font-bold text-white">اعتماد رسمي موثق</h3>
-                <p class="text-xs text-slate-400 leading-relaxed">شهادات معتمدة بختم الأكاديمية والشراكة مع جامعة الزهراء مزودة برمز تحقق رقمي فريد.</p>
-            </div>
-
-            <div class="bg-slate-800/80 border border-slate-700/80 p-6 rounded-2xl text-right space-y-3">
-                <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl border border-amber-500/20">
-                    <i class="fa-solid fa-laptop-code"></i>
-                </div>
-                <h3 class="text-lg font-bold text-white">منصة ذكية (PWA)</h3>
-                <p class="text-xs text-slate-400 leading-relaxed">بنية تحتية رقمية متطورة تتيح لك تصفح المواد ومتابعة تقدمك من أي جهاز وبأعلى كفاءة.</p>
-            </div>
-
-            <div class="bg-slate-800/80 border border-slate-700/80 p-6 rounded-2xl text-right space-y-3">
-                <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl border border-amber-500/20">
-                    <i class="fa-solid fa-chalkboard-user"></i>
-                </div>
-                <h3 class="text-lg font-bold text-white">نخبة من المشرفين</h3>
-                <p class="text-xs text-slate-400 leading-relaxed">إشراف أكاديمي مباشر ونخبة من الخبراء في مختلف التخصصات العلمية والتطبيقية.</p>
-            </div>
-        </div>
-
-    </main>
-
-    <!-- التذييل -->
-    <footer class="bg-slate-800/80 border-t border-slate-700/50 py-8 text-center text-slate-400 text-sm">
-        <div class="max-w-7xl mx-auto px-4 space-y-2">
-            <p class="font-semibold text-slate-300">جميع الحقوق محفوظة © OFK Academy 2026</p>
-            <p class="text-xs text-slate-500">بالتعاون الأكاديمي مع جامعة الزهراء — مركز التعليم التطبيقي المستمر</p>
-        </div>
-    </footer>
-
 </body>
 </html>
