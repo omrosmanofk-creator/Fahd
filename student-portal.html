@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بوابة الطالب الأكاديمية | OFK Academy</title>
+    <title>بوابة الطالب الأكاديمية | أكاديمية OFK</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
@@ -17,89 +17,127 @@
 <body class="min-h-screen flex flex-col justify-between p-4 md:p-8">
 
     <!-- رأس الصفحة -->
-    <header class="max-w-4xl mx-auto w-full bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-2xl backdrop-blur-md flex flex-col md:flex-row justify-between items-center gap-4">
+    <header class="max-w-6xl mx-auto w-full bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-2xl backdrop-blur-md flex flex-col md:flex-row justify-between items-center gap-4">
         <div class="flex items-center gap-4">
-            <div class="bg-amber-500/10 border border-amber-500/30 p-3 rounded-xl">
-                <i class="fa-solid fa-user-graduate text-amber-400 text-2xl"></i>
+            <div class="bg-blue-500/10 border border-blue-500/30 p-3.5 rounded-2xl">
+                <i class="fa-solid fa-user-graduate text-blue-400 text-3xl"></i>
             </div>
             <div>
-                <h1 class="text-xl font-bold text-white">بوابة الطالب الأكاديمية</h1>
-                <p class="text-xs text-amber-400 mt-0.5">مرحباً بك، طالب تجريبي (جامعة الزهراء)</p>
+                <h1 class="text-2xl font-black text-white">بوابة الطالب - جامعة الزهراء</h1>
+                <p class="text-xs text-blue-400 mt-1 font-semibold">مرحباً بك، الطالب الكريم في مسارك الأكاديمي</p>
             </div>
         </div>
-        <a href="index.html" class="bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 text-xs font-bold px-4 py-2.5 rounded-xl transition-colors flex items-center gap-2">
-            <i class="fa-solid fa-right-from-bracket"></i> تسجيل الخروج
-        </a>
+        <div>
+            <a href="index.html" class="bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs font-bold px-4 py-2.5 rounded-xl transition-colors flex items-center gap-2">
+                <i class="fa-solid fa-right-from-bracket"></i> تسجيل الخروج
+            </a>
+        </div>
     </header>
 
-    <!-- المحتوى الرئيسي -->
-    <main class="max-w-4xl mx-auto w-full space-y-6 my-6">
-        <!-- إحصائيات سريعة -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div class="bg-slate-800/60 border border-slate-700/60 p-4 rounded-2xl flex items-center gap-4">
-                <div class="bg-blue-500/10 text-blue-400 p-3 rounded-xl"><i class="fa-solid fa-book text-lg"></i></div>
-                <div>
-                    <p class="text-xs text-slate-400">المقررات المسجلة</p>
-                    <h3 class="text-lg font-bold text-white">4 مقررات</h3>
-                </div>
+    <!-- المحتوى الرئيسي لبوابة الطالب -->
+    <main class="max-w-6xl mx-auto w-full space-y-8 my-8">
+        
+        <!-- حالة الطالب والمسار الحالي -->
+        <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="space-y-2 text-center md:text-right">
+                <span class="bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs px-3.5 py-1.5 rounded-full font-bold">المرحلة الحالية: الدورة التمهيدية</span>
+                <h2 class="text-xl font-black text-white">الدورة التحضيرية الإجبارية (6 أشهر)</h2>
+                <p class="text-xs text-slate-400">يجب عليك اجتياز مواد هذه المرحلة والامتحان النهائي لتتمكن من اختيار أحد التخصصات الستة الكبرى (إجمالي البرنامج: سنة و 8 أشهر).</p>
             </div>
-            <div class="bg-slate-800/60 border border-slate-700/60 p-4 rounded-2xl flex items-center gap-4">
-                <div class="bg-emerald-500/10 text-emerald-400 p-3 rounded-xl"><i class="fa-solid fa-circle-check text-lg"></i></div>
-                <div>
-                    <p class="text-xs text-slate-400">نسبة الإنجاز</p>
-                    <h3 class="text-lg font-bold text-white">75%</h3>
-                </div>
+            <div class="bg-slate-900/80 border border-slate-700/60 p-4 rounded-xl text-center min-w-[200px]">
+                <div class="text-xs text-slate-400">حالة الامتحان التمهيدي</div>
+                <div class="text-amber-400 font-bold text-sm mt-1"><i class="fa-solid fa-clock ml-1"></i> قيد الدراسة والتحضير</div>
             </div>
-            <div class="bg-slate-800/60 border border-slate-700/60 p-4 rounded-2xl flex items-center gap-4">
-                <div class="bg-amber-500/10 text-amber-400 p-3 rounded-xl"><i class="fa-solid fa-award text-lg"></i></div>
-                <div>
-                    <p class="text-xs text-slate-400">المعدل التراكمي</p>
-                    <h3 class="text-lg font-bold text-white">ممتاز</h3>
+        </div>
+
+        <!-- مواد الدورة التمهيدية (المادة الأولى كمثال أساسي قابلة للتعديل) -->
+        <div class="space-y-4">
+            <h3 class="text-lg font-black text-white flex items-center gap-2">
+                <i class="fa-solid fa-book-open text-amber-400"></i> مواد الدورة التحضيرية (الـ 6 أشهر الأولى)
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- المادة الأولى المفعلة -->
+                <div class="bg-slate-800/80 border border-amber-500/40 rounded-2xl p-6 shadow-xl space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span class="bg-emerald-500/10 text-emerald-400 text-xs px-3 py-1 rounded-lg font-bold">مفعلة من المدير</span>
+                        <i class="fa-solid fa-check-circle text-emerald-400"></i>
+                    </div>
+                    <h4 class="text-base font-bold text-white">المادة الأولى: أساسيات التقنية والمهارات الرقمية</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">هذا النص تمهيدي ومخصص لمحتوى المادة الأولى، وقابل للتعديل الكامل والتحديث المستمر من قِبل إدارة المنصة لاحقاً.</p>
+                    <button onclick="alert('جاري فتح محتوى الدرس الأول...')" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs py-2.5 rounded-xl transition-colors shadow-lg">
+                        دخول لدروس المادة
+                    </button>
+                </div>
+
+                <!-- مواد أخرى مقفلة كمثال -->
+                <div class="bg-slate-800/50 border border-slate-700/60 rounded-2xl p-6 shadow-xl space-y-4 opacity-75">
+                    <div class="flex justify-between items-center">
+                        <span class="bg-rose-500/10 text-rose-400 text-xs px-3 py-1 rounded-lg font-bold">مقفلة</span>
+                        <i class="fa-solid fa-lock text-rose-400"></i>
+                    </div>
+                    <h4 class="text-base font-bold text-white">المادة الثانية: مناهج التفكير المنطقي</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">سيتم فتح هذه المادة بناءً على الجدول الزمني وتوجيهات إدارة جامعة الزهراء.</p>
+                    <button disabled class="w-full bg-slate-700 text-slate-400 font-bold text-xs py-2.5 rounded-xl cursor-not-allowed">
+                        مقفلة مؤقتاً
+                    </button>
+                </div>
+
+                <div class="bg-slate-800/50 border border-slate-700/60 rounded-2xl p-6 shadow-xl space-y-4 opacity-75">
+                    <div class="flex justify-between items-center">
+                        <span class="bg-rose-500/10 text-rose-400 text-xs px-3 py-1 rounded-lg font-bold">مقفلة</span>
+                        <i class="fa-solid fa-lock text-rose-400"></i>
+                    </div>
+                    <h4 class="text-base font-bold text-white">المادة الثالثة: مدخل إلى نظم المعلومات</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">سيتم فتح هذه المادة بعد إتمام المادة السابقة واجتياز اختبارها القصير.</p>
+                    <button disabled class="w-full bg-slate-700 text-slate-400 font-bold text-xs py-2.5 rounded-xl cursor-not-allowed">
+                        مقفلة مؤقتاً
+                    </button>
                 </div>
             </div>
         </div>
 
-        <!-- قائمة الدروس والمحاضرات (متزامنة حقيقياً من بوابة المدرس) -->
-        <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl space-y-4">
-            <h3 class="text-lg font-bold text-white flex items-center gap-2">
-                <i class="fa-solid fa-book-open text-amber-500"></i>
-                <span>الدروس والمحاضرات المتاحة للمقرر</span>
-            </h3>
-            <div id="studentLessonsContainer" class="space-y-3">
-                <p class="text-xs text-slate-400">جاري تحميل المحتوى الأكاديمي...</p>
+        <!-- نظرة مستقبلية على التخصصات الستة الكبرى (تظهر بعد اجتياز الـ 6 أشهر) -->
+        <div class="bg-slate-800/40 border border-slate-700/50 rounded-2xl p-6 space-y-4">
+            <div class="flex items-center gap-2 border-b border-slate-700/60 pb-3">
+                <i class="fa-solid fa-graduation-cap text-blue-400 text-lg"></i>
+                <h3 class="text-base font-bold text-white">التخصصات الستة الكبرى (متاحة بعد اجتياز الـ 6 أشهر وامتحان القبول)</h3>
+            </div>
+            <p class="text-xs text-slate-400">بعد تخرجك من الدورة التمهيدية بنجاح، ستتمكن من اختيار تخصصك من بين 6 تخصصات رئيسية تمتد لدراسة سنة و8 أشهر (كل تخصص يضم 6 مواد دراسية متعمقة):</p>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 text-center">
+                <div class="bg-slate-900/60 border border-slate-700/60 p-3 rounded-xl">
+                    <div class="text-blue-400 text-lg mb-1"><i class="fa-solid fa-code"></i></div>
+                    <span class="text-xs font-bold text-white">تطوير الويب</span>
+                </div>
+                <div class="bg-slate-900/60 border border-slate-700/60 p-3 rounded-xl">
+                    <div class="text-amber-400 text-lg mb-1"><i class="fa-solid fa-brain"></i></div>
+                    <span class="text-xs font-bold text-white">الذكاء الاصطناعي</span>
+                </div>
+                <div class="bg-slate-900/60 border border-slate-700/60 p-3 rounded-xl">
+                    <div class="text-emerald-400 text-lg mb-1"><i class="fa-solid fa-chart-line"></i></div>
+                    <span class="text-xs font-bold text-white">الإدارة الرقمية</span>
+                </div>
+                <div class="bg-slate-900/60 border border-slate-700/60 p-3 rounded-xl">
+                    <div class="text-purple-400 text-lg mb-1"><i class="fa-solid fa-shield-halved"></i></div>
+                    <span class="text-xs font-bold text-white">الأمن السيبراني</span>
+                </div>
+                <div class="bg-slate-900/60 border border-slate-700/60 p-3 rounded-xl">
+                    <div class="text-rose-400 text-lg mb-1"><i class="fa-solid fa-database"></i></div>
+                    <span class="text-xs font-bold text-white">قواعد البيانات</span>
+                </div>
+                <div class="bg-slate-900/60 border border-slate-700/60 p-3 rounded-xl">
+                    <div class="text-cyan-400 text-lg mb-1"><i class="fa-solid fa-mobile-screen"></i></div>
+                    <span class="text-xs font-bold text-white">تطبيقات الجوال</span>
+                </div>
             </div>
         </div>
+
     </main>
 
     <!-- تذييل الصفحة -->
-    <footer class="max-w-4xl mx-auto w-full text-center text-xs text-slate-500 border-t border-slate-800 pt-4">
-        OFK Academy &copy; 2026 - جميع الحقوق محفوظة بالتعاون مع جامعة الزهراء
+    <footer class="max-w-6xl mx-auto w-full text-center text-xs text-slate-500 border-t border-slate-800 pt-6 mt-8">
+        أكاديمية OFK &copy; 2026 - بوابة الطالب الأكاديمية (جامعة الزهراء)
     </footer>
 
-    <!-- خوارزمية جلب الدروس محلياً -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const container = document.getElementById('studentLessonsContainer');
-            const lessons = JSON.parse(localStorage.getItem('ofk_dynamic_lessons') || '[]');
-            
-            if (lessons.length === 0) {
-                container.innerHTML = `<p class="text-xs text-slate-400 bg-slate-900/40 p-4 rounded-xl border border-slate-800">لا توجد دروس منشورة حالياً من قبل المدرس. يرجى الانتظار لحين إضافتها.</p>`;
-                return;
-            }
-            
-            container.innerHTML = '';
-            lessons.forEach(lesson => {
-                container.innerHTML += `
-                    <div class="bg-slate-900/60 border border-slate-700/60 p-4 rounded-xl flex items-center justify-between">
-                        <div>
-                            <h4 class="font-bold text-sm text-white">${lesson.title}</h4>
-                            <p class="text-xs text-amber-400 mt-1">تاريخ النشر: ${lesson.date} | بواسطة: ${lesson.instructor}</p>
-                        </div>
-                        <span class="bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs px-3 py-1.5 rounded-lg font-bold">متاح للتعلم</span>
-                    </div>
-                `;
-            });
-        });
-    </script>
 </body>
 </html>
