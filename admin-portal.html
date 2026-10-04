@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لوحة التحكم العليا للإدارة | OFK Academy</title>
+    <title>بوابة المدير | OFK Academy</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -23,7 +23,14 @@
 </head>
 <body class="bg-slate-900 text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-slate-900">
 
-    <!-- الشريط العلوي للوحة الإدارة -->
+    <!-- حارس المصادقة الخاص بالمدير -->
+    <script>
+        if (localStorage.getItem('userRole') !== 'admin') {
+            window.location.href = 'login.html';
+        }
+    </script>
+
+    <!-- الشريط العلوي -->
     <header class="bg-slate-800/90 backdrop-blur-md border-b border-slate-700/60 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3 space-x-reverse">
@@ -31,115 +38,130 @@
                     OFK
                 </div>
                 <div>
-                    <h1 class="text-lg font-bold tracking-tight text-white">لوحة التحكم العليا للإدارة</h1>
-                    <p class="text-xs text-amber-500 font-medium">مدير النظام السيادي (Administrator)</p>
+                    <h1 class="text-xl font-bold tracking-tight text-white">لوحة تحكم المدير العام</h1>
+                    <p class="text-xs text-amber-500 font-medium">أكاديمية OFK بالتعاون مع جامعة الزهراء</p>
                 </div>
             </div>
             <div>
-                <a href="login.html" class="inline-flex items-center gap-2 bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/30 px-4 py-2 rounded-xl text-sm font-semibold transition-colors">
+                <button onclick="logout()" class="inline-flex items-center gap-2 bg-red-500/15 hover:bg-red-500/25 text-red-400 border border-red-500/20 text-sm font-semibold px-4 py-2 rounded-xl transition-colors">
                     <i class="fa-solid fa-right-from-bracket"></i>
                     <span>تسجيل الخروج</span>
-                </a>
+                </button>
             </div>
         </div>
     </header>
 
-    <!-- المحتوى الرئيسي للوحة الإدارة -->
-    <main class="flex-grow py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-8 w-full">
+    <!-- المحتوى الرئيسي -->
+    <main class="flex-grow py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full space-y-8">
         
-        <!-- المؤشرات العامة للمنصة -->
-        <div class="grid grid-cols-1 sm:grid-cols-4 gap-6">
-            <div class="bg-slate-800/80 border border-slate-700/80 p-6 rounded-2xl shadow-xl flex items-center gap-4">
-                <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl border border-amber-500/20">
+        <!-- إحصاءات عامة شاملة -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl flex items-center justify-between">
+                <div>
+                    <p class="text-xs text-slate-400 font-medium">إجمالي المستخدمين</p>
+                    <h3 class="text-2xl font-black text-white mt-1">1,450</h3>
+                </div>
+                <div class="w-12 h-12 bg-amber-500/10 border border-amber-500/20 rounded-xl flex items-center justify-center text-amber-400 text-xl">
                     <i class="fa-solid fa-users-gear"></i>
                 </div>
+            </div>
+
+            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl flex items-center justify-between">
                 <div>
-                    <p class="text-xs text-slate-400">إجمالي المستخدمين</p>
-                    <h3 class="text-xl font-bold text-white">1,482</h3>
+                    <p class="text-xs text-slate-400 font-medium">البرامج النشطة</p>
+                    <h3 class="text-2xl font-black text-white mt-1">8 برامج</h3>
+                </div>
+                <div class="w-12 h-12 bg-amber-500/10 border border-amber-500/20 rounded-xl flex items-center justify-center text-amber-400 text-xl">
+                    <i class="fa-solid fa-book"></i>
                 </div>
             </div>
 
-            <div class="bg-slate-800/80 border border-slate-700/80 p-6 rounded-2xl shadow-xl flex items-center gap-4">
-                <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl border border-blue-500/20">
-                    <i class="fa-solid fa-book-bookmark"></i>
-                </div>
+            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl flex items-center justify-between">
                 <div>
-                    <p class="text-xs text-slate-400">البرامج النشطة</p>
-                    <h3 class="text-xl font-bold text-white">12 برنامجاً</h3>
+                    <p class="text-xs text-slate-400 font-medium">المدرسون المعتمدون</p>
+                    <h3 class="text-2xl font-black text-white mt-1">24 مدرساً</h3>
+                </div>
+                <div class="w-12 h-12 bg-amber-500/10 border border-amber-500/20 rounded-xl flex items-center justify-center text-amber-400 text-xl">
+                    <i class="fa-solid fa-chalkboard-user"></i>
                 </div>
             </div>
 
-            <div class="bg-slate-800/80 border border-slate-700/80 p-6 rounded-2xl shadow-xl flex items-center gap-4">
-                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl border border-emerald-500/20">
-                    <i class="fa-solid fa-certificate"></i>
-                </div>
+            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl flex items-center justify-between">
                 <div>
-                    <p class="text-xs text-slate-400">الشهادات الموثقة</p>
-                    <h3 class="text-xl font-bold text-white">650 شهادة</h3>
+                    <p class="text-xs text-slate-400 font-medium">حالة النظام</p>
+                    <h3 class="text-xl font-black text-emerald-400 mt-1">متصل وآمن</h3>
                 </div>
-            </div>
-
-            <div class="bg-slate-800/80 border border-slate-700/80 p-6 rounded-2xl shadow-xl flex items-center gap-4">
-                <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl border border-purple-500/20">
+                <div class="w-12 h-12 bg-emerald-500/10 border border-emerald-500/20 rounded-xl flex items-center justify-center text-emerald-400 text-xl">
                     <i class="fa-solid fa-shield-halved"></i>
                 </div>
-                <div>
-                    <p class="text-xs text-slate-400">حالة النظام</p>
-                    <h3 class="text-xl font-bold text-emerald-400">مؤمن بالكامل</h3>
-                </div>
             </div>
+
         </div>
 
-        <!-- جدول إدارة الحسابات والاعتمادات -->
-        <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 sm:p-8 shadow-xl space-y-6">
-            <div class="flex items-center justify-between border-b border-slate-700/60 pb-4">
-                <h3 class="text-xl font-bold text-white flex items-center gap-2">
-                    <i class="fa-solid fa-user-shield text-amber-500"></i>
-                    <span>طلبات الاعتماد وصلاحيات المستخدمين الأخيرة</span>
-                </h3>
-                <span class="text-xs bg-amber-500/10 text-amber-400 px-3 py-1 rounded-full border border-amber-500/20 font-medium">إدارة النظام العام</span>
+        <!-- شبكة أدوات الإدارة -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            
+            <!-- قسم إدارة المستخدمين والصلاحيات -->
+            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl space-y-4">
+                <div class="flex items-center justify-between border-b border-slate-700 pb-4">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-user-shield text-amber-500"></i>
+                        <span>إدارة المستخدمين والحسابات</span>
+                    </h3>
+                    <button class="bg-amber-500 hover:bg-amber-600 text-slate-900 text-xs font-bold px-3 py-2 rounded-lg transition-colors flex items-center gap-1">
+                        <i class="fa-solid fa-user-plus"></i> إضافة مستخدم
+                    </button>
+                </div>
+                
+                <div class="space-y-3">
+                    <div class="bg-slate-900/60 border border-slate-700/60 p-4 rounded-xl flex items-center justify-between">
+                        <div>
+                            <h4 class="font-bold text-sm text-white">حسابات الطلاب (جديدة)</h4>
+                            <p class="text-xs text-slate-400 mt-1">45 طلباً بانتظار الموافقة والتفعيل</p>
+                        </div>
+                        <button class="bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs px-3 py-2 rounded-lg">مراجعة الطلبات</button>
+                    </div>
+
+                    <div class="bg-slate-900/60 border border-slate-700/60 p-4 rounded-xl flex items-center justify-between">
+                        <div>
+                            <h4 class="font-bold text-sm text-white">صلاحيات أعضاء هيئة التدريس</h4>
+                            <p class="text-xs text-slate-400 mt-1">تعديل وتحديث الصلاحيات للمدرسين</p>
+                        </div>
+                        <button class="bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs px-3 py-2 rounded-lg">إدارة الصلاحيات</button>
+                    </div>
+                </div>
             </div>
 
-            <div class="overflow-x-auto">
-                <table class="w-full text-right text-sm">
-                    <thead class="bg-slate-900/80 text-slate-400 uppercase text-xs">
-                        <tr>
-                            <th class="p-4 rounded-r-xl">اسم المستخدم</th>
-                            <th class="p-4">البريد الإلكتروني</th>
-                            <th class="p-4">نوع الحساب المطلوب</th>
-                            <th class="p-4">الحالة الحالية</th>
-                            <th class="p-4 rounded-l-xl">الإجراء الإداري</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-slate-700/50 text-slate-300">
-                        <tr>
-                            <td class="p-4 font-semibold text-white">محمد عبد الله العامري</td>
-                            <td class="p-4 text-slate-400">mohammed@example.com</td>
-                            <td class="p-4 text-amber-400 font-medium">مدرس / مشرف أكاديمي</td>
-                            <td class="p-4"><span class="text-amber-400 font-medium text-xs bg-amber-500/10 px-2.5 py-1 rounded-lg border border-amber-500/20">بانتظار الموافقة</span></td>
-                            <td class="p-4 flex gap-2">
-                                <button onclick="alert('تم اعتماد الحساب بنجاح وإرسال بيانات الدخول')" class="bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors">
-                                    قبول
-                                </button>
-                                <button onclick="alert('تم رفض الطلب')" class="bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/30 px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors">
-                                    رفض
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="p-4 font-semibold text-white">فاطمة الزهراء الحَسني</td>
-                            <td class="p-4 text-slate-400">fatima@example.com</td>
-                            <td class="p-4 text-blue-400 font-medium">طالب أكاديمي</td>
-                            <td class="p-4"><span class="text-emerald-400 font-medium text-xs bg-emerald-500/10 px-2.5 py-1 rounded-lg border border-emerald-500/20">مفعل ومنتظم</span></td>
-                            <td class="p-4">
-                                <button onclick="alert('فتح إعدادات حساب الطالب')" class="bg-slate-700 hover:bg-slate-600 text-slate-200 border border-slate-600 px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors">
-                                    إدارة الحساب
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <!-- قسم الإعدادات العامة وإعلانات النظام -->
+            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl space-y-4">
+                <div class="flex items-center justify-between border-b border-slate-700 pb-4">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-gear text-amber-500"></i>
+                        <span>الإعدادات العامة وإعلانات المنصة</span>
+                    </h3>
+                    <span class="text-xs text-slate-400">التحكم الشامل</span>
+                </div>
+
+                <div class="space-y-3">
+                    <div class="bg-slate-900/60 border border-slate-700/60 p-4 rounded-xl flex items-center justify-between">
+                        <div>
+                            <h4 class="font-bold text-sm text-white">نشر إعلان عام لجميع البوابات</h4>
+                            <p class="text-xs text-amber-400 mt-1">يظهر في لوحة إعلانات الطلاب والمدرسين</p>
+                        </div>
+                        <button class="bg-amber-500 hover:bg-amber-600 text-slate-900 text-xs font-bold px-3 py-2 rounded-lg transition-colors">نشر إعلان</button>
+                    </div>
+
+                    <div class="bg-slate-900/60 border border-slate-700/60 p-4 rounded-xl flex items-center justify-between">
+                        <div>
+                            <h4 class="font-bold text-sm text-white">النسخ الاحتياطي ومزامنة البيانات</h4>
+                            <p class="text-xs text-emerald-400 mt-1">آخر نسخة احتياطية: اليوم</p>
+                        </div>
+                        <button class="bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs px-3 py-2 rounded-lg">تحديث الآن</button>
+                    </div>
+                </div>
             </div>
+
         </div>
 
     </main>
@@ -148,6 +170,14 @@
     <footer class="bg-slate-800/80 border-t border-slate-700/50 py-6 text-center text-slate-400 text-xs">
         <p>جميع الحقوق محفوظة © OFK Academy 2026 — بالتعاون مع جامعة الزهراء</p>
     </footer>
+
+    <!-- سكريبت الخروج -->
+    <script>
+        function logout() {
+            localStorage.removeItem('userRole');
+            window.location.href = 'login.html';
+        }
+    </script>
 
 </body>
 </html>
