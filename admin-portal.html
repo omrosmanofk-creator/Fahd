@@ -24,7 +24,7 @@
             </div>
             <div>
                 <h1 class="text-xl font-bold text-white">بوابة المدير العام (Admin)</h1>
-                <p class="text-xs text-rose-400 mt-0.5">الصلاحية المطلقة والتحكم الشامل بالمنصة</p>
+                <p class="text-xs text-rose-400 mt-0.5">الصلاحية المطلقة لإدارة المدرسين والصلاحيات</p>
             </div>
         </div>
         <a href="index.html" class="bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 text-xs font-bold px-4 py-2.5 rounded-xl transition-colors flex items-center gap-2">
@@ -34,42 +34,43 @@
 
     <!-- المحتوى الرئيسي -->
     <main class="max-w-4xl mx-auto w-full space-y-6 my-6">
-        <!-- إحصائيات النظام الشاملة -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div class="bg-slate-800/60 border border-slate-700/60 p-4 rounded-2xl flex items-center gap-4">
-                <div class="bg-purple-500/10 text-purple-400 p-3 rounded-xl"><i class="fa-solid fa-users text-lg"></i></div>
-                <div>
-                    <p class="text-xs text-slate-400">إجمالي المستخدمين</p>
-                    <h3 class="text-lg font-bold text-white">1,240 نشط</h3>
-                </div>
+        
+        <!-- قسم إضافة مدرس جديد ومنح الصلاحيات -->
+        <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl space-y-4">
+            <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                <i class="fa-solid fa-user-plus text-rose-400"></i>
+                <span>إضافة مدرس جديد ومنح الصلاحيات الأكاديمية</span>
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <input type="text" id="instructorName" placeholder="اسم المدرس (مثال: د. محمد علي)..." class="bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-rose-500">
+                <input type="text" id="instructorCourse" placeholder="المقرر المسند إليه (مثال: الذكاء الاصطناعي)..." class="bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-rose-500">
             </div>
-            <div class="bg-slate-800/60 border border-slate-700/60 p-4 rounded-2xl flex items-center gap-4">
-                <div class="bg-amber-500/10 text-amber-400 p-3 rounded-xl"><i class="fa-solid fa-graduation-cap text-lg"></i></div>
-                <div>
-                    <p class="text-xs text-slate-400">المدرسون المعتمدون</p>
-                    <h3 class="text-lg font-bold text-white">45 أستاذ</h3>
-                </div>
-            </div>
-            <div class="bg-slate-800/60 border border-slate-700/60 p-4 rounded-2xl flex items-center gap-4">
-                <div class="bg-emerald-500/10 text-emerald-400 p-3 rounded-xl"><i class="fa-solid fa-server text-lg"></i></div>
-                <div>
-                    <p class="text-xs text-slate-400">حالة الخادم والنظام</p>
-                    <h3 class="text-lg font-bold text-emerald-400">متصل (PWA)</h3>
-                </div>
+            <button onclick="addNewInstructor()" class="w-full bg-rose-600 hover:bg-rose-500 text-white font-bold text-sm py-3 rounded-xl transition-colors shadow-lg shadow-rose-600/20">
+                تسجيل المدرس ومنح الصلاحية فوراً
+            </button>
+        </div>
+
+        <!-- قائمة المدرسين المعتمدين في النظام -->
+        <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl space-y-4">
+            <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                <i class="fa-solid fa-chalkboard-user text-rose-400"></i>
+                <span>قائمة المدرسين والصلاحيات الممنوحة</span>
+            </h3>
+            <div id="instructorsListContainer" class="space-y-3">
+                <p class="text-xs text-slate-400">جاري تحميل قائمة المدرسين...</p>
             </div>
         </div>
 
-        <!-- إدارة الصلاحيات والنظام العام -->
+        <!-- نظام التحكم الشامل وإعادة الضبط -->
         <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl space-y-4">
             <h3 class="text-lg font-bold text-white flex items-center gap-2">
                 <i class="fa-solid fa-gears text-rose-400"></i>
-                <span>لوحة الرقابة الشاملة والتحكم بالصلاحيات</span>
+                <span>إعدادات النظام والذاكرة المشتركة</span>
             </h3>
-            <p class="text-xs text-slate-400">بصفتك المدير العام، تمتلك القدرة على مراقبة أداء المدرسين ومحتوى الطلاب وإدارة إعدادات الأكاديمية بالكامل.</p>
             <div class="bg-slate-900/60 border border-slate-700/60 p-4 rounded-xl flex items-center justify-between">
                 <div>
-                    <h4 class="font-bold text-sm text-white">إعادة تعيين بيانات الذاكرة المؤقتة</h4>
-                    <p class="text-xs text-slate-400 mt-1">مسح الدروس التجريبية وإعادة ضبط المنصة</p>
+                    <h4 class="font-bold text-sm text-white">إعادة تعيين بيانات المنصة بالكامل</h4>
+                    <p class="text-xs text-slate-400 mt-1">مسح المدرسين والدروس التجريبية وإعادة ضبط النظام</p>
                 </div>
                 <button onclick="resetSystemData()" class="bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 text-xs px-4 py-2 rounded-xl font-bold transition-colors">إعادة ضبط</button>
             </div>
@@ -81,15 +82,71 @@
         OFK Academy &copy; 2026 - جميع الحقوق محفوظة بالتعاون مع جامعة الزهراء
     </footer>
 
-    <!-- سكربت التحكم للإدارة -->
+    <!-- خوارزميات إدارة المدرسين والصلاحيات محلياً -->
     <script>
+        function loadInstructors() {
+            const container = document.getElementById('instructorsListContainer');
+            const instructors = JSON.parse(localStorage.getItem('ofk_instructors') || '[]');
+            
+            if (instructors.length === 0) {
+                container.innerHTML = `<p class="text-xs text-slate-400 bg-slate-900/40 p-4 rounded-xl border border-slate-800">لا يوجد مدرسون مسجلون حالياً. يمكنك إضافة مدرس جديد عبر النموذج أعلاه.</p>`;
+                return;
+            }
+            
+            container.innerHTML = '';
+            instructors.forEach((inst, index) => {
+                container.innerHTML += `
+                    <div class="bg-slate-900/60 border border-slate-700/60 p-4 rounded-xl flex items-center justify-between">
+                        <div>
+                            <h4 class="font-bold text-sm text-white">${inst.name}</h4>
+                            <p class="text-xs text-rose-400 mt-1">المقرر المسند: ${inst.course} | الصلاحية: مدرس معتمد</p>
+                        </div>
+                        <button onclick="removeInstructor(${index})" class="bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 text-xs px-3 py-1.5 rounded-lg font-bold transition-colors">سحب الصلاحية</button>
+                    </div>
+                `;
+            });
+        }
+
+        function addNewInstructor() {
+            const nameInput = document.getElementById('instructorName');
+            const courseInput = document.getElementById('instructorCourse');
+            
+            const name = nameInput.value.trim();
+            const course = courseInput.value.trim();
+            
+            if (!name || !course) {
+                alert('يرجى إدخال اسم المدرس والمقرر المسند إليه');
+                return;
+            }
+            
+            let instructors = JSON.parse(localStorage.getItem('ofk_instructors') || '[]');
+            instructors.push({ name: name, course: course, date: new Date().toLocaleDateString('ar-SA') });
+            
+            localStorage.setItem('ofk_instructors', JSON.stringify(instructors));
+            
+            nameInput.value = '';
+            courseInput.value = '';
+            loadInstructors();
+            alert('تم تسجيل المدرس ومنحه صلاحيات الإدارة بنجاح!');
+        }
+
+        function removeInstructor(index) {
+            let instructors = JSON.parse(localStorage.getItem('ofk_instructors') || '[]');
+            instructors.splice(index, 1);
+            localStorage.setItem('ofk_instructors', JSON.stringify(instructors));
+            loadInstructors();
+        }
+
         function resetSystemData() {
-            if(confirm('هل أنت متأكد من رغبتك في مسح وإعادة ضبط بيانات المنصة؟')) {
+            if(confirm('هل أنت متأكد من رغبتك في مسح كافة بيانات المدرسين والدروس؟')) {
+                localStorage.removeItem('ofk_instructors');
                 localStorage.removeItem('ofk_dynamic_lessons');
                 alert('تمت إعادة ضبط النظام بنجاح!');
                 location.reload();
             }
         }
+
+        document.addEventListener('DOMContentLoaded', loadInstructors);
     </script>
 </body>
 </html>
