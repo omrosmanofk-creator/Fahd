@@ -3,181 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بوابة المدير | OFK Academy</title>
+    <title>بوابة المدير العام | OFK Academy</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        slate: { 900: '#0f172a', 800: '#1e293b', 700: '#334155' },
-                        amber: { 500: '#f59e0b', 600: '#d97706' }
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="manifest" href="./manifest.json">
-    <meta name="theme-color" content="#0f172a">
+    <!-- Google Fonts Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Cairo', sans-serif; background-color: #0f172a; color: #f8fafc; }
+    </style>
 </head>
-<body class="bg-slate-900 text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-slate-900">
+<body class="min-h-screen flex flex-col justify-between p-4 md:p-8">
 
-    <!-- حارس المصادقة الخاص بالمدير -->
-    <script>
-        if (localStorage.getItem('userRole') !== 'admin') {
-            window.location.href = 'login.html';
-        }
-    </script>
-
-    <!-- الشريط العلوي -->
-    <header class="bg-slate-800/90 backdrop-blur-md border-b border-slate-700/60 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-3 space-x-reverse">
-                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center shadow-lg shadow-amber-500/20 text-slate-900 font-black text-xl">
-                    OFK
-                </div>
-                <div>
-                    <h1 class="text-xl font-bold tracking-tight text-white">لوحة تحكم المدير العام</h1>
-                    <p class="text-xs text-amber-500 font-medium">أكاديمية OFK بالتعاون مع جامعة الزهراء</p>
-                </div>
+    <!-- رأس الصفحة -->
+    <header class="max-w-4xl mx-auto w-full bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-2xl backdrop-blur-md flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="flex items-center gap-4">
+            <div class="bg-rose-500/10 border border-rose-500/30 p-3 rounded-xl">
+                <i class="fa-solid fa-shield-halved text-rose-400 text-2xl"></i>
             </div>
             <div>
-                <button onclick="logout()" class="inline-flex items-center gap-2 bg-red-500/15 hover:bg-red-500/25 text-red-400 border border-red-500/20 text-sm font-semibold px-4 py-2 rounded-xl transition-colors">
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                    <span>تسجيل الخروج</span>
-                </button>
+                <h1 class="text-xl font-bold text-white">بوابة المدير العام (Admin)</h1>
+                <p class="text-xs text-rose-400 mt-0.5">الصلاحية المطلقة والتحكم الشامل بالمنصة</p>
             </div>
         </div>
+        <a href="index.html" class="bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 text-xs font-bold px-4 py-2.5 rounded-xl transition-colors flex items-center gap-2">
+            <i class="fa-solid fa-right-from-bracket"></i> تسجيل الخروج
+        </a>
     </header>
 
     <!-- المحتوى الرئيسي -->
-    <main class="flex-grow py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full space-y-8">
-        
-        <!-- إحصاءات عامة شاملة -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            
-            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl flex items-center justify-between">
+    <main class="max-w-4xl mx-auto w-full space-y-6 my-6">
+        <!-- إحصائيات النظام الشاملة -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-slate-800/60 border border-slate-700/60 p-4 rounded-2xl flex items-center gap-4">
+                <div class="bg-purple-500/10 text-purple-400 p-3 rounded-xl"><i class="fa-solid fa-users text-lg"></i></div>
                 <div>
-                    <p class="text-xs text-slate-400 font-medium">إجمالي المستخدمين</p>
-                    <h3 class="text-2xl font-black text-white mt-1">1,450</h3>
-                </div>
-                <div class="w-12 h-12 bg-amber-500/10 border border-amber-500/20 rounded-xl flex items-center justify-center text-amber-400 text-xl">
-                    <i class="fa-solid fa-users-gear"></i>
+                    <p class="text-xs text-slate-400">إجمالي المستخدمين</p>
+                    <h3 class="text-lg font-bold text-white">1,240 نشط</h3>
                 </div>
             </div>
-
-            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl flex items-center justify-between">
+            <div class="bg-slate-800/60 border border-slate-700/60 p-4 rounded-2xl flex items-center gap-4">
+                <div class="bg-amber-500/10 text-amber-400 p-3 rounded-xl"><i class="fa-solid fa-graduation-cap text-lg"></i></div>
                 <div>
-                    <p class="text-xs text-slate-400 font-medium">البرامج النشطة</p>
-                    <h3 class="text-2xl font-black text-white mt-1">8 برامج</h3>
-                </div>
-                <div class="w-12 h-12 bg-amber-500/10 border border-amber-500/20 rounded-xl flex items-center justify-center text-amber-400 text-xl">
-                    <i class="fa-solid fa-book"></i>
+                    <p class="text-xs text-slate-400">المدرسون المعتمدون</p>
+                    <h3 class="text-lg font-bold text-white">45 أستاذ</h3>
                 </div>
             </div>
-
-            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl flex items-center justify-between">
+            <div class="bg-slate-800/60 border border-slate-700/60 p-4 rounded-2xl flex items-center gap-4">
+                <div class="bg-emerald-500/10 text-emerald-400 p-3 rounded-xl"><i class="fa-solid fa-server text-lg"></i></div>
                 <div>
-                    <p class="text-xs text-slate-400 font-medium">المدرسون المعتمدون</p>
-                    <h3 class="text-2xl font-black text-white mt-1">24 مدرساً</h3>
-                </div>
-                <div class="w-12 h-12 bg-amber-500/10 border border-amber-500/20 rounded-xl flex items-center justify-center text-amber-400 text-xl">
-                    <i class="fa-solid fa-chalkboard-user"></i>
+                    <p class="text-xs text-slate-400">حالة الخادم والنظام</p>
+                    <h3 class="text-lg font-bold text-emerald-400">متصل (PWA)</h3>
                 </div>
             </div>
-
-            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl flex items-center justify-between">
-                <div>
-                    <p class="text-xs text-slate-400 font-medium">حالة النظام</p>
-                    <h3 class="text-xl font-black text-emerald-400 mt-1">متصل وآمن</h3>
-                </div>
-                <div class="w-12 h-12 bg-emerald-500/10 border border-emerald-500/20 rounded-xl flex items-center justify-center text-emerald-400 text-xl">
-                    <i class="fa-solid fa-shield-halved"></i>
-                </div>
-            </div>
-
         </div>
 
-        <!-- شبكة أدوات الإدارة -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            
-            <!-- قسم إدارة المستخدمين والصلاحيات -->
-            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl space-y-4">
-                <div class="flex items-center justify-between border-b border-slate-700 pb-4">
-                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
-                        <i class="fa-solid fa-user-shield text-amber-500"></i>
-                        <span>إدارة المستخدمين والحسابات</span>
-                    </h3>
-                    <button class="bg-amber-500 hover:bg-amber-600 text-slate-900 text-xs font-bold px-3 py-2 rounded-lg transition-colors flex items-center gap-1">
-                        <i class="fa-solid fa-user-plus"></i> إضافة مستخدم
-                    </button>
+        <!-- إدارة الصلاحيات والنظام العام -->
+        <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl space-y-4">
+            <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                <i class="fa-solid fa-gears text-rose-400"></i>
+                <span>لوحة الرقابة الشاملة والتحكم بالصلاحيات</span>
+            </h3>
+            <p class="text-xs text-slate-400">بصفتك المدير العام، تمتلك القدرة على مراقبة أداء المدرسين ومحتوى الطلاب وإدارة إعدادات الأكاديمية بالكامل.</p>
+            <div class="bg-slate-900/60 border border-slate-700/60 p-4 rounded-xl flex items-center justify-between">
+                <div>
+                    <h4 class="font-bold text-sm text-white">إعادة تعيين بيانات الذاكرة المؤقتة</h4>
+                    <p class="text-xs text-slate-400 mt-1">مسح الدروس التجريبية وإعادة ضبط المنصة</p>
                 </div>
-                
-                <div class="space-y-3">
-                    <div class="bg-slate-900/60 border border-slate-700/60 p-4 rounded-xl flex items-center justify-between">
-                        <div>
-                            <h4 class="font-bold text-sm text-white">حسابات الطلاب (جديدة)</h4>
-                            <p class="text-xs text-slate-400 mt-1">45 طلباً بانتظار الموافقة والتفعيل</p>
-                        </div>
-                        <button class="bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs px-3 py-2 rounded-lg">مراجعة الطلبات</button>
-                    </div>
-
-                    <div class="bg-slate-900/60 border border-slate-700/60 p-4 rounded-xl flex items-center justify-between">
-                        <div>
-                            <h4 class="font-bold text-sm text-white">صلاحيات أعضاء هيئة التدريس</h4>
-                            <p class="text-xs text-slate-400 mt-1">تعديل وتحديث الصلاحيات للمدرسين</p>
-                        </div>
-                        <button class="bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs px-3 py-2 rounded-lg">إدارة الصلاحيات</button>
-                    </div>
-                </div>
+                <button onclick="resetSystemData()" class="bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 text-xs px-4 py-2 rounded-xl font-bold transition-colors">إعادة ضبط</button>
             </div>
-
-            <!-- قسم الإعدادات العامة وإعلانات النظام -->
-            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl space-y-4">
-                <div class="flex items-center justify-between border-b border-slate-700 pb-4">
-                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
-                        <i class="fa-solid fa-gear text-amber-500"></i>
-                        <span>الإعدادات العامة وإعلانات المنصة</span>
-                    </h3>
-                    <span class="text-xs text-slate-400">التحكم الشامل</span>
-                </div>
-
-                <div class="space-y-3">
-                    <div class="bg-slate-900/60 border border-slate-700/60 p-4 rounded-xl flex items-center justify-between">
-                        <div>
-                            <h4 class="font-bold text-sm text-white">نشر إعلان عام لجميع البوابات</h4>
-                            <p class="text-xs text-amber-400 mt-1">يظهر في لوحة إعلانات الطلاب والمدرسين</p>
-                        </div>
-                        <button class="bg-amber-500 hover:bg-amber-600 text-slate-900 text-xs font-bold px-3 py-2 rounded-lg transition-colors">نشر إعلان</button>
-                    </div>
-
-                    <div class="bg-slate-900/60 border border-slate-700/60 p-4 rounded-xl flex items-center justify-between">
-                        <div>
-                            <h4 class="font-bold text-sm text-white">النسخ الاحتياطي ومزامنة البيانات</h4>
-                            <p class="text-xs text-emerald-400 mt-1">آخر نسخة احتياطية: اليوم</p>
-                        </div>
-                        <button class="bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs px-3 py-2 rounded-lg">تحديث الآن</button>
-                    </div>
-                </div>
-            </div>
-
         </div>
-
     </main>
 
-    <!-- التذييل -->
-    <footer class="bg-slate-800/80 border-t border-slate-700/50 py-6 text-center text-slate-400 text-xs">
-        <p>جميع الحقوق محفوظة © OFK Academy 2026 — بالتعاون مع جامعة الزهراء</p>
+    <!-- تذييل الصفحة -->
+    <footer class="max-w-4xl mx-auto w-full text-center text-xs text-slate-500 border-t border-slate-800 pt-4">
+        OFK Academy &copy; 2026 - جميع الحقوق محفوظة بالتعاون مع جامعة الزهراء
     </footer>
 
-    <!-- سكريبت الخروج -->
+    <!-- سكربت التحكم للإدارة -->
     <script>
-        function logout() {
-            localStorage.removeItem('userRole');
-            window.location.href = 'login.html';
+        function resetSystemData() {
+            if(confirm('هل أنت متأكد من رغبتك في مسح وإعادة ضبط بيانات المنصة؟')) {
+                localStorage.removeItem('ofk_dynamic_lessons');
+                alert('تمت إعادة ضبط النظام بنجاح!');
+                location.reload();
+            }
         }
     </script>
-
 </body>
 </html>
