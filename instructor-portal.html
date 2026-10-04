@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بوابة المدرس والمشرف الأكاديمي | OFK Academy</title>
+    <title>بوابة المدرس | OFK Academy</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -23,7 +23,14 @@
 </head>
 <body class="bg-slate-900 text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-slate-900">
 
-    <!-- الشريط العلوي لبوابة المدرس -->
+    <!-- حارس المصادقة الخاص بالمدرس -->
+    <script>
+        if (localStorage.getItem('userRole') !== 'instructor') {
+            window.location.href = 'login.html';
+        }
+    </script>
+
+    <!-- الشريط العلوي -->
     <header class="bg-slate-800/90 backdrop-blur-md border-b border-slate-700/60 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3 space-x-reverse">
@@ -31,102 +38,126 @@
                     OFK
                 </div>
                 <div>
-                    <h1 class="text-lg font-bold tracking-tight text-white">بوابة المدرس الأكاديمي</h1>
-                    <p class="text-xs text-amber-500 font-medium">د. أحمد الزهراوي (مشرف معتمد)</p>
+                    <h1 class="text-xl font-bold tracking-tight text-white">بوابة الأستاذ / المدرس</h1>
+                    <p class="text-xs text-amber-500 font-medium">أكاديمية OFK بالتعاون مع جامعة الزهراء</p>
                 </div>
             </div>
             <div>
-                <a href="login.html" class="inline-flex items-center gap-2 bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/30 px-4 py-2 rounded-xl text-sm font-semibold transition-colors">
+                <button onclick="logout()" class="inline-flex items-center gap-2 bg-red-500/15 hover:bg-red-500/25 text-red-400 border border-red-500/20 text-sm font-semibold px-4 py-2 rounded-xl transition-colors">
                     <i class="fa-solid fa-right-from-bracket"></i>
                     <span>تسجيل الخروج</span>
-                </a>
+                </button>
             </div>
         </div>
     </header>
 
-    <!-- المحتوى الرئيسي لبوابة المدرس -->
-    <main class="flex-grow py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-8 w-full">
+    <!-- المحتوى الرئيسي -->
+    <main class="flex-grow py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full space-y-8">
         
-        <!-- لوحة الإحصائيات للمدرس -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <div class="bg-slate-800/80 border border-slate-700/80 p-6 rounded-2xl shadow-xl flex items-center gap-4">
-                <div class="w-14 h-14 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-2xl border border-amber-500/20">
-                    <i class="fa-solid fa-chalkboard-user"></i>
-                </div>
+        <!-- لوحة الترحيب وإحصاءات سريعة -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl flex items-center justify-between">
                 <div>
-                    <p class="text-xs text-slate-400">الشعب الدراسية النشطة</p>
-                    <h3 class="text-2xl font-bold text-white">3 شعب</h3>
+                    <p class="text-xs text-slate-400 font-medium">المقررات المسندة إليك</p>
+                    <h3 class="text-2xl font-black text-white mt-1">3 مقررات</h3>
+                </div>
+                <div class="w-12 h-12 bg-amber-500/10 border border-amber-500/20 rounded-xl flex items-center justify-center text-amber-400 text-xl">
+                    <i class="fa-solid fa-graduation-cap"></i>
                 </div>
             </div>
 
-            <div class="bg-slate-800/80 border border-slate-700/80 p-6 rounded-2xl shadow-xl flex items-center gap-4">
-                <div class="w-14 h-14 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-2xl border border-indigo-500/20">
+            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl flex items-center justify-between">
+                <div>
+                    <p class="text-xs text-slate-400 font-medium">إجمالي الطلاب المسجلين</p>
+                    <h3 class="text-2xl font-black text-white mt-1">128 طالباً</h3>
+                </div>
+                <div class="w-12 h-12 bg-amber-500/10 border border-amber-500/20 rounded-xl flex items-center justify-center text-amber-400 text-xl">
                     <i class="fa-solid fa-users"></i>
                 </div>
+            </div>
+
+            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl flex items-center justify-between">
                 <div>
-                    <p class="text-xs text-slate-400">إجمالي الطلاب المسجلين</p>
-                    <h3 class="text-2xl font-bold text-white">124 طالباً</h3>
+                    <p class="text-xs text-slate-400 font-medium">الواجبات بانتظار التصحيح</p>
+                    <h3 class="text-2xl font-black text-white mt-1">14 واجباً</h3>
+                </div>
+                <div class="w-12 h-12 bg-amber-500/10 border border-amber-500/20 rounded-xl flex items-center justify-center text-amber-400 text-xl">
+                    <i class="fa-solid fa-file-invoice"></i>
                 </div>
             </div>
 
-            <div class="bg-slate-800/80 border border-slate-700/80 p-6 rounded-2xl shadow-xl flex items-center gap-4">
-                <div class="w-14 h-14 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-2xl border border-emerald-500/20">
-                    <i class="fa-solid fa-file-pen"></i>
-                </div>
-                <div>
-                    <p class="text-xs text-slate-400">المهام والتقييمات المعلقة</p>
-                    <h3 class="text-2xl font-bold text-white">12 تقييماً</h3>
-                </div>
-            </div>
         </div>
 
-        <!-- جدول إدارة الشعب والمقررات للمدرس -->
-        <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 sm:p-8 shadow-xl space-y-6">
-            <div class="flex items-center justify-between border-b border-slate-700/60 pb-4">
-                <h3 class="text-xl font-bold text-white flex items-center gap-2">
-                    <i class="fa-solid fa-book-bookmark text-amber-500"></i>
-                    <span>الشعب والمقررات تحت إشرافك</span>
-                </h3>
-                <span class="text-xs bg-amber-500/10 text-amber-400 px-3 py-1 rounded-full border border-amber-500/20 font-medium">جامعة الزهراء — الفصل الحالي</span>
+        <!-- شبكة الإدارة (إدارة المحتوى والطلاب) -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            
+            <!-- قسم إدارة الدروس والمحاضرات -->
+            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl space-y-4">
+                <div class="flex items-center justify-between border-b border-slate-700 pb-4">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-chalkboard-user text-amber-500"></i>
+                        <span>إدارة المحاضرات وإضافتها</span>
+                    </h3>
+                    <button class="bg-amber-500 hover:bg-amber-600 text-slate-900 text-xs font-bold px-3 py-2 rounded-lg transition-colors flex items-center gap-1">
+                        <i class="fa-solid fa-plus"></i> إضافة درس جديد
+                    </button>
+                </div>
+                
+                <div class="space-y-3">
+                    <div class="bg-slate-900/60 border border-slate-700/60 p-4 rounded-xl flex items-center justify-between">
+                        <div>
+                            <h4 class="font-bold text-sm text-white">أساسيات الذكاء الاصطناعي</h4>
+                            <p class="text-xs text-slate-400 mt-1">الحالة: منشورة (تاريخ النشر: الأسبوع الحالي)</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs px-3 py-1.5 rounded-lg">تعديل</button>
+                            <button class="bg-red-500/15 hover:bg-red-500/25 text-red-400 text-xs px-3 py-1.5 rounded-lg">حذف</button>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/60 border border-slate-700/60 p-4 rounded-xl flex items-center justify-between">
+                        <div>
+                            <h4 class="font-bold text-sm text-white">علم النفس التطبيقي</h4>
+                            <p class="text-xs text-slate-400 mt-1">الحالة: مسودة (قيد التجهيز)</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="bg-amber-500/20 text-amber-400 text-xs px-3 py-1.5 rounded-lg border border-amber-500/30">نشر</button>
+                            <button class="bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs px-3 py-1.5 rounded-lg">تعديل</button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="overflow-x-auto">
-                <table class="w-full text-right text-sm">
-                    <thead class="bg-slate-900/80 text-slate-400 uppercase text-xs">
-                        <tr>
-                            <th class="p-4 rounded-r-xl">المقرر الدراسي</th>
-                            <th class="p-4">رمز الشعبة</th>
-                            <th class="p-4">عدد الطلاب</th>
-                            <th class="p-4">حالة المحاضرات</th>
-                            <th class="p-4 rounded-l-xl">الإجراءات</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-slate-700/50 text-slate-300">
-                        <tr>
-                            <td class="p-4 font-semibold text-white">هندسة البرمجيات والمنصات الرقمية</td>
-                            <td class="p-4 text-slate-400 font-mono">SE-402</td>
-                            <td class="p-4">48 طالباً</td>
-                            <td class="p-4"><span class="text-emerald-400 font-medium text-xs bg-emerald-500/10 px-2.5 py-1 rounded-lg border border-emerald-500/20">نشطة ومنتظمة</span></td>
-                            <td class="p-4">
-                                <button onclick="alert('فتح لوحة إدارة الشعبة ورصد الدرجات')" class="bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 border border-amber-500/30 px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors">
-                                    إدارة الشعبة
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="p-4 font-semibold text-white">تطبيقات الويب المتقدمة (PWA)</td>
-                            <td class="p-4 text-slate-400 font-mono">WEB-301</td>
-                            <td class="p-4">76 طالباً</td>
-                            <td class="p-4"><span class="text-emerald-400 font-medium text-xs bg-emerald-500/10 px-2.5 py-1 rounded-lg border border-emerald-500/20">نشطة ومنتظمة</span></td>
-                            <td class="p-4">
-                                <button onclick="alert('فتح لوحة إدارة الشعبة ورصد الدرجات')" class="bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 border border-amber-500/30 px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors">
-                                    إدارة الشعبة
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <!-- قسم رصد الدرجات والتقييمات -->
+            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl space-y-4">
+                <div class="flex items-center justify-between border-b border-slate-700 pb-4">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-marker text-amber-500"></i>
+                        <span>رصد وتقييم الطلاب</span>
+                    </h3>
+                    <span class="text-xs text-slate-400">سجل النتائج</span>
+                </div>
+
+                <div class="space-y-3">
+                    <div class="bg-slate-900/60 border border-slate-700/60 p-4 rounded-xl flex items-center justify-between">
+                        <div>
+                            <h4 class="font-bold text-sm text-white">قائمة تسليمات اختبار الذكاء الاصطناعي</h4>
+                            <p class="text-xs text-amber-400 mt-1">12 طالباً قاموا بالتسليم بانتظار التقييم</p>
+                        </div>
+                        <button class="bg-amber-500 hover:bg-amber-600 text-slate-900 text-xs font-bold px-3 py-2 rounded-lg transition-colors">تقييم الطلاب</button>
+                    </div>
+
+                    <div class="bg-slate-900/60 border border-slate-700/60 p-4 rounded-xl flex items-center justify-between">
+                        <div>
+                            <h4 class="font-bold text-sm text-white">سجل الحضور والغياب العام</h4>
+                            <p class="text-xs text-emerald-400 mt-1">محدث لآخر محاضرة</p>
+                        </div>
+                        <button class="bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs px-3 py-2 rounded-lg">استعراض السجل</button>
+                    </div>
+                </div>
             </div>
+
         </div>
 
     </main>
@@ -135,6 +166,14 @@
     <footer class="bg-slate-800/80 border-t border-slate-700/50 py-6 text-center text-slate-400 text-xs">
         <p>جميع الحقوق محفوظة © OFK Academy 2026 — بالتعاون مع جامعة الزهراء</p>
     </footer>
+
+    <!-- سكريبت الخروج -->
+    <script>
+        function logout() {
+            localStorage.removeItem('userRole');
+            window.location.href = 'login.html';
+        }
+    </script>
 
 </body>
 </html>
