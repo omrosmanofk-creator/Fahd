@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بوابة المدير العام | OFK Academy</title>
+    <title>لوحة تحكم المدير | أكاديمية OFK</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
@@ -17,136 +17,120 @@
 <body class="min-h-screen flex flex-col justify-between p-4 md:p-8">
 
     <!-- رأس الصفحة -->
-    <header class="max-w-4xl mx-auto w-full bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-2xl backdrop-blur-md flex flex-col md:flex-row justify-between items-center gap-4">
+    <header class="max-w-6xl mx-auto w-full bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-2xl backdrop-blur-md flex flex-col md:flex-row justify-between items-center gap-4">
         <div class="flex items-center gap-4">
-            <div class="bg-rose-500/10 border border-rose-500/30 p-3 rounded-xl">
-                <i class="fa-solid fa-shield-halved text-rose-400 text-2xl"></i>
+            <div class="bg-purple-500/10 border border-purple-500/30 p-3.5 rounded-2xl">
+                <i class="fa-solid fa-user-shield text-purple-400 text-3xl"></i>
             </div>
             <div>
-                <h1 class="text-xl font-bold text-white">بوابة المدير العام (Admin)</h1>
-                <p class="text-xs text-rose-400 mt-0.5">الصلاحية المطلقة لإدارة المدرسين والصلاحيات</p>
+                <h1 class="text-2xl font-black text-white">لوحة تحكم المدير العام</h1>
+                <p class="text-xs text-purple-400 mt-1 font-semibold">إدارة المنصة الأكاديمية (شراكة جامعة الزهراء)</p>
             </div>
         </div>
-        <a href="index.html" class="bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 text-xs font-bold px-4 py-2.5 rounded-xl transition-colors flex items-center gap-2">
-            <i class="fa-solid fa-right-from-bracket"></i> تسجيل الخروج
-        </a>
+        <div>
+            <a href="index.html" class="bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs font-bold px-4 py-2.5 rounded-xl transition-colors flex items-center gap-2">
+                <i class="fa-solid fa-right-from-bracket"></i> تسجيل الخروج
+            </a>
+        </div>
     </header>
 
     <!-- المحتوى الرئيسي -->
-    <main class="max-w-4xl mx-auto w-full space-y-6 my-6">
+    <main class="max-w-6xl mx-auto w-full space-y-8 my-8">
         
-        <!-- قسم إضافة مدرس جديد ومنح الصلاحيات -->
-        <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl space-y-4">
-            <h3 class="text-lg font-bold text-white flex items-center gap-2">
-                <i class="fa-solid fa-user-plus text-rose-400"></i>
-                <span>إضافة مدرس جديد ومنح الصلاحيات الأكاديمية</span>
-            </h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <input type="text" id="instructorName" placeholder="اسم المدرس (مثال: د. محمد علي)..." class="bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-rose-500">
-                <input type="text" id="instructorCourse" placeholder="المقرر المسند إليه (مثال: الذكاء الاصطناعي)..." class="bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-rose-500">
-            </div>
-            <button onclick="addNewInstructor()" class="w-full bg-rose-600 hover:bg-rose-500 text-white font-bold text-sm py-3 rounded-xl transition-colors shadow-lg shadow-rose-600/20">
-                تسجيل المدرس ومنح الصلاحية فوراً
-            </button>
-        </div>
-
-        <!-- قائمة المدرسين المعتمدين في النظام -->
-        <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl space-y-4">
-            <h3 class="text-lg font-bold text-white flex items-center gap-2">
-                <i class="fa-solid fa-chalkboard-user text-rose-400"></i>
-                <span>قائمة المدرسين والصلاحيات الممنوحة</span>
-            </h3>
-            <div id="instructorsListContainer" class="space-y-3">
-                <p class="text-xs text-slate-400">جاري تحميل قائمة المدرسين...</p>
-            </div>
-        </div>
-
-        <!-- نظام التحكم الشامل وإعادة الضبط -->
-        <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl space-y-4">
-            <h3 class="text-lg font-bold text-white flex items-center gap-2">
-                <i class="fa-solid fa-gears text-rose-400"></i>
-                <span>إعدادات النظام والذاكرة المشتركة</span>
-            </h3>
-            <div class="bg-slate-900/60 border border-slate-700/60 p-4 rounded-xl flex items-center justify-between">
+        <!-- إحصائيات سريعة -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl flex items-center gap-4">
+                <div class="bg-blue-500/10 p-4 rounded-xl text-blue-400 text-xl"><i class="fa-solid fa-users"></i></div>
                 <div>
-                    <h4 class="font-bold text-sm text-white">إعادة تعيين بيانات المنصة بالكامل</h4>
-                    <p class="text-xs text-slate-400 mt-1">مسح المدرسين والدروس التجريبية وإعادة ضبط النظام</p>
+                    <div class="text-xs text-slate-400 font-semibold">الطلاب المسجلين</div>
+                    <div class="text-2xl font-black text-white mt-1">128 طالب</div>
                 </div>
-                <button onclick="resetSystemData()" class="bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 text-xs px-4 py-2 rounded-xl font-bold transition-colors">إعادة ضبط</button>
+            </div>
+            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl flex items-center gap-4">
+                <div class="bg-amber-500/10 p-4 rounded-xl text-amber-400 text-xl"><i class="fa-solid fa-hourglass-half"></i></div>
+                <div>
+                    <div class="text-xs text-slate-400 font-semibold">الدورة التمهيدية (6 أشهر)</div>
+                    <div class="text-2xl font-black text-white mt-1">نشطة</div>
+                </div>
+            </div>
+            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl flex items-center gap-4">
+                <div class="bg-emerald-500/10 p-4 rounded-xl text-emerald-400 text-xl"><i class="fa-solid fa-graduation-cap"></i></div>
+                <div>
+                    <div class="text-xs text-slate-400 font-semibold">التخصصات الكبرى</div>
+                    <div class="text-2xl font-black text-white mt-1">6 تخصصات</div>
+                </div>
             </div>
         </div>
+
+        <!-- قسم التحكم بفتح وقفل دروس الدورة التمهيدية -->
+        <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl space-y-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-slate-700/60 pb-4">
+                <div>
+                    <h2 class="text-lg font-black text-white flex items-center gap-2">
+                        <i class="fa-solid fa-sliders text-purple-400"></i> إدارة محتوى الدورة التحضيرية والدروس
+                    </h2>
+                    <p class="text-xs text-slate-400 mt-1">تحكم بحالة فتح أو قفل المواد والدروس للطلاب خلال فترة الـ 6 أشهر الأولى.</p>
+                </div>
+                <span class="bg-purple-500/10 text-purple-400 border border-purple-500/20 text-xs px-3 py-1.5 rounded-lg font-bold">صلاحيات كاملة</span>
+            </div>
+
+            <div class="space-y-4">
+                <!-- المادة الأولى -->
+                <div class="bg-slate-900/60 border border-slate-700/60 rounded-xl p-4 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div class="space-y-1 text-center md:text-right">
+                        <h3 class="text-sm font-bold text-white">المادة الأولى: أساسيات التقنية والمهارات الرقمية</h3>
+                        <p class="text-xs text-slate-400">الحالة الحالية للطلاب: متاح ومفتوح للدراسة</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button onclick="alert('تم قفل المادة بنجاح!')" class="bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 text-xs font-bold px-4 py-2 rounded-lg transition-colors">
+                            <i class="fa-solid fa-lock ml-1"></i> قفل المادة
+                        </button>
+                        <button onclick="alert('المادة مفعلة مسبقاً')" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold px-4 py-2 rounded-lg transition-colors shadow-md">
+                            <i class="fa-solid fa-check ml-1"></i> مفعلة
+                        </button>
+                    </div>
+                </div>
+
+                <!-- المادة الثانية -->
+                <div class="bg-slate-900/60 border border-slate-700/60 rounded-xl p-4 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div class="space-y-1 text-center md:text-right">
+                        <h3 class="text-sm font-bold text-white">المادة الثانية: مناهج التفكير المنطقي</h3>
+                        <p class="text-xs text-slate-400">الحالة الحالية للطلاب: مقفلة مؤقتاً بانتظار الجدول</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button onclick="alert('تم فتح المادة للطلاب بنجاح!')" class="bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs font-bold px-4 py-2 rounded-lg transition-colors">
+                            <i class="fa-solid fa-lock-open ml-1"></i> فتح المادة
+                        </button>
+                        <button onclick="alert('المادة مغلقة')" class="bg-slate-700 text-slate-400 text-xs font-bold px-4 py-2 rounded-lg cursor-not-allowed">
+                            مغلقة
+                        </button>
+                    </div>
+                </div>
+
+                <!-- المادة الثالثة -->
+                <div class="bg-slate-900/60 border border-slate-700/60 rounded-xl p-4 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div class="space-y-1 text-center md:text-right">
+                        <h3 class="text-sm font-bold text-white">المادة الثالثة: مدخل إلى نظم المعلومات</h3>
+                        <p class="text-xs text-slate-400">الحالة الحالية للطلاب: مقفلة مؤقتاً</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button onclick="alert('تم فتح المادة للطلاب بنجاح!')" class="bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs font-bold px-4 py-2 rounded-lg transition-colors">
+                            <i class="fa-solid fa-lock-open ml-1"></i> فتح المادة
+                        </button>
+                        <button onclick="alert('المادة مغلقة')" class="bg-slate-700 text-slate-400 text-xs font-bold px-4 py-2 rounded-lg cursor-not-allowed">
+                            مغلقة
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <!-- تذييل الصفحة -->
-    <footer class="max-w-4xl mx-auto w-full text-center text-xs text-slate-500 border-t border-slate-800 pt-4">
-        OFK Academy &copy; 2026 - جميع الحقوق محفوظة بالتعاون مع جامعة الزهراء
+    <footer class="max-w-6xl mx-auto w-full text-center text-xs text-slate-500 border-t border-slate-800 pt-6 mt-8">
+        أكاديمية OFK &copy; 2026 - لوحة تحكم الإدارة العليا (جامعة الزهراء)
     </footer>
 
-    <!-- خوارزميات إدارة المدرسين والصلاحيات محلياً -->
-    <script>
-        function loadInstructors() {
-            const container = document.getElementById('instructorsListContainer');
-            const instructors = JSON.parse(localStorage.getItem('ofk_instructors') || '[]');
-            
-            if (instructors.length === 0) {
-                container.innerHTML = `<p class="text-xs text-slate-400 bg-slate-900/40 p-4 rounded-xl border border-slate-800">لا يوجد مدرسون مسجلون حالياً. يمكنك إضافة مدرس جديد عبر النموذج أعلاه.</p>`;
-                return;
-            }
-            
-            container.innerHTML = '';
-            instructors.forEach((inst, index) => {
-                container.innerHTML += `
-                    <div class="bg-slate-900/60 border border-slate-700/60 p-4 rounded-xl flex items-center justify-between">
-                        <div>
-                            <h4 class="font-bold text-sm text-white">${inst.name}</h4>
-                            <p class="text-xs text-rose-400 mt-1">المقرر المسند: ${inst.course} | الصلاحية: مدرس معتمد</p>
-                        </div>
-                        <button onclick="removeInstructor(${index})" class="bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 text-xs px-3 py-1.5 rounded-lg font-bold transition-colors">سحب الصلاحية</button>
-                    </div>
-                `;
-            });
-        }
-
-        function addNewInstructor() {
-            const nameInput = document.getElementById('instructorName');
-            const courseInput = document.getElementById('instructorCourse');
-            
-            const name = nameInput.value.trim();
-            const course = courseInput.value.trim();
-            
-            if (!name || !course) {
-                alert('يرجى إدخال اسم المدرس والمقرر المسند إليه');
-                return;
-            }
-            
-            let instructors = JSON.parse(localStorage.getItem('ofk_instructors') || '[]');
-            instructors.push({ name: name, course: course, date: new Date().toLocaleDateString('ar-SA') });
-            
-            localStorage.setItem('ofk_instructors', JSON.stringify(instructors));
-            
-            nameInput.value = '';
-            courseInput.value = '';
-            loadInstructors();
-            alert('تم تسجيل المدرس ومنحه صلاحيات الإدارة بنجاح!');
-        }
-
-        function removeInstructor(index) {
-            let instructors = JSON.parse(localStorage.getItem('ofk_instructors') || '[]');
-            instructors.splice(index, 1);
-            localStorage.setItem('ofk_instructors', JSON.stringify(instructors));
-            loadInstructors();
-        }
-
-        function resetSystemData() {
-            if(confirm('هل أنت متأكد من رغبتك في مسح كافة بيانات المدرسين والدروس؟')) {
-                localStorage.removeItem('ofk_instructors');
-                localStorage.removeItem('ofk_dynamic_lessons');
-                alert('تمت إعادة ضبط النظام بنجاح!');
-                location.reload();
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', loadInstructors);
-    </script>
 </body>
 </html>
