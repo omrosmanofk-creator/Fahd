@@ -1,34 +1,21 @@
 {
-  "id": "/",
   "name": "OFK Academy",
-  "short_name": "OFK Academy",
-  "description": "المنصة الأكاديمية المستقلة للبرامج المتقدمة بالتعاون مع جامعة الزهراء",
-  "start_url": "/",
-  "scope": "/",
+  "short_name": "OFK",
+  "start_url": "/index.html",
   "display": "standalone",
-  "dir": "rtl",
-  "lang": "ar",
-  "orientation": "portrait",
   "background_color": "#0f172a",
   "theme_color": "#0f172a",
+  "description": "منصة أكاديمية OFK بالتعاون مع جامعة الزهراء",
   "icons": [
     {
       "src": "/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
+      "type": "image/png"
     },
     {
-      "src": "/icon-512.png",
+      "src": "/512x512.png",
       "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/icon-512-maskable.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
+      "type": "image/png"
     }
   ]
 }
