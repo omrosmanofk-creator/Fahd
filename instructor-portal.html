@@ -1,179 +1,33 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بوابة المدرس | OFK Academy</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        slate: { 900: '#0f172a', 800: '#1e293b', 700: '#334155' },
-                        amber: { 500: '#f59e0b', 600: '#d97706' }
-                    }
-                }
-            }
+<!-- أضف هذا الجزء داخل قسم إدارة الدروس والمحاضرات في instructor-portal.html -->
+<div class="bg-slate-900/60 border border-slate-700/60 p-4 rounded-xl space-y-3">
+    <h4 class="font-bold text-sm text-white flex items-center gap-2">
+        <i class="fa-solid fa-plus-circle text-amber-500"></i> إضافة درس جديد للمقرر
+    </h4>
+    <div class="flex gap-2">
+        <input type="text" id="newLessonTitle" placeholder="عنوان الدرس الجديد..." class="flex-grow bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-500">
+        <button onclick="addNewLesson()" class="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold text-xs px-4 py-2 rounded-xl transition-colors">نشر</button>
+    </div>
+</div>
+
+<script>
+    function addNewLesson() {
+        const title = document.getElementById('newLessonTitle').value.trim();
+        if (!title) {
+            alert('يرجى إدخال عنوان الدرس');
+            return;
         }
-    </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="manifest" href="./manifest.json">
-    <meta name="theme-color" content="#0f172a">
-</head>
-<body class="bg-slate-900 text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-slate-900">
-
-    <!-- حارس المصادقة الخاص بالمدرس -->
-    <script>
-        if (localStorage.getItem('userRole') !== 'instructor') {
-            window.location.href = 'login.html';
-        }
-    </script>
-
-    <!-- الشريط العلوي -->
-    <header class="bg-slate-800/90 backdrop-blur-md border-b border-slate-700/60 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-3 space-x-reverse">
-                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center shadow-lg shadow-amber-500/20 text-slate-900 font-black text-xl">
-                    OFK
-                </div>
-                <div>
-                    <h1 class="text-xl font-bold tracking-tight text-white">بوابة الأستاذ / المدرس</h1>
-                    <p class="text-xs text-amber-500 font-medium">أكاديمية OFK بالتعاون مع جامعة الزهراء</p>
-                </div>
-            </div>
-            <div>
-                <button onclick="logout()" class="inline-flex items-center gap-2 bg-red-500/15 hover:bg-red-500/25 text-red-400 border border-red-500/20 text-sm font-semibold px-4 py-2 rounded-xl transition-colors">
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                    <span>تسجيل الخروج</span>
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <!-- المحتوى الرئيسي -->
-    <main class="flex-grow py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full space-y-8">
         
-        <!-- لوحة الترحيب وإحصاءات سريعة -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
-            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl flex items-center justify-between">
-                <div>
-                    <p class="text-xs text-slate-400 font-medium">المقررات المسندة إليك</p>
-                    <h3 class="text-2xl font-black text-white mt-1">3 مقررات</h3>
-                </div>
-                <div class="w-12 h-12 bg-amber-500/10 border border-amber-500/20 rounded-xl flex items-center justify-center text-amber-400 text-xl">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                </div>
-            </div>
-
-            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl flex items-center justify-between">
-                <div>
-                    <p class="text-xs text-slate-400 font-medium">إجمالي الطلاب المسجلين</p>
-                    <h3 class="text-2xl font-black text-white mt-1">128 طالباً</h3>
-                </div>
-                <div class="w-12 h-12 bg-amber-500/10 border border-amber-500/20 rounded-xl flex items-center justify-center text-amber-400 text-xl">
-                    <i class="fa-solid fa-users"></i>
-                </div>
-            </div>
-
-            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl flex items-center justify-between">
-                <div>
-                    <p class="text-xs text-slate-400 font-medium">الواجبات بانتظار التصحيح</p>
-                    <h3 class="text-2xl font-black text-white mt-1">14 واجباً</h3>
-                </div>
-                <div class="w-12 h-12 bg-amber-500/10 border border-amber-500/20 rounded-xl flex items-center justify-center text-amber-400 text-xl">
-                    <i class="fa-solid fa-file-invoice"></i>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- شبكة الإدارة (إدارة المحتوى والطلاب) -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            
-            <!-- قسم إدارة الدروس والمحاضرات -->
-            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl space-y-4">
-                <div class="flex items-center justify-between border-b border-slate-700 pb-4">
-                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
-                        <i class="fa-solid fa-chalkboard-user text-amber-500"></i>
-                        <span>إدارة المحاضرات وإضافتها</span>
-                    </h3>
-                    <button class="bg-amber-500 hover:bg-amber-600 text-slate-900 text-xs font-bold px-3 py-2 rounded-lg transition-colors flex items-center gap-1">
-                        <i class="fa-solid fa-plus"></i> إضافة درس جديد
-                    </button>
-                </div>
-                
-                <div class="space-y-3">
-                    <div class="bg-slate-900/60 border border-slate-700/60 p-4 rounded-xl flex items-center justify-between">
-                        <div>
-                            <h4 class="font-bold text-sm text-white">أساسيات الذكاء الاصطناعي</h4>
-                            <p class="text-xs text-slate-400 mt-1">الحالة: منشورة (تاريخ النشر: الأسبوع الحالي)</p>
-                        </div>
-                        <div class="flex gap-2">
-                            <button class="bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs px-3 py-1.5 rounded-lg">تعديل</button>
-                            <button class="bg-red-500/15 hover:bg-red-500/25 text-red-400 text-xs px-3 py-1.5 rounded-lg">حذف</button>
-                        </div>
-                    </div>
-
-                    <div class="bg-slate-900/60 border border-slate-700/60 p-4 rounded-xl flex items-center justify-between">
-                        <div>
-                            <h4 class="font-bold text-sm text-white">علم النفس التطبيقي</h4>
-                            <p class="text-xs text-slate-400 mt-1">الحالة: مسودة (قيد التجهيز)</p>
-                        </div>
-                        <div class="flex gap-2">
-                            <button class="bg-amber-500/20 text-amber-400 text-xs px-3 py-1.5 rounded-lg border border-amber-500/30">نشر</button>
-                            <button class="bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs px-3 py-1.5 rounded-lg">تعديل</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- قسم رصد الدرجات والتقييمات -->
-            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl space-y-4">
-                <div class="flex items-center justify-between border-b border-slate-700 pb-4">
-                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
-                        <i class="fa-solid fa-marker text-amber-500"></i>
-                        <span>رصد وتقييم الطلاب</span>
-                    </h3>
-                    <span class="text-xs text-slate-400">سجل النتائج</span>
-                </div>
-
-                <div class="space-y-3">
-                    <div class="bg-slate-900/60 border border-slate-700/60 p-4 rounded-xl flex items-center justify-between">
-                        <div>
-                            <h4 class="font-bold text-sm text-white">قائمة تسليمات اختبار الذكاء الاصطناعي</h4>
-                            <p class="text-xs text-amber-400 mt-1">12 طالباً قاموا بالتسليم بانتظار التقييم</p>
-                        </div>
-                        <button class="bg-amber-500 hover:bg-amber-600 text-slate-900 text-xs font-bold px-3 py-2 rounded-lg transition-colors">تقييم الطلاب</button>
-                    </div>
-
-                    <div class="bg-slate-900/60 border border-slate-700/60 p-4 rounded-xl flex items-center justify-between">
-                        <div>
-                            <h4 class="font-bold text-sm text-white">سجل الحضور والغياب العام</h4>
-                            <p class="text-xs text-emerald-400 mt-1">محدث لآخر محاضرة</p>
-                        </div>
-                        <button class="bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs px-3 py-2 rounded-lg">استعراض السجل</button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-    </main>
-
-    <!-- التذييل -->
-    <footer class="bg-slate-800/80 border-t border-slate-700/50 py-6 text-center text-slate-400 text-xs">
-        <p>جميع الحقوق محفوظة © OFK Academy 2026 — بالتعاون مع جامعة الزهراء</p>
-    </footer>
-
-    <!-- سكريبت الخروج -->
-    <script>
-        function logout() {
-            localStorage.removeItem('userRole');
-            window.location.href = 'login.html';
-        }
-    </script>
-
-</body>
-</html>
+        // جلب الدروس السابقة أو إنشاء مصفوفة جديدة
+        let lessons = JSON.parse(localStorage.getItem('ofk_dynamic_lessons') || '[]');
+        lessons.push({
+            id: Date.now(),
+            title: title,
+            date: new Date().toLocaleDateString('ar-SA'),
+            instructor: 'الأستاذ المشرف'
+        });
+        
+        localStorage.setItem('ofk_dynamic_lessons', JSON.stringify(lessons));
+        document.getElementById('newLessonTitle').value = '';
+        alert('تم نشر الدرس بنجاح وسيحصل عليه الطلاب فوراً في بواباتهم!');
+    }
+</script>
