@@ -1,33 +1,124 @@
-<!-- أضف هذا الجزء داخل قسم إدارة الدروس والمحاضرات في instructor-portal.html -->
-<div class="bg-slate-900/60 border border-slate-700/60 p-4 rounded-xl space-y-3">
-    <h4 class="font-bold text-sm text-white flex items-center gap-2">
-        <i class="fa-solid fa-plus-circle text-amber-500"></i> إضافة درس جديد للمقرر
-    </h4>
-    <div class="flex gap-2">
-        <input type="text" id="newLessonTitle" placeholder="عنوان الدرس الجديد..." class="flex-grow bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-500">
-        <button onclick="addNewLesson()" class="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold text-xs px-4 py-2 rounded-xl transition-colors">نشر</button>
-    </div>
-</div>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بوابة المدرس الأكاديمية | OFK Academy</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Cairo', sans-serif; background-color: #0f172a; color: #f8fafc; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between p-4 md:p-8">
 
-<script>
-    function addNewLesson() {
-        const title = document.getElementById('newLessonTitle').value.trim();
-        if (!title) {
-            alert('يرجى إدخال عنوان الدرس');
-            return;
+    <!-- رأس الصفحة -->
+    <header class="max-w-4xl mx-auto w-full bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-2xl backdrop-blur-md flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="flex items-center gap-4">
+            <div class="bg-indigo-500/10 border border-indigo-500/30 p-3 rounded-xl">
+                <i class="fa-solid fa-chalkboard-user text-indigo-400 text-2xl"></i>
+            </div>
+            <div>
+                <h1 class="text-xl font-bold text-white">بوابة المدرس الأكاديمية</h1>
+                <p class="text-xs text-indigo-400 mt-0.5">مرحباً بك، أستاذ مقرر (إدارة المحتوى والتقييم)</p>
+            </div>
+        </div>
+        <a href="index.html" class="bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 text-xs font-bold px-4 py-2.5 rounded-xl transition-colors flex items-center gap-2">
+            <i class="fa-solid fa-right-from-bracket"></i> تسجيل الخروج
+        </a>
+    </header>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="max-w-4xl mx-auto w-full space-y-6 my-6">
+        <!-- قسم إضافة درس جديد للطلاب -->
+        <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl space-y-4">
+            <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                <i class="fa-solid fa-circle-plus text-indigo-400"></i>
+                <span>نشر درس أو محاضرة جديدة</span>
+            </h3>
+            <div class="space-y-3">
+                <input type="text" id="newLessonTitle" placeholder="أدخل عنوان المحاضرة أو المقرر الجديد (مثال: خوارزميات وهياكل البيانات)..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-500">
+                <button onclick="addNewLesson()" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm py-3 rounded-xl transition-colors shadow-lg shadow-indigo-600/20">
+                    نشر الدرس فوراً في بوابات الطلاب
+                </button>
+            </div>
+        </div>
+
+        <!-- قائمة الدروس التي تم نشرها سابقاً -->
+        <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl space-y-4">
+            <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                <i class="fa-solid fa-list-check text-indigo-400"></i>
+                <span>الدروس المنشورة حالياً</span>
+            </h3>
+            <div id="instructorLessonsList" class="space-y-3">
+                <p class="text-xs text-slate-400">جاري التحميل...</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- تذييل الصفحة -->
+    <footer class="max-w-4xl mx-auto w-full text-center text-xs text-slate-500 border-t border-slate-800 pt-4">
+        OFK Academy &copy; 2026 - جميع الحقوق محفوظة بالتعاون مع جامعة الزهراء
+    </footer>
+
+    <!-- خوارزمية الحفظ والنشر الفوري -->
+    <script>
+        function loadInstructorLessons() {
+            const listContainer = document.getElementById('instructorLessonsList');
+            const lessons = JSON.parse(localStorage.getItem('ofk_dynamic_lessons') || '[]');
+            
+            if (lessons.length === 0) {
+                listContainer.innerHTML = `<p class="text-xs text-slate-400 bg-slate-900/40 p-4 rounded-xl border border-slate-800">لا توجد دروس منشورة بعد.</p>`;
+                return;
+            }
+            
+            listContainer.innerHTML = '';
+            lessons.forEach((lesson, index) => {
+                listContainer.innerHTML += `
+                    <div class="bg-slate-900/60 border border-slate-700/60 p-4 rounded-xl flex items-center justify-between">
+                        <div>
+                            <h4 class="font-bold text-sm text-white">${lesson.title}</h4>
+                            <p class="text-xs text-indigo-400 mt-1">تاريخ النشر: ${lesson.date}</p>
+                        </div>
+                        <button onclick="deleteLesson(${index})" class="bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 text-xs px-3 py-1.5 rounded-lg font-bold transition-colors">حذف</button>
+                    </div>
+                `;
+            });
         }
-        
-        // جلب الدروس السابقة أو إنشاء مصفوفة جديدة
-        let lessons = JSON.parse(localStorage.getItem('ofk_dynamic_lessons') || '[]');
-        lessons.push({
-            id: Date.now(),
-            title: title,
-            date: new Date().toLocaleDateString('ar-SA'),
-            instructor: 'الأستاذ المشرف'
-        });
-        
-        localStorage.setItem('ofk_dynamic_lessons', JSON.stringify(lessons));
-        document.getElementById('newLessonTitle').value = '';
-        alert('تم نشر الدرس بنجاح وسيحصل عليه الطلاب فوراً في بواباتهم!');
-    }
-</script>
+
+        function addNewLesson() {
+            const titleInput = document.getElementById('newLessonTitle');
+            const title = titleInput.value.trim();
+            if (!title) {
+                alert('يرجى إدخال عنوان الدرس أولاً');
+                return;
+            }
+            
+            let lessons = JSON.parse(localStorage.getItem('ofk_dynamic_lessons') || '[]');
+            lessons.push({
+                title: title,
+                date: new Date().toLocaleDateString('ar-SA'),
+                instructor: 'الأستاذ المشرف'
+            });
+            
+            localStorage.setItem('ofk_dynamic_lessons', JSON.stringify(lessons));
+            titleInput.value = '';
+            loadInstructorLessons();
+            alert('تم نشر الدرس بنجاح وسيظهر للطالب فوراً!');
+        }
+
+        function deleteLesson(index) {
+            let lessons = JSON.parse(localStorage.getItem('ofk_dynamic_lessons') || '[]');
+            lessons.splice(index, 1);
+            localStorage.setItem('ofk_dynamic_lessons', JSON.stringify(lessons));
+            loadInstructorLessons();
+        }
+
+        document.addEventListener('DOMContentLoaded', loadInstructorLessons);
+    </script>
+</body>
+</html>
