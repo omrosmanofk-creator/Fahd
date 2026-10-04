@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جامعة الزهراء | أكاديمية OFK</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Cairo', sans-serif; background-color: #0f172a; color: #f8fafc; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between p-4 md:p-8">
+
+    <!-- رأس الصفحة -->
+    <header class="max-w-5xl mx-auto w-full bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-2xl backdrop-blur-md flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="flex items-center gap-4">
+            <div class="bg-amber-500/10 border border-amber-500/30 p-3.5 rounded-2xl">
+                <i class="fa-solid fa-landmark text-amber-400 text-3xl"></i>
+            </div>
+            <div>
+                <h1 class="text-2xl font-black text-white">بوابة جامعة الزهراء</h1>
+                <p class="text-xs text-amber-400 mt-1 font-semibold">الشراكة الاستراتيجية مع أكاديمية OFK</p>
+            </div>
+        </div>
+        <div>
+            <a href="index.html" class="bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs font-bold px-4 py-2.5 rounded-xl transition-colors flex items-center gap-2">
+                <i class="fa-solid fa-arrow-right"></i> العودة للرئيسية
+            </a>
+        </div>
+    </header>
+
+    <!-- المحتوى الرئيسي مع نظام التبويبات (Tabs) -->
+    <main class="max-w-5xl mx-auto w-full space-y-6 my-8">
+        
+        <!-- أزرار التبويبات -->
+        <div class="flex flex-wrap justify-center gap-2 bg-slate-800/50 border border-slate-700/60 p-2 rounded-2xl">
+            <button onclick="switchTab('about')" id="btn-about" class="tab-btn flex-1 min-w-[140px] py-3 px-4 rounded-xl text-xs font-bold transition-all bg-amber-500 text-slate-950 shadow-lg">
+                <i class="fa-solid fa-circle-info ml-1.5"></i> نبذة عن المعهد والشراكة
+            </button>
+            <button onclick="switchTab('project')" id="btn-project" class="tab-btn flex-1 min-w-[140px] py-3 px-4 rounded-xl text-xs font-bold transition-all text-slate-300 hover:bg-slate-700/50">
+                <i class="fa-solid fa-diagram-project ml-1.5"></i> معلومات المشروع الأكاديمي
+            </button>
+            <button onclick="switchTab('majors')" id="btn-majors" class="tab-btn flex-1 min-w-[140px] py-3 px-4 rounded-xl text-xs font-bold transition-all text-slate-300 hover:bg-slate-700/50">
+                <i class="fa-solid fa-graduation-cap ml-1.5"></i> التخصصات والبرامج
+            </button>
+        </div>
+
+        <!-- محتوى التبويب الأول: نبذة عن الشراكة -->
+        <div id="tab-about" class="tab-content bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 md:p-8 space-y-6 shadow-xl">
+            <div class="border-b border-slate-700/60 pb-4">
+                <h2 class="text-xl font-black text-white flex items-center gap-2">
+                    <i class="fa-solid fa-landmark text-amber-400"></i> نبذة عن الشراكة الاستراتيجية مع جامعة الزهراء
+                </h2>
+                <p class="text-xs text-slate-400 mt-1">رؤية مشتركة نحو تعليم رقمي متطور ومستدام</p>
+            </div>
+            <div class="space-y-4 text-sm text-slate-300 leading-relaxed">
+                <p>
+                    تأتي شراكة أكاديمية OFK مع <strong class="text-amber-400">جامعة الزهراء</strong> تتويجاً للجهود المبذولة في دمج الأكاديميات التقليدية بالتكنولوجيا الحديثة والذكية. يهدف هذا التعاون إلى إتاحة منصة رقمية موحدة تخدم الطلاب والمدرسين وتقدم محتوى أكاديمياً ذو جودة ومعايير عالية.
+                </p>
+                <p>
+                    يسعى الطرفان من خلال هذه المنصة إلى تذليل العقبات التقنية، وتوفير بيئة تعليمية تفاعلية تتيح متابعة المحاضرات، إدارة الواجبات، وتنظيم المسارات الدراسية بكل مرونة وسرعة تامة عبر تطبيقات الويب الحديثة (PWA).
+                </p>
+            </div>
+        </div>
+
+        <!-- محتوى التبويب الثاني: معلومات المشروع الأكاديمي -->
+        <div id="tab-project" class="tab-content hidden bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 md:p-8 space-y-6 shadow-xl">
+            <div class="border-b border-slate-700/60 pb-4">
+                <h2 class="text-xl font-black text-white flex items-center gap-2">
+                    <i class="fa-solid fa-diagram-project text-blue-400"></i> تفاصيل ومعلومات المشروع الرقمي
+                </h2>
+                <p class="text-xs text-slate-400 mt-1">الهيكلية التقنية وآلية عمل البوابات الأكاديمية</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-slate-900/60 border border-slate-700/60 p-5 rounded-xl space-y-2">
+                    <h3 class="font-bold text-blue-400 text-sm flex items-center gap-2"><i class="fa-solid fa-shield-halved"></i> الحماية والتحقق الأمني</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">يعتمد النظام على صلاحيات مدخلة بكلمات مرور مشفرة ومخصصة لكل دور (طالب، مدرس، مدير عام) لضمان سرية وخصوصية البيانات الأكاديمية.</p>
+                </div>
+                <div class="bg-slate-900/60 border border-slate-700/60 p-5 rounded-xl space-y-2">
+                    <h3 class="font-bold text-emerald-400 text-sm flex items-center gap-2"><i class="fa-solid fa-mobile-screen"></i> إمكانية التثبيت (PWA)</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">تم تصميم المنصة لتعمل كتطبيق هاتف حقيقي يمكن تثبيته مباشرة على أجهزة أندرويد وآي أو إس للوصول السريع والفعلي للدروس.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- محتوى التبويب الثالث: التخصصات والبرامج -->
+        <div id="tab-majors" class="tab-content hidden bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 md:p-8 space-y-6 shadow-xl">
+            <div class="border-b border-slate-700/60 pb-4">
+                <h2 class="text-xl font-black text-white flex items-center gap-2">
+                    <i class="fa-solid fa-graduation-cap text-emerald-400"></i> التخصصات والبرامج الأكاديمية المطروحة
+                </h2>
+                <p class="text-xs text-slate-400 mt-1">المسارات التعليمية المعتمدة بالتعاون مع الجامعة</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="bg-slate-900/60 border border-slate-700/60 p-4 rounded-xl text-center space-y-2">
+                    <div class="text-blue-400 text-2xl"><i class="fa-solid fa-code"></i></div>
+                    <h3 class="font-bold text-white text-sm">تطوير الويب وتقنيات البرمجة</h3>
+                    <p class="text-xs text-slate-400">بناء وتطوير التطبيقات والمنصات الحديثة.</p>
+                </div>
+                <div class="bg-slate-900/60 border border-slate-700/60 p-4 rounded-xl text-center space-y-2">
+                    <div class="text-amber-400 text-2xl"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3 class="font-bold text-white text-sm">الإدارة الرقمية ونظم المعلومات</h3>
+                    <p class="text-xs text-slate-400">إدارة البيانات والمشاريع الأكاديمية.</p>
+                </div>
+                <div class="bg-slate-900/60 border border-slate-700/60 p-4 rounded-xl text-center space-y-2">
+                    <div class="text-emerald-400 text-2xl"><i class="fa-solid fa-brain"></i></div>
+                    <h3 class="font-bold text-white text-sm">الذكاء الاصطناعي والتطبيقات</h3>
+                    <p class="text-xs text-slate-400">مواكبة أحدث تقنيات العصر الرقمي.</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- تذييل الصفحة -->
+    <footer class="max-w-5xl mx-auto w-full text-center text-xs text-slate-500 border-t border-slate-800 pt-6 mt-8">
+        أكاديمية OFK &copy; 2026 - بوابة جامعة الزهراء الاستراتيجية
+    </footer>
+
+    <!-- سكريبت التبديل التفاعلي بين التبويبات -->
+    <script>
+        function switchTab(tabId) {
+            // إخفاء جميع المحتويات وإعادة تعيين ألوان الأزرار
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(el => {
+                el.classList.remove('bg-amber-500', 'text-slate-950', 'shadow-lg');
+                el.classList.add('text-slate-300', 'hover:bg-slate-700/50');
+            });
+
+            // إظهار التبويب المطلوب وتفعيل زره
+            document.getElementById('tab-' + tabId).classList.remove('hidden');
+            const activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.classList.remove('text-slate-300', 'hover:bg-slate-700/50');
+            activeBtn.classList.add('bg-amber-500', 'text-slate-950', 'shadow-lg');
+        }
+    </script>
+</body>
+</html>
