@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أكاديمية OFK | بالتعاون مع جامعة الزهراء</title>
+    <title>أكاديمية OFK | المنصة التعليمية الذكية</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
@@ -27,85 +27,152 @@
 </head>
 <body class="min-h-screen flex flex-col justify-between p-4 md:p-8">
 
-    <!-- رأس الصفحة -->
-    <header class="max-w-4xl mx-auto w-full bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-2xl backdrop-blur-md flex flex-col md:flex-row justify-between items-center gap-4">
+    <!-- رأس الصفحة الهيكلي -->
+    <header class="max-w-6xl mx-auto w-full bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-2xl backdrop-blur-md flex flex-col md:flex-row justify-between items-center gap-4">
         <div class="flex items-center gap-4">
-            <div class="bg-amber-500/10 border border-amber-500/30 p-3 rounded-xl">
-                <i class="fa-solid fa-graduation-cap text-amber-400 text-2xl"></i>
+            <div class="bg-amber-500/10 border border-amber-500/30 p-3.5 rounded-2xl">
+                <i class="fa-solid fa-graduation-cap text-amber-400 text-3xl"></i>
             </div>
             <div>
-                <h1 class="text-xl font-bold text-white">أكاديمية OFK</h1>
-                <p class="text-xs text-amber-400 mt-0.5">بوابة الدخول الموحدة بالتعاون مع جامعة الزهراء</p>
+                <h1 class="text-2xl font-black text-white">أكاديمية OFK</h1>
+                <p class="text-xs text-amber-400 mt-1 font-semibold">المنصة الأكاديمية الذكية والرسمية</p>
             </div>
         </div>
-        <div class="text-xs bg-slate-900/60 border border-slate-700/60 px-4 py-2 rounded-xl text-slate-300">
-            <i class="fa-solid fa-shield-halved text-emerald-400 ml-1.5"></i> النظام محمي بكلمات المرور
+        <div class="flex items-center gap-3">
+            <div class="text-xs bg-slate-900/80 border border-slate-700/60 px-4 py-2.5 rounded-xl text-slate-300 flex items-center gap-2">
+                <i class="fa-solid fa-shield-halved text-emerald-400"></i>
+                <span>نظام حماية الأبواب الأكاديمية</span>
+            </div>
         </div>
     </header>
 
-    <!-- المحتوى الرئيسي - بوابات تسجيل الدخول -->
-    <main class="max-w-4xl mx-auto w-full space-y-6 my-8">
-        <div class="text-center space-y-2 mb-6">
-            <h2 class="text-2xl font-black text-white">اختر البوابة الأكاديمية للدخول</h2>
-            <p class="text-xs text-slate-400">يرجى إدخال كلمة المرور المخصصة لكل دور للوصول إلى البوابة الخاصة بك</p>
+    <!-- المحتوى الرئيسي الواجهة التعريفية والبوابات -->
+    <main class="max-w-6xl mx-auto w-full space-y-10 my-8">
+        
+        <!-- القسم التعريفي الرئيسي -->
+        <div class="text-center space-y-3 max-w-3xl mx-auto">
+            <span class="bg-blue-500/10 text-blue-400 border border-blue-500/20 text-xs px-3.5 py-1.5 rounded-full font-bold">بوابة التعليم الموحدة</span>
+            <h2 class="text-3xl md:text-4xl font-black text-white tracking-tight">مرحباً بكم في المستقبل التعليمي الذكي</h2>
+            <p class="text-sm text-slate-400 leading-relaxed">منصة تعليمية متطورة تدار بأحدث التقنيات لتقديم تجربة أكاديمية فريدة، تدمج الإدارة الذكية والمحتوى التفاعلي المتقدم.</p>
         </div>
 
+        <!-- المزايا الثلاث -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
-            <!-- بوابة الطالب -->
-            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl flex flex-col justify-between space-y-4">
-                <div class="space-y-3">
-                    <div class="bg-blue-500/10 text-blue-400 p-3 rounded-xl w-fit"><i class="fa-solid fa-user-graduate text-xl"></i></div>
-                    <h3 class="text-lg font-bold text-white">بوابة الطالب</h3>
-                    <p class="text-xs text-slate-400">استعرض الدروس والمحاضرات المنشورة وتابع تقدمك الأكاديمي.</p>
-                </div>
-                <div class="space-y-3 pt-4 border-t border-slate-700/60">
-                    <input type="password" id="studentPass" placeholder="كلمة مرور الطالب..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-blue-500">
-                    <button onclick="loginPortal('student')" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs py-2.5 rounded-xl transition-colors shadow-lg shadow-blue-600/20">
-                        دخول الطالب
-                    </button>
+            <div class="bg-slate-800/50 border border-slate-700/60 p-5 rounded-2xl flex items-start gap-4">
+                <div class="bg-amber-500/10 text-amber-400 p-3 rounded-xl"><i class="fa-solid fa-award text-xl"></i></div>
+                <div>
+                    <h4 class="font-bold text-white text-sm">اعتماد رسمي وأكاديمي</h4>
+                    <p class="text-xs text-slate-400 mt-1">شهادات وبرامج معتمدة ضمن معايير جودة عالية.</p>
                 </div>
             </div>
-
-            <!-- بوابة المدرس -->
-            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl flex flex-col justify-between space-y-4">
-                <div class="space-y-3">
-                    <div class="bg-indigo-500/10 text-indigo-400 p-3 rounded-xl w-fit"><i class="fa-solid fa-chalkboard-user text-xl"></i></div>
-                    <h3 class="text-lg font-bold text-white">بوابة المدرس</h3>
-                    <p class="text-xs text-slate-400">إدارة المقررات، نشر المحاضرات الجديدة، وتقييم الطلاب.</p>
-                </div>
-                <div class="space-y-3 pt-4 border-t border-slate-700/60">
-                    <input type="password" id="instructorPass" placeholder="كلمة مرور المدرس..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-indigo-500">
-                    <button onclick="loginPortal('instructor')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs py-2.5 rounded-xl transition-colors shadow-lg shadow-indigo-600/20">
-                        دخول المدرس
-                    </button>
+            <div class="bg-slate-800/50 border border-slate-700/60 p-5 rounded-2xl flex items-start gap-4">
+                <div class="bg-blue-500/10 text-blue-400 p-3 rounded-xl"><i class="fa-solid fa-laptop-code text-xl"></i></div>
+                <div>
+                    <h4 class="font-bold text-white text-sm">منصة رقمية ذكية</h4>
+                    <p class="text-xs text-slate-400 mt-1">تدعم العمل ك تطبيق هاتف PWA وسرعة فائقة بالاستخدام.</p>
                 </div>
             </div>
-
-            <!-- بوابة المدير العام -->
-            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl flex flex-col justify-between space-y-4">
-                <div class="space-y-3">
-                    <div class="bg-rose-500/10 text-rose-400 p-3 rounded-xl w-fit"><i class="fa-solid fa-shield-halved text-xl"></i></div>
-                    <h3 class="text-lg font-bold text-white">بوابة المدير العام</h3>
-                    <p class="text-xs text-slate-400">الصلاحية المطلقة، إدارة المدرسين، وإعدادات النظام.</p>
-                </div>
-                <div class="space-y-3 pt-4 border-t border-slate-700/60">
-                    <input type="password" id="adminPass" placeholder="كلمة مرور المدير..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-rose-500">
-                    <button onclick="loginPortal('admin')" class="w-full bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs py-2.5 rounded-xl transition-colors shadow-lg shadow-rose-600/20">
-                        دخول المدير
-                    </button>
+            <div class="bg-slate-800/50 border border-slate-700/60 p-5 rounded-2xl flex items-start gap-4">
+                <div class="bg-emerald-500/10 text-emerald-400 p-3 rounded-xl"><i class="fa-solid fa-users-gear text-xl"></i></div>
+                <div>
+                    <h4 class="font-bold text-white text-sm">نخبة من المشرفين</h4>
+                    <p class="text-xs text-slate-400 mt-1">إشراف أكاديمي مباشر ومتابعة دقيقة لمسار الطلاب.</p>
                 </div>
             </div>
-
         </div>
+
+        <!-- قسم شراكاتنا الأكاديمية (الجديد) -->
+        <div class="bg-slate-800/40 border border-slate-700/50 rounded-2xl p-6 space-y-4">
+            <div class="flex items-center gap-2 border-b border-slate-700/60 pb-3">
+                <i class="fa-solid fa-handshake-angle text-amber-400 text-lg"></i>
+                <h3 class="text-base font-bold text-white">شراكاتنا الأكاديمية والمؤسسية</h3>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- شريكة الأساس - جامعة الزهراء -->
+                <div class="bg-slate-900/70 border border-amber-500/30 p-4 rounded-xl flex items-center gap-4">
+                    <div class="bg-amber-500/20 text-amber-400 p-3 rounded-lg"><i class="fa-solid fa-landmark text-xl"></i></div>
+                    <div>
+                        <h4 class="text-sm font-bold text-white">جامعة الزهراء</h4>
+                        <p class="text-xs text-amber-400/90 mt-0.5">الشريك الاستراتيجي الأساسي والمقر الأكاديمي الرئيسي للبرامج</p>
+                    </div>
+                </div>
+                <!-- معهد الأمل (مثال للشراكات الأخرى) -->
+                <div class="bg-slate-900/70 border border-slate-700/60 p-4 rounded-xl flex items-center gap-4">
+                    <div class="bg-blue-500/20 text-blue-400 p-3 rounded-lg"><i class="fa-solid fa-building-columns text-xl"></i></div>
+                    <div>
+                        <h4 class="text-sm font-bold text-white">معهد الأمل للتدريب</h4>
+                        <p class="text-xs text-slate-400 mt-0.5">شريك تعليمی للتدريب المهني وتطوير المهارات التقنية</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- بوابات الدخول الأكاديمية (مركزة على جامعة الزهراء والنظام) -->
+        <div class="space-y-4 pt-4">
+            <div class="text-center space-y-1">
+                <h3 class="text-xl font-black text-white">بوابات الدخول الموحدة (خاصة بجامعة الزهراء)</h3>
+                <p class="text-xs text-slate-400">يرجى إدخال كلمة المرور الخاصة بدورك الأكاديمي للمتابعة</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- بوابة الطالب -->
+                <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="bg-blue-500/10 text-blue-400 p-3 rounded-xl w-fit"><i class="fa-solid fa-user-graduate text-xl"></i></div>
+                        <h3 class="text-lg font-bold text-white">بوابة طالب جامعة الزهراء</h3>
+                        <p class="text-xs text-slate-400">استعراض المقررات والمحاضرات الخاصة بجامعة الزهراء ومتابعة الواجبات.</p>
+                    </div>
+                    <div class="space-y-3 pt-4 border-t border-slate-700/60">
+                        <input type="password" id="studentPass" placeholder="كلمة مرور الطالب (Omr123)..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-blue-500">
+                        <button onclick="loginPortal('student')" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs py-2.5 rounded-xl transition-colors shadow-lg shadow-blue-600/20">
+                            دخول الطالب
+                        </button>
+                    </div>
+                </div>
+
+                <!-- بوابة المدرس -->
+                <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="bg-indigo-500/10 text-indigo-400 p-3 rounded-xl w-fit"><i class="fa-solid fa-chalkboard-user text-xl"></i></div>
+                        <h3 class="text-lg font-bold text-white">بوابة مدرس جامعة الزهراء</h3>
+                        <p class="text-xs text-slate-400">إدارة الجداول الدراسية، رفع المحاضرات، والتواصل مع طلاب الجامعة.</p>
+                    </div>
+                    <div class="space-y-3 pt-4 border-t border-slate-700/60">
+                        <input type="password" id="instructorPass" placeholder="كلمة مرور المدرس (Omr1234)..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-indigo-500">
+                        <button onclick="loginPortal('instructor')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs py-2.5 rounded-xl transition-colors shadow-lg shadow-indigo-600/20">
+                            دخول المدرس
+                        </button>
+                    </div>
+                </div>
+
+                <!-- بوابة المدير العام -->
+                <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="bg-rose-500/10 text-rose-400 p-3 rounded-xl w-fit"><i class="fa-solid fa-shield-halved text-xl"></i></div>
+                        <h3 class="text-lg font-bold text-white">بوابة المدير العام</h3>
+                        <p class="text-xs text-slate-400">التحكم الشامل، إدارة الإعدادات، ومتابعة نشاط المنصة بالكامل.</p>
+                    </div>
+                    <div class="space-y-3 pt-4 border-t border-slate-700/60">
+                        <input type="password" id="adminPass" placeholder="كلمة مرور المدير (Omr12345)..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-rose-500">
+                        <button onclick="loginPortal('admin')" class="w-full bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs py-2.5 rounded-xl transition-colors shadow-lg shadow-rose-600/20">
+                            دخول المدير
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
     </main>
 
     <!-- تذييل الصفحة -->
-    <footer class="max-w-4xl mx-auto w-full text-center text-xs text-slate-500 border-t border-slate-800 pt-4">
-        OFK Academy &copy; 2026 - جميع الحقوق محفوظة بالتعاون مع جامعة الزهراء
+    <footer class="max-w-6xl mx-auto w-full text-center text-xs text-slate-500 border-t border-slate-800 pt-6 mt-8 flex flex-col sm:flex-row items-center justify-between gap-2">
+        <p>أكاديمية OFK &copy; 2026 - جميع الحقوق محفوظة</p>
+        <p class="text-amber-400/80 font-semibold">بالتعاون الاستراتيجي مع جامعة الزهراء</p>
     </footer>
 
-    <!-- خوارزمية المصادقة والتحقق الأمني -->
+    <!-- خوارزمية التحقق وتسجيل الدخول -->
     <script>
         function loginPortal(role) {
             if (role === 'student') {
@@ -113,21 +180,21 @@
                 if (pass === 'Omr123') {
                     window.location.href = 'student-portal.html';
                 } else {
-                    alert('كلمة مرور الطالب غير صحيحة! (رمز الطالب: Omr123)');
+                    alert('كلمة مرور الطالب غير صحيحة!');
                 }
             } else if (role === 'instructor') {
                 const pass = document.getElementById('instructorPass').value.trim();
                 if (pass === 'Omr1234') {
                     window.location.href = 'instructor-portal.html';
                 } else {
-                    alert('كلمة مرور المدرس غير صحيحة! (رمز المدرس: Omr1234)');
+                    alert('كلمة مرور المدرس غير صحيحة!');
                 }
             } else if (role === 'admin') {
                 const pass = document.getElementById('adminPass').value.trim();
                 if (pass === 'Omr12345') {
                     window.location.href = 'admin-portal.html';
                 } else {
-                    alert('كلمة مرور المدير غير صحيحة! (رمز المدير: Omr12345)');
+                    alert('كلمة مرور المدير غير صحيحة!');
                 }
             }
         }
