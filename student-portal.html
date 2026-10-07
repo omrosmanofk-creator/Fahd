@@ -3,141 +3,318 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بوابة الطالب الأكاديمية | أكاديمية OFK</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts Cairo -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <title>بوابة الطالب - أكاديمية OFK</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Cairo', sans-serif; background-color: #0f172a; color: #f8fafc; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; }
+        body { background-color: #f4f7f6; color: #333; direction: rtl; }
+        header { background: #004080; color: white; padding: 25px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        header h1 { font-size: 26px; margin-bottom: 5px; }
+        header p { font-size: 14px; opacity: 0.9; }
+        .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+        .specialization-box { background: white; border-radius: 12px; padding: 25px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid #004080; }
+        .specialization-box h2 { color: #004080; margin-bottom: 20px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; font-size: 20px; }
+        .course-item { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 15px 20px; margin-bottom: 15px; transition: transform 0.2s; }
+        .course-item:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.03); }
+        .course-item h3 { font-size: 16px; color: #1e293b; margin-bottom: 10px; font-weight: 700; }
+        .lessons-list { margin-right: 20px; font-size: 14px; color: #475569; list-style-type: disc; }
+        .lessons-list li { margin-bottom: 6px; line-height: 1.6; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #004080; text-decoration: none; font-weight: 600; font-size: 15px; }
+        .back-link:hover { text-decoration: underline; }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between p-4 md:p-8">
+<body>
 
-    <!-- رأس الصفحة -->
-    <header class="max-w-6xl mx-auto w-full bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-2xl backdrop-blur-md flex flex-col md:flex-row justify-between items-center gap-4">
-        <div class="flex items-center gap-4">
-            <div class="bg-blue-500/10 border border-blue-500/30 p-3.5 rounded-2xl">
-                <i class="fa-solid fa-user-graduate text-blue-400 text-3xl"></i>
-            </div>
-            <div>
-                <h1 class="text-2xl font-black text-white">بوابة الطالب - جامعة الزهراء</h1>
-                <p class="text-xs text-blue-400 mt-1 font-semibold">مرحباً بك، الطالب الكريم في مسارك الأكاديمي الشامل</p>
-            </div>
-        </div>
-        <div>
-            <a href="index.html" class="bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs font-bold px-4 py-2.5 rounded-xl transition-colors flex items-center gap-2">
-                <i class="fa-solid fa-right-from-bracket"></i> تسجيل الخروج
-            </a>
-        </div>
+    <header>
+        <h1>بوابة الطالب الأكاديمية</h1>
+        <p>مركز التعليم التطبيقي والمستمر - أكاديمية OFK بالتعاون مع جامعة الزهراء</p>
     </header>
 
-    <!-- المحتوى الرئيسي لبوابة الطالب -->
-    <main class="max-w-6xl mx-auto w-full space-y-8 my-8">
-        
-        <!-- حالة الطالب والمسار الحالي -->
-        <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="space-y-2 text-center md:text-right">
-                <span class="bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs px-3.5 py-1.5 rounded-full font-bold">المرحلة الحالية: الدورة التمهيدية</span>
-                <h2 class="text-xl font-black text-white">الدورة التحضيرية الإجبارية (6 أشهر)</h2>
-                <p class="text-xs text-slate-400">يجب عليك اجتياز مواد هذه المرحلة والامتحان النهائي لتتمكن من اختيار أحد التخصصات الستة الكبرى (إجمالي البرنامج: سنة و 8 أشهر).</p>
+    <div class="container">
+        <a href="index.html" class="back-link">← العودة لصفحة تسجيل الدخول</a>
+
+        <!-- 1. الإرشاد النفسي والتطوير التعليمي -->
+        <div class="specialization-box">
+            <h2>1. الإرشاد النفسي والتطوير التعليمي</h2>
+            <div class="course-item">
+                <h3>المادة الأولى: مدخل إلى علم النفس العام والصحة النفسية</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: دراسة المفاهيم الأساسية لعلم النفس والشخصية.</li>
+                    <li>الدرس الثاني: كيفية بناء التوازن النفسي الذاتي.</li>
+                </ul>
             </div>
-            <div class="bg-slate-900/80 border border-slate-700/60 p-4 rounded-xl text-center min-w-[220px]">
-                <div class="text-xs text-slate-400">حالة الامتحان التمهيدي</div>
-                <div class="text-amber-400 font-bold text-sm mt-1"><i class="fa-solid fa-clock ml-1"></i> قيد الدراسة والتحضير</div>
+            <div class="course-item">
+                <h3>المادة الثانية: علم النفس التربوي ونظريات التعلم</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: استكشاف كيف يتعلم الأفراد والنظريات المعرفية.</li>
+                    <li>الدرس الثاني: التطبيقات العملية لنظريات التعلم في قاعات الدراسة.</li>
+                </ul>
             </div>
-        </div>
-
-        <!-- مواد الدورة التمهيدية (المادة الأولى مفعلة وقابلة للتعديل النصي لاحقاً) -->
-        <div class="space-y-4">
-            <h3 class="text-lg font-black text-white flex items-center gap-2">
-                <i class="fa-solid fa-book-open text-amber-400"></i> مواد الدورة التحضيرية (الـ 6 أشهر الأولى)
-            </h3>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- المادة الأولى المفعلة -->
-                <div class="bg-slate-800/80 border border-amber-500/40 rounded-2xl p-6 shadow-xl space-y-4">
-                    <div class="flex justify-between items-center">
-                        <span class="bg-emerald-500/10 text-emerald-400 text-xs px-3 py-1 rounded-lg font-bold">مفعلة من المدير</span>
-                        <i class="fa-solid fa-check-circle text-emerald-400"></i>
-                    </div>
-                    <h4 class="text-base font-bold text-white">المادة الأولى: أساسيات التقنية والمهارات الرقمية</h4>
-                    <p class="text-xs text-slate-400 leading-relaxed">هذا النص تمهيدي ومخصص لمحتوى المادة الأولى، وقابل للتعديل الكامل والتحديث المستمر من قِبل إدارة المنصة لاحقاً.</p>
-                    <button onclick="alert('جاري فتح محتوى الدرس الأول...')" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs py-2.5 rounded-xl transition-colors shadow-lg">
-                        دخول لدروس المادة
-                    </button>
-                </div>
-
-                <!-- مواد أخرى مقفلة كمثال -->
-                <div class="bg-slate-800/50 border border-slate-700/60 rounded-2xl p-6 shadow-xl space-y-4 opacity-75">
-                    <div class="flex justify-between items-center">
-                        <span class="bg-rose-500/10 text-rose-400 text-xs px-3 py-1 rounded-lg font-bold">مقفلة</span>
-                        <i class="fa-solid fa-lock text-rose-400"></i>
-                    </div>
-                    <h4 class="text-base font-bold text-white">المادة الثانية: مناهج التفكير المنطقي</h4>
-                    <p class="text-xs text-slate-400 leading-relaxed">سيتم فتح هذه المادة بناءً على الجدول الزمني وتوجيهات إدارة جامعة الزهراء.</p>
-                    <button disabled class="w-full bg-slate-700 text-slate-400 font-bold text-xs py-2.5 rounded-xl cursor-not-allowed">
-                        مقفلة مؤقتاً
-                    </button>
-                </div>
-
-                <div class="bg-slate-800/50 border border-slate-700/60 rounded-2xl p-6 shadow-xl space-y-4 opacity-75">
-                    <div class="flex justify-between items-center">
-                        <span class="bg-rose-500/10 text-rose-400 text-xs px-3 py-1 rounded-lg font-bold">مقفلة</span>
-                        <i class="fa-solid fa-lock text-rose-400"></i>
-                    </div>
-                    <h4 class="text-base font-bold text-white">المادة الثالثة: مدخل إلى نظم المعلومات</h4>
-                    <p class="text-xs text-slate-400 leading-relaxed">سيتم فتح هذه المادة بعد إتمام المادة السابقة واجتياز اختبارها القصير.</p>
-                    <button disabled class="w-full bg-slate-700 text-slate-400 font-bold text-xs py-2.5 rounded-xl cursor-not-allowed">
-                        مقفلة مؤقتاً
-                    </button>
-                </div>
+            <div class="course-item">
+                <h3>المادة الثالثة: أساليب الإرشاد النفسي والتوجيه المدرسي</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: المهارات الأساسية للمرشد النفسي.</li>
+                    <li>الدرس الثاني: طرق المقابلة الإرشادية الفعالة.</li>
+                </ul>
+            </div>
+            <div class="course-item">
+                <h3>المادة الرابعة: صعوبات التعلم ودمج ذوي الاحتياجات الخاصة</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: التعرف على أنواع صعوبات التعلم.</li>
+                    <li>الدرس الثاني: استراتيجيات التشخيص المبكر والدمج.</li>
+                </ul>
+            </div>
+            <div class="course-item">
+                <h3>المادة الخامسة: تطوير مهارات التفكير وتصميم بيئات التعلم الحديثة</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: استراتيجيات تحفيز التفكير النقدي لدى الطلاب.</li>
+                    <li>الدرس الثاني: توظيف الوسائل والبيئات الحديثة في التدريس.</li>
+                </ul>
+            </div>
+            <div class="course-item">
+                <h3>المادة السادسة: مشروع التطبيق العملي والميداني الإرشادي</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: الإعداد لحالات إرشادية ميدانية.</li>
+                    <li>الدرس الثاني: التطبيق العملي وإعداد التقارير تحت الإشراف.</li>
+                </ul>
             </div>
         </div>
 
-        <!-- نظرة مستقبلية على التخصصات الستة الكبرى (تظهر بعد اجتياز الـ 6 أشهر) -->
-        <div class="bg-slate-800/40 border border-slate-700/50 rounded-2xl p-6 space-y-4">
-            <div class="flex items-center gap-2 border-b border-slate-700/60 pb-3">
-                <i class="fa-solid fa-graduation-cap text-blue-400 text-lg"></i>
-                <h3 class="text-base font-bold text-white">التخصصات الستة الكبرى (متاحة بعد اجتياز الـ 6 أشهر وامتحان القبول)</h3>
+        <!-- 2. العلوم الشرعية والدراسات القرآنية -->
+        <div class="specialization-box">
+            <h2>2. العلوم الشرعية والدراسات القرآنية</h2>
+            <div class="course-item">
+                <h3>المادة الأولى: علوم القرآن الكريم ونزوله وتدوينه</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: تاريخ نزول القرآن وأسباب النزول.</li>
+                    <li>الدرس الثاني: مراحل جمع وتدوين المصحف الشريف.</li>
+                </ul>
             </div>
-            <p class="text-xs text-slate-400">بعد تخرجك من الدورة التمهيدية بنجاح، ستتمكن من اختيار تخصصك من بين 6 تخصصات رئيسية تمتد لدراسة سنة و8 أشهر (كل تخصص يضم 6 مواد دراسية متعمقة):</p>
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 text-center">
-                <div class="bg-slate-900/60 border border-slate-700/60 p-3 rounded-xl">
-                    <div class="text-blue-400 text-lg mb-1"><i class="fa-solid fa-code"></i></div>
-                    <span class="text-xs font-bold text-white">تطوير الويب</span>
-                </div>
-                <div class="bg-slate-900/60 border border-slate-700/60 p-3 rounded-xl">
-                    <div class="text-amber-400 text-lg mb-1"><i class="fa-solid fa-brain"></i></div>
-                    <span class="text-xs font-bold text-white">الذكاء الاصطناعي</span>
-                </div>
-                <div class="bg-slate-900/60 border border-slate-700/60 p-3 rounded-xl">
-                    <div class="text-emerald-400 text-lg mb-1"><i class="fa-solid fa-chart-line"></i></div>
-                    <span class="text-xs font-bold text-white">الإدارة الرقمية</span>
-                </div>
-                <div class="bg-slate-900/60 border border-slate-700/60 p-3 rounded-xl">
-                    <div class="text-purple-400 text-lg mb-1"><i class="fa-solid fa-shield-halved"></i></div>
-                    <span class="text-xs font-bold text-white">الأمن السيبراني</span>
-                </div>
-                <div class="bg-slate-900/60 border border-slate-700/60 p-3 rounded-xl">
-                    <div class="text-rose-400 text-lg mb-1"><i class="fa-solid fa-database"></i></div>
-                    <span class="text-xs font-bold text-white">قواعد البيانات</span>
-                </div>
-                <div class="bg-slate-900/60 border border-slate-700/60 p-3 rounded-xl">
-                    <div class="text-cyan-400 text-lg mb-1"><i class="fa-solid fa-mobile-screen"></i></div>
-                    <span class="text-xs font-bold text-white">تطبيقات الجوال</span>
-                </div>
+            <div class="course-item">
+                <h3>المادة الثانية: التفسير التحليلي والموضوعي لآيات الأحكام</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: الغوص في معاني الآيات القرآنية وتحليلها.</li>
+                    <li>الدرس الثاني: استنباط الأحكام والقيم التربوية.</li>
+                </ul>
+            </div>
+            <div class="course-item">
+                <h3>المادة الثالثة: أصول الفقه القواعد والتشريع الإسلامي</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: التعرف على مصادر التشريع الإسلامي.</li>
+                    <li>الدرس الثاني: دراسة القواعد الأصولية الكلية وتطبيقاتها.</li>
+                </ul>
+            </div>
+            <div class="course-item">
+                <h3>المادة الرابعة: فقه العبادات والمعاملات المالية المعاصرة</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: دراسة أحكام العبادات الأساسية.</li>
+                    <li>الدرس الثاني: النوازل الفقهية والمالية المعاصرة.</li>
+                </ul>
+            </div>
+            <div class="course-item">
+                <h3>المادة الخامسة: السيرة النبوية الشريفة والحديث الشريف</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: استعراض الدروس المستفادة من السيرة النبوية.</li>
+                    <li>الدرس الثاني: مدخل إلى علم مصطلح الحديث الشريف.</li>
+                </ul>
+            </div>
+            <div class="course-item">
+                <h3>المادة السادسة: الخطاب الديني المعاصر وتفنيد الشبهات</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: دراسة التحديات الفكرية المعاصرة.</li>
+                    <li>الدرس الثاني: كيفية بناء خطاب ديني وسطي معتدل.</li>
+                </ul>
             </div>
         </div>
 
-    </main>
+        <!-- 3. الأمن السيبراني وحماية الأنظمة -->
+        <div class="specialization-box">
+            <h2>3. الأمن السيبراني وحماية الأنظمة</h2>
+            <div class="course-item">
+                <h3>المادة الأولى: أساسيات شبكات الحاسب والاتصالات</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: دراسة البنية التحتية لشبكات الحاسب.</li>
+                    <li>الدرس الثاني: بروتوكولات الاتصال ونقل البيانات الآمنة.</li>
+                </ul>
+            </div>
+            <div class="course-item">
+                <h3>المادة الثانية: مبادئ الأمن السيبراني وإدارة المخاطر الرقمية</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: التعرف على المفاهيم الأساسية لأمن المعلومات.</li>
+                    <li>الدرس الثاني: استراتيجيات تقييم وإدارة المخاطر الرقمية.</li>
+                </ul>
+            </div>
+            <div class="course-item">
+                <h3>المادة الثالثة: أمن الأنظمة وأسس التشفير</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: دراسة خوارزميات التشفير الحديثة.</li>
+                    <li>الدرس الثاني: حماية قواعد البيانات وأنظمة التشغيل.</li>
+                </ul>
+            </div>
+            <div class="course-item">
+                <h3>المادة الرابعة: اختبار الاختراق الأخلاقي وتقييم الثغرات</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: تعلم منهجيات المخترقين الأخلاقيين.</li>
+                    <li>الدرس الثاني: طرق اكتشاف وتقييم الثغرات الأمنية.</li>
+                </ul>
+            </div>
+            <div class="course-item">
+                <h3>المادة الخامسة: أمن الويب والتطبيقات والسحب الرقمية</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: فهم الثغرات الشائعة في تطبيقات الويب.</li>
+                    <li>الدرس الثاني: تأمين المنصات الرقمية وحماية بيانات المستخدمين.</li>
+                </ul>
+            </div>
+            <div class="course-item">
+                <h3>المادة السادسة: الاستجابة للحوادث السيبرانية والتحقيق الرقمي</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: اكتشاف والتعامل مع الهجمات الإلكترونية.</li>
+                    <li>الدرس الثاني: أساسيات التحقيق الرقمي وجمع الأدلة.</li>
+                </ul>
+            </div>
+        </div>
 
-    <!-- تذييل الصفحة -->
-    <footer class="max-w-6xl mx-auto w-full text-center text-xs text-slate-500 border-t border-slate-800 pt-6 mt-8">
-        أكاديمية OFK &copy; 2026 - بوابة الطالب الأكاديمية (جامعة الزهراء)
-    </footer>
+        <!-- 4. الذكاء الاصطناعي والتقنيات الرقمية -->
+        <div class="specialization-box">
+            <h2>4. الذكاء الاصطناعي والتقنيات الرقمية</h2>
+            <div class="course-item">
+                <h3>المادة الأولى: أساسيات ومفاهيم الذكاء الاصطناعي</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: تاريخ وتطور تقنيات الذكاء الاصطناعي.</li>
+                    <li>الدرس الثاني: التطبيقات المعاصرة للذكاء الاصطناعي.</li>
+                </ul>
+            </div>
+            <div class="course-item">
+                <h3>المادة الثانية: تعلم الآلة ومعالجة البيانات</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: دراسة خوارزميات التعلم الآلي.</li>
+                    <li>الدرس الثاني: تحليل البيانات الكبيرة وطرق تنظيفها.</li>
+                </ul>
+            </div>
+            <div class="course-item">
+                <h3>المادة الثالثة: الذكاء الاصطناعي التوليدي وأدوات الإنتاج</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: استعراض تقنيات التوليد الحديثة.</li>
+                    <li>الدرس الثاني: توظيف أدوات الـ AI في أتمتة الأعمال.</li>
+                </ul>
+            </div>
+            <div class="course-item">
+                <h3>المادة الرابعة: البرمجة التطبيقية بلغة بايثون للذكاء الاصطناعي</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: أساسيات لغة البرمجة بايثون.</li>
+                    <li>الدرس الثاني: استخدام المكتبات المخصصة للذكاء الاصطناعي.</li>
+                </ul>
+            </div>
+            <div class="course-item">
+                <h3>المادة الخامسة: رؤية الكمبيوتر وتطبيقات التعرف على الصور</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: معالجة الصور الرقمية بالحاسب.</li>
+                    <li>الدرس الثاني: تحليل الفيديوهات وتقنيات التعرف البصري.</li>
+                </ul>
+            </div>
+            <div class="course-item">
+                <h3>المادة السادسة: مشروع تخرج الذكاء الاصطناعي التطبيقي</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: اختيار وتحديد مشكلة واقعية في سوق العمل.</li>
+                    <li>الدرس الثاني: تطوير نموذج ذكاء اصطناعي لحل المشكلة.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 5. الصحة النفسية والاستشارية -->
+        <div class="specialization-box">
+            <h2>5. الصحة النفسية والاستشارية</h2>
+            <div class="course-item">
+                <h3>المادة الأولى: مدخل إلى الصحة النفسية وعلم نفس الشخصية</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: فهم البناء النفسي السليم للشخصية.</li>
+                    <li>الدرس الثاني: محددات الصحة النفسية للفرد والمجتمع.</li>
+                </ul>
+            </div>
+            <div class="course-item">
+                <h3>المادة الثانية: الإسعاف النفسي الأولي وإدارة الأزمات</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: مفاهيم التدخل السريع في الأزمات.</li>
+                    <li>الدرس الثاني: التعامل مع حالات الصدمات والضغوط الحادة.</li>
+                </ul>
+            </div>
+            <div class="course-item">
+                <h3>المادة الثالثة: المهارات الأساسية في الإرشاد والعلاج النفسي</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: تقنيات الاستماع الفعال والتواصل.</li>
+                    <li>الدرس الثاني: بناء العلاقة العلاجية مع المسترشد.</li>
+                </ul>
+            </div>
+            <div class="course-item">
+                <h3>المادة الرابعة: الاضطرابات النفسية الشائعة وطرق التعامل معها</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: التعرف على أعراض القلق والاكتئاب.</li>
+                    <li>الدرس الثاني: التعامل مع الاضطرابات السلوكية الشائعة.</li>
+                </ul>
+            </div>
+            <div class="course-item">
+                <h3>المادة الخامسة: الإرشاد الأسري والزواج</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: طرق حل النزاعات الأسرية بأساليب علمية.</li>
+                    <li>الدرس الثاني: تطوير أساليب التنشئة والتوافق الزواجي.</li>
+                </ul>
+            </div>
+            <div class="course-item">
+                <h3>المادة السادسة: أخلاقيات مهنة الإرشاد والتطبيق العملي</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: معايير السرية والحدود المهنية للإرشاد.</li>
+                    <li>الدرس الثاني: إدارة الجلسات الإرشادية وفق المعايير الأخلاقية.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 6. اللغة العربية ومفرداتها -->
+        <div class="specialization-box">
+            <h2>6. اللغة العربية ومفرداتها</h2>
+            <div class="course-item">
+                <h3>المادة الأولى: النحو والصرف التطبيقي في النصوص المعاصرة</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: دراسة قواعد النحو والصرف بأسلوب مبسط.</li>
+                    <li>الدرس الثاني: تصحيح الأخطاء الشائعة في الكتابة المعاصرة.</li>
+                </ul>
+            </div>
+            <div class="course-item">
+                <h3>المادة الثانية: البلاغة العربية (البيان، المعاني، البديع)</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: استكشاف أسرار الجمال اللغوي.</li>
+                    <li>الدرس الثاني: توظيف فنون البلاغة في النصوص الأدبية.</li>
+                </ul>
+            </div>
+            <div class="course-item">
+                <h3>المادة الثالثة: علم الدلالة والمعجم العربي (مفردات اللغة)</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: دراسة دلالات ومعاني الألفاظ العربية.</li>
+                    <li>الدرس الثاني: طرق البحث المتقدمة في المعاجم والقواميس.</li>
+                </ul>
+            </div>
+            <div class="course-item">
+                <h3>المادة الرابعة: المهارات الكتابية والتحرير الصحفي والإبداعي</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: تدريب عملي على فنون التحرير المختلفة.</li>
+                    <li>الدرس الثاني: تقنيات إنتاج المحتوى المكتوب والإبداعي.</li>
+                </ul>
+            </div>
+            <div class="course-item">
+                <h3>المادة الخامسة: فقه اللسانيات الحديثة وتحليل الخطاب</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: التعرف على المفاهيم اللسانية الحديثة.</li>
+                    <li>الدرس الثاني: تحليل البنى التركيبية والدلالية للخطابات.</li>
+                </ul>
+            </div>
+            <div class="course-item">
+                <h3>المادة السادسة: مهارات الإلقاء، الخطابة، والتواصل الفصيح</h3>
+                <ul class="lessons-list">
+                    <li>الدرس الأول: قواعد التحكم بالصوت ونبرات الإلقاء.</li>
+                    <li>الدرس الثاني: فنون مواجهة الجمهور وإلقاء النصوص بطلاقة.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
