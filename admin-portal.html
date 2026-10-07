@@ -3,134 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لوحة تحكم المدير | أكاديمية OFK</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts Cairo -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <title>لوحة تحكم المدير - أكاديمية OFK</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Cairo', sans-serif; background-color: #0f172a; color: #f8fafc; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; }
+        body { background-color: #f4f7f6; color: #333; direction: rtl; }
+        header { background: #00264d; color: white; padding: 25px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        header h1 { font-size: 26px; margin-bottom: 5px; }
+        header p { font-size: 14px; opacity: 0.9; }
+        .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+        .card { background: white; border-radius: 12px; padding: 25px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid #004080; }
+        .card h2 { color: #004080; margin-bottom: 20px; font-size: 20px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
+        .form-group { text-align: right; margin-bottom: 15px; }
+        .form-group.full { grid-column: span 2; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #243b53; }
+        .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid #bcccdc; border-radius: 8px; font-size: 15px; outline: none; }
+        .form-group input:focus, .form-group select:focus { border-color: #004080; }
+        .btn-primary { background-color: #004080; color: white; padding: 12px 20px; border: none; border-radius: 8px; font-size: 16px; font-weight: 700; cursor: pointer; transition: background 0.3s; width: 100%; }
+        .btn-primary:hover { background-color: #00264d; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { padding: 12px; text-align: right; border-bottom: 1px solid #e2e8f0; font-size: 14px; }
+        th { background-color: #f8fafc; color: #1e293b; font-weight: 700; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #004080; text-decoration: none; font-weight: 600; font-size: 15px; }
+        .back-link:hover { text-decoration: underline; }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between p-4 md:p-8">
+<body>
 
-    <!-- رأس الصفحة -->
-    <header class="max-w-6xl mx-auto w-full bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-2xl backdrop-blur-md flex flex-col md:flex-row justify-between items-center gap-4">
-        <div class="flex items-center gap-4">
-            <div class="bg-purple-500/10 border border-purple-500/30 p-3.5 rounded-2xl">
-                <i class="fa-solid fa-user-shield text-purple-400 text-3xl"></i>
-            </div>
-            <div>
-                <h1 class="text-2xl font-black text-white">لوحة تحكم المدير العام</h1>
-                <p class="text-xs text-purple-400 mt-1 font-semibold">إدارة المنصة الأكاديمية (شراكة جامعة الزهراء)</p>
-            </div>
-        </div>
-        <div>
-            <a href="index.html" class="bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs font-bold px-4 py-2.5 rounded-xl transition-colors flex items-center gap-2">
-                <i class="fa-solid fa-right-from-bracket"></i> تسجيل الخروج
-            </a>
-        </div>
+    <header>
+        <h1>لوحة تحكم المدير الأكاديمي</h1>
+        <p>مركز التعليم التطبيقي والمستمر - أكاديمية OFK بالتعاون مع جامعة الزهراء</p>
     </header>
 
-    <!-- المحتوى الرئيسي -->
-    <main class="max-w-6xl mx-auto w-full space-y-8 my-8">
-        
-        <!-- إحصائيات سريعة -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl flex items-center gap-4">
-                <div class="bg-blue-500/10 p-4 rounded-xl text-blue-400 text-xl"><i class="fa-solid fa-users"></i></div>
-                <div>
-                    <div class="text-xs text-slate-400 font-semibold">الطلاب المسجلين</div>
-                    <div class="text-2xl font-black text-white mt-1">128 طالب</div>
+    <div class="container">
+        <a href="index.html" class="back-link">← العودة لصفحة تسجيل الدخول</a>
+
+        <!-- قسم توليد حساب طالب جديد -->
+        <div class="card">
+            <h2>توليد حساب طالب جديد وتخصيص كلمة المرور</h2>
+            <form id="studentGenForm" onsubmit="generateStudent(event)">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="studentName">اسم الطالب الكامل</label>
+                        <input type="text" id="studentName" placeholder="مثال: أحمد محمد" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="studentEmail">البريد الإلكتروني</label>
+                        <input type="email" id="studentEmail" placeholder="student@ofk.edu" required>
+                    </div>
+                    <div class="form-group full">
+                        <label for="studentSpecialization">الكلية / التخصص الدراسي</label>
+                        <select id="studentSpecialization" required>
+                            <option value="">اختر التخصص الأكاديمي...</option>
+                            <option value="الإرشاد النفسي والتطوير التعليمي">1. الإرشاد النفسي والتطوير التعليمي</option>
+                            <option value="العلوم الشرعية والدراسات القرآنية">2. العلوم الشرعية والدراسات القرآنية</option>
+                            <option value="الأمن السيبراني وحماية الأنظمة">3. الأمن السيبراني وحماية الأنظمة</option>
+                            <option value="الذكاء الاصطناعي والتقنيات الرقمية">4. الذكاء الاصطناعي والتقنيات الرقمية</option>
+                            <option value="الصحة النفسية والاستشارية">5. الصحة النفسية والاستشارية</option>
+                            <option value="اللغة العربية ومفرداتها">6. اللغة العربية ومفرداتها</option>
+                        </select>
+                    </div>
+                    <div class="form-group full">
+                        <label for="genPassword">كلمة المرور الخاصة بالطالب</label>
+                        <input type="text" id="genPassword" placeholder="تلقائي أو أدخل كلمة مرور خاصة" required>
+                    </div>
                 </div>
-            </div>
-            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl flex items-center gap-4">
-                <div class="bg-amber-500/10 p-4 rounded-xl text-amber-400 text-xl"><i class="fa-solid fa-hourglass-half"></i></div>
-                <div>
-                    <div class="text-xs text-slate-400 font-semibold">الدورة التمهيدية (6 أشهر)</div>
-                    <div class="text-2xl font-black text-white mt-1">نشطة</div>
-                </div>
-            </div>
-            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl flex items-center gap-4">
-                <div class="bg-emerald-500/10 p-4 rounded-xl text-emerald-400 text-xl"><i class="fa-solid fa-graduation-cap"></i></div>
-                <div>
-                    <div class="text-xs text-slate-400 font-semibold">التخصصات الكبرى</div>
-                    <div class="text-2xl font-black text-white mt-1">6 تخصصات</div>
-                </div>
-            </div>
+                <button type="submit" class="btn-primary">حفظ وتوليد الحساب</button>
+            </form>
         </div>
 
-        <!-- قسم التحكم بفتح وقفل دروس الدورة التمهيدية -->
-        <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl space-y-6">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-slate-700/60 pb-4">
-                <div>
-                    <h2 class="text-lg font-black text-white flex items-center gap-2">
-                        <i class="fa-solid fa-sliders text-purple-400"></i> إدارة محتوى الدورة التحضيرية والدروس
-                    </h2>
-                    <p class="text-xs text-slate-400 mt-1">تحكم بحالة فتح أو قفل المواد والدروس للطلاب خلال فترة الـ 6 أشهر الأولى.</p>
-                </div>
-                <span class="bg-purple-500/10 text-purple-400 border border-purple-500/20 text-xs px-3 py-1.5 rounded-lg font-bold">صلاحيات كاملة</span>
-            </div>
-
-            <div class="space-y-4">
-                <!-- المادة الأولى -->
-                <div class="bg-slate-900/60 border border-slate-700/60 rounded-xl p-4 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <div class="space-y-1 text-center md:text-right">
-                        <h3 class="text-sm font-bold text-white">المادة الأولى: أساسيات التقنية والمهارات الرقمية</h3>
-                        <p class="text-xs text-slate-400">الحالة الحالية للطلاب: متاح ومفتوح للدراسة</p>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <button onclick="alert('تم قفل المادة بنجاح!')" class="bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 text-xs font-bold px-4 py-2 rounded-lg transition-colors">
-                            <i class="fa-solid fa-lock ml-1"></i> قفل المادة
-                        </button>
-                        <button onclick="alert('المادة مفعلة مسبقاً')" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold px-4 py-2 rounded-lg transition-colors shadow-md">
-                            <i class="fa-solid fa-check ml-1"></i> مفعلة
-                        </button>
-                    </div>
-                </div>
-
-                <!-- المادة الثانية -->
-                <div class="bg-slate-900/60 border border-slate-700/60 rounded-xl p-4 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <div class="space-y-1 text-center md:text-right">
-                        <h3 class="text-sm font-bold text-white">المادة الثانية: مناهج التفكير المنطقي</h3>
-                        <p class="text-xs text-slate-400">الحالة الحالية للطلاب: مقفلة مؤقتاً بانتظار الجدول</p>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <button onclick="alert('تم فتح المادة للطلاب بنجاح!')" class="bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs font-bold px-4 py-2 rounded-lg transition-colors">
-                            <i class="fa-solid fa-lock-open ml-1"></i> فتح المادة
-                        </button>
-                        <button onclick="alert('المادة مغلقة')" class="bg-slate-700 text-slate-400 text-xs font-bold px-4 py-2 rounded-lg cursor-not-allowed">
-                            مغلقة
-                        </button>
-                    </div>
-                </div>
-
-                <!-- المادة الثالثة -->
-                <div class="bg-slate-900/60 border border-slate-700/60 rounded-xl p-4 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <div class="space-y-1 text-center md:text-right">
-                        <h3 class="text-sm font-bold text-white">المادة الثالثة: مدخل إلى نظم المعلومات</h3>
-                        <p class="text-xs text-slate-400">الحالة الحالية للطلاب: مقفلة مؤقتاً</p>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <button onclick="alert('تم فتح المادة للطلاب بنجاح!')" class="bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs font-bold px-4 py-2 rounded-lg transition-colors">
-                            <i class="fa-solid fa-lock-open ml-1"></i> فتح المادة
-                        </button>
-                        <button onclick="alert('المادة مغلقة')" class="bg-slate-700 text-slate-400 text-xs font-bold px-4 py-2 rounded-lg cursor-not-allowed">
-                            مغلقة
-                        </button>
-                    </div>
-                </div>
-            </div>
+        <!-- جدول الطلاب المسجلين -->
+        <div class="card">
+            <h2>قائمة الطلاب المسجلين في النظام</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>اسم الطالب</th>
+                        <th>البريد الإلكتروني</th>
+                        <th>التخصص / الكلية</th>
+                        <th>كلمة المرور</th>
+                    </tr>
+                </thead>
+                <tbody id="studentsTableBody">
+                    <tr>
+                        <td>محمد علي</td>
+                        <td>mohammed@ofk.edu</td>
+                        <td>الأمن السيبراني وحماية الأنظمة</td>
+                        <td><code>Omr123-Sec</code></td>
+                    </tr>
+                    <tr>
+                        <td>فاطمة الزهراء</td>
+                        <td>fatima@ofk.edu</td>
+                        <td>العلوم الشرعية والدراسات القرآنية</td>
+                        <td><code>Omr123-Sharia</code></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
+    </div>
 
-    </main>
+    <script>
+        function generateStudent(e) {
+            e.preventDefault();
+            const name = document.getElementById('studentName').value;
+            const email = document.getElementById('studentEmail').value;
+            const spec = document.getElementById('studentSpecialization').value;
+            const pass = document.getElementById('genPassword').value;
 
-    <!-- تذييل الصفحة -->
-    <footer class="max-w-6xl mx-auto w-full text-center text-xs text-slate-500 border-t border-slate-800 pt-6 mt-8">
-        أكاديمية OFK &copy; 2026 - لوحة تحكم الإدارة العليا (جامعة الزهراء)
-    </footer>
+            const tbody = document.getElementById('studentsTableBody');
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>${name}</td>
+                <td>${email}</td>
+                <td>${spec}</td>
+                <td><code>${pass}</code></td>
+            `;
+            tbody.appendChild(newRow);
+
+            alert('تم توليد وحفظ حساب الطالب بنجاح!');
+            document.getElementById('studentGenForm').reset();
+        }
+    </script>
 
 </body>
 </html>
