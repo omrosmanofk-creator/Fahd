@@ -3,123 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أكاديمية OFK | الشراكة الرسمية مع جامعة الزهراء</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts Cairo -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <title>أكاديمية OFK - تسجيل الدخول</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Cairo', sans-serif; background-color: #0f172a; color: #f8fafc; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #102a43;
+        }
+        .login-card {
+            background: #ffffff;
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(16, 42, 67, 0.1);
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+        }
+        .logo-container h1 {
+            color: #004080;
+            font-size: 28px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        .logo-container p {
+            color: #627d98;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            text-align: right;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #243b53;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #bcccdc;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus {
+            border-color: #004080;
+        }
+        .btn-login {
+            width: 100%;
+            background-color: #004080;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-login:hover {
+            background-color: #00264d;
+        }
+        .footer-note {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #829ab1;
+        }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between p-4 md:p-8">
+<body>
 
-    <!-- رأس الصفحة والشعار -->
-    <header class="max-w-6xl mx-auto w-full bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-2xl backdrop-blur-md flex flex-col md:flex-row justify-between items-center gap-4">
-        <div class="flex items-center gap-4">
-            <div class="bg-blue-500/10 border border-blue-500/30 p-3.5 rounded-2xl">
-                <i class="fa-solid fa-graduation-cap text-blue-400 text-3xl"></i>
-            </div>
-            <div>
-                <h1 class="text-2xl font-black text-white">أكاديمية OFK</h1>
-                <p class="text-xs text-blue-400 mt-1 font-semibold">الشراكة الاستراتيجية الرسمية مع جامعة الزهراء</p>
-            </div>
+    <div class="login-card">
+        <div class="logo-container">
+            <h1>أكاديمية OFK</h1>
+            <p>الشراكة الاستراتيجية مع جامعة الزهراء</p>
         </div>
-        <div>
-            <a href="zahraa-portal.html" class="bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs font-bold px-4 py-2.5 rounded-xl transition-colors flex items-center gap-2">
-                <i class="fa-solid fa-building-columns"></i> بوابة جامعة الزهراء الفرعية
-            </a>
-        </div>
-    </header>
-
-    <!-- المحتوى الرئيسي ونظام تسجيل الدخول الموحد -->
-    <main class="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8 my-8 items-center">
         
-        <!-- قسم التعريف بالمنصة والأكاديمية -->
-        <div class="space-y-6 text-center md:text-right">
-            <div class="inline-block bg-blue-500/10 text-blue-400 border border-blue-500/20 text-xs px-4 py-2 rounded-full font-bold">
-                منظومة التعليم الرقمي المتكاملة (سنة و 8 أشهر)
+        <form id="loginForm" onsubmit="handleLogin(event)">
+            <div class="form-group">
+                <label for="username">اسم المستخدم أو الرمز</label>
+                <input type="text" id="username" placeholder="أدخل اسم المستخدم (مثل: Omr123)" required>
             </div>
-            <h2 class="text-3xl md:text-4xl font-black text-white leading-tight">
-                بوابتك الاحترافية نحو مستقبل التكنولوجيا والبرمجة
-            </h2>
-            <p class="text-sm text-slate-300 leading-relaxed">
-                تنقسم رحلتك الدراسية معنا إلى مرحلتين أساسيتين: الدورة التمهيدية الإلزامية (6 أشهر) لترسيخ الأساسيات والمهارات الرقمية، تليها مرحلة التخصصات الكبرى (التطوير، الذكاء الاصطناعي، الأمن السيبراني، قواعد البيانات، إدارة التكنولوجيا، وتطبيقات الموبايل).
-            </p>
-            <div class="flex flex-wrap justify-center md:justify-start gap-4 pt-2">
-                <div class="bg-slate-800/80 border border-slate-700/80 px-4 py-3 rounded-xl text-center">
-                    <div class="text-xs text-slate-400">الدورة التحضيرية</div>
-                    <div class="text-white font-bold text-sm mt-1">6 أشهر</div>
-                </div>
-                <div class="bg-slate-800/80 border border-slate-700/80 px-4 py-3 rounded-xl text-center">
-                    <div class="text-xs text-slate-400">التخصصات المعتمدة</div>
-                    <div class="text-white font-bold text-sm mt-1">6 مسارات</div>
-                </div>
-            </div>
+            <button type="submit" class="btn-login">تسجيل الدخول</button>
+        </form>
+        
+        <div class="footer-note">
+            مركز التعليم التطبيقي والمستمر © 2026
         </div>
+    </div>
 
-        <!-- صندوق تسجيل الدخول الموحد -->
-        <div class="bg-slate-800/90 border border-slate-700/80 rounded-2xl p-6 md:p-8 shadow-2xl backdrop-blur-md space-y-6">
-            <div class="text-center space-y-1">
-                <h3 class="text-xl font-black text-white">تسجيل الدخول للمنصة</h3>
-                <p class="text-xs text-slate-400">أدخل بيانات الاعتماد الخاصة بك للوصول المباشر إلى بوابتك</p>
-            </div>
-
-            <!-- نموذج إدخال البيانات -->
-            <form id="loginForm" onsubmit="handleLogin(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-1.5">اسم المستخدم / معرف الحساب:</label>
-                    <div class="relative">
-                        <span class="absolute inset-y-0 right-0 flex items-center pr-3.5 text-slate-500">
-                            <i class="fa-solid fa-user"></i>
-                        </span>
-                        <input type="text" id="usernameInput" required placeholder="مثال: Omr123 أو Omr1234 أو Omr12345" 
-                            class="w-full bg-slate-900 border border-slate-700 rounded-xl pr-10 pl-4 py-3 text-xs text-white focus:outline-none focus:border-blue-500 transition-colors">
-                    </div>
-                </div>
-
-                <div class="bg-slate-900/60 border border-slate-700/60 rounded-xl p-3 text-[11px] text-slate-400 space-y-1">
-                    <div class="font-bold text-slate-300 mb-1">دليل الحسابات التجريبية:</div>
-                    <div>• طالب: <code class="text-blue-400 font-mono">Omr123</code></div>
-                    <div>• مدرس: <code class="text-emerald-400 font-mono">Omr1234</code></div>
-                    <div>• مدير: <code class="text-purple-400 font-mono">Omr12345</code></div>
-                </div>
-
-                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs py-3.5 rounded-xl transition-colors shadow-lg shadow-blue-600/20 flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-right-to-bracket"></i> دخول إلى البوابة الأكاديمية
-                </button>
-            </form>
-        </div>
-
-    </main>
-
-    <!-- تذييل الصفحة -->
-    <footer class="max-w-6xl mx-auto w-full text-center text-xs text-slate-500 border-t border-slate-800 pt-6 mt-8">
-        أكاديمية OFK &copy; 2026 - جميع الحقوق محفوظة (بالتعاون مع جامعة الزهراء)
-    </footer>
-
-    <!-- سكربت التوجيه الذكي لحسابات الدخول -->
     <script>
-        function handleLogin(event) {
-            event.preventDefault();
-            const username = document.getElementById('usernameInput').value.trim();
-
-            if (username === 'Omr123') {
-                alert('مرحباً بك أيها الطالب! جاري توجيهك إلى بوابة الطالب...');
-                window.location.href = 'student-portal.html';
-            } else if (username === 'Omr1234') {
-                alert('مرحباً بك أستاذنا الفاضل! جاري توجيهك إلى بوابة المدرس...');
-                window.location.href = 'instructor-portal.html';
-            } else if (username === 'Omr12345') {
-                alert('مرحباً بك أيها المدير العام! جاري توجيهك إلى لوحة التحكم...');
+        function handleLogin(e) {
+            e.preventDefault();
+            const val = document.getElementById('username').value.trim();
+            if (val.startsWith('Omr12345')) {
                 window.location.href = 'admin-portal.html';
+            } else if (val.startsWith('Omr1234')) {
+                window.location.href = 'instructor-portal.html';
             } else {
-                alert('عذراً، اسم المستخدم غير صحيح. يرجى استخدام (Omr123 للطالب، Omr1234 للمدرس، أو Omr12345 للمدير).');
+                window.location.href = 'student-portal.html';
             }
         }
     </script>
-
 </body>
 </html>
