@@ -3,101 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بوابة المدرس الأكاديمية | أكاديمية OFK</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts Cairo -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <title>بوابة الأستاذ - أكاديمية OFK</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Cairo', sans-serif; background-color: #0f172a; color: #f8fafc; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; }
+        body { background-color: #f4f7f6; color: #333; direction: rtl; }
+        header { background: #004080; color: white; padding: 25px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        header h1 { font-size: 26px; margin-bottom: 5px; }
+        header p { font-size: 14px; opacity: 0.9; }
+        .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+        .card { background: white; border-radius: 12px; padding: 25px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid #004080; }
+        .card h2 { color: #004080; margin-bottom: 20px; font-size: 20px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
+        .form-group { text-align: right; margin-bottom: 15px; }
+        .form-group.full { grid-column: span 2; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #243b53; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #bcccdc; border-radius: 8px; font-size: 15px; outline: none; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: #004080; }
+        .btn-primary { background-color: #004080; color: white; padding: 12px 20px; border: none; border-radius: 8px; font-size: 16px; font-weight: 700; cursor: pointer; transition: background 0.3s; width: 100%; }
+        .btn-primary:hover { background-color: #00264d; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #004080; text-decoration: none; font-weight: 600; font-size: 15px; }
+        .back-link:hover { text-decoration: underline; }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between p-4 md:p-8">
+<body>
 
-    <!-- رأس الصفحة -->
-    <header class="max-w-6xl mx-auto w-full bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-2xl backdrop-blur-md flex flex-col md:flex-row justify-between items-center gap-4">
-        <div class="flex items-center gap-4">
-            <div class="bg-emerald-500/10 border border-emerald-500/30 p-3.5 rounded-2xl">
-                <i class="fa-solid fa-chalkboard-user text-emerald-400 text-3xl"></i>
-            </div>
-            <div>
-                <h1 class="text-2xl font-black text-white">بوابة المدرس - جامعة الزهراء</h1>
-                <p class="text-xs text-emerald-400 mt-1 font-semibold">مرحباً بك، الأستاذ الفاضل (حساب المدرس: Omr1234)</p>
-            </div>
-        </div>
-        <div>
-            <a href="index.html" class="bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs font-bold px-4 py-2.5 rounded-xl transition-colors flex items-center gap-2">
-                <i class="fa-solid fa-right-from-bracket"></i> تسجيل الخروج
-            </a>
-        </div>
+    <header>
+        <h1>بوابة الأستاذ والأكاديمي</h1>
+        <p>مركز التعليم التطبيقي والمستمر - أكاديمية OFK بالتعاون مع جامعة الزهراء</p>
     </header>
 
-    <!-- المحتوى الرئيسي -->
-    <main class="max-w-6xl mx-auto w-full space-y-8 my-8">
-        
-        <!-- معلومات المسار الحالي -->
-        <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="space-y-2 text-center md:text-right">
-                <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs px-3.5 py-1.5 rounded-full font-bold">المتابعة الأكاديمية</span>
-                <h2 class="text-xl font-black text-white">إدارة مواد الدورة التمهيدية والتخصصات</h2>
-                <p class="text-xs text-slate-400">يمكنك هنا مراجعة مواد الدورة التحضيرية (6 أشهر) وتحديث المحتوى النصي للدروس ليكون جاهزاً لتلقي الطلاب.</p>
-            </div>
-            <div class="bg-slate-900/80 border border-slate-700/60 p-4 rounded-xl text-center min-w-[200px]">
-                <div class="text-xs text-slate-400">حالة الصلاحية</div>
-                <div class="text-emerald-400 font-bold text-sm mt-1"><i class="fa-solid fa-check-circle ml-1"></i> مدرس معتمد</div>
-            </div>
+    <div class="container">
+        <a href="index.html" class="back-link">← العودة لصفحة تسجيل الدخول</a>
+
+        <!-- رفع المحتوى التعليمي (ملفات PDF أو فيديوهات) -->
+        <div class="card">
+            <h2>رفع محتوى تعليمي للدروس (PDF / فيديو)</h2>
+            <form onsubmit="handleUpload(event)">
+                <div class="form-grid">
+                    <div class="form-group full">
+                        <label for="uploadSpec">اختر التخصص / الكلية</label>
+                        <select id="uploadSpec" required>
+                            <option value="">اختر التخصص...</option>
+                            <option value="الإرشاد النفسي والتطوير التعليمي">1. الإرشاد النفسي والتطوير التعليمي</option>
+                            <option value="العلوم الشرعية والدراسات القرآنية">2. العلوم الشرعية والدراسات القرآنية</option>
+                            <option value="الأمن السيبراني وحماية الأنظمة">3. الأمن السيبراني وحماية الأنظمة</option>
+                            <option value="الذكاء الاصطناعي والتقنيات الرقمية">4. الذكاء الاصطناعي والتقنيات الرقمية</option>
+                            <option value="الصحة النفسية والاستشارية">5. الصحة النفسية والاستشارية</option>
+                            <option value="اللغة العربية ومفرداتها">6. اللغة العربية ومفرداتها</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="courseName">اسم المادة أو الدرس</label>
+                        <input type="text" id="courseName" placeholder="مثال: الدرس الأول - مدخل علم النفس" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contentType">نوع المحتوى</label>
+                        <select id="contentType" required>
+                            <option value="PDF">ملف محاضرة (PDF)</option>
+                            <option value="Video">رابط فيديو الشرح</option>
+                        </select>
+                    </div>
+                    <div class="form-group full">
+                        <label for="contentLink">رابط الملف أو الفيديو</label>
+                        <input type="text" id="contentLink" placeholder="أضف رابط التحميل أو رابط الفيديو هنا" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary">نشر المحتوى للطلاب</button>
+            </form>
         </div>
 
-        <!-- إدارة المحتوى ونصوص المواد -->
-        <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 shadow-xl space-y-6">
-            <div class="border-b border-slate-700/60 pb-4">
-                <h3 class="text-lg font-black text-white flex items-center gap-2">
-                    <i class="fa-solid fa-file-pen text-emerald-400"></i> تحديث محتوى المواد الدراسية (نصوص مرنة قابلة للتعديل)
-                </h3>
-                <p class="text-xs text-slate-400 mt-1">تستطيع تعديل النصوص والشروحات الخاصة بالمواد والدروس لتنعكس مباشرة لدى الطلاب.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- نموذج المادة الأولى -->
-                <div class="bg-slate-900/60 border border-slate-700/60 rounded-xl p-5 space-y-4">
-                    <div class="flex justify-between items-center">
-                        <span class="text-xs font-bold text-emerald-400">المادة الأولى: أساسيات التقنية</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-lg">الدورة التمهيدية</span>
+        <!-- إرسال الإعلانات والرسائل للكلية -->
+        <div class="card">
+            <h2>إرسال إعلان أو تنبيه لطلاب الكلية</h2>
+            <form onsubmit="handleAnnouncement(event)">
+                <div class="form-grid">
+                    <div class="form-group full">
+                        <label for="announcementSpec">الكلية المستهدفة بالإعلان</label>
+                        <select id="announcementSpec" required>
+                            <option value="">اختر التخصص...</option>
+                            <option value="جميع التخصصات">جميع التخصصات والكليات</option>
+                            <option value="الإرشاد النفسي والتطوير التعليمي">1. الإرشاد النفسي والتطوير التعليمي</option>
+                            <option value="العلوم الشرعية والدراسات القرآنية">2. العلوم الشرعية والدراسات القرآنية</option>
+                            <option value="الأمن السيبراني وحماية الأنظمة">3. الأمن السيبراني وحماية الأنظمة</option>
+                            <option value="الذكاء الاصطناعي والتقنيات الرقمية">4. الذكاء الاصطناعي والتقنيات الرقمية</option>
+                            <option value="الصحة النفسية والاستشارية">5. الصحة النفسية والاستشارية</option>
+                            <option value="اللغة العربية ومفرداتها">6. اللغة العربية ومفرداتها</option>
+                        </select>
                     </div>
-                    <div>
-                        <label class="block text-xs text-slate-400 mb-1">محتوى ونصوص الدرس:</label>
-                        <textarea rows="4" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-emerald-500 transition-colors">هذا النص تمهيدي ومخصص لمحتوى المادة الأولى، وقابل للتعديل الكامل والتحديث المستمر من قِبل الأستاذ لاحقاً.</textarea>
+                    <div class="form-group full">
+                        <label for="announcementText">نص الإعلان أو التنبيه</label>
+                        <textarea id="announcementText" rows="4" placeholder="اكتب تفاصيل الإعلان أو موعد البث المباشر هنا..." required></textarea>
                     </div>
-                    <button onclick="alert('تم حفظ وتحديث محتوى المادة بنجاح!')" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs py-2.5 rounded-xl transition-colors shadow-md">
-                        حفظ التعديلات
-                    </button>
                 </div>
-
-                <!-- نموذج المادة الثانية -->
-                <div class="bg-slate-900/60 border border-slate-700/60 rounded-xl p-5 space-y-4">
-                    <div class="flex justify-between items-center">
-                        <span class="text-xs font-bold text-emerald-400">المادة الثانية: مناهج التفكير المنطقي</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-lg">الدورة التمهيدية</span>
-                    </div>
-                    <div>
-                        <label class="block text-xs text-slate-400 mb-1">محتوى ونصوص الدرس:</label>
-                        <textarea rows="4" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-emerald-500 transition-colors">سيتم فتح هذه المادة بناءً على الجدول الزمني وتوجيهات إدارة جامعة الزهراء وتحديث نصوصها هنا.</textarea>
-                    </div>
-                    <button onclick="alert('تم حفظ وتحديث محتوى المادة بنجاح!')" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs py-2.5 rounded-xl transition-colors shadow-md">
-                        حفظ التعديلات
-                    </button>
-                </div>
-            </div>
+                <button type="submit" class="btn-primary">إرسال الإعلان للطلاب</button>
+            </form>
         </div>
+    </div>
 
-    </main>
+    <script>
+        function handleUpload(e) {
+            e.preventDefault();
+            alert('تم نشر المحتوى التعليمي بنجاح وأصبح متاحاً لطلاب التخصص!');
+            e.target.reset();
+        }
 
-    <!-- تذييل الصفحة -->
-    <footer class="max-w-6xl mx-auto w-full text-center text-xs text-slate-500 border-t border-slate-800 pt-6 mt-8">
-        أكاديمية OFK &copy; 2026 - بوابة المدرس (شراكة جامعة الزهراء)
-    </footer>
+        function handleAnnouncement(e) {
+            e.preventDefault();
+            alert('تم إرسال التنبيه أو الإعلان لجميع طلاب الكلية بنجاح!');
+            e.target.reset();
+        }
+    </script>
 
 </body>
 </html>
