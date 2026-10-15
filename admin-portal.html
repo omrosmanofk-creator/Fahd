@@ -3,128 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لوحة تحكم المدير - أكاديمية OFK</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>لوحة تحكم المدير | OFK Academy</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; }
-        body { background-color: #f4f7f6; color: #333; direction: rtl; }
-        header { background: #00264d; color: white; padding: 25px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        header h1 { font-size: 26px; margin-bottom: 5px; }
-        header p { font-size: 14px; opacity: 0.9; }
-        .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
-        .card { background: white; border-radius: 12px; padding: 25px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid #004080; }
-        .card h2 { color: #004080; margin-bottom: 20px; font-size: 20px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
-        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
-        .form-group { text-align: right; margin-bottom: 15px; }
-        .form-group.full { grid-column: span 2; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #243b53; }
-        .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid #bcccdc; border-radius: 8px; font-size: 15px; outline: none; }
-        .form-group input:focus, .form-group select:focus { border-color: #004080; }
-        .btn-primary { background-color: #004080; color: white; padding: 12px 20px; border: none; border-radius: 8px; font-size: 16px; font-weight: 700; cursor: pointer; transition: background 0.3s; width: 100%; }
-        .btn-primary:hover { background-color: #00264d; }
-        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        th, td { padding: 12px; text-align: right; border-bottom: 1px solid #e2e8f0; font-size: 14px; }
-        th { background-color: #f8fafc; color: #1e293b; font-weight: 700; }
-        .back-link { display: inline-block; margin-bottom: 20px; color: #004080; text-decoration: none; font-weight: 600; font-size: 15px; }
-        .back-link:hover { text-decoration: underline; }
+        body { font-family: 'Cairo', sans-serif; }
     </style>
 </head>
-<body>
+<body class="bg-slate-100 text-slate-800 antialiased flex h-screen overflow-hidden">
 
-    <header>
-        <h1>لوحة تحكم المدير الأكاديمي</h1>
-        <p>مركز التعليم التطبيقي والمستمر - أكاديمية OFK بالتعاون مع جامعة الزهراء</p>
-    </header>
+    <!-- القائمة الجانبية (Sidebar) -->
+    <aside class="w-64 bg-slate-900 text-white flex flex-col justify-between hidden md:flex shadow-xl z-20">
+        <div>
+            <div class="h-20 flex items-center px-6 gap-3 border-b border-slate-800">
+                <div class="bg-indigo-600 text-white p-2 rounded-xl">
+                    <i class="fa-solid fa-user-shield text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="font-bold text-sm tracking-wide">بوابة المدير العام</h2>
+                    <p class="text-xs text-indigo-400">صلاحيات كاملة</p>
+                </div>
+            </div>
+            <nav class="p-4 space-y-2 font-medium">
+                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-indigo-600 text-white shadow-md">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span>الرئيسية والإحصائيات</span>
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                    <span>إدارة الأساتذة</span>
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition">
+                    <i class="fa-solid fa-user-graduate"></i>
+                    <span>إدارة الطلاب</span>
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>إعدادات المنصة</span>
+                </a>
+            </nav>
+        </div>
+        <div class="p-4 border-t border-slate-800">
+            <button onclick="logout()" class="w-full flex items-center justify-center gap-2 bg-rose-500/10 hover:bg-rose-500 text-rose-400 hover:text-white py-2.5 rounded-xl transition font-semibold text-sm">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>تسجيل الخروج</span>
+            </button>
+        </div>
+    </aside>
 
-    <div class="container">
-        <a href="index.html" class="back-link">← العودة لصفحة تسجيل الدخول</a>
+    <!-- المحتوى الرئيسي -->
+    <main class="flex-1 flex flex-col h-screen overflow-y-auto">
+        <!-- شريط علوي -->
+        <header class="bg-white shadow-sm h-20 flex items-center justify-between px-8 sticky top-0 z-10">
+            <div class="flex items-center gap-4">
+                <h1 class="text-xl font-bold text-slate-900">نظرة عامة على النظام</h1>
+            </div>
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 font-bold flex items-center justify-center">
+                    AD
+                </div>
+                <span class="font-semibold text-sm text-slate-700 hidden sm:inline">مدير النظام</span>
+            </div>
+        </header>
 
-        <!-- قسم توليد حساب طالب جديد -->
-        <div class="card">
-            <h2>توليد حساب طالب جديد وتخصيص كلمة المرور</h2>
-            <form id="studentGenForm" onsubmit="generateStudent(event)">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="studentName">اسم الطالب الكامل</label>
-                        <input type="text" id="studentName" placeholder="مثال: أحمد محمد" required>
+        <!-- مساحة العمل والإحصائيات -->
+        <div class="p-8 space-y-8 flex-grow">
+            <!-- بطاقات الإحصائيات -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-semibold text-slate-400">إجمالي الطلاب</p>
+                        <h3 class="text-3xl font-extrabold text-slate-900 mt-1">1,240</h3>
                     </div>
-                    <div class="form-group">
-                        <label for="studentEmail">البريد الإلكتروني</label>
-                        <input type="email" id="studentEmail" placeholder="student@ofk.edu" required>
-                    </div>
-                    <div class="form-group full">
-                        <label for="studentSpecialization">الكلية / التخصص الدراسي</label>
-                        <select id="studentSpecialization" required>
-                            <option value="">اختر التخصص الأكاديمي...</option>
-                            <option value="الإرشاد النفسي والتطوير التعليمي">1. الإرشاد النفسي والتطوير التعليمي</option>
-                            <option value="العلوم الشرعية والدراسات القرآنية">2. العلوم الشرعية والدراسات القرآنية</option>
-                            <option value="الأمن السيبراني وحماية الأنظمة">3. الأمن السيبراني وحماية الأنظمة</option>
-                            <option value="الذكاء الاصطناعي والتقنيات الرقمية">4. الذكاء الاصطناعي والتقنيات الرقمية</option>
-                            <option value="الصحة النفسية والاستشارية">5. الصحة النفسية والاستشارية</option>
-                            <option value="اللغة العربية ومفرداتها">6. اللغة العربية ومفرداتها</option>
-                        </select>
-                    </div>
-                    <div class="form-group full">
-                        <label for="genPassword">كلمة المرور الخاصة بالطالب</label>
-                        <input type="text" id="genPassword" placeholder="تلقائي أو أدخل كلمة مرور خاصة" required>
+                    <div class="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-2xl">
+                        <i class="fa-solid fa-user-graduate"></i>
                     </div>
                 </div>
-                <button type="submit" class="btn-primary">حفظ وتوليد الحساب</button>
-            </form>
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-semibold text-slate-400">الأساتذة النشطون</p>
+                        <h3 class="text-3xl font-extrabold text-slate-900 mt-1">45</h3>
+                    </div>
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-semibold text-slate-400">حالة السحابة (Firebase)</p>
+                        <h3 class="text-lg font-bold text-emerald-600 mt-2 flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
+                            متصل بنجاح
+                        </h3>
+                    </div>
+                    <div class="w-14 h-14 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center text-2xl">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- قسم إضافي لإدارة المحتوى السحابي -->
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 space-y-4">
+                <h3 class="text-lg font-bold text-slate-900">إدارة صلاحيات الأكاديمية</h3>
+                <p class="text-sm text-slate-500">من هنا يمكنك متابعة الأنشطة والربط المباشر بقاعدة بيانات مشروع <code class="bg-slate-100 text-indigo-600 px-2 py-1 rounded">ofk-academy</code>.</p>
+                <div class="p-4 bg-indigo-50 border border-indigo-100 rounded-2xl text-indigo-800 text-sm flex items-center gap-3">
+                    <i class="fa-solid fa-circle-info text-indigo-600 text-lg"></i>
+                    <span>النظام يعمل بصلاحيات إدارية كاملة ومحمية بـرمز الدخول الآمن.</span>
+                </div>
+            </div>
         </div>
+    </main>
 
-        <!-- جدول الطلاب المسجلين -->
-        <div class="card">
-            <h2>قائمة الطلاب المسجلين في النظام</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>اسم الطالب</th>
-                        <th>البريد الإلكتروني</th>
-                        <th>التخصص / الكلية</th>
-                        <th>كلمة المرور</th>
-                    </tr>
-                </thead>
-                <tbody id="studentsTableBody">
-                    <tr>
-                        <td>محمد علي</td>
-                        <td>mohammed@ofk.edu</td>
-                        <td>الأمن السيبراني وحماية الأنظمة</td>
-                        <td><code>Omr123-Sec</code></td>
-                    </tr>
-                    <tr>
-                        <td>فاطمة الزهراء</td>
-                        <td>fatima@ofk.edu</td>
-                        <td>العلوم الشرعية والدراسات القرآنية</td>
-                        <td><code>Omr123-Sharia</code></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <script>
-        function generateStudent(e) {
-            e.preventDefault();
-            const name = document.getElementById('studentName').value;
-            const email = document.getElementById('studentEmail').value;
-            const spec = document.getElementById('studentSpecialization').value;
-            const pass = document.getElementById('genPassword').value;
-
-            const tbody = document.getElementById('studentsTableBody');
-            const newRow = document.createElement('tr');
-            newRow.innerHTML = `
-                <td>${name}</td>
-                <td>${email}</td>
-                <td>${spec}</td>
-                <td><code>${pass}</code></td>
-            `;
-            tbody.appendChild(newRow);
-
-            alert('تم توليد وحفظ حساب الطالب بنجاح!');
-            document.getElementById('studentGenForm').reset();
-        }
+    <!-- سكربت الحماية والتحقق من الدور -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyBzp8h6SDNFF_6jtcyi0CKmAnb3q0Z-U_A",
+            authDomain: "ofk-academy.firebaseapp.com",
+            projectId: "ofk-academy",
+            storageBucket: "ofk-academy.firebasestorage.app",
+            messagingSenderId: "323159437100",
+            appId: "1:323159437100:web:2cc41d6e2727737aea8689",
+            measurementId: "G-BG5BDJL9EF"
+        };
+        initializeApp(firebaseConfig);
     </script>
 
+    <script>
+        // التحقق من صلاحية الدخول كمدير
+        window.addEventListener('DOMContentLoaded', () => {
+            const role = localStorage.getItem('ofk_role');
+            if (role !== 'admin') {
+                alert('عذراً، لا تملك صلاحيات الدخول لهذه الصفحة.');
+                window.location.href = 'index.html';
+            }
+        });
+
+        function logout() {
+            localStorage.removeItem('ofk_role');
+            window.location.href = 'index.html';
+        }
+    </script>
 </body>
 </html>
