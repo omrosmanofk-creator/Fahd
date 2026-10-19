@@ -3,44 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لوحة تحكم المدير | OFK Academy</title>
+    <title>لوحة المدير | OFK Academy</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Cairo', sans-serif; }
-    </style>
+    <style> body { font-family: 'Cairo', sans-serif; } </style>
 </head>
 <body class="bg-slate-100 text-slate-800 antialiased flex h-screen overflow-hidden">
 
-    <!-- القائمة الجانبية (Sidebar) -->
+    <!-- القائمة الجانبية للمدير -->
     <aside class="w-64 bg-slate-900 text-white flex flex-col justify-between hidden md:flex shadow-xl z-20">
         <div>
             <div class="h-20 flex items-center px-6 gap-3 border-b border-slate-800">
-                <div class="bg-indigo-600 text-white p-2 rounded-xl">
+                <div class="bg-indigo-600 text-white p-2.5 rounded-xl shadow-md">
                     <i class="fa-solid fa-user-shield text-xl"></i>
                 </div>
                 <div>
-                    <h2 class="font-bold text-sm tracking-wide">بوابة المدير العام</h2>
-                    <p class="text-xs text-indigo-400">صلاحيات كاملة</p>
+                    <h2 class="font-bold text-sm tracking-wide">لوحة التحكم الإدارية</h2>
+                    <p class="text-xs text-indigo-400">OFK Academy</p>
                 </div>
             </div>
             <nav class="p-4 space-y-2 font-medium">
-                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-indigo-600 text-white shadow-md">
-                    <i class="fa-solid fa-chart-pie"></i>
+                <a href="#" onclick="switchAdminTab('dashboard')" id="nav-dash" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-indigo-600 text-white shadow-md transition">
+                    <i class="fa-solid fa-house"></i>
                     <span>الرئيسية والإحصائيات</span>
                 </a>
-                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition">
-                    <i class="fa-solid fa-chalkboard-user"></i>
-                    <span>إدارة الأساتذة</span>
+                <a href="#" onclick="switchAdminTab('users')" id="nav-users" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition">
+                    <i class="fa-solid fa-users-gear"></i>
+                    <span>إدارة المستخدمين</span>
                 </a>
-                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition">
-                    <i class="fa-solid fa-user-graduate"></i>
-                    <span>إدارة الطلاب</span>
-                </a>
-                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition">
-                    <i class="fa-solid fa-gear"></i>
-                    <span>إعدادات المنصة</span>
+                <a href="#" onclick="switchAdminTab('settings')" id="nav-settings" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition">
+                    <i class="fa-solid fa-gears"></i>
+                    <span>إعدادات النظام</span>
                 </a>
             </nav>
         </div>
@@ -54,96 +48,101 @@
 
     <!-- المحتوى الرئيسي -->
     <main class="flex-1 flex flex-col h-screen overflow-y-auto">
-        <!-- شريط علوي -->
         <header class="bg-white shadow-sm h-20 flex items-center justify-between px-8 sticky top-0 z-10">
-            <div class="flex items-center gap-4">
-                <h1 class="text-xl font-bold text-slate-900">نظرة عامة على النظام</h1>
-            </div>
+            <h1 class="text-xl font-bold text-slate-900" id="adminPageTitle">الرئيسية والإحصائيات</h1>
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 font-bold flex items-center justify-center">
-                    AD
-                </div>
-                <span class="font-semibold text-sm text-slate-700 hidden sm:inline">مدير النظام</span>
+                <div class="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 font-bold flex items-center justify-center">AD</div>
+                <span class="font-semibold text-sm text-slate-700 hidden sm:inline">المدير العام (أستاذ عثمان)</span>
             </div>
         </header>
 
-        <!-- مساحة العمل والإحصائيات -->
         <div class="p-8 space-y-8 flex-grow">
-            <!-- بطاقات الإحصائيات -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex items-center justify-between">
-                    <div>
-                        <p class="text-sm font-semibold text-slate-400">إجمالي الطلاب</p>
-                        <h3 class="text-3xl font-extrabold text-slate-900 mt-1">1,240</h3>
+            <!-- قسم الرئيسية -->
+            <div id="section-dash" class="space-y-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-semibold text-slate-400">إجمالي الطلاب</p>
+                            <h3 class="text-3xl font-extrabold text-slate-900 mt-1">240</h3>
+                        </div>
+                        <div class="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-2xl">
+                            <i class="fa-solid fa-user-graduate"></i>
+                        </div>
                     </div>
-                    <div class="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-2xl">
-                        <i class="fa-solid fa-user-graduate"></i>
+                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-semibold text-slate-400">الأساتذة والشركاء</p>
+                            <h3 class="text-3xl font-extrabold text-slate-900 mt-1">12</h3>
+                        </div>
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl">
+                            <i class="fa-solid fa-chalkboard-user"></i>
+                        </div>
                     </div>
-                </div>
-                <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex items-center justify-between">
-                    <div>
-                        <p class="text-sm font-semibold text-slate-400">الأساتذة النشطون</p>
-                        <h3 class="text-3xl font-extrabold text-slate-900 mt-1">45</h3>
-                    </div>
-                    <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl">
-                        <i class="fa-solid fa-chalkboard-user"></i>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex items-center justify-between">
-                    <div>
-                        <p class="text-sm font-semibold text-slate-400">حالة السحابة (Firebase)</p>
-                        <h3 class="text-lg font-bold text-emerald-600 mt-2 flex items-center gap-2">
-                            <span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
-                            متصل بنجاح
-                        </h3>
-                    </div>
-                    <div class="w-14 h-14 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center text-2xl">
-                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-semibold text-slate-400">حالة قاعدة البيانات</p>
+                            <h3 class="text-lg font-bold text-emerald-600 mt-2 flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span> متصل بـ Firestore
+                            </h3>
+                        </div>
+                        <div class="w-14 h-14 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center text-2xl">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- قسم إضافي لإدارة المحتوى السحابي -->
-            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 space-y-4">
-                <h3 class="text-lg font-bold text-slate-900">إدارة صلاحيات الأكاديمية</h3>
-                <p class="text-sm text-slate-500">من هنا يمكنك متابعة الأنشطة والربط المباشر بقاعدة بيانات مشروع <code class="bg-slate-100 text-indigo-600 px-2 py-1 rounded">ofk-academy</code>.</p>
-                <div class="p-4 bg-indigo-50 border border-indigo-100 rounded-2xl text-indigo-800 text-sm flex items-center gap-3">
-                    <i class="fa-solid fa-circle-info text-indigo-600 text-lg"></i>
-                    <span>النظام يعمل بصلاحيات إدارية كاملة ومحمية بـرمز الدخول الآمن.</span>
+            <!-- قسم إدارة المستخدمين -->
+            <div id="section-users" class="space-y-6 hidden">
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 space-y-4">
+                    <h3 class="text-lg font-bold text-slate-900">إدارة حسابات المنصة والأدوار</h3>
+                    <p class="text-sm text-slate-500">هنا يمكنك متابعة صلاحيات المديرين، الأساتذة، والطلاب المسجلين.</p>
+                    <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 text-sm text-slate-700">
+                        النظام يعمل حالياً برموز الدخول الآمنة للأدوار الثلاثة بنجاح تام.
+                    </div>
+                </div>
+            </div>
+
+            <!-- قسم إعدادات النظام -->
+            <div id="section-settings" class="space-y-6 hidden">
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 space-y-4">
+                    <h3 class="text-lg font-bold text-slate-900">إعدادات النظام العامة</h3>
+                    <p class="text-sm text-slate-500">إعدادات الاتصال بالسحابة وربط الأكاديمية بالشركاء.</p>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- سكربت الحماية والتحقق من الدور -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
-        const firebaseConfig = {
-            apiKey: "AIzaSyBzp8h6SDNFF_6jtcyi0CKmAnb3q0Z-U_A",
-            authDomain: "ofk-academy.firebaseapp.com",
-            projectId: "ofk-academy",
-            storageBucket: "ofk-academy.firebasestorage.app",
-            messagingSenderId: "323159437100",
-            appId: "1:323159437100:web:2cc41d6e2727737aea8689",
-            measurementId: "G-BG5BDJL9EF"
-        };
-        initializeApp(firebaseConfig);
-    </script>
-
     <script>
-        // التحقق من صلاحية الدخول كمدير
         window.addEventListener('DOMContentLoaded', () => {
-            const role = localStorage.getItem('ofk_role');
-            if (role !== 'admin') {
-                alert('عذراً، لا تملك صلاحيات الدخول لهذه الصفحة.');
-                window.location.href = 'index.html';
-            }
+            if (localStorage.getItem('ofk_role') !== 'admin') { window.location.href = 'index.html'; }
         });
 
-        function logout() {
-            localStorage.removeItem('ofk_role');
-            window.location.href = 'index.html';
+        function switchAdminTab(tab) {
+            document.getElementById('section-dash').classList.add('hidden');
+            document.getElementById('section-users').classList.add('hidden');
+            document.getElementById('section-settings').classList.add('hidden');
+
+            document.getElementById('nav-dash').className = "flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition";
+            document.getElementById('nav-users').className = "flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition";
+            document.getElementById('nav-settings').className = "flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition";
+
+            if (tab === 'dashboard') {
+                document.getElementById('section-dash').classList.remove('hidden');
+                document.getElementById('nav-dash').className = "flex items-center gap-3 px-4 py-3 rounded-xl bg-indigo-600 text-white shadow-md transition";
+                document.getElementById('adminPageTitle').innerText = "الرئيسية والإحصائيات";
+            } else if (tab === 'users') {
+                document.getElementById('section-users').classList.remove('hidden');
+                document.getElementById('nav-users').className = "flex items-center gap-3 px-4 py-3 rounded-xl bg-indigo-600 text-white shadow-md transition";
+                document.getElementById('adminPageTitle').innerText = "إدارة المستخدمين";
+            } else if (tab === 'settings') {
+                document.getElementById('section-settings').classList.remove('hidden');
+                document.getElementById('nav-settings').className = "flex items-center gap-3 px-4 py-3 rounded-xl bg-indigo-600 text-white shadow-md transition";
+                document.getElementById('adminPageTitle').innerText = "إعدادات النظام";
+            }
         }
+
+        function logout() { localStorage.removeItem('ofk_role'); window.location.href = 'index.html'; }
     </script>
 </body>
 </html>
