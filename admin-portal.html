@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لوحة المدير الذكية | OFK Academy</title>
+    <title>لوحة المدير الشاملة | OFK Academy</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -11,7 +11,7 @@
 </head>
 <body class="bg-slate-100 text-slate-800 antialiased flex h-screen overflow-hidden">
 
-    <!-- القائمة الجانبية -->
+    <!-- القائمة الجانبية للمدير -->
     <aside class="w-64 bg-slate-900 text-white flex flex-col justify-between hidden md:flex shadow-xl z-20">
         <div>
             <div class="h-20 flex items-center px-6 gap-3 border-b border-slate-800">
@@ -30,11 +30,11 @@
                 </a>
                 <a href="#" onclick="switchAdminTab('lectures')" id="nav-lectures" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition">
                     <i class="fa-solid fa-book-open"></i>
-                    <span>مراقبة المحاضرات والمواد</span>
+                    <span>إدارة ومراقبة المواد</span>
                 </a>
                 <a href="#" onclick="switchAdminTab('users')" id="nav-users" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition">
                     <i class="fa-solid fa-users-gear"></i>
-                    <span>إدارة المستخدمين</span>
+                    <span>إدارة المستخدمين والأدوار</span>
                 </a>
             </nav>
         </div>
@@ -62,7 +62,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex items-center justify-between">
                         <div>
-                            <p class="text-sm font-semibold text-slate-400">إجمالي المحاضرات والروابط المرفوعة</p>
+                            <p class="text-sm font-semibold text-slate-400">إجمالي المحاضرات في السحابة</p>
                             <h3 class="text-3xl font-extrabold text-slate-900 mt-1" id="totalLecturesCount">جاري التحميل...</h3>
                         </div>
                         <div class="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-2xl">
@@ -92,21 +92,21 @@
                 </div>
             </div>
 
-            <!-- قسم مراقبة المحاضرات -->
+            <!-- قسم إدارة ومراقبة المواد -->
             <div id="section-lectures" class="space-y-6 hidden">
                 <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 space-y-4">
-                    <h3 class="text-lg font-bold text-slate-900">سجل المحاضرات والروابط المرفوعة من الأساتذة</h3>
+                    <h3 class="text-lg font-bold text-slate-900">سجل جميع المواد والمحاضرات المرفوعة في المنصة</h3>
                     <div id="adminLecturesList" class="space-y-3">
-                        <p class="text-sm text-slate-500">جاري جلب البيانات من السحابة...</p>
+                        <p class="text-sm text-slate-500">جاري جلب المواد من السحابة...</p>
                     </div>
                 </div>
             </div>
 
-            <!-- قسم المستخدمين -->
+            <!-- قسم إدارة المستخدمين -->
             <div id="section-users" class="space-y-6 hidden">
                 <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 space-y-4">
-                    <h3 class="text-lg font-bold text-slate-900">صلاحيات الأقسام والأدوار</h3>
-                    <p class="text-sm text-slate-500">النظام مؤمن بالكامل عبر رموز الوصول المخصصة.</p>
+                    <h3 class="text-lg font-bold text-slate-900">صلاحيات النظام والأدوار الآمنة</h3>
+                    <p class="text-sm text-slate-500">التحكم في وصول المدير، الأساتذة، والطلاب موثق ومحمل عبر الأكواد السرية.</p>
                 </div>
             </div>
         </div>
@@ -143,10 +143,10 @@
                         <div>
                             <span class="font-bold text-indigo-600">[${data.specialty}]</span> ${data.title}
                         </div>
-                        <a href="${data.fileUrl}" target="_blank" class="bg-indigo-600 text-white px-4 py-2 rounded-xl text-xs font-bold">عرض المادة / الرابط</a>
+                        <a href="${data.fileUrl}" target="_blank" class="bg-indigo-600 text-white px-4 py-2 rounded-xl text-xs font-bold hover:bg-indigo-700 transition">عرض المحتوى</a>
                     </div>`;
                 });
-                if(querySnapshot.size === 0) listHtml = "<p class='text-slate-500 text-sm'>لا توجد محاضر مرفوعة حتى الآن.</p>";
+                if(querySnapshot.size === 0) listHtml = "<p class='text-slate-500 text-sm'>لا توجد مواد مرفوعة حالياً.</p>";
                 document.getElementById('adminLecturesList').innerHTML = listHtml;
             } catch (e) {
                 console.error(e);
@@ -171,13 +171,14 @@
             } else if (tab === 'lectures') {
                 document.getElementById('section-lectures').classList.remove('hidden');
                 document.getElementById('nav-lectures').className = "flex items-center gap-3 px-4 py-3 rounded-xl bg-indigo-600 text-white shadow-md transition";
-                document.getElementById('adminPageTitle').innerText = "مراقبة المحاضرات والمواد";
+                document.getElementById('adminPageTitle').innerText = "إدارة ومراقبة المواد";
             } else if (tab === 'users') {
                 document.getElementById('section-users').classList.remove('hidden');
                 document.getElementById('nav-users').className = "flex items-center gap-3 px-4 py-3 rounded-xl bg-indigo-600 text-white shadow-md transition";
-                document.getElementById('adminPageTitle').innerText = "إدارة المستخدمين";
+                document.getElementById('adminPageTitle').innerText = "إدارة المستخدمين والأدوار";
             }
         }
+
         function logout() { localStorage.removeItem('ofk_role'); window.location.href = 'index.html'; }
     </script>
 </body>
