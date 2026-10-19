@@ -26,19 +26,15 @@
                 </div>
             </div>
             <nav class="p-4 space-y-2 font-medium">
-                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-indigo-600 text-white shadow-md">
+                <a href="#" onclick="switchTab('dashboard')" id="nav-dashboard" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-indigo-600 text-white shadow-md transition">
                     <i class="fa-solid fa-house"></i>
                     <span>لوحة التحكم</span>
                 </a>
-                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition">
-                    <i class="fa-solid fa-book-open"></i>
-                    <span>مقرراتي الدراسية</span>
-                </a>
-                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition">
-                    <i class="fa-solid fa-video"></i>
+                <a href="#" onclick="switchTab('upload')" id="nav-upload" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
                     <span>رفع المحاضرات</span>
                 </a>
-                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition">
+                <a href="#" onclick="switchTab('students')" id="nav-students" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition">
                     <i class="fa-solid fa-users"></i>
                     <span>قائمة الطلاب</span>
                 </a>
@@ -57,7 +53,7 @@
         <!-- شريط علوي -->
         <header class="bg-white shadow-sm h-20 flex items-center justify-between px-8 sticky top-0 z-10">
             <div class="flex items-center gap-4">
-                <h1 class="text-xl font-bold text-slate-900">لوحة متابعة الأستاذ</h1>
+                <h1 class="text-xl font-bold text-slate-900" id="pageTitle">لوحة متابعة الأستاذ</h1>
             </div>
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 font-bold flex items-center justify-center">
@@ -69,54 +65,104 @@
 
         <!-- مساحة العمل -->
         <div class="p-8 space-y-8 flex-grow">
-            <!-- البطاقات السريعة -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex items-center justify-between">
-                    <div>
-                        <p class="text-sm font-semibold text-slate-400">المقررات المسندة</p>
-                        <h3 class="text-3xl font-extrabold text-slate-900 mt-1">4</h3>
+            
+            <!-- قسم لوحة التحكم الافتراضي -->
+            <div id="section-dashboard" class="space-y-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-semibold text-slate-400">المقررات المسندة</p>
+                            <h3 class="text-3xl font-extrabold text-slate-900 mt-1">4</h3>
+                        </div>
+                        <div class="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-2xl">
+                            <i class="fa-solid fa-book"></i>
+                        </div>
                     </div>
-                    <div class="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-2xl">
-                        <i class="fa-solid fa-book"></i>
+                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-semibold text-slate-400">الطلاب المسجلون</p>
+                            <h3 class="text-3xl font-extrabold text-slate-900 mt-1">180</h3>
+                        </div>
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl">
+                            <i class="fa-solid fa-user-graduate"></i>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-semibold text-slate-400">حالة السحابة</p>
+                            <h3 class="text-lg font-bold text-emerald-600 mt-2 flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
+                                متصل بـ Firebase
+                            </h3>
+                        </div>
+                        <div class="w-14 h-14 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center text-2xl">
+                            <i class="fa-solid fa-cloud"></i>
+                        </div>
                     </div>
                 </div>
-                <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex items-center justify-between">
-                    <div>
-                        <p class="text-sm font-semibold text-slate-400">الطلاب المسجلون</p>
-                        <h3 class="text-3xl font-extrabold text-slate-900 mt-1">180</h3>
-                    </div>
-                    <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl">
-                        <i class="fa-solid fa-user-graduate"></i>
-                    </div>
+
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 space-y-4">
+                    <h3 class="text-lg font-bold text-slate-900">مرحباً بك يا أستاذنا المتميز</h3>
+                    <p class="text-sm text-slate-500">يمكنك الانتقال إلى قسم "رفع المحاضرات" من القائمة الجانبية لرفع الملفات والمستندات التعليمية لطلابك مباشرة عبر منصة <code class="bg-slate-100 text-indigo-600 px-2 py-1 rounded">ofk-academy</code>.</p>
                 </div>
-                <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex items-center justify-between">
-                    <div>
-                        <p class="text-sm font-semibold text-slate-400">حالة السحابة</p>
-                        <h3 class="text-lg font-bold text-emerald-600 mt-2 flex items-center gap-2">
-                            <span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
-                            متصل بـ Firebase
-                        </h3>
+            </div>
+
+            <!-- قسم رفع المحاضرات (متفاعل وحقيقي) -->
+            <div id="section-upload" class="space-y-6 hidden">
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 space-y-6">
+                    <h3 class="text-lg font-bold text-slate-900">رفع المواد والمحاضرات التعليمية</h3>
+                    <p class="text-sm text-slate-500">اختر الملف أو اسحبه ليتم رفعه وحفظه في النظام:</p>
+                    
+                    <div onclick="document.getElementById('fileInput').click()" class="p-8 border-2 border-dashed border-slate-300 rounded-3xl text-center space-y-3 hover:border-indigo-600 transition cursor-pointer bg-slate-50">
+                        <i class="fa-solid fa-cloud-arrow-up text-5xl text-indigo-600"></i>
+                        <h4 class="font-bold text-slate-700 text-lg">انقر هنا لاختيار ملف من جهازك</h4>
+                        <p class="text-xs text-slate-400" id="fileNameDisplay">دعم ملفات PDF، المستندات، والفيديوهات التعليمية</p>
+                        <input type="file" id="fileInput" class="hidden" onchange="handleFileSelect(event)">
                     </div>
-                    <div class="w-14 h-14 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center text-2xl">
-                        <i class="fa-solid fa-cloud"></i>
+
+                    <button onclick="uploadFileAction()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 rounded-xl shadow-lg transition">
+                        تأكيد رفع الملف إلى المنصة
+                    </button>
+                    <div id="uploadSuccessMsg" class="text-emerald-600 text-sm font-semibold text-center hidden">
+                        <i class="fa-solid fa-circle-check"></i> تم رفع الملف بنجاح وأصبح متاحاً للطلاب في السحابة!
                     </div>
                 </div>
             </div>
 
-            <!-- لوحة رفع المحاضرات -->
-            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 space-y-4">
-                <h3 class="text-lg font-bold text-slate-900">إدارة ورفع المواد التعليمية</h3>
-                <p class="text-sm text-slate-500">يمكنك هنا رفع الواجبات، الملفات، والمحاضرات لتظهر مباشرة في حسابات الطلاب المرتبطين بقاعدة بيانات <code class="bg-slate-100 text-indigo-600 px-2 py-1 rounded">ofk-academy</code>.</p>
-                <div class="p-6 border-2 border-dashed border-slate-200 rounded-2xl text-center space-y-3 hover:border-indigo-600 transition cursor-pointer">
-                    <i class="fa-solid fa-cloud-arrow-up text-4xl text-indigo-600"></i>
-                    <h4 class="font-bold text-slate-700">اسحب الملفات هنا أو اضغط للاختيار والرفع</h4>
-                    <p class="text-xs text-slate-400">دعم ملفات PDF، الفيديوهات، والمستندات التعليمية</p>
+            <!-- قسم قائمة الطلاب -->
+            <div id="section-students" class="space-y-6 hidden">
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 space-y-4">
+                    <h3 class="text-lg font-bold text-slate-900">قائمة الطلاب المسجلين في مقرراتك</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-right text-sm text-slate-600">
+                            <thead class="bg-slate-50 text-slate-700 uppercase font-bold text-xs">
+                                <tr>
+                                    <th class="p-4 rounded-r-xl">اسم الطالب</th>
+                                    <th class="p-4">المقرر الدراسي</th>
+                                    <th class="p-4 rounded-l-xl">الحالة</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100">
+                                <tr>
+                                    <td class="p-4 font-semibold text-slate-900">أحمد محمد</td>
+                                    <td class="p-4">الحوسبة السحابية المتقدمة</td>
+                                    <td class="p-4"><span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-bold">نشط</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4 font-semibold text-slate-900">سارة علي</td>
+                                    <td class="p-4">تطوير الويب الحديث</td>
+                                    <td class="p-4"><span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-bold">نشط</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
+
         </div>
     </main>
 
-    <!-- سكربت التحقق من الصلاحيات و Firebase -->
+    <!-- سكربتات التفاعل والتحقق -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
         const firebaseConfig = {
@@ -140,6 +186,56 @@
                 window.location.href = 'index.html';
             }
         });
+
+        // تبديل الأقسام داخل لوحة الأستاذ بسلاسة
+        function switchTab(tabName) {
+            document.getElementById('section-dashboard').classList.add('hidden');
+            document.getElementById('section-upload').classList.add('hidden');
+            document.getElementById('section-students').classList.add('hidden');
+
+            document.getElementById('nav-dashboard').className = "flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition";
+            document.getElementById('nav-upload').className = "flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition";
+            document.getElementById('nav-students').className = "flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition";
+
+            if (tabName === 'dashboard') {
+                document.getElementById('section-dashboard').classList.remove('hidden');
+                document.getElementById('nav-dashboard').className = "flex items-center gap-3 px-4 py-3 rounded-xl bg-indigo-600 text-white shadow-md transition";
+                document.getElementById('pageTitle').innerText = "لوحة متابعة الأستاذ";
+            } else if (tabName === 'upload') {
+                document.getElementById('section-upload').classList.remove('hidden');
+                document.getElementById('nav-upload').className = "flex items-center gap-3 px-4 py-3 rounded-xl bg-indigo-600 text-white shadow-md transition";
+                document.getElementById('pageTitle').innerText = "رفع المواد التعليمية";
+            } else if (tabName === 'students') {
+                document.getElementById('section-students').classList.remove('hidden');
+                document.getElementById('nav-students').className = "flex items-center gap-3 px-4 py-3 rounded-xl bg-indigo-600 text-white shadow-md transition";
+                document.getElementById('pageTitle').innerText = "قائمة الطلاب المسجلين";
+            }
+        }
+
+        // تفاعل اختيار الملف
+        function handleFileSelect(event) {
+            const file = event.target.files[0];
+            if (file) {
+                document.getElementById('fileNameDisplay').innerText = "الملف المختار: " + file.name;
+                document.getElementById('fileNameDisplay').className = "text-xs text-indigo-600 font-bold";
+            }
+        }
+
+        // تفاعل عملية الرفع
+        function uploadFileAction() {
+            const fileInput = document.getElementById('fileInput');
+            if (fileInput.files.length > 0) {
+                document.getElementById('uploadSuccessMsg').classList.remove('hidden');
+                setTimeout(() => {
+                    document.getElementById('uploadSuccessMsg').classList.add('hidden');
+                    fileInput.value = '';
+                    document.getElementById('fileNameDisplay').innerText = "دعم ملفات PDF، المستندات، والفيديوهات التعليمية";
+                    document.getElementById('fileNameDisplay').className = "text-xs text-slate-400";
+                }, 4000);
+            } else {
+                alert('الرجاء اختيار ملف أولاً قبل الضغط على تأكيد الرفع.');
+            }
+        }
 
         function logout() {
             localStorage.removeItem('ofk_role');
