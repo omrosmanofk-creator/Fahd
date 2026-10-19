@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بوابة الأستاذ | OFK Academy</title>
+    <title>بوابة الأستاذ المتكاملة | OFK Academy</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -12,19 +12,20 @@
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
 
     <header class="bg-white shadow-sm h-20 flex items-center justify-between px-8">
-        <h1 class="text-xl font-bold text-slate-900">بوابة الأستاذ النشر السحابي</h1>
+        <h1 class="text-xl font-bold text-slate-900">بوابة الأستاذ - إدارة المحتوى والدروس</h1>
         <button onclick="logout()" class="text-rose-500 font-semibold text-sm hover:underline">تسجيل الخروج</button>
     </header>
 
     <main class="max-w-3xl mx-auto p-8 w-full flex-grow space-y-6">
         <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 space-y-6">
-            <h2 class="text-xl font-bold text-slate-900">نشر محاضرة أو بث مباشر للتخصصات</h2>
+            <h2 class="text-xl font-bold text-slate-900">نشر محاضرة جديدة أو روابط البث المباشر للتخصصات</h2>
             
             <div class="space-y-4">
                 <div>
-                    <label class="block text-sm font-semibold text-slate-700 mb-1">عنوان المحاضرة أو الدرس</label>
-                    <input type="text" id="lectureTitle" placeholder="مثال: محاضرة الحوسبة السحابية المتقدمة..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-600 outline-none text-sm">
+                    <label class="block text-sm font-semibold text-slate-700 mb-1">عنوان المحاضرة أو المادة</label>
+                    <input type="text" id="lectureTitle" placeholder="مثال: محاضرة الذكاء الاصطناعي التطبيقي..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-600 outline-none text-sm">
                 </div>
+
                 <div>
                     <label class="block text-sm font-semibold text-slate-700 mb-1">التخصص المستهدف</label>
                     <select id="courseSpecialty" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-600 outline-none text-sm bg-white">
@@ -37,17 +38,18 @@
                         <option value="إدارة الأعمال الرقمية">إدارة الأعمال الرقمية</option>
                     </select>
                 </div>
+
                 <div>
-                    <label class="block text-sm font-semibold text-slate-700 mb-1">رابط المحاضرة (يوتيوب، بث مباشر، أو رابط ملف)</label>
-                    <input type="url" id="lectureUrl" placeholder="https://youtube.com/..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-600 outline-none text-sm">
+                    <label class="block text-sm font-semibold text-slate-700 mb-1">رابط الفيديو أو البث المباشر (يوتيوب / رابط خارجي)</label>
+                    <input type="text" id="lectureUrl" placeholder="https://www.youtube.com/watch?v=..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-600 outline-none text-sm">
                 </div>
 
                 <div id="uploadSuccessMsg" class="p-4 bg-emerald-50 text-emerald-700 rounded-xl text-sm font-semibold hidden">
-                    ✓ تم نشر المحاضرة وحفظها في قاعدة البيانات السحابية بنجاح!
+                    ✓ تم نشر المحاضرة بنجاح وحفظها في قاعدة بيانات السحابة للطلاب!
                 </div>
 
                 <button onclick="publishLecture()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 rounded-xl shadow-lg transition">
-                    نشر في السحابة للطلاب
+                    نشر المحاضرة في السحابة
                 </button>
             </div>
         </div>
@@ -81,7 +83,7 @@
             const msg = document.getElementById('uploadSuccessMsg');
 
             if (!title || !fileUrl) {
-                alert('الرجاء إدخال عنوان المحاضرة ورابطها بشكل صحيح.');
+                alert('الرجاء إدخال عنوان المحاضرة والرابط بشكل صحيح.');
                 return;
             }
 
@@ -99,8 +101,8 @@
 
                 setTimeout(() => { msg.classList.add('hidden'); }, 4000);
             } catch (error) {
-                console.error(error);
-                alert('حدث خطأ أثناء النشر بالسحابة.');
+                console.error("خطأ النشر:", error);
+                alert('حدث خطأ أثناء الاتصال بقاعدة البيانات. تأكد من إعدادات الاتصال.');
             }
         }
     </script>
