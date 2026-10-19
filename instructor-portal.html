@@ -9,193 +9,102 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style> body { font-family: 'Cairo', sans-serif; } </style>
 </head>
-<body class="bg-slate-100 text-slate-800 antialiased flex h-screen overflow-hidden">
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
 
-    <!-- القائمة الجانبية -->
-    <aside class="w-64 bg-slate-900 text-white flex flex-col justify-between hidden md:flex shadow-xl z-20">
-        <div>
-            <div class="h-20 flex items-center px-6 gap-3 border-b border-slate-800">
-                <div class="bg-indigo-600 text-white p-2 rounded-xl">
-                    <i class="fa-solid fa-chalkboard-user text-xl"></i>
+    <header class="bg-white shadow-sm h-20 flex items-center justify-between px-8">
+        <h1 class="text-xl font-bold text-slate-900">بوابة الأستاذ النشر السحابي</h1>
+        <button onclick="logout()" class="text-rose-500 font-semibold text-sm hover:underline">تسجيل الخروج</button>
+    </header>
+
+    <main class="max-w-3xl mx-auto p-8 w-full flex-grow space-y-6">
+        <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 space-y-6">
+            <h2 class="text-xl font-bold text-slate-900">نشر محاضرة أو بث مباشر للتخصصات</h2>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1">عنوان المحاضرة أو الدرس</label>
+                    <input type="text" id="lectureTitle" placeholder="مثال: محاضرة الحوسبة السحابية المتقدمة..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-600 outline-none text-sm">
                 </div>
                 <div>
-                    <h2 class="font-bold text-sm tracking-wide">بوابة الأستاذ</h2>
-                    <p class="text-xs text-indigo-400">إدارة المواد والتخصصات</p>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1">التخصص المستهدف</label>
+                    <select id="courseSpecialty" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-600 outline-none text-sm bg-white">
+                        <option value="الحوسبة السحابية">الحوسبة السحابية</option>
+                        <option value="هندسة البرمجيات">هندسة البرمجيات</option>
+                        <option value="الذكاء الاصطناعي">الذكاء الاصطناعي</option>
+                        <option value="الأمن السيبراني">الأمن السيبراني</option>
+                        <option value="نظم المعلومات الإدارية">نظم المعلومات الإدارية</option>
+                        <option value="شبكات الحاسوب">شبكات الحاسوب</option>
+                        <option value="إدارة الأعمال الرقمية">إدارة الأعمال الرقمية</option>
+                    </select>
                 </div>
-            </div>
-            <nav class="p-4 space-y-2 font-medium">
-                <a href="#" onclick="switchTab('dashboard')" id="nav-dashboard" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-indigo-600 text-white shadow-md transition">
-                    <i class="fa-solid fa-house"></i>
-                    <span>لوحة التحكم</span>
-                </a>
-                <a href="#" onclick="switchTab('upload')" id="nav-upload" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition">
-                    <i class="fa-solid fa-cloud-arrow-up"></i>
-                    <span>رفع المحاضرات</span>
-                </a>
-                <a href="#" onclick="switchTab('students')" id="nav-students" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition">
-                    <i class="fa-solid fa-users"></i>
-                    <span>قائمة الطلاب</span>
-                </a>
-            </nav>
-        </div>
-        <div class="p-4 border-t border-slate-800">
-            <button onclick="logout()" class="w-full flex items-center justify-center gap-2 bg-rose-500/10 hover:bg-rose-500 text-rose-400 hover:text-white py-2.5 rounded-xl transition font-semibold text-sm">
-                <i class="fa-solid fa-right-from-bracket"></i>
-                <span>تسجيل الخروج</span>
-            </button>
-        </div>
-    </aside>
-
-    <!-- المحتوى الرئيسي -->
-    <main class="flex-1 flex flex-col h-screen overflow-y-auto">
-        <header class="bg-white shadow-sm h-20 flex items-center justify-between px-8 sticky top-0 z-10">
-            <h1 class="text-xl font-bold text-slate-900" id="pageTitle">لوحة متابعة الأستاذ</h1>
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 font-bold flex items-center justify-center">INS</div>
-                <span class="font-semibold text-sm text-slate-700 hidden sm:inline">عضو هيئة التدريس</span>
-            </div>
-        </header>
-
-        <div class="p-8 space-y-8 flex-grow">
-            <!-- لوحة التحكم -->
-            <div id="section-dashboard" class="space-y-8">
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex items-center justify-between">
-                        <div>
-                            <p class="text-sm font-semibold text-slate-400">المقررات المسندة</p>
-                            <h3 class="text-3xl font-extrabold text-slate-900 mt-1">4 تخصصات</h3>
-                        </div>
-                        <div class="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-2xl">
-                            <i class="fa-solid fa-book"></i>
-                        </div>
-                    </div>
-                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex items-center justify-between">
-                        <div>
-                            <p class="text-sm font-semibold text-slate-400">الطلاب المسجلون</p>
-                            <h3 class="text-3xl font-extrabold text-slate-900 mt-1">180</h3>
-                        </div>
-                        <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl">
-                            <i class="fa-solid fa-user-graduate"></i>
-                        </div>
-                    </div>
-                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex items-center justify-between">
-                        <div>
-                            <p class="text-sm font-semibold text-slate-400">حالة السحابة</p>
-                            <h3 class="text-lg font-bold text-emerald-600 mt-2 flex items-center gap-2">
-                                <span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span> متصل بـ Firebase
-                            </h3>
-                        </div>
-                        <div class="w-14 h-14 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center text-2xl">
-                            <i class="fa-solid fa-cloud"></i>
-                        </div>
-                    </div>
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1">رابط المحاضرة (يوتيوب، بث مباشر، أو رابط ملف)</label>
+                    <input type="url" id="lectureUrl" placeholder="https://youtube.com/..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-600 outline-none text-sm">
                 </div>
-            </div>
 
-            <!-- رفع المحاضرات مع اختيار التخصص -->
-            <div id="section-upload" class="space-y-6 hidden">
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 space-y-6">
-                    <h3 class="text-lg font-bold text-slate-900">رفع المواد والمحاضرات حسب التخصص</h3>
-                    
-                    <div class="space-y-2">
-                        <label class="block text-sm font-semibold text-slate-700">اختر التخصص الدراسي</label>
-                        <select id="courseSpecialty" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:border-indigo-600 text-sm bg-slate-50">
-                            <option value="الحوسبة السحابية">الحوسبة السحابية (جامعة الزهراء)</option>
-                            <option value="البرمجة المتقدمة">البرمجة المتقدمة (ADSD Academic)</option>
-                            <option value="التأهيل الأساسي">التأهيل الأساسي والثانوي (مدارس المقاصد)</option>
-                            <option value="عام">مواد عامة وأساسية</option>
-                        </select>
-                    </div>
-
-                    <div onclick="document.getElementById('fileInput').click()" class="p-8 border-2 border-dashed border-slate-300 rounded-3xl text-center space-y-3 hover:border-indigo-600 transition cursor-pointer bg-slate-50">
-                        <i class="fa-solid fa-cloud-arrow-up text-5xl text-indigo-600"></i>
-                        <h4 class="font-bold text-slate-700 text-lg">انقر هنا لاختيار ملف المحاضرة</h4>
-                        <p class="text-xs text-slate-400" id="fileNameDisplay">دعم ملفات PDF والمستندات</p>
-                        <input type="file" id="fileInput" class="hidden" onchange="handleFileSelect(event)">
-                    </div>
-
-                    <button onclick="uploadFileAction()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 rounded-xl shadow-lg transition">
-                        نشر الملف في التخصص المحدد
-                    </button>
-                    <div id="uploadSuccessMsg" class="text-emerald-600 text-sm font-semibold text-center hidden">
-                        <i class="fa-solid fa-circle-check"></i> تم رفع الملف ونشره بنجاح ضمن التخصص المطلوب!
-                    </div>
+                <div id="uploadSuccessMsg" class="p-4 bg-emerald-50 text-emerald-700 rounded-xl text-sm font-semibold hidden">
+                    ✓ تم نشر المحاضرة وحفظها في قاعدة البيانات السحابية بنجاح!
                 </div>
-            </div>
 
-            <!-- قائمة الطلاب -->
-            <div id="section-students" class="space-y-6 hidden">
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 space-y-4">
-                    <h3 class="text-lg font-bold text-slate-900">قائمة الطلاب المسجلين</h3>
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-right text-sm text-slate-600">
-                            <thead class="bg-slate-50 text-slate-700 uppercase font-bold text-xs">
-                                <tr>
-                                    <th class="p-4 rounded-r-xl">اسم الطالب</th>
-                                    <th class="p-4">التخصص</th>
-                                    <th class="p-4 rounded-l-xl">الحالة</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-slate-100">
-                                <tr>
-                                    <td class="p-4 font-semibold text-slate-900">أحمد محمد</td>
-                                    <td class="p-4">الحوسبة السحابية</td>
-                                    <td class="p-4"><span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-bold">نشط</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                <button onclick="publishLecture()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 rounded-xl shadow-lg transition">
+                    نشر في السحابة للطلاب
+                </button>
             </div>
         </div>
     </main>
 
-    <script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBzp8h6SDNFF_6jtcyi0CKmAnb3q0Z-U_A",
+            authDomain: "ofk-academy.firebaseapp.com",
+            projectId: "ofk-academy",
+            storageBucket: "ofk-academy.firebasestorage.app",
+            messagingSenderId: "323159437100",
+            appId: "1:323159437100:web:2cc41d6e2727737aea8689",
+            measurementId: "G-BG5BDJL9EF"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
         window.addEventListener('DOMContentLoaded', () => {
             if (localStorage.getItem('ofk_role') !== 'instructor') { window.location.href = 'index.html'; }
         });
 
-        function switchTab(tabName) {
-            document.getElementById('section-dashboard').classList.add('hidden');
-            document.getElementById('section-upload').classList.add('hidden');
-            document.getElementById('section-students').classList.add('hidden');
+        window.publishLecture = async function() {
+            const title = document.getElementById('lectureTitle').value.trim();
+            const specialty = document.getElementById('courseSpecialty').value;
+            const fileUrl = document.getElementById('lectureUrl').value.trim();
+            const msg = document.getElementById('uploadSuccessMsg');
 
-            document.getElementById('nav-dashboard').className = "flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition";
-            document.getElementById('nav-upload').className = "flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition";
-            document.getElementById('nav-students').className = "flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition";
+            if (!title || !fileUrl) {
+                alert('الرجاء إدخال عنوان المحاضرة ورابطها بشكل صحيح.');
+                return;
+            }
 
-            if (tabName === 'dashboard') {
-                document.getElementById('section-dashboard').classList.remove('hidden');
-                document.getElementById('nav-dashboard').className = "flex items-center gap-3 px-4 py-3 rounded-xl bg-indigo-600 text-white shadow-md transition";
-                document.getElementById('pageTitle').innerText = "لوحة متابعة الأستاذ";
-            } else if (tabName === 'upload') {
-                document.getElementById('section-upload').classList.remove('hidden');
-                document.getElementById('nav-upload').className = "flex items-center gap-3 px-4 py-3 rounded-xl bg-indigo-600 text-white shadow-md transition";
-                document.getElementById('pageTitle').innerText = "رفع المحاضرات والتخصصات";
-            } else if (tabName === 'students') {
-                document.getElementById('section-students').classList.remove('hidden');
-                document.getElementById('nav-students').className = "flex items-center gap-3 px-4 py-3 rounded-xl bg-indigo-600 text-white shadow-md transition";
-                document.getElementById('pageTitle').innerText = "قائمة الطلاب";
+            try {
+                await addDoc(collection(db, "lectures"), {
+                    title: title,
+                    specialty: specialty,
+                    fileUrl: fileUrl,
+                    createdAt: new Date()
+                });
+
+                msg.classList.remove('hidden');
+                document.getElementById('lectureTitle').value = '';
+                document.getElementById('lectureUrl').value = '';
+
+                setTimeout(() => { msg.classList.add('hidden'); }, 4000);
+            } catch (error) {
+                console.error(error);
+                alert('حدث خطأ أثناء النشر بالسحابة.');
             }
         }
-
-        function handleFileSelect(event) {
-            const file = event.target.files[0];
-            if (file) { document.getElementById('fileNameDisplay').innerText = "الملف المختار: " + file.name; }
-        }
-
-        function uploadFileAction() {
-            const fileInput = document.getElementById('fileInput');
-            if (fileInput.files.length > 0) {
-                document.getElementById('uploadSuccessMsg').classList.remove('hidden');
-                setTimeout(() => {
-                    document.getElementById('uploadSuccessMsg').classList.add('hidden');
-                    fileInput.value = '';
-                    document.getElementById('fileNameDisplay').innerText = "دعم ملفات PDF والمستندات";
-                }, 3000);
-            } else { alert('يرجى اختيار ملف أولاً.'); }
-        }
-
+    </script>
+    <script>
         function logout() { localStorage.removeItem('ofk_role'); window.location.href = 'index.html'; }
     </script>
 </body>
