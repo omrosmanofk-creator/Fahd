@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بوابة الطالب | OFK Academy</title>
+    <title>لوحة المدير | OFK Academy</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -13,30 +13,30 @@
 </head>
 <body class="bg-slate-100 text-slate-800 antialiased flex h-screen overflow-hidden">
 
-    <!-- القائمة الجانبية للطالب -->
+    <!-- القائمة الجانبية للمدير -->
     <aside class="w-64 bg-slate-900 text-white flex flex-col justify-between hidden md:flex shadow-xl z-20">
         <div>
             <div class="h-20 flex items-center px-6 gap-3 border-b border-slate-800">
                 <div class="bg-indigo-600 text-white p-2 rounded-xl">
-                    <i class="fa-solid fa-user-graduate text-xl"></i>
+                    <i class="fa-solid fa-user-shield text-xl"></i>
                 </div>
                 <div>
-                    <h2 class="font-bold text-sm tracking-wide">بوابة الطالب الذكية</h2>
-                    <p class="text-xs text-indigo-400">OFK Academy</p>
+                    <h2 class="font-bold text-sm tracking-wide">لوحة التحكم الإدارية</h2>
+                    <p class="text-xs text-indigo-400">OFK Academy Admin</p>
                 </div>
             </div>
             <nav class="p-4 space-y-2 font-medium">
-                <a href="#" onclick="switchStudentTab('dashboard')" id="nav-dash" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-indigo-600 text-white shadow-md transition">
-                    <i class="fa-solid fa-house"></i>
-                    <span>لوحة المتابعة</span>
+                <a href="#" onclick="switchAdminTab('overview')" id="nav-overview" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-indigo-600 text-white shadow-md transition">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span>نظرة عامة</span>
                 </a>
-                <a href="#" onclick="switchStudentTab('courses')" id="nav-courses" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition">
-                    <i class="fa-solid fa-book-bookmark"></i>
-                    <span>مقرراتي الدراسية</span>
+                <a href="#" onclick="switchAdminTab('users')" id="nav-users" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition">
+                    <i class="fa-solid fa-users-gear"></i>
+                    <span>إدارة المستخدمين</span>
                 </a>
-                <a href="#" onclick="switchStudentTab('ai')" id="nav-ai" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition">
-                    <i class="fa-solid fa-robot"></i>
-                    <span>وكيل الذكاء الاصطناعي</span>
+                <a href="#" onclick="switchAdminTab('settings')" id="nav-settings" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition">
+                    <i class="fa-solid fa-sliders"></i>
+                    <span>إعدادات المنصة</span>
                 </a>
             </nav>
         </div>
@@ -53,44 +53,53 @@
         <!-- شريط علوي -->
         <header class="bg-white shadow-sm h-20 flex items-center justify-between px-8 sticky top-0 z-10">
             <div class="flex items-center gap-4">
-                <h1 class="text-xl font-bold text-slate-900" id="studentPageTitle">لوحة تحكم الطالب</h1>
+                <h1 class="text-xl font-bold text-slate-900" id="adminPageTitle">لوحة تحكم المدير العام</h1>
             </div>
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 font-bold flex items-center justify-center">
-                    ST
+                    ADM
                 </div>
-                <span class="font-semibold text-sm text-slate-700 hidden sm:inline">طالب متميز</span>
+                <span class="font-semibold text-sm text-slate-700 hidden sm:inline">مدير النظام</span>
             </div>
         </header>
 
         <!-- مساحة العمل -->
         <div class="p-8 space-y-8 flex-grow">
             
-            <!-- قسم لوحة المتابعة -->
-            <div id="tab-dashboard" class="space-y-8">
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- قسم نظرة عامة -->
+            <div id="section-overview" class="space-y-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex items-center justify-between">
                         <div>
-                            <p class="text-sm font-semibold text-slate-400">المواد المسجلة</p>
-                            <h3 class="text-3xl font-extrabold text-slate-900 mt-1">6</h3>
+                            <p class="text-sm font-semibold text-slate-400">إجمالي الطلاب</p>
+                            <h3 class="text-3xl font-extrabold text-slate-900 mt-1">1,240</h3>
                         </div>
                         <div class="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-2xl">
-                            <i class="fa-solid fa-book-open"></i>
+                            <i class="fa-solid fa-user-graduate"></i>
                         </div>
                     </div>
                     <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex items-center justify-between">
                         <div>
-                            <p class="text-sm font-semibold text-slate-400">المعدل التراكمي</p>
-                            <h3 class="text-3xl font-extrabold text-slate-900 mt-1">94%</h3>
+                            <p class="text-sm font-semibold text-slate-400">الأساتذة النشطون</p>
+                            <h3 class="text-3xl font-extrabold text-slate-900 mt-1">45</h3>
                         </div>
                         <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl">
-                            <i class="fa-solid fa-award"></i>
+                            <i class="fa-solid fa-chalkboard-user"></i>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-semibold text-slate-400">المقررات الدراسية</p>
+                            <h3 class="text-3xl font-extrabold text-slate-900 mt-1">32</h3>
+                        </div>
+                        <div class="w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-2xl">
+                            <i class="fa-solid fa-book"></i>
                         </div>
                     </div>
                     <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex items-center justify-between">
                         <div>
                             <p class="text-sm font-semibold text-slate-400">حالة السحابة</p>
-                            <h3 class="text-lg font-bold text-emerald-600 mt-2 flex items-center gap-2">
+                            <h3 class="text-sm font-bold text-emerald-600 mt-2 flex items-center gap-2">
                                 <span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
                                 متصل بـ Firebase
                             </h3>
@@ -102,55 +111,61 @@
                 </div>
 
                 <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 space-y-4">
-                    <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
-                        <i class="fa-solid fa-book text-indigo-600"></i>
-                        <span>آخر المحاضرات المضافة</span>
-                    </h3>
-                    <p class="text-sm text-slate-500">تظهر لك هنا أحدث الملفات والمحاضرات المرفوعة عبر سحابة المنصة.</p>
-                    <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl flex items-center justify-between">
-                        <span class="font-semibold text-slate-700 text-sm">مقدمة في الحوسبة السحابية - المحاضرة الأولى</span>
-                        <button onclick="alert('جاري تحميل الملف...')" class="text-xs bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-xl font-bold transition">تحميل الملف</button>
+                    <h3 class="text-lg font-bold text-slate-900">حالة النظام والنشاط الأخير</h3>
+                    <p class="text-sm text-slate-500">جميع الخدمات السحابية وقاعدة البيانات تعمل بكفاءة عالية وبدون أي مشاكل.</p>
+                </div>
+            </div>
+
+            <!-- قسم إدارة المستخدمين -->
+            <div id="section-users" class="space-y-6 hidden">
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 space-y-4">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-bold text-slate-900">إدارة المستخدمين والصلاحيات</h3>
+                        <button onclick="alert('خاصية إضافة مستخدم جديد جاهزة للتفعيل.')" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-xl text-sm font-bold transition">إضافة مستخدم جديد</button>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-right text-sm text-slate-600">
+                            <thead class="bg-slate-50 text-slate-700 uppercase font-bold text-xs">
+                                <tr>
+                                    <th class="p-4 rounded-r-xl">الاسم</th>
+                                    <th class="p-4">الدور</th>
+                                    <th class="p-4">البريد / المعرف</th>
+                                    <th class="p-4 rounded-l-xl">الإجراء</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100">
+                                <tr>
+                                    <td class="p-4 font-semibold text-slate-900">عثمان عمر</td>
+                                    <td class="p-4"><span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-xs font-bold">مدير النظام</span></td>
+                                    <td class="p-4">osmanomr466@gmail.com</td>
+                                    <td class="p-4"><button onclick="alert('تعديل صلاحيات المدير')" class="text-indigo-600 font-bold hover:underline">إدارة</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4 font-semibold text-slate-900">أستاذ المادة</td>
+                                    <td class="p-4"><span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-bold">أستاذ</span></td>
+                                    <td class="p-4">instructor@ofk.edu</td>
+                                    <td class="p-4"><button onclick="alert('تعديل صلاحيات الأستاذ')" class="text-indigo-600 font-bold hover:underline">إدارة</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
 
-            <!-- قسم مقرراتي الدراسية -->
-            <div id="tab-courses" class="space-y-6 hidden">
+            <!-- قسم إعدادات المنصة -->
+            <div id="section-settings" class="space-y-6 hidden">
                 <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 space-y-4">
-                    <h3 class="text-lg font-bold text-slate-900">المقررات الدراسية الحالية</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="p-5 border border-slate-200 rounded-2xl bg-slate-50 space-y-2">
-                            <h4 class="font-bold text-indigo-600">الحوسبة السحابية المتقدمة</h4>
-                            <p class="text-xs text-slate-500">الأستاذ المسؤول: مشرف الأكاديمية</p>
-                            <span class="inline-block bg-emerald-100 text-emerald-700 text-xs px-3 py-1 rounded-full font-bold">قيد الدراسة</span>
+                    <h3 class="text-lg font-bold text-slate-900">إعدادات المنصة العامة</h3>
+                    <div class="space-y-4 max-w-lg">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1">اسم الأكاديمية</label>
+                            <input type="text" value="OFK Academy" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 outline-none focus:border-indigo-600 text-sm">
                         </div>
-                        <div class="p-5 border border-slate-200 rounded-2xl bg-slate-50 space-y-2">
-                            <h4 class="font-bold text-indigo-600">تطوير الويب الحديث</h4>
-                            <p class="text-xs text-slate-500">الأستاذ المسؤول: فريق التدريس</p>
-                            <span class="inline-block bg-emerald-100 text-emerald-700 text-xs px-3 py-1 rounded-full font-bold">قيد الدراسة</span>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1">رقم الواتساب الرسمي</label>
+                            <input type="text" value="0997122809" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 outline-none focus:border-indigo-600 text-sm">
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- قسم وكيل الذكاء الاصطناعي -->
-            <div id="tab-ai" class="space-y-6 hidden">
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 space-y-4">
-                    <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
-                        <i class="fa-solid fa-robot text-indigo-600"></i>
-                        <span>مساعد الذكاء الاصطناعي (AI Assistant)</span>
-                    </h3>
-                    <p class="text-sm text-slate-500">اطرح أي سؤال حول المواد الدراسية وسيقوم المساعد الذكي بمساعدتك فوراً.</p>
-                    
-                    <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl h-48 overflow-y-auto space-y-3 text-sm" id="chatBox">
-                        <div class="bg-indigo-50 text-indigo-900 p-3 rounded-2xl max-w-md">
-                            أهلاً بك يا أستاذ عثمان / عزيزي الطالب! أنا مساعدك الذكي في OFK Academy، كيف يمكنني مساعدتك في مقرراتك اليوم؟
-                        </div>
-                    </div>
-
-                    <div class="flex gap-2">
-                        <input type="text" id="aiInput" placeholder="اكتب سؤالك هنا..." class="flex-1 px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-600 outline-none text-sm">
-                        <button onclick="sendAiMessage()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl font-semibold text-sm transition">إرسال</button>
+                        <button onclick="alert('تم حفظ الإعدادات بنجاح!')" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-6 py-2.5 rounded-xl text-sm transition">حفظ التغييرات</button>
                     </div>
                 </div>
             </div>
@@ -174,61 +189,37 @@
     </script>
 
     <script>
-        // التحقق من صلاحية الطالب
+        // التحقق من صلاحية المدير
         window.addEventListener('DOMContentLoaded', () => {
             const role = localStorage.getItem('ofk_role');
-            if (role !== 'student') {
-                alert('عذراً، هذه الصفحة مخصصة للطلاب فقط.');
+            if (role !== 'admin') {
+                alert('عذراً، هذه الصفحة مخصصة لمدير النظام فقط.');
                 window.location.href = 'index.html';
             }
         });
 
-        // تبديل الأقسام بسلاسة
-        function switchStudentTab(tab) {
-            document.getElementById('tab-dashboard').classList.add('hidden');
-            document.getElementById('tab-courses').classList.add('hidden');
-            document.getElementById('tab-ai').classList.add('hidden');
+        // تبديل الأقسام بسلاسة في لوحة المدير
+        function switchAdminTab(tab) {
+            document.getElementById('section-overview').classList.add('hidden');
+            document.getElementById('section-users').classList.add('hidden');
+            document.getElementById('section-settings').classList.add('hidden');
 
-            document.getElementById('nav-dash').className = "flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition";
-            document.getElementById('nav-courses').className = "flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition";
-            document.getElementById('nav-ai').className = "flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition";
+            document.getElementById('nav-overview').className = "flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition";
+            document.getElementById('nav-users').className = "flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition";
+            document.getElementById('nav-settings').className = "flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition";
 
-            if (tab === 'dashboard') {
-                document.getElementById('tab-dashboard').classList.remove('hidden');
-                document.getElementById('nav-dash').className = "flex items-center gap-3 px-4 py-3 rounded-xl bg-indigo-600 text-white shadow-md transition";
-                document.getElementById('studentPageTitle').innerText = "لوحة تحكم الطالب";
-            } else if (tab === 'courses') {
-                document.getElementById('tab-courses').classList.remove('hidden');
-                document.getElementById('nav-courses').className = "flex items-center gap-3 px-4 py-3 rounded-xl bg-indigo-600 text-white shadow-md transition";
-                document.getElementById('studentPageTitle').innerText = "مقرراتي الدراسية";
-            } else if (tab === 'ai') {
-                document.getElementById('tab-ai').classList.remove('hidden');
-                document.getElementById('nav-ai').className = "flex items-center gap-3 px-4 py-3 rounded-xl bg-indigo-600 text-white shadow-md transition";
-                document.getElementById('studentPageTitle').innerText = "مساعد الذكاء الاصطناعي";
-            }
-        }
-
-        // محاكاة تفاعل المساعد الذكي
-        function sendAiMessage() {
-            const input = document.getElementById('aiInput');
-            const chatBox = document.getElementById('chatBox');
-            if (input.value.trim() !== "") {
-                const userMsg = document.createElement('div');
-                userMsg.className = "bg-slate-200 text-slate-900 p-3 rounded-2xl max-w-md mr-auto text-right";
-                userMsg.innerText = input.value;
-                chatBox.appendChild(userMsg);
-
-                const query = input.value;
-                input.value = "";
-                chatBox.scrollTop = chatBox.scrollHeight;
-
-                setTimeout(() => {
-                    const aiMsg = document.createElement('div');
-                    aiMsg.className = "bg-indigo-50 text-indigo-900 p-3 rounded-2xl max-w-md";
-                    aiMsg.innerText = "أهلاً بك. استلمت استفسارك حول (" + query + ")، وجاري معالجته عبر محرك المنصة السحابي لتقديم الإجابة الأكاديمية الدقيقة.";
-                    chatBox.appendChild(aiMsg);
-                    chatBox.scrollTop = chatBox.scrollHeight;
-                }, 1000);
+            if (tab === 'overview') {
+                document.getElementById('section-overview').classList.remove('hidden');
+                document.getElementById('nav-overview').className = "flex items-center gap-3 px-4 py-3 rounded-xl bg-indigo-600 text-white shadow-md transition";
+                document.getElementById('adminPageTitle').innerText = "لوحة تحكم المدير العام";
+            } else if (tab === 'users') {
+                document.getElementById('section-users').classList.remove('hidden');
+                document.getElementById('nav-users').className = "flex items-center gap-3 px-4 py-3 rounded-xl bg-indigo-600 text-white shadow-md transition";
+                document.getElementById('adminPageTitle').innerText = "إدارة المستخدمين والصلاحيات";
+            } else if (tab === 'settings') {
+                document.getElementById('section-settings').classList.remove('hidden');
+                document.getElementById('nav-settings').className = "flex items-center gap-3 px-4 py-3 rounded-xl bg-indigo-600 text-white shadow-md transition";
+                document.getElementById('adminPageTitle').innerText = "إعدادات المنصة";
             }
         }
 
