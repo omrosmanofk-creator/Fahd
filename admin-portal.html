@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لوحة المدير | OFK Academy</title>
+    <title>لوحة المدير الذكية | OFK Academy</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -11,7 +11,7 @@
 </head>
 <body class="bg-slate-100 text-slate-800 antialiased flex h-screen overflow-hidden">
 
-    <!-- القائمة الجانبية للمدير -->
+    <!-- القائمة الجانبية -->
     <aside class="w-64 bg-slate-900 text-white flex flex-col justify-between hidden md:flex shadow-xl z-20">
         <div>
             <div class="h-20 flex items-center px-6 gap-3 border-b border-slate-800">
@@ -28,13 +28,13 @@
                     <i class="fa-solid fa-house"></i>
                     <span>الرئيسية والإحصائيات</span>
                 </a>
+                <a href="#" onclick="switchAdminTab('lectures')" id="nav-lectures" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>مراقبة المحاضرات والمواد</span>
+                </a>
                 <a href="#" onclick="switchAdminTab('users')" id="nav-users" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition">
                     <i class="fa-solid fa-users-gear"></i>
                     <span>إدارة المستخدمين</span>
-                </a>
-                <a href="#" onclick="switchAdminTab('settings')" id="nav-settings" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition">
-                    <i class="fa-solid fa-gears"></i>
-                    <span>إعدادات النظام</span>
                 </a>
             </nav>
         </div>
@@ -49,10 +49,10 @@
     <!-- المحتوى الرئيسي -->
     <main class="flex-1 flex flex-col h-screen overflow-y-auto">
         <header class="bg-white shadow-sm h-20 flex items-center justify-between px-8 sticky top-0 z-10">
-            <h1 class="text-xl font-bold text-slate-900" id="adminPageTitle">الرئيسية والإحصائيات</h1>
+            <h1 class="text-xl font-bold text-slate-900" id="adminPageTitle">الرئيسية والإحصائيات الحية</h1>
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 font-bold flex items-center justify-center">AD</div>
-                <span class="font-semibold text-sm text-slate-700 hidden sm:inline">المدير العام (أستاذ عثمان)</span>
+                <span class="font-semibold text-sm text-slate-700">المدير العام (أستاذ عثمان)</span>
             </div>
         </header>
 
@@ -62,27 +62,27 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex items-center justify-between">
                         <div>
-                            <p class="text-sm font-semibold text-slate-400">إجمالي الطلاب</p>
-                            <h3 class="text-3xl font-extrabold text-slate-900 mt-1">240</h3>
+                            <p class="text-sm font-semibold text-slate-400">إجمالي المحاضرات والروابط المرفوعة</p>
+                            <h3 class="text-3xl font-extrabold text-slate-900 mt-1" id="totalLecturesCount">جاري التحميل...</h3>
                         </div>
                         <div class="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-2xl">
-                            <i class="fa-solid fa-user-graduate"></i>
+                            <i class="fa-solid fa-file-lines"></i>
                         </div>
                     </div>
                     <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex items-center justify-between">
                         <div>
-                            <p class="text-sm font-semibold text-slate-400">الأساتذة والشركاء</p>
-                            <h3 class="text-3xl font-extrabold text-slate-900 mt-1">12</h3>
+                            <p class="text-sm font-semibold text-slate-400">التخصصات النشطة</p>
+                            <h3 class="text-3xl font-extrabold text-slate-900 mt-1">7 تخصصات</h3>
                         </div>
                         <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl">
-                            <i class="fa-solid fa-chalkboard-user"></i>
+                            <i class="fa-solid fa-graduation-cap"></i>
                         </div>
                     </div>
                     <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex items-center justify-between">
                         <div>
-                            <p class="text-sm font-semibold text-slate-400">حالة قاعدة البيانات</p>
+                            <p class="text-sm font-semibold text-slate-400">حالة السحابة</p>
                             <h3 class="text-lg font-bold text-emerald-600 mt-2 flex items-center gap-2">
-                                <span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span> متصل بـ Firestore
+                                <span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span> متصل بـ Firestore الحي
                             </h3>
                         </div>
                         <div class="w-14 h-14 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center text-2xl">
@@ -92,56 +92,92 @@
                 </div>
             </div>
 
-            <!-- قسم إدارة المستخدمين -->
-            <div id="section-users" class="space-y-6 hidden">
+            <!-- قسم مراقبة المحاضرات -->
+            <div id="section-lectures" class="space-y-6 hidden">
                 <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 space-y-4">
-                    <h3 class="text-lg font-bold text-slate-900">إدارة حسابات المنصة والأدوار</h3>
-                    <p class="text-sm text-slate-500">هنا يمكنك متابعة صلاحيات المديرين، الأساتذة، والطلاب المسجلين.</p>
-                    <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 text-sm text-slate-700">
-                        النظام يعمل حالياً برموز الدخول الآمنة للأدوار الثلاثة بنجاح تام.
+                    <h3 class="text-lg font-bold text-slate-900">سجل المحاضرات والروابط المرفوعة من الأساتذة</h3>
+                    <div id="adminLecturesList" class="space-y-3">
+                        <p class="text-sm text-slate-500">جاري جلب البيانات من السحابة...</p>
                     </div>
                 </div>
             </div>
 
-            <!-- قسم إعدادات النظام -->
-            <div id="section-settings" class="space-y-6 hidden">
+            <!-- قسم المستخدمين -->
+            <div id="section-users" class="space-y-6 hidden">
                 <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 space-y-4">
-                    <h3 class="text-lg font-bold text-slate-900">إعدادات النظام العامة</h3>
-                    <p class="text-sm text-slate-500">إعدادات الاتصال بالسحابة وربط الأكاديمية بالشركاء.</p>
+                    <h3 class="text-lg font-bold text-slate-900">صلاحيات الأقسام والأدوار</h3>
+                    <p class="text-sm text-slate-500">النظام مؤمن بالكامل عبر رموز الوصول المخصصة.</p>
                 </div>
             </div>
         </div>
     </main>
 
-    <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            if (localStorage.getItem('ofk_role') !== 'admin') { window.location.href = 'index.html'; }
-        });
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
+        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-firestore.js";
 
+        const firebaseConfig = {
+            apiKey: "AIzaSyBzp8h6SDNFF_6jtcyi0CKmAnb3q0Z-U_A",
+            authDomain: "ofk-academy.firebaseapp.com",
+            projectId: "ofk-academy",
+            storageBucket: "ofk-academy.firebasestorage.app",
+            messagingSenderId: "323159437100",
+            appId: "1:323159437100:web:2cc41d6e2727737aea8689",
+            measurementId: "G-BG5BDJL9EF"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        window.addEventListener('DOMContentLoaded', async () => {
+            if (localStorage.getItem('ofk_role') !== 'admin') { window.location.href = 'index.html'; }
+            
+            try {
+                const querySnapshot = await getDocs(collection(db, "lectures"));
+                document.getElementById('totalLecturesCount').innerText = querySnapshot.size;
+                
+                let listHtml = "";
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    listHtml += `<div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 flex justify-between items-center text-sm">
+                        <div>
+                            <span class="font-bold text-indigo-600">[${data.specialty}]</span> ${data.title}
+                        </div>
+                        <a href="${data.fileUrl}" target="_blank" class="bg-indigo-600 text-white px-4 py-2 rounded-xl text-xs font-bold">عرض المادة / الرابط</a>
+                    </div>`;
+                });
+                if(querySnapshot.size === 0) listHtml = "<p class='text-slate-500 text-sm'>لا توجد محاضر مرفوعة حتى الآن.</p>";
+                document.getElementById('adminLecturesList').innerHTML = listHtml;
+            } catch (e) {
+                console.error(e);
+            }
+        });
+    </script>
+
+    <script>
         function switchAdminTab(tab) {
             document.getElementById('section-dash').classList.add('hidden');
+            document.getElementById('section-lectures').classList.add('hidden');
             document.getElementById('section-users').classList.add('hidden');
-            document.getElementById('section-settings').classList.add('hidden');
 
             document.getElementById('nav-dash').className = "flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition";
+            document.getElementById('nav-lectures').className = "flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition";
             document.getElementById('nav-users').className = "flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition";
-            document.getElementById('nav-settings').className = "flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition";
 
             if (tab === 'dashboard') {
                 document.getElementById('section-dash').classList.remove('hidden');
                 document.getElementById('nav-dash').className = "flex items-center gap-3 px-4 py-3 rounded-xl bg-indigo-600 text-white shadow-md transition";
-                document.getElementById('adminPageTitle').innerText = "الرئيسية والإحصائيات";
+                document.getElementById('adminPageTitle').innerText = "الرئيسية والإحصائيات الحية";
+            } else if (tab === 'lectures') {
+                document.getElementById('section-lectures').classList.remove('hidden');
+                document.getElementById('nav-lectures').className = "flex items-center gap-3 px-4 py-3 rounded-xl bg-indigo-600 text-white shadow-md transition";
+                document.getElementById('adminPageTitle').innerText = "مراقبة المحاضرات والمواد";
             } else if (tab === 'users') {
                 document.getElementById('section-users').classList.remove('hidden');
                 document.getElementById('nav-users').className = "flex items-center gap-3 px-4 py-3 rounded-xl bg-indigo-600 text-white shadow-md transition";
                 document.getElementById('adminPageTitle').innerText = "إدارة المستخدمين";
-            } else if (tab === 'settings') {
-                document.getElementById('section-settings').classList.remove('hidden');
-                document.getElementById('nav-settings').className = "flex items-center gap-3 px-4 py-3 rounded-xl bg-indigo-600 text-white shadow-md transition";
-                document.getElementById('adminPageTitle').innerText = "إعدادات النظام";
             }
         }
-
         function logout() { localStorage.removeItem('ofk_role'); window.location.href = 'index.html'; }
     </script>
 </body>
