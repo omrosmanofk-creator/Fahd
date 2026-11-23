@@ -3,118 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لوحة المدير الشاملة | OFK Academy</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>لوحة المدير العام | OFK Academy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <style> body { font-family: 'Cairo', sans-serif; } </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Cairo', sans-serif; }
+    </style>
 </head>
-<body class="bg-slate-100 text-slate-800 antialiased flex h-screen overflow-hidden">
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
 
-    <!-- القائمة الجانبية للمدير -->
-    <aside class="w-64 bg-slate-900 text-white flex flex-col justify-between hidden md:flex shadow-xl z-20">
-        <div>
-            <div class="h-20 flex items-center px-6 gap-3 border-b border-slate-800">
-                <div class="bg-indigo-600 text-white p-2.5 rounded-xl shadow-md">
-                    <i class="fa-solid fa-user-shield text-xl"></i>
+    <!-- الشريط العلوي -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-30">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3 min-w-0">
+                <div class="w-10 h-10 rounded-xl bg-indigo-600 text-white font-extrabold text-xs flex items-center justify-center shrink-0">
+                    AD
                 </div>
-                <div>
-                    <h2 class="font-bold text-sm tracking-wide">لوحة التحكم الإدارية</h2>
-                    <p class="text-xs text-indigo-400">OFK Academy</p>
+                <div class="truncate">
+                    <h1 class="text-base sm:text-lg font-bold text-slate-900 truncate">الرئيسية والإحصائيات الحية</h1>
+                    <p class="text-xs text-slate-500 truncate">المدير العام (أستاذ عثمان) — OFK Academy</p>
                 </div>
             </div>
-            <nav class="p-4 space-y-2 font-medium">
-                <a href="#" onclick="switchAdminTab('dashboard')" id="nav-dash" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-indigo-600 text-white shadow-md transition">
-                    <i class="fa-solid fa-house"></i>
-                    <span>الرئيسية والإحصائيات</span>
+
+            <div class="flex items-center gap-2 shrink-0">
+                <a href="index.html" class="px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 transition">
+                    الرئيسية
                 </a>
-                <a href="#" onclick="switchAdminTab('lectures')" id="nav-lectures" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition">
-                    <i class="fa-solid fa-book-open"></i>
-                    <span>إدارة ومراقبة المواد</span>
-                </a>
-                <a href="#" onclick="switchAdminTab('users')" id="nav-users" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition">
-                    <i class="fa-solid fa-users-gear"></i>
-                    <span>إدارة المستخدمين والأدوار</span>
-                </a>
-            </nav>
+                <button onclick="logout()" class="px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold text-rose-600 bg-rose-50 hover:bg-rose-100 transition">
+                    خروج
+                </button>
+            </div>
         </div>
-        <div class="p-4 border-t border-slate-800">
-            <button onclick="logout()" class="w-full flex items-center justify-center gap-2 bg-rose-500/10 hover:bg-rose-500 text-rose-400 hover:text-white py-2.5 rounded-xl transition font-semibold text-sm">
-                <i class="fa-solid fa-right-from-bracket"></i>
-                <span>تسجيل الخروج</span>
-            </button>
-        </div>
-    </aside>
+    </header>
 
     <!-- المحتوى الرئيسي -->
-    <main class="flex-1 flex flex-col h-screen overflow-y-auto">
-        <header class="bg-white shadow-sm h-20 flex items-center justify-between px-8 sticky top-0 z-10">
-            <h1 class="text-xl font-bold text-slate-900" id="adminPageTitle">الرئيسية والإحصائيات الحية</h1>
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 font-bold flex items-center justify-center">AD</div>
-                <span class="font-semibold text-sm text-slate-700">المدير العام (أستاذ عثمان)</span>
-            </div>
-        </header>
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 py-6 w-full flex-grow space-y-6">
 
-        <div class="p-8 space-y-8 flex-grow">
-            <!-- قسم الرئيسية -->
-            <div id="section-dash" class="space-y-8">
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex items-center justify-between">
-                        <div>
-                            <p class="text-sm font-semibold text-slate-400">إجمالي المحاضرات في السحابة</p>
-                            <h3 class="text-3xl font-extrabold text-slate-900 mt-1" id="totalLecturesCount">جاري التحميل...</h3>
-                        </div>
-                        <div class="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-2xl">
-                            <i class="fa-solid fa-file-lines"></i>
-                        </div>
-                    </div>
-                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex items-center justify-between">
-                        <div>
-                            <p class="text-sm font-semibold text-slate-400">التخصصات النشطة</p>
-                            <h3 class="text-3xl font-extrabold text-slate-900 mt-1">7 تخصصات</h3>
-                        </div>
-                        <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                        </div>
-                    </div>
-                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex items-center justify-between">
-                        <div>
-                            <p class="text-sm font-semibold text-slate-400">حالة السحابة</p>
-                            <h3 class="text-lg font-bold text-emerald-600 mt-2 flex items-center gap-2">
-                                <span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span> متصل بـ Firestore الحي
-                            </h3>
-                        </div>
-                        <div class="w-14 h-14 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center text-2xl">
-                            <i class="fa-solid fa-database"></i>
-                        </div>
-                    </div>
+        <!-- بطاقات الإحصائيات الحية -->
+        <section class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm flex items-center justify-between">
+                <div>
+                    <p class="text-xs font-semibold text-slate-500">إجمالي المحاضرات في السحابة</p>
+                    <p id="totalLecturesCount" class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">0</p>
+                </div>
+                <div class="w-11 h-11 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-lg">
+                    <i class="fa-solid fa-file-lines"></i>
                 </div>
             </div>
 
-            <!-- قسم إدارة ومراقبة المواد -->
-            <div id="section-lectures" class="space-y-6 hidden">
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 space-y-4">
-                    <h3 class="text-lg font-bold text-slate-900">سجل جميع المواد والمحاضرات المرفوعة في المنصة</h3>
-                    <div id="adminLecturesList" class="space-y-3">
-                        <p class="text-sm text-slate-500">جاري جلب المواد من السحابة...</p>
-                    </div>
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm flex items-center justify-between">
+                <div>
+                    <p class="text-xs font-semibold text-slate-500">التخصصات المعتمدة</p>
+                    <p class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">6 تخصصات</p>
+                </div>
+                <div class="w-11 h-11 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-lg">
+                    <i class="fa-solid fa-layer-group"></i>
                 </div>
             </div>
 
-            <!-- قسم إدارة المستخدمين -->
-            <div id="section-users" class="space-y-6 hidden">
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 space-y-4">
-                    <h3 class="text-lg font-bold text-slate-900">صلاحيات النظام والأدوار الآمنة</h3>
-                    <p class="text-sm text-slate-500">التحكم في وصول المدير، الأساتذة، والطلاب موثق ومحمل عبر الأكواد السرية.</p>
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm flex items-center justify-between">
+                <div>
+                    <p class="text-xs font-semibold text-slate-500">حالة السحابة</p>
+                    <p id="cloudStatusText" class="text-sm sm:text-base font-extrabold text-emerald-600 mt-2">متصل بـ Firestore الحي</p>
+                </div>
+                <div class="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-lg">
+                    <i class="fa-solid fa-database"></i>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <!-- لوحتا الإعلانات المنفصلتان (للطلاب على حدة وللمدرسين على حدة) -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+            <!-- إعلان الطلاب فقط -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-4">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                    <h2 class="text-base font-bold text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-bullhorn text-indigo-600"></i>
+                        <span>لوحة إعلان الطلاب (تظهر للطلاب فقط)</span>
+                    </h2>
+                    <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-700">بوابة الطالب</span>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">عنوان الإعلان أو الموعد (مثال: موعد امتحان الدورة التحضيرية)</label>
+                    <input type="text" id="studentNoticeTitle" placeholder="مثال: إعلان موعد الامتحان النهائي..." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-600 outline-none text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">نص الإعلان أو التعليمات للطلاب</label>
+                    <textarea id="studentNoticeBody" rows="3" placeholder="اكتب هنا التفاصيل أو المواعيد أو التعليمات الخاصة بالطلاب..." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-600 outline-none text-sm"></textarea>
+                </div>
+
+                <div id="studentNoticeMsg" class="hidden p-3 rounded-xl bg-emerald-50 text-emerald-700 text-xs font-bold"></div>
+
+                <div class="flex items-center gap-2">
+                    <button onclick="saveStudentNotice()" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm transition">
+                        نشر / تحديث إعلان الطلاب
+                    </button>
+                    <button onclick="clearStudentNotice()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2.5 px-3 rounded-xl text-xs transition">
+                        مسح الإعلان
+                    </button>
+                </div>
+            </div>
+
+            <!-- إعلان المدرسين فقط -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-4">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                    <h2 class="text-base font-bold text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-chalkboard-user text-amber-600"></i>
+                        <span>لوحة إعلان المدرسين (تظهر للمدرسين فقط)</span>
+                    </h2>
+                    <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-800">بوابة الأستاذ</span>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">عنوان التنبيه أو التعميم للمدرسين</label>
+                    <input type="text" id="instructorNoticeTitle" placeholder="مثال: تعليمات رفع المحاضرات وجداول الامتحانات..." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-600 outline-none text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">نص الإعلان أو التوجيهات للمدرسين</label>
+                    <textarea id="instructorNoticeBody" rows="3" placeholder="اكتب هنا أي تحديث أو موعد أو توجيه يخص الأساتذة والمدرسين..." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-600 outline-none text-sm"></textarea>
+                </div>
+
+                <div id="instructorNoticeMsg" class="hidden p-3 rounded-xl bg-emerald-50 text-emerald-700 text-xs font-bold"></div>
+
+                <div class="flex items-center gap-2">
+                    <button onclick="saveInstructorNotice()" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm transition">
+                        نشر / تحديث إعلان المدرسين
+                    </button>
+                    <button onclick="clearInstructorNotice()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2.5 px-3 rounded-xl text-xs transition">
+                        مسح الإعلان
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- صلاحيات فتح وقفل الدروس والمواد للطلاب -->
+        <section class="bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-sm space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
+                <div>
+                    <h2 class="text-base sm:text-lg font-bold text-slate-900">صلاحيات التحكم بفتح أو قفل الدروس والمواد للطلاب</h2>
+                    <p class="text-xs text-slate-500">يمكن للمدير تقييد أو إتاحة عرض المحاضرات في بوابة الطالب فوراً</p>
+                </div>
+                <span id="lockBadge" class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700">
+                    الدروس مفتوحة حالياً
+                </span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">حالة الوصول للدروس</label>
+                    <select id="lessonsLockSelect" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white text-sm outline-none">
+                        <option value="false">مفتوح (الطلاب يرون المحاضرات)</option>
+                        <option value="true">مقفل مؤقتاً (إخفاء المحاضرات وعرض تنبيه)</option>
+                    </select>
+                </div>
+
+                <div class="md:col-span-2">
+                    <label class="block text-xs font-bold text-slate-700 mb-1">رسالة التنبيه عند القفل</label>
+                    <input type="text" id="lockedMessageInput" value="الدروس أو المواد مقفلة مؤقتاً من قِبل الإدارة الأكاديمية لحين إشعار آخر." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm outline-none">
+                </div>
+            </div>
+
+            <div id="accessSaveMsg" class="hidden p-3 rounded-xl bg-emerald-50 text-emerald-700 text-xs font-bold"></div>
+
+            <button onclick="saveStudentAccessSettings()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-5 rounded-xl text-xs sm:text-sm transition">
+                حفظ صلاحيات الوصول للطلاب
+            </button>
+        </section>
+
+        <!-- إدارة المحاضرات المنشورة في السحابة -->
+        <section class="bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-sm space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <h2 class="text-base sm:text-lg font-bold text-slate-900">المحاضرات المنشورة في Firestore</h2>
+                <button onclick="loadAdminDashboardData()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-indigo-50 text-indigo-700 hover:bg-indigo-100 transition">
+                    <i class="fa-solid fa-rotate"></i>
+                    تحديث البيانات
+                </button>
+            </div>
+
+            <div id="adminLecturesContainer" class="space-y-2.5">
+                <p class="text-sm text-slate-500">جاري تحميل المحاضرات...</p>
+            </div>
+        </section>
+
     </main>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
-        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-firestore.js";
+        import { getFirestore, collection, getDocs, doc, getDoc, setDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-firestore.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyBzp8h6SDNFF_6jtcyi0CKmAnb3q0Z-U_A",
@@ -129,57 +208,260 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        window.addEventListener('DOMContentLoaded', async () => {
-            if (localStorage.getItem('ofk_role') !== 'admin') { window.location.href = 'index.html'; }
-            
-            try {
-                const querySnapshot = await getDocs(collection(db, "lectures"));
-                document.getElementById('totalLecturesCount').innerText = querySnapshot.size;
-                
-                let listHtml = "";
-                querySnapshot.forEach((doc) => {
-                    const data = doc.data();
-                    listHtml += `<div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 flex justify-between items-center text-sm">
-                        <div>
-                            <span class="font-bold text-indigo-600">[${data.specialty}]</span> ${data.title}
-                        </div>
-                        <a href="${data.fileUrl}" target="_blank" class="bg-indigo-600 text-white px-4 py-2 rounded-xl text-xs font-bold hover:bg-indigo-700 transition">عرض المحتوى</a>
-                    </div>`;
-                });
-                if(querySnapshot.size === 0) listHtml = "<p class='text-slate-500 text-sm'>لا توجد مواد مرفوعة حالياً.</p>";
-                document.getElementById('adminLecturesList').innerHTML = listHtml;
-            } catch (e) {
-                console.error(e);
+        window.addEventListener("DOMContentLoaded", async () => {
+            const role = localStorage.getItem("ofk_role");
+            if (role && role !== "admin") {
+                window.location.href = "index.html";
+                return;
             }
+            await loadAdminDashboardData();
         });
-    </script>
 
-    <script>
-        function switchAdminTab(tab) {
-            document.getElementById('section-dash').classList.add('hidden');
-            document.getElementById('section-lectures').classList.add('hidden');
-            document.getElementById('section-users').classList.add('hidden');
+        window.loadAdminDashboardData = async function() {
+            await Promise.all([
+                loadLecturesList(),
+                loadNoticesIntoForm(),
+                loadAccessIntoForm()
+            ]);
+        };
 
-            document.getElementById('nav-dash').className = "flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition";
-            document.getElementById('nav-lectures').className = "flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition";
-            document.getElementById('nav-users').className = "flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-300 transition";
+        async function loadLecturesList() {
+            const container = document.getElementById("adminLecturesContainer");
+            const countEl = document.getElementById("totalLecturesCount");
+            const statusEl = document.getElementById("cloudStatusText");
 
-            if (tab === 'dashboard') {
-                document.getElementById('section-dash').classList.remove('hidden');
-                document.getElementById('nav-dash').className = "flex items-center gap-3 px-4 py-3 rounded-xl bg-indigo-600 text-white shadow-md transition";
-                document.getElementById('adminPageTitle').innerText = "الرئيسية والإحصائيات الحية";
-            } else if (tab === 'lectures') {
-                document.getElementById('section-lectures').classList.remove('hidden');
-                document.getElementById('nav-lectures').className = "flex items-center gap-3 px-4 py-3 rounded-xl bg-indigo-600 text-white shadow-md transition";
-                document.getElementById('adminPageTitle').innerText = "إدارة ومراقبة المواد";
-            } else if (tab === 'users') {
-                document.getElementById('section-users').classList.remove('hidden');
-                document.getElementById('nav-users').className = "flex items-center gap-3 px-4 py-3 rounded-xl bg-indigo-600 text-white shadow-md transition";
-                document.getElementById('adminPageTitle').innerText = "إدارة المستخدمين والأدوار";
+            try {
+                const snap = await getDocs(collection(db, "lectures"));
+                const items = [];
+                snap.forEach((d) => items.push({ id: d.id, ...d.data() }));
+
+                countEl.textContent = String(items.length);
+                statusEl.textContent = "متصل بـ Firestore الحي";
+                statusEl.className = "text-sm sm:text-base font-extrabold text-emerald-600 mt-2";
+
+                if (items.length === 0) {
+                    container.innerHTML = `<p class="text-sm text-slate-500">لا توجد محاضرات منشورة في السحابة حالياً.</p>`;
+                    return;
+                }
+
+                container.innerHTML = items.map((lec) => `
+                    <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                        <div class="min-w-0">
+                            <span class="inline-block text-[11px] font-bold px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-800 mb-1">
+                                ${escapeHtml(lec.specialty || "غير محدد")}
+                            </span>
+                            <div class="text-sm font-bold text-slate-900 truncate">${escapeHtml(lec.title || "بدون عنوان")}</div>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            ${lec.fileUrl ? `<a href="${sanitizeUrl(lec.fileUrl)}" target="_blank" rel="noopener noreferrer" class="text-xs font-bold px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-indigo-600 hover:bg-indigo-50">فتح الرابط</a>` : ""}
+                            <button onclick="deleteLecture('${lec.id}')" class="text-xs font-bold px-3 py-1.5 rounded-lg bg-rose-50 text-rose-600 hover:bg-rose-100">
+                                حذف
+                            </button>
+                        </div>
+                    </div>
+                `).join("");
+            } catch (err) {
+                console.error(err);
+                statusEl.textContent = "تحقق من اتصال Firestore";
+                statusEl.className = "text-sm sm:text-base font-extrabold text-rose-600 mt-2";
+                container.innerHTML = `<p class="text-sm text-rose-600">تعذر جلب المحاضرات من قاعدة البيانات.</p>`;
             }
         }
 
-        function logout() { localStorage.removeItem('ofk_role'); window.location.href = 'index.html'; }
+        window.deleteLecture = async function(id) {
+            if (!confirm("هل أنت متأكد من حذف هذه المحاضرة من قاعدة البيانات؟")) return;
+            try {
+                await deleteDoc(doc(db, "lectures", id));
+                await loadLecturesList();
+            } catch (err) {
+                alert("حدث خطأ أثناء حذف المحاضرة.");
+            }
+        };
+
+        async function loadNoticesIntoForm() {
+            try {
+                const snap = await getDoc(doc(db, "announcements", "portal_notices"));
+                if (!snap.exists()) return;
+                const data = snap.data();
+
+                if (data.studentNotice) {
+                    document.getElementById("studentNoticeTitle").value = data.studentNotice.title || "";
+                    document.getElementById("studentNoticeBody").value = data.studentNotice.body || "";
+                }
+                if (data.instructorNotice) {
+                    document.getElementById("instructorNoticeTitle").value = data.instructorNotice.title || "";
+                    document.getElementById("instructorNoticeBody").value = data.instructorNotice.body || "";
+                }
+            } catch (err) {
+                console.warn("تعذر تحميل الإعلانات:", err);
+            }
+        }
+
+        window.saveStudentNotice = async function() {
+            const title = document.getElementById("studentNoticeTitle").value.trim();
+            const body = document.getElementById("studentNoticeBody").value.trim();
+            const msgEl = document.getElementById("studentNoticeMsg");
+
+            if (!title && !body) {
+                alert("يرجى كتابة عنوان أو نص لإعلان الطلاب.");
+                return;
+            }
+
+            try {
+                await setDoc(doc(db, "announcements", "portal_notices"), {
+                    studentNotice: {
+                        title,
+                        body,
+                        updatedAt: new Date().toISOString()
+                    }
+                }, { merge: true });
+
+                msgEl.textContent = "✓ تم نشر/تحديث إعلان الطلاب بنجاح وسيظهر في بوابة الطالب فقط.";
+                msgEl.classList.remove("hidden");
+                setTimeout(() => msgEl.classList.add("hidden"), 4000);
+            } catch (err) {
+                alert("حدث خطأ أثناء حفظ إعلان الطلاب.");
+            }
+        };
+
+        window.clearStudentNotice = async function() {
+            document.getElementById("studentNoticeTitle").value = "";
+            document.getElementById("studentNoticeBody").value = "";
+            const msgEl = document.getElementById("studentNoticeMsg");
+            try {
+                await setDoc(doc(db, "announcements", "portal_notices"), {
+                    studentNotice: {
+                        title: "",
+                        body: "",
+                        updatedAt: new Date().toISOString()
+                    }
+                }, { merge: true });
+                msgEl.textContent = "تم مسح إعلان الطلاب.";
+                msgEl.classList.remove("hidden");
+                setTimeout(() => msgEl.classList.add("hidden"), 3000);
+            } catch (err) {
+                alert("تعذر مسح الإعلان.");
+            }
+        };
+
+        window.saveInstructorNotice = async function() {
+            const title = document.getElementById("instructorNoticeTitle").value.trim();
+            const body = document.getElementById("instructorNoticeBody").value.trim();
+            const msgEl = document.getElementById("instructorNoticeMsg");
+
+            if (!title && !body) {
+                alert("يرجى كتابة عنوان أو نص لإعلان المدرسين.");
+                return;
+            }
+
+            try {
+                await setDoc(doc(db, "announcements", "portal_notices"), {
+                    instructorNotice: {
+                        title,
+                        body,
+                        updatedAt: new Date().toISOString()
+                    }
+                }, { merge: true });
+
+                msgEl.textContent = "✓ تم نشر/تحديث إعلان المدرسين بنجاح وسيظهر في بوابة الأستاذ فقط.";
+                msgEl.classList.remove("hidden");
+                setTimeout(() => msgEl.classList.add("hidden"), 4000);
+            } catch (err) {
+                alert("حدث خطأ أثناء حفظ إعلان المدرسين.");
+            }
+        };
+
+        window.clearInstructorNotice = async function() {
+            document.getElementById("instructorNoticeTitle").value = "";
+            document.getElementById("instructorNoticeBody").value = "";
+            const msgEl = document.getElementById("instructorNoticeMsg");
+            try {
+                await setDoc(doc(db, "announcements", "portal_notices"), {
+                    instructorNotice: {
+                        title: "",
+                        body: "",
+                        updatedAt: new Date().toISOString()
+                    }
+                }, { merge: true });
+                msgEl.textContent = "تم مسح إعلان المدرسين.";
+                msgEl.classList.remove("hidden");
+                setTimeout(() => msgEl.classList.add("hidden"), 3000);
+            } catch (err) {
+                alert("تعذر مسح الإعلان.");
+            }
+        };
+
+        async function loadAccessIntoForm() {
+            try {
+                const snap = await getDoc(doc(db, "portal_settings", "student_access"));
+                if (!snap.exists()) return;
+                const data = snap.data();
+                const locked = Boolean(data.lessonsLocked);
+                document.getElementById("lessonsLockSelect").value = String(locked);
+                if (data.lockedMessage) {
+                    document.getElementById("lockedMessageInput").value = data.lockedMessage;
+                }
+                updateLockBadge(locked);
+            } catch (err) {
+                console.warn("تعذر تحميل إعدادات الوصول:", err);
+            }
+        }
+
+        window.saveStudentAccessSettings = async function() {
+            const lessonsLocked = document.getElementById("lessonsLockSelect").value === "true";
+            const lockedMessage = document.getElementById("lockedMessageInput").value.trim();
+            const msgEl = document.getElementById("accessSaveMsg");
+
+            try {
+                await setDoc(doc(db, "portal_settings", "student_access"), {
+                    lessonsLocked,
+                    lockedMessage,
+                    updatedAt: new Date().toISOString()
+                }, { merge: true });
+
+                updateLockBadge(lessonsLocked);
+                msgEl.textContent = "✓ تم حفظ صلاحيات الوصول للطلاب بنجاح.";
+                msgEl.classList.remove("hidden");
+                setTimeout(() => msgEl.classList.add("hidden"), 4000);
+            } catch (err) {
+                alert("حدث خطأ أثناء حفظ إعدادات الوصول.");
+            }
+        };
+
+        function updateLockBadge(locked) {
+            const badge = document.getElementById("lockBadge");
+            if (locked) {
+                badge.textContent = "الدروس مقفلة حالياً";
+                badge.className = "px-3 py-1 rounded-full text-xs font-bold bg-rose-50 text-rose-700";
+            } else {
+                badge.textContent = "الدروس مفتوحة حالياً";
+                badge.className = "px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700";
+            }
+        }
+
+        function sanitizeUrl(url) {
+            if (!url) return "#";
+            const trimmed = url.trim();
+            if (trimmed.startsWith("https://") || trimmed.startsWith("http://")) {
+                return encodeURI(trimmed);
+            }
+            return "#";
+        }
+
+        function escapeHtml(str) {
+            return String(str)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+    </script>
+    <script>
+        function logout() {
+            localStorage.removeItem("ofk_role");
+            window.location.href = "index.html";
+        }
     </script>
 </body>
 </html>
