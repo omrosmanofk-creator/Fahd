@@ -15,25 +15,22 @@
 
     <!-- الشريط العلوي -->
     <header class="bg-slate-900/95 border-b border-slate-800 sticky top-0 z-30 backdrop-blur">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
-            <a href="index.html" class="flex items-center gap-2.5 min-w-0">
-                <div class="w-9 h-9 rounded-xl bg-indigo-600 text-white flex items-center justify-center shrink-0">
-                    <i class="fa-solid fa-graduation-cap text-sm"></i>
+        <div class="max-w-6xl mx-auto px-3 sm:px-6 min-h-16 py-2 flex flex-wrap items-center justify-between gap-2">
+            <a href="index.html" class="flex items-center gap-2 min-w-0">
+                <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-indigo-600 text-white flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-graduation-cap text-xs sm:text-sm"></i>
                 </div>
-                <div class="truncate">
-                    <span class="font-extrabold text-sm sm:text-base text-white">OFK Academy</span>
-                    <span class="hidden sm:inline text-xs text-slate-400 mr-2">منصة تعليمية رقمية</span>
-                </div>
+                <span class="font-extrabold text-xs sm:text-base text-white whitespace-nowrap">OFK Academy</span>
             </a>
 
-            <nav class="flex items-center gap-2 shrink-0">
-                <a href="#partners" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:bg-slate-800 transition">
+            <nav class="flex items-center gap-1.5 sm:gap-2">
+                <a href="#partners" class="px-2 py-1.5 rounded-lg text-[11px] sm:text-xs font-semibold text-slate-300 hover:bg-slate-800 transition whitespace-nowrap">
                     الشركاء
                 </a>
-                <a href="#showcase" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:bg-slate-800 transition">
+                <a href="#showcase" class="px-2 py-1.5 rounded-lg text-[11px] sm:text-xs font-semibold text-slate-300 hover:bg-slate-800 transition whitespace-nowrap">
                     العروض
                 </a>
-                <button onclick="openLoginModal()" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 hover:bg-indigo-500 text-white transition">
+                <button type="button" onclick="openLoginModal()" class="px-3 py-1.5 rounded-xl text-[11px] sm:text-xs font-bold bg-indigo-600 hover:bg-indigo-500 text-white transition whitespace-nowrap">
                     بوابة الدخول
                 </button>
             </nav>
@@ -41,10 +38,10 @@
     </header>
 
     <!-- المحتوى الرئيسي -->
-    <main class="max-w-6xl mx-auto px-4 sm:px-6 py-8 w-full flex-grow space-y-10">
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8 w-full flex-grow space-y-8 sm:space-y-10">
 
         <!-- القسم التعريفي الرئيسي -->
-        <section class="bg-gradient-to-br from-indigo-900/60 via-slate-900 to-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-xl space-y-6">
+        <section class="bg-gradient-to-br from-indigo-900/60 via-slate-900 to-slate-900 border border-slate-800 rounded-3xl p-5 sm:p-10 shadow-xl space-y-5 sm:space-y-6">
             <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold bg-indigo-500/15 text-indigo-300 border border-indigo-500/30">
                 <i class="fa-solid fa-sparkles"></i>
                 <span>منظومة تعليمية وتأهيلية متكاملة</span>
@@ -54,13 +51,13 @@
                 <h1 class="text-2xl sm:text-4xl font-black text-white leading-snug">
                     مستقبلك الأكاديمي يبدأ من هنا مع <span class="text-indigo-400">OFK Academy</span>
                 </h1>
-                <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                <p class="text-xs sm:text-base text-slate-300 leading-relaxed">
                     بيئة تعليمية وتدريبية حديثة تجمع بين الدورة التأهيلية التمهيدية والتخصصات الستة المعتمدة، مع بوابات مخصصة للطلاب والمدرسين والإدارة.
                 </p>
             </div>
 
             <div class="flex flex-wrap items-center gap-3 pt-1">
-                <button onclick="openLoginModal()" class="px-5 py-3 rounded-xl text-xs sm:text-sm font-extrabold bg-indigo-600 hover:bg-indigo-500 text-white shadow-lg transition flex items-center gap-2">
+                <button type="button" onclick="openLoginModal()" class="px-5 py-3 rounded-xl text-xs sm:text-sm font-extrabold bg-indigo-600 hover:bg-indigo-500 text-white shadow-lg transition flex items-center gap-2">
                     <i class="fa-solid fa-right-to-bracket"></i>
                     <span>الدخول إلى البوابات</span>
                 </button>
@@ -89,11 +86,9 @@
 
         <!-- قسم الشركاء (جامعة الزهراء ومجموعة المقاصد) -->
         <section id="partners" class="space-y-4">
-            <div class="flex items-center justify-between">
-                <div>
-                    <h2 class="text-lg sm:text-xl font-extrabold text-white">الشراكات المؤسسية والأكاديمية</h2>
-                    <p class="text-xs sm:text-sm text-slate-400">تعاون أكاديمي وتدريبي لتقديم برامج تعليمية منظمة</p>
-                </div>
+            <div>
+                <h2 class="text-lg sm:text-xl font-extrabold text-white">الشراكات المؤسسية والأكاديمية</h2>
+                <p class="text-xs sm:text-sm text-slate-400">تعاون أكاديمي وتدريبي لتقديم برامج تعليمية منظمة</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -134,10 +129,10 @@
                     <p class="text-xs sm:text-sm text-slate-400">عرض تلقائي متتابع للصور والملصقات التعريفية من مستودع المنصة</p>
                 </div>
                 <div class="flex items-center gap-2">
-                    <button onclick="prevSlide()" aria-label="الشريحة السابقة" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-slate-700 text-white flex items-center justify-center transition">
+                    <button type="button" onclick="prevSlide()" aria-label="الشريحة السابقة" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-slate-700 text-white flex items-center justify-center transition">
                         <i class="fa-solid fa-chevron-right text-xs"></i>
                     </button>
-                    <button onclick="nextSlide()" aria-label="الشريحة التالية" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-slate-700 text-white flex items-center justify-center transition">
+                    <button type="button" onclick="nextSlide()" aria-label="الشريحة التالية" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-slate-700 text-white flex items-center justify-center transition">
                         <i class="fa-solid fa-chevron-left text-xs"></i>
                     </button>
                 </div>
@@ -172,15 +167,18 @@
 
                     <!-- مساحة المعلومات والمحتوى المرافق للشريحة -->
                     <div class="lg:col-span-6 p-6 sm:p-8 space-y-4">
-                        <span id="slideBadge" class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-indigo-500/15 text-indigo-300">
-                            الشريحة 1
-                        </span>
+                        <div class="flex items-center justify-between gap-2">
+                            <span id="slideBadge" class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-indigo-500/15 text-indigo-300">
+                                الشريحة 1
+                            </span>
+                            <span id="slideCounter" class="text-xs font-bold text-slate-400">1 / 3</span>
+                        </div>
                         <h3 id="slideTitle" class="text-xl sm:text-2xl font-black text-white leading-snug"></h3>
                         <p id="slideDescription" class="text-xs sm:text-sm text-slate-300 leading-relaxed"></p>
 
                         <div class="pt-2 flex flex-wrap items-center justify-between gap-3">
                             <div id="slideDots" class="flex items-center gap-2"></div>
-                            <button onclick="openLoginModal()" class="px-4 py-2 rounded-xl text-xs font-bold bg-indigo-600 hover:bg-indigo-500 text-white transition">
+                            <button type="button" onclick="openLoginModal()" class="px-4 py-2 rounded-xl text-xs font-bold bg-indigo-600 hover:bg-indigo-500 text-white transition">
                                 ابدأ الآن
                             </button>
                         </div>
@@ -197,25 +195,38 @@
     </footer>
 
     <!-- نافذة تسجيل الدخول للبوابات -->
-    <div id="loginModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+    <div id="loginModal" class="fixed inset-0 bg-slate-950/85 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
         <div class="bg-slate-900 border border-slate-700 rounded-3xl max-w-md w-full p-6 space-y-5 shadow-2xl">
             <div class="flex items-center justify-between border-b border-slate-800 pb-3">
                 <h3 class="text-base sm:text-lg font-extrabold text-white">تسجيل الدخول إلى البوابات</h3>
-                <button onclick="closeLoginModal()" class="text-slate-400 hover:text-white text-lg">
+                <button type="button" onclick="closeLoginModal()" class="text-slate-400 hover:text-white text-lg">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
 
             <form onsubmit="handleRoleLogin(event)" class="space-y-4">
                 <div>
-                    <label class="block text-xs font-bold text-slate-300 mb-1.5">رمز الدخول أو اسم المستخدم</label>
+                    <label for="loginCodeInput" class="block text-xs font-bold text-slate-300 mb-1.5">رمز الدخول أو اسم المستخدم</label>
                     <input
                         type="text"
                         id="loginCodeInput"
                         required
+                        autocomplete="off"
                         placeholder="أدخل رمز الطالب أو المدرس أو المدير"
                         class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 focus:border-indigo-500 outline-none text-sm text-white"
                     >
+                </div>
+
+                <div class="flex flex-wrap gap-1.5">
+                    <button type="button" onclick="fillDemoCode('Omr123')" class="px-2.5 py-1 rounded-lg text-[11px] font-bold bg-slate-800 hover:bg-slate-700 text-indigo-300">
+                        تعبئة طالب (Omr123)
+                    </button>
+                    <button type="button" onclick="fillDemoCode('Omr1234')" class="px-2.5 py-1 rounded-lg text-[11px] font-bold bg-slate-800 hover:bg-slate-700 text-emerald-300">
+                        تعبئة مدرس (Omr1234)
+                    </button>
+                    <button type="button" onclick="fillDemoCode('Omr12345')" class="px-2.5 py-1 rounded-lg text-[11px] font-bold bg-slate-800 hover:bg-slate-700 text-amber-300">
+                        تعبئة مدير (Omr12345)
+                    </button>
                 </div>
 
                 <div class="bg-slate-950/80 border border-slate-800 rounded-2xl p-3 text-[11px] text-slate-400 space-y-1">
@@ -271,6 +282,7 @@
             fallbackPathEl.textContent = slide.image;
 
             document.getElementById("slideBadge").textContent = slide.badge;
+            document.getElementById("slideCounter").textContent = `${currentSlideIndex + 1} / ${SLIDES.length}`;
             document.getElementById("slideTitle").textContent = slide.title;
             document.getElementById("slideDescription").textContent = slide.description;
 
@@ -337,6 +349,10 @@
             const modal = document.getElementById("loginModal");
             modal.classList.remove("hidden");
             modal.classList.add("flex");
+            setTimeout(() => {
+                const input = document.getElementById("loginCodeInput");
+                if (input) input.focus();
+            }, 50);
         }
 
         function closeLoginModal() {
@@ -345,11 +361,44 @@
             modal.classList.remove("flex");
         }
 
+        function fillDemoCode(code) {
+            const input = document.getElementById("loginCodeInput");
+            if (input) input.value = code;
+        }
+
         function handleRoleLogin(event) {
             event.preventDefault();
             const code = document.getElementById("loginCodeInput").value.trim();
 
             if (code === "Omr123") {
                 localStorage.setItem("ofk_role", "student");
+                localStorage.setItem("ofk_auth", "true");
                 window.location.href = "student-portal.html";
-            } else if (code === "Omr1234
+            } else if (code === "Omr1234") {
+                localStorage.setItem("ofk_role", "instructor");
+                localStorage.setItem("ofk_auth", "true");
+                window.location.href = "instructor-portal.html";
+            } else if (code === "Omr12345") {
+                localStorage.setItem("ofk_role", "admin");
+                localStorage.setItem("ofk_auth", "true");
+                window.location.href = "admin-portal.html";
+            } else {
+                alert("رمز الدخول غير صحيح. يرجى التحقق من الرمز وإعادة المحاولة.");
+            }
+        }
+
+        window.openLoginModal = openLoginModal;
+        window.closeLoginModal = closeLoginModal;
+        window.fillDemoCode = fillDemoCode;
+        window.handleRoleLogin = handleRoleLogin;
+        window.nextSlide = nextSlide;
+        window.prevSlide = prevSlide;
+        window.goToSlide = goToSlide;
+
+        document.addEventListener("DOMContentLoaded", () => {
+            renderSlide(0);
+            startCarousel();
+        });
+    </script>
+</body>
+</html>
